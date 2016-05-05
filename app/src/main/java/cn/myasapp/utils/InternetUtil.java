@@ -1,7 +1,6 @@
 package cn.myasapp.utils;
 
-import cn.mofox.client.app.AppContext;
-import cn.mofox.client.base.BaseApplication;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,9 +9,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.Settings;
 
+import cn.myasapp.app.AppContext;
 
 
- /**
+/**
   *  手机网络工具类，，
   * @author Administrator
   *
@@ -120,7 +120,7 @@ public class InternetUtil {
 	 */
  
 	public static boolean hasInternetConnected() {
-		ConnectivityManager manager = (ConnectivityManager) BaseApplication.context()
+		ConnectivityManager manager = (ConnectivityManager) AppContext.getInstance()
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (manager != null) {
 			NetworkInfo network = manager.getActiveNetworkInfo();
@@ -133,8 +133,7 @@ public class InternetUtil {
 
     public static boolean hasInternet() {
 	boolean flag;
-	if (((ConnectivityManager) BaseApplication.context().getSystemService(
-		"connectivity")).getActiveNetworkInfo() != null)
+	if (((ConnectivityManager) AppContext.getInstance().getSystemService("connectivity")).getActiveNetworkInfo() != null)
 	    flag = true;
 	else
 	    flag = false;
