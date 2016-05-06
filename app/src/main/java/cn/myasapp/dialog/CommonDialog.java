@@ -26,6 +26,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import cn.myasapp.R;
+import cn.myasapp.app.AppContext;
 
 
 public class CommonDialog extends Dialog {
@@ -91,7 +92,7 @@ public class CommonDialog extends Dialog {
  						int oldRight, int oldBottom) {
  					int height = v.getHeight();
  					int contentHeight = container.getHeight();
- 					int winHeight = BaseApplication.getDisplaySize()[1];
+ 					int winHeight = AppContext.getDisplaySize()[1];
  					int needHeight = height - winHeight * 8 / 10;
  					if (needHeight > 0) {
  						container

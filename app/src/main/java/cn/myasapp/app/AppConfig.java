@@ -19,8 +19,15 @@ import android.preference.PreferenceManager;
  */
 public class AppConfig {
 
+	public final static String CONF_COOKIE = "cookie";
+	public final static String CONF_UDID = "udid";
+
+
 	private Context mContext;
 	private static AppConfig appConfig;
+
+
+
 
 	public static AppConfig getAppConfig(Context context) {
 		if (appConfig == null) {
