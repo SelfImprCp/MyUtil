@@ -1,11 +1,4 @@
-package cn.myasapp.utils;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.util.Date;
+package com.cp.mylibrary.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -19,6 +12,13 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.util.Date;
 
 /**
  * Gson工具类
