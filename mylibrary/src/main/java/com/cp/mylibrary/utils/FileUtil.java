@@ -722,7 +722,7 @@ public class FileUtil {
         // 过滤掉以.开始的文件夹
         if (path.isDirectory()) {
             for (File f : path.listFiles()) {
-                if (f.isDirectory() && !f.getName().startsWith(".")) {
+                if (f.isDirectory() && !f.getName().startsWith("build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/res")) {
                     allDir.add(f.getAbsolutePath());
                 }
             }

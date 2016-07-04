@@ -30,7 +30,7 @@ public class Res {
 	 * 
 	 */
 	public static int getLayoutID(String layoutName) {
-		return resources.getIdentifier(layoutName, "layout", pkgName);
+		return resources.getIdentifier(layoutName, "build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout", pkgName);
 	}
 
 	// 获取到控件的ID
@@ -73,7 +73,7 @@ public class Res {
 	 * 
 	 */
 	public static int getDrawableID(String drawName) {
-		return resources.getIdentifier(drawName, "drawable", pkgName);
+		return resources.getIdentifier(drawName, "build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable", pkgName);
 	}
 
 	// 获取到Drawable文件
@@ -98,7 +98,7 @@ public class Res {
 
 	// 获取到color.xml文件里的元素的id
 	public static int getColorID(String colorName) {
-		return resources.getIdentifier(colorName, "color", pkgName);
+		return resources.getIdentifier(colorName, "build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color", pkgName);
 	}
 
 	// 获取到color.xml文件里的元素的id
