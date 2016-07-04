@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyAsApp</string>
+    <string name="app_name">MyUtil</string>
 
     <string name="hello_world">Hello world! cp</string>
     <string name="action_settings">Settings</string>
