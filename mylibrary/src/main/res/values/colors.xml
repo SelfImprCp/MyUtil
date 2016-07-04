@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="white_cp_util">#FFFFFF</color>
+
+    <color name="green_cp_util">#00FF00</color>
+
+    <color name="red_cp_util">#FF0000</color>
+
+    <color name="blue_util">#0000FF</color>
+
+    <color name="gray_cp_util">#9A9A9A</color>
+
+
+
+</resources>
