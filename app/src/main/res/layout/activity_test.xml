@@ -21,25 +21,25 @@
 
 
               <TextView
-                  android:id="@+id/db_test"
+                  android:id="@+id/test_app_utils"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:background="@color/white"
                   android:gravity="center"
                   android:padding="@dimen/space_8"
-                  android:text="测试 数据库"
+                  android:text="测试AppUtils"
                   android:textColor="@color/ailibuli_base_color"
                   android:textSize="@dimen/text_size_15" />
 
 
               <TextView
-                  android:id="@+id/ache_test"
+                  android:id="@+id/test_date_time_util"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:background="@color/white"
                   android:gravity="center"
                   android:padding="@dimen/space_8"
-                  android:text="测缓存"
+                  android:text="测DateTimeUtil"
                   android:textColor="@color/ailibuli_base_color"
                   android:textSize="@dimen/text_size_15" />
 

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/date_time_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </cn.myasapp.main.ui.TitleBarView>
+
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+              <TextView
+                  android:id="@+id/date_time_test_gettimestamp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="取得当前时间戳 "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+              <TextView
+                  android:id="@+id/date_time_test_getTempFileName"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="使用当前时间戳拼接一个唯一的文件名"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+              <TextView
+                  android:id="@+id/date_time_test_getCurrentDataTime"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="返回当前系统时间"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+              <TextView
+                  android:id="@+id/date_time_test_friendly_time"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="友好显示 时间1"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+              <TextView
+                  android:id="@+id/date_time_test_friendly_time2"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="友好显示 时间2"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+
+
+
+          </LinearLayout>
+
+     </ScrollView>
+
+
+
+</LinearLayout>

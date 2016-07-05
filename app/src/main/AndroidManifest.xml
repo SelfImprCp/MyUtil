@@ -25,6 +25,10 @@
             android:screenOrientation="portrait" />
 
 
+        <activity
+            android:name=".main.ui.TestDateTimeUtil"
+            android:label="测试DateTimeUtils"
+            android:screenOrientation="portrait" />
 
 
 

@@ -15,19 +15,21 @@ import java.util.TimeZone;
  */
 public class DateTimeUtil {
 
-	private final static ThreadLocal<SimpleDateFormat> dateFormater = new ThreadLocal<SimpleDateFormat>() {
+	public final static ThreadLocal<SimpleDateFormat> dateFormater = new ThreadLocal<SimpleDateFormat>() {
 		@Override
 		protected SimpleDateFormat initialValue() {
 			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		}
 	};
 
-	private final static ThreadLocal<SimpleDateFormat> dateFormater2 = new ThreadLocal<SimpleDateFormat>() {
+	public final static ThreadLocal<SimpleDateFormat> dateFormater2 = new ThreadLocal<SimpleDateFormat>() {
 		@Override
 		protected SimpleDateFormat initialValue() {
 			return new SimpleDateFormat("yyyy-MM-dd");
 		}
 	};
+
+	public final static String dateFormater3 = "yyyy-MM-dd HH:mm:ss";
 
 	/**
 	 * 取得 当前 时间戳
@@ -56,24 +58,14 @@ public class DateTimeUtil {
 	 * 
 	 * 返回当前系统时间
 	 */
-	public static String getDataTime(String format) {
+	public static String getCurrentDataTime(String format) {
 		SimpleDateFormat df = new SimpleDateFormat(format);
 		return df.format(new Date());
 	}
 
-	public static int[] getCurrentDate() {
-		int[] dateBundle = new int[3];
-		String[] temp = getDataTime("yyyy-MM-dd").split("-");
 
-		for (int i = 0; i < 3; i++) {
-			try {
-				dateBundle[i] = Integer.parseInt(temp[i]);
-			} catch (Exception e) {
-				dateBundle[i] = 0;
-			}
-		}
-		return dateBundle;
-	}
+
+
 
 	/**
 	 * 获取当前时间为每年第几周
@@ -99,37 +91,6 @@ public class DateTimeUtil {
 		return week > 0 ? week : 1;
 	}
 
-	/***
-	 * 计算两个时间差，返回的是的秒s
-	 * 
-	 * @author 火蚁 2015-2-9 下午4:50:06
-	 * 
-	 * @return long
-	 * @param dete1
-	 * @param date2
-	 * @return
-	 */
-	public static long calDateDifferent(String dete1, String date2) {
-
-		long diff = 0;
-
-		Date d1 = null;
-		Date d2 = null;
-
-		try {
-			d1 = dateFormater.get().parse(dete1);
-			d2 = dateFormater.get().parse(date2);
-
-			// 毫秒ms
-			diff = d2.getTime() - d1.getTime();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return diff / 1000;
-	}
-
 	/**
 	 * 判断给定字符串时间是否为今日
 	 * 
@@ -150,23 +111,8 @@ public class DateTimeUtil {
 		return b;
 	}
 
-	/**
-	 * 返回long类型的今天的日期
-	 * 
-	 * @return
-	 */
-	public static long getToday() {
-		Calendar cal = Calendar.getInstance();
-		String curDate = dateFormater2.get().format(cal.getTime());
-		curDate = curDate.replace("-", "");
-		return Long.parseLong(curDate);
-	}
 
-	public static String getCurTimeStr() {
-		Calendar cal = Calendar.getInstance();
-		String curDate = dateFormater.get().format(cal.getTime());
-		return curDate;
-	}
+
 
 	/**
 	 * 获取当前日期是星期几<br>
@@ -187,6 +133,7 @@ public class DateTimeUtil {
 	 * 友好 显示 时间
 	 * 
 	 * @param sdate
+	 *   时间戳
 	 * @return
 	 */
 	public static String friendly_time2(String sdate) {
@@ -195,7 +142,7 @@ public class DateTimeUtil {
 			return "";
 
 		String[] weekDays = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
-		String currentData = getDataTime("MM-dd");
+		String currentData = getCurrentDataTime("MM-dd");
 		int currentDay = StringUtils.toInt(currentData.substring(3));
 		int currentMoth = StringUtils.toInt(currentData.substring(0, 2));
 
@@ -225,7 +172,7 @@ public class DateTimeUtil {
 	/**
 	 * 以友好的方式显示时间
 	 * 
-	 * @param sdate
+	 * @param sdate 时间戳
 	 * @return
 	 */
 	public static String friendly_time(String sdate) {

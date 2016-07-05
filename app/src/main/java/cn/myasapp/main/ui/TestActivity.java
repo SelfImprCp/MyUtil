@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cp.mylibrary.utils.AppUtils;
 import com.cp.mylibrary.utils.FileUtil;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
@@ -26,12 +27,12 @@ public class TestActivity extends BaseActivity {
 
 
 
-    @BindView(id = R.id.db_test, click = true)
-    private TextView db_test;
+    @BindView(id = R.id.test_app_utils, click = true)
+    private TextView test_app_utils;
 
 
-    @BindView(id = R.id.ache_test, click = true)
-    private TextView ache_test;
+    @BindView(id = R.id.test_date_time_util, click = true)
+    private TextView test_date_time_util;
 
 
     @BindView(id = R.id.https_test, click = true)
@@ -67,43 +68,24 @@ public class TestActivity extends BaseActivity {
          super.widgetClick(v);
 
         switch (v.getId()) {
-//             case R.id.db_test:
-//
-//                // 测试 DB
-//
-//                // data file
-//                MyDbUtil myDbUtil = new MyDbUtil();
-//
-//                User ugc = new User(); //warn: The ugc must have id field or @ID annotate
-//
-//
-//                ugc.setId(1);
-//                ugc.setNickname(" lcp  ");
-//                myDbUtil.getKJDB(this).save(ugc);
-//
-//
-//                ArrayList<User> user = (ArrayList<User>) myDbUtil.getKJDB(this).findAllByWhere(User.class, " id = 1");
-//
-//                LogCp.i(LogCp.CP, TestActivity.class + "  数据 库查出来的， , " + user.get(0).getNickname());
-//
-//                break;
-//
-//
-//            case R.id.ache_test:
-//                User userD = new User(); //warn: The ugc must have id field or @ID annotate
-//
-//
-//                userD.setId(1);
-//                userD.setNickname(" lcp ,,,  ");
-//                CacheManager.saveObject(this, userD, "textca");
-//
-//                User user1 = (User) CacheManager.readObject(this, "textca");
-//
-//
-//                LogCp.i(LogCp.CP, TestActivity.class + "   cache ， , " + user1.getNickname());
-//
-//                break;
-//
+            // 测试AppUtils
+             case R.id.test_app_utils:
+
+                //
+
+  ShowToastUtil.showToast(this,"AppName " + AppUtils.getAppName(this) + " app versionName " + AppUtils.getVersionName(this));
+
+                break;
+
+
+
+            case R.id.test_date_time_util:
+
+                TestUIhelper.showTestDateTimeUtil(this);
+
+
+                 break;
+
 //
 //            case R.id.https_test:
 //

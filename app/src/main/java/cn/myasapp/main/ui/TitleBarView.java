@@ -25,6 +25,8 @@ public class TitleBarView extends RelativeLayout {
     private TextView titleBarTitle, titlebar_tv_menu2;
     private ImageView titlebar_img_back;
     private ImageView titlebar_img_menu;
+    private RelativeLayout titlebar;
+
 
 
     public TitleBarView(Context context) {
@@ -50,6 +52,9 @@ public class TitleBarView extends RelativeLayout {
     }
 
     private void initTitleView(View view) {
+
+        titlebar = (RelativeLayout)view.findViewById(R.id.titlebar);
+
         titleBarTitle = (TextView) view.findViewById(R.id.titlebar_text_title);
 
         titlebar_tv_menu2 = (TextView) view.findViewById(R.id.titlebar_tv_menu2);
@@ -59,6 +64,16 @@ public class TitleBarView extends RelativeLayout {
 
 
     }
+
+
+    /**
+     *
+     * @param height
+     */
+//     public void setTitleBarHeight(int height)
+//     {
+//         titlebar.setMinimumHeight(height);
+//     }
 
     /**
      * @param str
