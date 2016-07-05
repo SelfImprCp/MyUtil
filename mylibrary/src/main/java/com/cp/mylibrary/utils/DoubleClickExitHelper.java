@@ -79,6 +79,8 @@ public class DoubleClickExitHelper {
 		}
 	}
 
+
+
 	private Runnable onBackTimeRunnable = new Runnable() {
 
 		@Override
