@@ -21,11 +21,13 @@ public class NetWorkUtil {
     public static final int NETTYPE_CMNET = 0x03;
 
 
-   /*
+   /**
+    *  pass
+    *
     * 判断是否有网络连接，若没有，则弹出网络设置对话框，返回false
     */
 
-    public boolean validateInternet(Context mContext) {
+    public boolean validateInternetIfNoShowDialog(Context mContext) {
         ConnectivityManager manager = (ConnectivityManager) mContext
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         if (manager == null) {
@@ -46,10 +48,12 @@ public class NetWorkUtil {
     }
 
 
-    /*
+    /**
+     *  pass
+     *
      * 打开网络设置对话框
      */
-    private void openWirelessSet(final Context mContext) {
+    public void openWirelessSet(final Context mContext) {
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
         dialogBuilder
@@ -76,6 +80,9 @@ public class NetWorkUtil {
     }
 
     /**
+     *  pass
+     *
+     *
      * 获取当前网络类型
      *
      * @return 0：没有网络 1：WIFI网络 2：WAP网络 3：NET网络
@@ -104,9 +111,11 @@ public class NetWorkUtil {
     }
 
     /**
+     *  pass
+     *
      * 判断是否是wifi连接
      */
-    public static boolean isWifi(Context context) {
+    public static boolean isWifiConn(Context context) {
 
 
         return getNetworkType(context) == 1 ? true : false;
@@ -114,6 +123,8 @@ public class NetWorkUtil {
     }
 
     /**
+     *  pass
+     *
      * 判断是否有网络连接,没有返回false
      */
 

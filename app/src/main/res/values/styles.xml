@@ -100,5 +100,24 @@
     </style>
 
 
+    <style name="test_textview_style">
+        <item name="android:textColor">@color/ailibuli_base_color</item>
+        <item name="android:textSize">@dimen/text_size_15</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/space_8</item>
+
+
+
+    </style>
+
+
+
+
+
+
 
 </resources>

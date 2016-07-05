@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/net_work_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+
+
+    </cn.myasapp.main.ui.TitleBarView>
+
+
+    <TextView
+        android:id="@+id/net_work_test_validateInternet"
+
+        style="@style/test_textview_style"
+        android:text="  判断是否有网络连接，若没有，则弹出网络设置对话框，返回false" />
+
+
+    <TextView
+        android:id="@+id/net_work_test_openWirelessSet"
+
+        style="@style/test_textview_style"
+        android:text="  打开网络设置对话框" />
+
+    <TextView
+        android:id="@+id/net_work_test_getNetworkType"
+
+        style="@style/test_textview_style"
+        android:text="  获取当前网络类型" />
+
+    <TextView
+        android:id="@+id/net_work_test_isWifiConn"
+
+        style="@style/test_textview_style"
+        android:text="判断是否是wifi连接" />
+
+
+    <TextView
+        android:id="@+id/net_work_test_hasInternetConnected"
+
+        style="@style/test_textview_style"
+        android:text="判断是否有网络连接,没有返回false" />
+
+
+</LinearLayout>

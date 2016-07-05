@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/key_borad_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+
+
+    </cn.myasapp.main.ui.TitleBarView>
+
+
+     <EditText
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+          android:id="@+id/key_board_test_edit1"
+         />
+
+
+
+
+    <EditText
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/key_board_test_edit2"
+        />
+
+    <TextView
+        android:id="@+id/key_board_test_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:padding="@dimen/space_8"
+        android:text=" 显示键盘 "
+        android:textColor="@color/ailibuli_base_color"
+        android:textSize="@dimen/text_size_15" />
+
+
+
+    <TextView
+        android:id="@+id/key_board_test_hide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:padding="@dimen/space_8"
+        android:text=" 隐藏键盘"
+        android:textColor="@color/ailibuli_base_color"
+        android:textSize="@dimen/text_size_15" />
+
+
+
+
+
+
+</LinearLayout>
