@@ -66,14 +66,7 @@ public class TDevice {
 	}
 
 	
-	//////////////////////////////单位转换///////////////////////////////////////////
-	
-//	public static float dpToPixel(float dp) {
-//		return dp * (getDisplayMetrics().densityDpi / 160F);
-//	}
-//	public static float pixelsToDp(float f) {
-//		return f / (getDisplayMetrics().densityDpi / 160F);
-//	}
+
 	/**
 	 * 判断当前版本是否兼容目标版本的方法
 	 *
@@ -85,193 +78,12 @@ public class TDevice {
 		return currentVersion >= VersionCode;
 	}
 
-	/**
-	* 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-	*/
-	public static int dip2px(Context context, float dpValue) {
-	final float scale = context.getResources().getDisplayMetrics().density;
-	return (int) (dpValue * scale + 0.5f);
-	}
-
-	/**
-	* 根据手机的分辨率从 px(像素) 的单位 转成为 dp
-	*/
-	public static int px2dip(Context context, float pxValue) {
-	final float scale = context.getResources().getDisplayMetrics().density;
-	return (int) (pxValue / scale + 0.5f);
-	}
-
-
-	public static int getDefaultLoadFactor(Context context) {
-		if (_loadFactor == null) {
-			Integer integer = Integer.valueOf(0xf &  context
-					.getResources().getConfiguration().screenLayout);
-			_loadFactor = integer;
-			_loadFactor = Integer.valueOf(Math.max(integer.intValue(), 1));
-		}
-		return _loadFactor.intValue();
-	}
-
-//	public static float getDensity() {
-//		if (displayDensity == 0.0)
-//			displayDensity = getDisplayMetrics().density;
-//		return displayDensity;
-//	}
-
-
-
-	 ////////////////////////////////////////屏幕宽高///////////////////////////////////////////////////////
-
-
-	public static DisplayMetrics getDisplayMetrics(Context context) {
-		DisplayMetrics displaymetrics = new DisplayMetrics();
-		((WindowManager) context.getSystemService(
-				Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(
-				displaymetrics);
-		return displaymetrics;
-	}
-
-
-	public static float getScreenHeight(Context context) {
-		return getDisplayMetrics(context).heightPixels;
-	}
-
-//	public static float getScreenWidth(Context context){
-//		return getDisplayMetrics(context).widthPixels;
-//	}
-
-	public static int[] getRealScreenSize(Activity activity) {
-		int[] size = new int[2];
-		int screenWidth = 0, screenHeight = 0;
-		WindowManager w = activity.getWindowManager();
-		Display d = w.getDefaultDisplay();
-		DisplayMetrics metrics = new DisplayMetrics();
-		d.getMetrics(metrics);
-		// since SDK_INT = 1;
-		screenWidth = metrics.widthPixels;
-		screenHeight = metrics.heightPixels;
-		// includes window decorations (statusbar bar/menu bar)
-		if (Build.VERSION.SDK_INT >= 14 && Build.VERSION.SDK_INT < 17)
-			try {
-				screenWidth = (Integer) Display.class.getMethod("getRawWidth")
-						.invoke(d);
-				screenHeight = (Integer) Display.class
-						.getMethod("getRawHeight").invoke(d);
-			} catch (Exception ignored) {
-			}
-		// includes window decorations (statusbar bar/menu bar)
-		if (Build.VERSION.SDK_INT >= 17)
-			try {
-				Point realSize = new Point();
-				Display.class.getMethod("getRealSize", Point.class).invoke(d,
-						realSize);
-				screenWidth = realSize.x;
-				screenHeight = realSize.y;
-			} catch (Exception ignored) {
-			}
-		size[0] = screenWidth;
-		size[1] = screenHeight;
-		return size;
-	}
 
 
 
 
 
 
-	/**
-	 * 获取屏幕的宽度
-	 *
-	 * @param context
-	 * @return
-	 */
-	public static int getScreenWidth(Activity context) {
-		DisplayMetrics dm = new DisplayMetrics();
-		context.getWindowManager().getDefaultDisplay().getMetrics(dm);
-		return dm.widthPixels;
-	}
-
-	/**
-	 * 获取屏幕的高度
-	 *
-	 * @param context
-	 * @return
-	 */
-	public static int getScreenHeight(Activity context) {
-		DisplayMetrics dm = new DisplayMetrics();
-		context.getWindowManager().getDefaultDisplay().getMetrics(dm);
-		return dm.heightPixels;
-	}
-
-	/**
-	 * 获取屏幕的宽度
-	 *
-	 * @param context
-	 * @return
-	 */
-	public static int getScreenWidth(Context context) {
-		int mScreenWidth = context.getResources().getDisplayMetrics().widthPixels;// 获取屏幕分辨率宽度
-
-		Log.d("tag", "mScreenWidth" + mScreenWidth);
-		return mScreenWidth;
-
-	}
-
-	/**
-	 * 获取屏幕的高度
-	 *
-	 * @param context
-	 * @return
-	 */
-	public static int getHeightPixels(Context context) {
-		int mScreenHeight = context.getResources().getDisplayMetrics().heightPixels;// 获取屏幕分辨率宽度
-
-		return mScreenHeight;
-	}
-
-
-
-
-
-
-
-
-
-
-	 ////////////////////////////软件盘//////////////////////////////////////
-	/**
-	 *
-	 * @param view
-	 */
-	public static void hideSoftKeyboard(View view,Context context) {
-		if (view == null)
-			return;
-		((InputMethodManager)  context.getSystemService(
-				Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
-				view.getWindowToken(), 0);
-	}
-   /**
-    *
-    * @param view
-    */
-	public static void showSoftKeyboard(View view,Context context) {
-		((InputMethodManager)  context.getSystemService(
-				Context.INPUT_METHOD_SERVICE)).showSoftInput(view,
-				InputMethodManager.SHOW_FORCED);
-	}
-
-
-
-		/**
-		 * 关闭键盘
-		 */
-		 public static void closeInput(Activity cotnext) {
-			InputMethodManager inputMethodManager = (InputMethodManager)cotnext. getSystemService(Context.INPUT_METHOD_SERVICE);
-			if (inputMethodManager != null && ( cotnext.getCurrentFocus() != null)) {
-				inputMethodManager.hideSoftInputFromWindow(cotnext.getCurrentFocus()
-						.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-			}
-		}
 
 
 	////////////////////////////////横竖屏/////////////////////////////////////
