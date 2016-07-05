@@ -10,6 +10,7 @@ import cn.myasapp.main.ui.TestFileUtil;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TextNetWorkUtils;
+import cn.myasapp.main.ui.TextRandomUtils;
 
 /**
  * Created by Jerry on 2016/7/4.
@@ -47,6 +48,12 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestObjectUtils.class);
     }
 
+
+
+
+    public static void showTestRandomUtils(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TextRandomUtils.class);
+    }
 
 
 }

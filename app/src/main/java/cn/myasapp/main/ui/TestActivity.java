@@ -45,6 +45,12 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.object_utils_test, click = true)
     private TextView object_utils_test;
 
+    @BindView(id = R.id.random_utils_test, click = true)
+    private TextView random_utils_test;
+
+
+
+
 
     @Override
     public void setRootView() {
@@ -92,6 +98,13 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.showTesObjectsUitls(this);
 
                 break;
+
+             // 测试 RandomUtils
+            case R.id.random_utils_test:
+
+                 TestUIhelper.showTestRandomUtils(this);
+                break;
+
 
 
         }

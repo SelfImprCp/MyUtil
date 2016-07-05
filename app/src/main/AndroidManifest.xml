@@ -80,6 +80,13 @@
 
 
 
+        <activity
+            android:name=".main.ui.TextRandomUtils"
+            android:label="RandomUtil "
+            android:screenOrientation="portrait" />
+
+
+
 
     </application>
 

@@ -4,23 +4,27 @@ import java.util.Random;
 
 /**
  * Created by Jerry on 2016/7/5.
- *
+ * <p>
  * 随机数工具类，
  */
 public class RandomUtils {
 
 
     public static final String NUMBERS_AND_LETTERS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static final String NUMBERS             = "0123456789";
-    public static final String LETTERS             = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static final String CAPITAL_LETTERS     = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static final String LOWER_CASE_LETTERS  = "abcdefghijklmnopqrstuvwxyz";
+    public static final String NUMBERS = "0123456789";
+    public static final String LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String CAPITAL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String LOWER_CASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
 
     private RandomUtils() {
         throw new AssertionError();
     }
 
     /**
+     * pass
+     * <p>
+     * 取得指定长度的，包含数字，字母大小写的随机值
+     * <p>
      * get a fixed-length random string, its a mixture of uppercase, lowercase letters and numbers
      *
      * @param length
@@ -32,6 +36,10 @@ public class RandomUtils {
     }
 
     /**
+     * pass
+     * <p>
+     * 取得指定长度的只包含数字的随机数
+     * <p>
      * get a fixed-length random string, its a mixture of numbers
      *
      * @param length
@@ -43,6 +51,10 @@ public class RandomUtils {
     }
 
     /**
+     * pass
+     * <p>
+     * 取得指定长度的只包含字母（大小写）的随机数
+     * <p>
      * get a fixed-length random string, its a mixture of uppercase and lowercase letters
      *
      * @param length
@@ -54,6 +66,9 @@ public class RandomUtils {
     }
 
     /**
+     * pass
+     * 取得指定长度的只包含字母  大写  的随机数
+     * <p>
      * get a fixed-length random string, its a mixture of uppercase letters
      *
      * @param length
@@ -65,6 +80,8 @@ public class RandomUtils {
     }
 
     /**
+     * * pass
+     * 取得指定长度的只包含字母  小写  的随机数
      * get a fixed-length random string, its a mixture of lowercase letters
      *
      * @param length
@@ -76,14 +93,21 @@ public class RandomUtils {
     }
 
     /**
+     * pass
+     * <p>
+     * String str = RandomUtils.getRandom("abcdkefg",2);
+     * <p>
+     * <p>
+     * <p>
+     * 从给定的字符串中，取出指字长度的随机值
      * get a fixed-length random string, its a mixture of chars in source
      *
      * @param source
      * @param length
      * @return <ul>
-     *         <li>if source is null or empty, return null</li>
-     *         <li>else see {@link RandomUtils#getRandom(char[] sourceChar, int length)}</li>
-     *         </ul>
+     * <li>if source is null or empty, return null</li>
+     * <li>else see {@link RandomUtils#getRandom(char[] sourceChar, int length)}</li>
+     * </ul>
      */
     public static String getRandom(String source, int length) {
         return StringUtils.isEmpty(source) ? null : getRandom(source.toCharArray(), length);
@@ -95,9 +119,9 @@ public class RandomUtils {
      * @param sourceChar
      * @param length
      * @return <ul>
-     *         <li>if sourceChar is null or empty, return null</li>
-     *         <li>if length less than 0, return null</li>
-     *         </ul>
+     * <li>if sourceChar is null or empty, return null</li>
+     * <li>if length less than 0, return null</li>
+     * </ul>
      */
     public static String getRandom(char[] sourceChar, int length) {
         if (sourceChar == null || sourceChar.length == 0 || length < 0) {
@@ -113,28 +137,33 @@ public class RandomUtils {
     }
 
     /**
+     * pass
+     * <p>
+     * 返回一个从0到指值之间的随机值
      * get random int between 0 and max
      *
      * @param max
      * @return <ul>
-     *         <li>if max <= 0, return 0</li>
-     *         <li>else return random int between 0 and max</li>
-     *         </ul>
+     * <li>if max <= 0, return 0</li>
+     * <li>else return random int between 0 and max</li>
+     * </ul>
      */
     public static int getRandom(int max) {
         return getRandom(0, max);
     }
 
     /**
+     * pass
+     *  返回指定范围内的随机值
      * get random int between min and max
      *
      * @param min
      * @param max
      * @return <ul>
-     *         <li>if min > max, return 0</li>
-     *         <li>if min == max, return min</li>
-     *         <li>else return random int between min and max</li>
-     *         </ul>
+     * <li>if min > max, return 0</li>
+     * <li>if min == max, return min</li>
+     * <li>else return random int between min and max</li>
+     * </ul>
      */
     public static int getRandom(int min, int max) {
         if (min > max) {

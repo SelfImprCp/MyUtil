@@ -58,6 +58,15 @@
                 android:text="  测试  Object Utils    " />
 
 
+            <TextView
+                android:id="@+id/random_utils_test"
+
+                style="@style/test_textview_style"
+                android:text="  测试  RandomUtils    " />
+
+
+
+
         </LinearLayout>
     </ScrollView>
 
