@@ -86,6 +86,13 @@
             android:screenOrientation="portrait" />
 
 
+        <activity
+            android:name=".main.ui.TestScreentUtils"
+            android:label="ScreenUtil "
+            android:screenOrientation="portrait" />
+
+
+
 
 
     </application>

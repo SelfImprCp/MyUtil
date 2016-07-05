@@ -22,7 +22,8 @@ public class ScreenUtils {
     }
 
     /**
-     * 获得屏幕高度
+     *  pass
+     * 获得屏幕宽度
      *
      * @param context
      * @return
@@ -36,8 +37,10 @@ public class ScreenUtils {
         return outMetrics.widthPixels;
     }
 
-    /**
-     * 获得屏幕宽度
+    /**\
+     *
+     *  pass
+     * 获得屏幕高度
      *
      * @param context
      * @return
@@ -52,6 +55,7 @@ public class ScreenUtils {
     }
 
     /**
+     *  pass
      * 获得状态栏的高度
      *
      * @param context
@@ -76,6 +80,8 @@ public class ScreenUtils {
     }
 
     /**
+     *
+     *  pass
      * 获取当前屏幕截图，包含状态栏
      *
      * @param activity
@@ -97,6 +103,8 @@ public class ScreenUtils {
     }
 
     /**
+     *
+     *  pass
      * 获取当前屏幕截图，不包含状态栏
      *
      * @param activity

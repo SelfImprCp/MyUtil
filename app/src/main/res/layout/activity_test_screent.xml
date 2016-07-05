@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/screen_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </cn.myasapp.main.ui.TitleBarView>
+
+
+
+
+
+    <TextView
+        android:id="@+id/screen_test_getScreenWidth"
+
+        style="@style/test_textview_style"
+        android:text=" 取得屏幕高 " />
+
+
+    <TextView
+        android:id="@+id/screen_test_getScreenHeight"
+
+        style="@style/test_textview_style"
+        android:text=" 取得屏幕高 " />
+
+
+    <TextView
+        android:id="@+id/screen_test_getStatusHeight"
+
+        style="@style/test_textview_style"
+        android:text=" 取得状态 栏高 " />
+
+
+
+
+    <TextView
+        android:id="@+id/screen_test_snapShotWithStatusBar"
+
+        style="@style/test_textview_style"
+        android:text=" 获取当前屏幕截图，包含状态栏 " />
+
+    <TextView
+        android:id="@+id/screen_test_snapShotWithoutStatusBar"
+
+        style="@style/test_textview_style"
+        android:text=" 获取当前屏幕截图，不包含状态栏 " />
+
+
+
+    <ImageView
+        android:id="@+id/screen_test_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        />
+
+
+
+
+
+</LinearLayout>

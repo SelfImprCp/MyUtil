@@ -50,6 +50,14 @@ public class TestActivity extends BaseActivity {
 
 
 
+    @BindView(id = R.id.screen_utils_test, click = true)
+    private TextView screen_utils_test;
+
+
+
+
+
+
 
 
     @Override
@@ -105,6 +113,10 @@ public class TestActivity extends BaseActivity {
                  TestUIhelper.showTestRandomUtils(this);
                 break;
 
+           // 测试 screen
+            case R.id.screen_utils_test:
+                TestUIhelper.showTestScreenUtils(this);
+                        break;
 
 
         }

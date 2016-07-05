@@ -65,6 +65,14 @@
                 android:text="  测试  RandomUtils    " />
 
 
+            <TextView
+                android:id="@+id/screen_utils_test"
+
+                style="@style/test_textview_style"
+                android:text="  测试  ScreentUtil    " />
+
+
+
 
 
         </LinearLayout>
