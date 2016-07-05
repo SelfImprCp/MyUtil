@@ -1,4 +1,4 @@
-package cn.myasapp.main;
+package cn.myasapp.main.ui;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

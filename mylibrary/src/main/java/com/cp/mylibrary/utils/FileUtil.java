@@ -162,8 +162,8 @@ public class FileUtil {
      * @param name 文件名
      * @return 文件内容
      */
-    public static void delelteFile(String path, String name) {
-
+    public static boolean delelteFile(String path, String name) {
+        boolean isSuccess = false;
         try {
 
 
@@ -171,7 +171,7 @@ public class FileUtil {
             //
 
             if (file.exists()) {
-                boolean isSuccess = file.delete();
+                  isSuccess = file.delete();
                 LogCp.i(LogCp.CP, FileUtil.class + "   删除 文件  文件路经：  " + path + name + " 是否删除成功：" + isSuccess);
 
             } else {
@@ -183,6 +183,8 @@ public class FileUtil {
             e.printStackTrace();
 
         }
+
+         return  isSuccess;
 
     }
 
@@ -284,8 +286,9 @@ public class FileUtil {
      * @param pathName
      * @param fileName
      */
-    public static void saveContentToSDCard(String content, String pathName, String fileName) {
+    public static boolean saveContentToSDCard(String content, String pathName, String fileName) {
 
+         boolean isSaveSuccess = false;
         try {
             File path = new File(pathName);
             File file = new File(pathName +"/"+ fileName);
@@ -307,11 +310,14 @@ public class FileUtil {
             byte[] buf = content.getBytes();
             stream.write(buf);
             stream.close();
+            isSaveSuccess = true;
 
         } catch (Exception e) {
+            isSaveSuccess = false;
             LogCp.e(LogCp.CP, FileUtil.class + "  Error on writeFilToSD " + e.getMessage());
             e.printStackTrace();
         }
+        return  isSaveSuccess;
     }
 
     /**

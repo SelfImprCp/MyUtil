@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+     <cn.myasapp.main.ui.TitleBarView
+         android:id="@+id/file_test_title"
+         android:layout_width="match_parent"
+         android:layout_height="80px">
+
+
+     </cn.myasapp.main.ui.TitleBarView>
+
+
+
+     <ScrollView
+         android:layout_width="match_parent"
+
+         android:layout_height="match_parent">
+
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/file_save_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text="测写文件 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+
+               <TextView
+                   android:id="@+id/file_read_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text="测读文件 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+               <TextView
+                   android:id="@+id/file_isExist_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text="测读文件 是否存在 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+
+               <TextView
+                   android:id="@+id/file_delete_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text="测读删除文件 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+               <TextView
+                   android:id="@+id/file_sdcare_dir_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text=" 在sd 卡上建文件夹 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+
+               <TextView
+                   android:id="@+id/file_del_sdcare_dir_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text=" 删除 sdcard 上的文件夹 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+               <TextView
+                   android:id="@+id/file_read_sdcare_file_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text=" 读取 sdcard 上的文件 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+               <TextView
+                   android:id="@+id/file_write_sdcare_file_test"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text=" 写入 sdcard 上的文件 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+
+               <TextView
+                   android:id="@+id/file_get_size"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text="  算文件 大小 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+
+               <TextView
+                   android:id="@+id/file_get_iszai"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@color/white"
+                   android:gravity="center"
+                   android:padding="@dimen/space_8"
+                   android:text="  检查文件是否存在 "
+                   android:textColor="@color/ailibuli_base_color"
+                   android:textSize="@dimen/text_size_15" />
+
+
+
+          </LinearLayout>
+     </ScrollView>
+
+
+
+
+
+          </LinearLayout>

@@ -75,4 +75,30 @@
 
 
 
+
+    <style name="titlebar">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:padding">2dp</item>
+    </style>
+
+    <style name="titlebar_text" parent="titlebar">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="titlebar_img" parent="titlebar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="tv_title_white_16">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/space_16</item>
+    </style>
+
+
+
 </resources>

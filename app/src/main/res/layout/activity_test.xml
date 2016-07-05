@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+     <ScrollView
+         android:layout_width="match_parent"
+
+         android:layout_height="match_parent">
+
+
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+
+
+
+              <TextView
+                  android:id="@+id/db_test"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="测试 数据库"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+              <TextView
+                  android:id="@+id/ache_test"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="测缓存"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+              <TextView
+                  android:id="@+id/https_test"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="测https 请求"
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+
+              <TextView
+                  android:id="@+id/file_test"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="测文件 "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+
+
+
+              <TextView
+                  android:id="@+id/dialog_test"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  弹个对话框 "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+              <TextView
+                  android:id="@+id/viewpage_fragment_test"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  viewpage_fragment_test  "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+              <TextView
+                   android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  viewpage_fragment_test  "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+              <TextView
+                   android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  viewpage_fragment_test  "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+              <TextView
+                   android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  viewpage_fragment_test  "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+              <TextView
+                   android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  viewpage_fragment_test  "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+          </LinearLayout>
+     </ScrollView>
+
+</LinearLayout>

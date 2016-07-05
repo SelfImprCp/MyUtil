@@ -92,4 +92,11 @@
     
     <color name="spinner_background">#464646</color>
     <color name="spinner_background_press">#6baf77</color>
+
+
+    <color name="ailibuli_base_color">#2a70ed</color>
+    <color name="ailibuli_orange_color">#FE5F12</color>
+    <color name="ailibuli_hong_color">#FF5E5B</color>
+
+
 </resources>
