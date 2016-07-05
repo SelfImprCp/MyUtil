@@ -7,6 +7,9 @@ import android.content.SharedPreferences.Editor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -14,142 +17,189 @@ import java.util.Properties;
  */
 public class SharePreferencesUitl {
 
-    private final static String APP_CONFIG = "config";
 
-    private static Context mContext;
-    private static SharePreferencesUitl sharePreferencesUitl;
 
     /**
-     * 获取Preference设置
+     * 保存在手机里面的文件名
      */
-    // public static SharedPreferences getSharedPreferences(Context context) {
-    // mContext = context;
-    // return PreferenceManager.getDefaultSharedPreferences(context);
-    // }
-    public static SharePreferencesUitl getSharePreferencesUitl(Context context) {
-        if (sharePreferencesUitl == null) {
-            sharePreferencesUitl = new SharePreferencesUitl();
-            mContext = context;
-        }
-        return sharePreferencesUitl;
-    }
+    public static final String FILE_NAME = "share_data";
 
-    public Properties get() {
-        FileInputStream fis = null;
-        Properties props = new Properties();
-        try {
-            // 读取files目录下的config
-            // fis = activity.openFileInput(APP_CONFIG);
+    /**    保存类型：String ,int, boolean, float,long
+     * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
+     *
+     * @param context
+     * @param key
+     * @param object
+     */
+    public static void put(Context context, String key, Object object)
+    {
 
-            // 读取app_config目录下的config
-            File dirConf = mContext.getDir(APP_CONFIG, Context.MODE_PRIVATE);
-            fis = new FileInputStream(dirConf.getPath() + File.separator
-                    + APP_CONFIG);
-
-            props.load(fis);
-        } catch (Exception e) {
-        } finally {
-            try {
-                fis.close();
-            } catch (Exception e) {
-            }
-        }
-        return props;
-    }
-
-    private void setProps(Properties p) {
-        FileOutputStream fos = null;
-        try {
-            // 把config建在files目录下
-            // fos = activity.openFileOutput(APP_CONFIG, Context.MODE_PRIVATE);
-
-            // 把config建在(自定义)app_config的目录下
-            File dirConf = mContext.getDir(APP_CONFIG, Context.MODE_PRIVATE);
-            File conf = new File(dirConf, APP_CONFIG);
-            fos = new FileOutputStream(conf);
-
-            p.store(fos, null);
-            fos.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fos.close();
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    public void set(Properties ps) {
-        Properties props = get();
-        props.putAll(ps);
-        setProps(props);
-    }
-
-    public void saveData(String key, String value) {
-        SharedPreferences sp = mContext.getSharedPreferences("config",
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
-        Editor editor = sp.edit();
-        editor.putString(key, value);
-        editor.commit();
-    }
+        SharedPreferences.Editor editor = sp.edit();
 
-    public String loadData(String key) {
-        SharedPreferences sp = mContext.getSharedPreferences("config",
-                Context.MODE_PRIVATE);
-        String str = sp.getString(key, "");
-        return str;
-    }
+        if (object instanceof String)
+        {
+            editor.putString(key, (String) object);
+        } else if (object instanceof Integer)
+        {
+            editor.putInt(key, (Integer) object);
+        } else if (object instanceof Boolean)
+        {
+            editor.putBoolean(key, (Boolean) object);
+        } else if (object instanceof Float)
+        {
+            editor.putFloat(key, (Float) object);
+        } else if (object instanceof Long)
+        {
+            editor.putLong(key, (Long) object);
+        } else
+        {
+            editor.putString(key, object.toString());
+        }
 
-    public void set(String key, String value) {
-        Properties props = get();
-        props.setProperty(key, value);
-        setProps(props);
-    }
-
-    public String get(String key) {
-        Properties props = get();
-        return (props != null) ? props.getProperty(key) : null;
-    }
-
-
-    public void remove(String... key) {
-        Properties props = get();
-        for (String k : key)
-            props.remove(k);
-        setProps(props);
-    }
-
-    public boolean containsProperty(String key) {
-        Properties props = getProperties();
-        return props.containsKey(key);
-    }
-
-    public void setProperties(Properties ps) {
-        set(ps);
-    }
-
-    public Properties getProperties() {
-        return get();
-    }
-
-    public void setProperty(String key, String value) {
-        set(key, value);
+        SharedPreferencesCompat.apply(editor);
     }
 
     /**
-     * 获取cookie时传AppConfig.CONF_COOKIE
+     * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
      *
+     * @param context
+     * @param key
+     * @param defaultObject
+     * @return
+     */
+    public static Object get(Context context, String key, Object defaultObject)
+    {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
+                Context.MODE_PRIVATE);
+
+        if (defaultObject instanceof String)
+        {
+            return sp.getString(key, (String) defaultObject);
+        } else if (defaultObject instanceof Integer)
+        {
+            return sp.getInt(key, (Integer) defaultObject);
+        } else if (defaultObject instanceof Boolean)
+        {
+            return sp.getBoolean(key, (Boolean) defaultObject);
+        } else if (defaultObject instanceof Float)
+        {
+            return sp.getFloat(key, (Float) defaultObject);
+        } else if (defaultObject instanceof Long)
+        {
+            return sp.getLong(key, (Long) defaultObject);
+        }
+
+        return null;
+    }
+
+    /**
+     * 移除某个key值已经对应的值
+     * @param context
+     * @param key
+     */
+    public static void remove(Context context, String key)
+    {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.remove(key);
+        SharedPreferencesCompat.apply(editor);
+    }
+
+    /**
+     * 清除所有数据
+     * @param context
+     */
+    public static void clear(Context context)
+    {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.clear();
+        SharedPreferencesCompat.apply(editor);
+    }
+
+    /**
+     * 查询某个key是否已经存在
+     * @param context
      * @param key
      * @return
      */
-    public String getProperty(String key) {
-        String res = get(key);
-        return res;
+    public static boolean contains(Context context, String key)
+    {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
+                Context.MODE_PRIVATE);
+        return sp.contains(key);
     }
 
-    public void removeProperty(String... key) {
-        remove(key);
+    /**
+     * 返回所有的键值对
+     *
+     * @param context
+     * @return
+     */
+    public static Map<String, ?> getAll(Context context)
+    {
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
+                Context.MODE_PRIVATE);
+        return sp.getAll();
     }
+
+    /**
+     * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类
+     *
+     * @author zhy
+     *
+     */
+    private static class SharedPreferencesCompat
+    {
+        private static final Method sApplyMethod = findApplyMethod();
+
+        /**
+         * 反射查找apply的方法
+         *
+         * @return
+         */
+        @SuppressWarnings({ "unchecked", "rawtypes" })
+        private static Method findApplyMethod()
+        {
+            try
+            {
+                Class clz = SharedPreferences.Editor.class;
+                return clz.getMethod("apply");
+            } catch (NoSuchMethodException e)
+            {
+            }
+
+            return null;
+        }
+
+        /**
+         * 如果找到则使用apply执行，否则使用commit
+         *
+         * @param editor
+         */
+        public static void apply(SharedPreferences.Editor editor)
+        {
+            try
+            {
+                if (sApplyMethod != null)
+                {
+                    sApplyMethod.invoke(editor);
+                    return;
+                }
+            } catch (IllegalArgumentException e)
+            {
+            } catch (IllegalAccessException e)
+            {
+            } catch (InvocationTargetException e)
+            {
+            }
+            editor.commit();
+        }
+    }
+
 
 }

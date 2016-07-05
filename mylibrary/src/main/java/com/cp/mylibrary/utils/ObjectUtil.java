@@ -18,9 +18,26 @@ import java.io.Serializable;
  * @author Administrator
  *
  */
-public class ObjectSaveUtil {
+public class ObjectUtil {
 
-   /**
+
+
+    /**
+     * compare two object
+     *
+     * @param actual
+     * @param expected
+     * @return <ul>
+     *         <li>if both are null, return true</li>
+     *         <li>return actual.{@link Object#equals(Object)}</li>
+     *         </ul>
+     */
+    public static boolean isEquals(Object actual, Object expected) {
+        return actual == expected || (actual == null ? expected == null : actual.equals(expected));
+    }
+
+
+    /**
     * 保存对象
     *
     * @param ser
@@ -29,7 +46,7 @@ public class ObjectSaveUtil {
     */
    public static boolean saveObject(Context context, Serializable ser,
        String file) {
-       LogCp.i(LogCp.CP, ObjectSaveUtil.class + "保存数据 的file :" + file);
+       LogCp.i(LogCp.CP, ObjectUtil.class + "保存数据 的file :" + file);
    FileOutputStream fos = null;
    ObjectOutputStream oos = null;
    try {
