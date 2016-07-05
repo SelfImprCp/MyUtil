@@ -38,9 +38,12 @@ public class TestActivity extends BaseActivity {
     private TextView file_test;
 
 
-
     @BindView(id = R.id.key_board_test, click = true)
     private TextView key_board_test;
+
+
+    @BindView(id = R.id.object_utils_test, click = true)
+    private TextView object_utils_test;
 
 
     @Override
@@ -81,7 +84,13 @@ public class TestActivity extends BaseActivity {
                 break;
             //NetWorkUtil 测试
             case R.id.net_work_test:
-    TestUIhelper.showTestNetWorkUitls(this);
+                TestUIhelper.showTestNetWorkUitls(this);
+                break;
+
+            // 测试 ObjectUtils
+            case R.id.object_utils_test:
+                TestUIhelper.showTesObjectsUitls(this);
+
                 break;
 
 

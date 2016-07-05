@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/object_utils_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+
+
+    </cn.myasapp.main.ui.TitleBarView>
+
+
+    <TextView
+        android:id="@+id/object_utils_test_isEquals"
+
+        style="@style/test_textview_style"
+        android:text="   两个对像是否相等 " />
+
+
+    <TextView
+        android:id="@+id/object_utils_test_saveObject"
+
+        style="@style/test_textview_style"
+        android:text="   保存对象  " />
+
+    <TextView
+        android:id="@+id/object_utils_test_readObject"
+
+        style="@style/test_textview_style"
+        android:text="   读取对象  " />
+
+
+    <TextView
+        android:id="@+id/object_utils_test_isExistDataCache"
+
+        style="@style/test_textview_style"
+        android:text="   判断数据 是否存在  " />
+
+
+</LinearLayout>

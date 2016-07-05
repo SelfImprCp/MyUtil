@@ -71,6 +71,16 @@
 
 
 
+
+
+        <activity
+            android:name=".main.ui.TestObjectUtils"
+            android:label="Object Util "
+            android:screenOrientation="portrait" />
+
+
+
+
     </application>
 
 </manifest>

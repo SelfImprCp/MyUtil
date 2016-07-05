@@ -27,77 +27,35 @@
             <TextView
                 android:id="@+id/test_date_time_util"
 
-                android:text="测DateTimeUtil"
                 style="@style/test_textview_style"
-                />
+                android:text="测DateTimeUtil" />
 
 
             <TextView
                 android:id="@+id/file_test"
 
-                android:text="测文件 "
                 style="@style/test_textview_style"
-                />
+                android:text="测文件 " />
 
 
             <TextView
                 android:id="@+id/key_board_test"
 
-                android:text="  测软键盘 "
                 style="@style/test_textview_style"
-                />
+                android:text="  测软键盘 " />
 
 
             <TextView
                 android:id="@+id/net_work_test"
 
-                android:text="  测试 NetWorkUtil   "
                 style="@style/test_textview_style"
-                />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/space_8"
-                android:text="  viewpage_fragment_test  "
-                android:textColor="@color/ailibuli_base_color"
-                android:textSize="@dimen/text_size_15" />
-
+                android:text="  测试 NetWorkUtil   " />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/space_8"
-                android:text="  viewpage_fragment_test  "
-                android:textColor="@color/ailibuli_base_color"
-                android:textSize="@dimen/text_size_15" />
+                android:id="@+id/object_utils_test"
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/space_8"
-                android:text="  viewpage_fragment_test  "
-                android:textColor="@color/ailibuli_base_color"
-                android:textSize="@dimen/text_size_15" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/space_8"
-                android:text="  viewpage_fragment_test  "
-                android:textColor="@color/ailibuli_base_color"
-                android:textSize="@dimen/text_size_15" />
+                style="@style/test_textview_style"
+                android:text="  测试  Object Utils    " />
 
 
         </LinearLayout>

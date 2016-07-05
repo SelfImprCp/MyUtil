@@ -8,6 +8,7 @@ import cn.myasapp.main.ui.TestActivity;
 import cn.myasapp.main.ui.TestDateTimeUtil;
 import cn.myasapp.main.ui.TestFileUtil;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
+import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TextNetWorkUtils;
 
 /**
@@ -39,5 +40,13 @@ public class TestUIhelper {
     public static void showTestNetWorkUitls(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TextNetWorkUtils.class);
     }
+
+
+
+    public static void showTesObjectsUitls(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestObjectUtils.class);
+    }
+
+
 
 }
