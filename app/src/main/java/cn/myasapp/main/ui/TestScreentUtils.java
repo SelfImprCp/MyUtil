@@ -37,6 +37,21 @@ public class TestScreentUtils extends BaseActivity {
     @BindView(id = R.id.screen_test_snapShotWithoutStatusBar, click = true)
     private TextView screen_test_snapShotWithoutStatusBar;
 
+
+    @BindView(id = R.id.screen_test_setFullScreen, click = true)
+    private TextView screen_test_setFullScreen;
+
+
+
+
+    @BindView(id = R.id.screen_test_cancelFullScreen, click = true)
+    private TextView screen_test_cancelFullScreen;
+
+
+
+
+
+
     @BindView(id = R.id.screen_test_imageview)
     private ImageView screen_test_imageview;
 
@@ -90,6 +105,15 @@ public class TestScreentUtils extends BaseActivity {
 
                 break;
 
+            case R.id.screen_test_setFullScreen:
+                 ScreenUtils.setFullScreen(this);
+
+                break;
+
+            case R.id.screen_test_cancelFullScreen:
+                ScreenUtils.cancelFullScreen(this);
+
+                break;
 
         }
     }

@@ -72,6 +72,12 @@
                 android:text="  测试  ScreentUtil    " />
 
 
+            <TextView
+                android:id="@+id/cache_utils_test"
+
+                style="@style/test_textview_style"
+                android:text="  测试  异常保存    " />
+
 
 
 

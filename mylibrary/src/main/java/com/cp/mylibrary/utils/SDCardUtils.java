@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.os.StatFs;
 
 import java.io.File;
+import java.util.Map;
 
 /**
  * Created by Jerry on 2016/7/5.
@@ -12,6 +13,9 @@ import java.io.File;
  */
 public class SDCardUtils {
 
+
+       public static String SDPATH = Environment.getExternalStorageDirectory()
+            + "/MyUtil/";
 
     private SDCardUtils()
     {
@@ -29,7 +33,17 @@ public class SDCardUtils {
         return Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED);
 
+    }    /**
+     * 检查是否安装外置的SD卡
+     *
+     * @return
+     */
+    public static boolean checkExternalSDExists() {
+
+        Map<String, String> evn = System.getenv();
+        return evn.containsKey("SECONDARY_STORAGE");
     }
+
 
     /**
      * 获取SD卡路径

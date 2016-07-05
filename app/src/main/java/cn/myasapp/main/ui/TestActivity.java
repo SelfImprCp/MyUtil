@@ -15,6 +15,7 @@ import org.kymjs.kjframe.ui.BindView;
 
 import cn.myasapp.R;
 import cn.myasapp.main.TestUIhelper;
+import cn.myasapp.main.bean.UserBean;
 
 
 /**
@@ -55,6 +56,8 @@ public class TestActivity extends BaseActivity {
 
 
 
+    @BindView(id = R.id.cache_utils_test, click = true)
+    private TextView cache_utils_test;
 
 
 
@@ -117,6 +120,16 @@ public class TestActivity extends BaseActivity {
             case R.id.screen_utils_test:
                 TestUIhelper.showTestScreenUtils(this);
                         break;
+
+
+             // 测试异常保存
+            case R.id.cache_utils_test:
+                UserBean user = null;
+                user.getName();
+
+
+
+                break;
 
 
         }

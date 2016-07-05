@@ -129,4 +129,68 @@ public class ScreenUtils {
         return bp;
 
     }
+
+
+    ////////////////////////////////设置，取消全屏/////////////////////////////////////////////
+
+    /**
+     *  pass
+     * @param activity
+     */
+    public static void setFullScreen(Activity activity) {
+        WindowManager.LayoutParams params = activity.getWindow()
+                .getAttributes();
+        params.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        activity.getWindow().setAttributes(params);
+        activity.getWindow().addFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+    }
+
+
+    /**
+     *  pass
+     * @param activity
+     */
+    public static void cancelFullScreen(Activity activity) {
+        WindowManager.LayoutParams params = activity.getWindow()
+                .getAttributes();
+        params.flags &= (~WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        activity.getWindow().setAttributes(params);
+        activity.getWindow().clearFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+    }
+
+
+
+
+    ////////////////////////////////横竖屏/////////////////////////////////////
+
+    /**
+     *  pass
+     * @param context
+     * @return
+     */
+    public static boolean isLandscape(Context context) {
+        boolean flag;
+        if (context.getResources().getConfiguration().orientation == 2)
+            flag = true;
+        else
+            flag = false;
+        return flag;
+    }
+    /**
+     *  pass
+     * @param context
+     * @return
+     */
+    public static boolean isPortrait(Context context) {
+        boolean flag = true;
+        if (context.getResources().getConfiguration().orientation != 1)
+            flag = false;
+        return flag;
+    }
+
+
+
+
 }

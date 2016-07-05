@@ -38,28 +38,27 @@ public class OpenActivityUtil {
         context.startActivity(intent);
     }
 
-    /**
-     * 显示设置网络
-     */
 
-    public static void showSetIntent(Context context) {
-        // TODO Auto-generated method stub
-        Intent intent = null;
-        // 判断手机系统的版本 即API大于10 就是3.0或以上版本
-        if (android.os.Build.VERSION.SDK_INT > 10) {
-            intent = new Intent(
-                    android.provider.Settings.ACTION_WIRELESS_SETTINGS);
-        } else {
-            intent = new Intent();
-            ComponentName component = new ComponentName("com.android.settings",
-                    "com.android.settings.WirelessSettings");
-            intent.setComponent(component);
-            intent.setAction("android.intent.action.VIEW");
-        }
-        context.startActivity(intent);
+    public static void openSMS(Context context, String smsBody, String tel) {
+        Uri uri = Uri.parse("smsto:" + tel);
+        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+        it.putExtra("sms_body", smsBody);
+        context.startActivity(it);
     }
 
 
+    public static void openDail(Context context) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+    public static void openSendMsg(Context context) {
+        Uri uri = Uri.parse("smsto:");
+        Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
 
 
 

@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.cp.mylibrary.utils.FileUtil;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.SDCardUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
@@ -101,7 +102,10 @@ public class TestFileUtil extends BaseActivity {
                 FileUtil fileUtilT = new FileUtil(this);
 
                 try {
-                    String readContent = fileUtilT.readDataDataPackageFiles("test");
+
+
+                    ///data/data/cn.myasapp.main/files/crash/crash-2016-07-05-16-29-12-1467707352667.log
+                    String readContent = fileUtilT.readDataDataPackageFiles("crash/crash-2016-07-05-16-29-12-1467707352667.log");
                     ShowToastUtil.showToast(this, "  读取到的文件内容  " + readContent);
                     //   LogCp.i(LogCp.CP, PlanFragment.class + "  读取到的文件内容  " + readContent );
 
@@ -127,7 +131,10 @@ public class TestFileUtil extends BaseActivity {
             //读取 sdcard 上的文件
             case R.id.file_read_sdcare_file_test:
 
-                String string = FileUtil.readSDFile(FileUtil.SDPATH, "cp");
+
+             //   /mnt/sdcard/MyUtil/crash/crash-2016-07-05-16-42-40-1467708160741.log
+
+                String string = FileUtil.readSDFile(SDCardUtils.SDPATH+"crash/", "crash-2016-07-05-16-42-40-1467708160741.log");
 
                 //   LogCp.i(LogCp.CP, TestActivity.class + " 读到的内容" + string);
                 ShowToastUtil.showToast(this, " 读到的内容" + string);
@@ -137,7 +144,7 @@ public class TestFileUtil extends BaseActivity {
             // 写入 sd 文件
             case R.id.file_write_sdcare_file_test:
 
-                boolean isSave = FileUtil.saveContentToSDCard("这 内容 是写到sd卡上的", FileUtil.SDPATH, "cp");
+                boolean isSave = FileUtil.saveContentToSDCard("这 内容 是写到sd卡上的", SDCardUtils.SDPATH, "cp");
                 ShowToastUtil.showToast(this, " 是否保存成功 " + isSave);
 
                 break;
@@ -164,7 +171,7 @@ public class TestFileUtil extends BaseActivity {
                 break;
 
             case R.id.file_get_size:
-                String strSize = FileUtil.formatFileSize(FileUtil.getFileSize(FileUtil.SDPATH, "cp"));
+                String strSize = FileUtil.formatFileSize(FileUtil.getFileSize(SDCardUtils.SDPATH, "cp"));
 
                 //    LogCp.i(LogCp.CP, TestActivity.class + "  算出来的文件 大小， " + strSize);
                 ShowToastUtil.showToast(this, "  算出来的文件 大小， " + strSize);
@@ -175,7 +182,7 @@ public class TestFileUtil extends BaseActivity {
             case R.id.file_get_iszai:
 
 
-                boolean isSD = FileUtil.isFileExist(FileUtil.SDPATH, "cp");
+                boolean isSD = FileUtil.isFileExist(SDCardUtils.SDPATH, "cp");
 
                 ShowToastUtil.showToast(this, "   SD 卡上的文件是否存在， " + isSD);
 

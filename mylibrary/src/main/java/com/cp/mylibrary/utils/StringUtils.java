@@ -27,6 +27,8 @@ public class StringUtils {
 
 
 	/**
+	 *
+	 *  pass
 	 * 判断给定字符串是否空白串。 空白串是指由空格、制表符、回车符、换行符组成的字符串 若输入字符串为null或空字符串，返回true
 	 * 
 	 * @param input
@@ -102,6 +104,8 @@ public class StringUtils {
 	}
 
 	/**
+	 *
+	 *  pass
 	 * 字符串转整数
 	 * 
 	 * @param str
@@ -117,6 +121,7 @@ public class StringUtils {
 	}
 
 	/**
+	 *  pass
 	 * 对象转整数
 	 * 
 	 * @param obj
@@ -143,6 +148,8 @@ public class StringUtils {
 	}
 
 	/**
+	 *
+	 *  pass
 	 * 字符串转布尔值
 	 * 
 	 * @param b

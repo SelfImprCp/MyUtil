@@ -47,12 +47,12 @@ public class FileUtil {
 
     private Context context;
 
-    public static String SDPATH = Environment.getExternalStorageDirectory()
-            + "/AiLiBuLi/User/";
+//    public static String SDPATH = Environment.getExternalStorageDirectory()
+//            + "/AiLiBuLi/User/";
 
-    public static String DATA_DATA_FILE_PATH = "/data/data/com.anyin.ailibuli/files/";
+    public static String DATA_DATA_FILE_PATH = "/data/data/cn.myasapp.main/files/";
 
-    public static String DATA_DATA_CACHE_PATH = "/data/data/com.anyin.ailibuli/cache/";
+    public static String DATA_DATA_CACHE_PATH = "/data/data/cn.myasapp.main/cache/";
 
 
     public FileUtil(Context contex) {
@@ -229,7 +229,7 @@ public class FileUtil {
     public static boolean createDirectory(String directoryName) throws IOException {
         boolean status;
         if (!directoryName.equals("")) {
-              File newPath = new File(SDPATH + directoryName);
+              File newPath = new File(SDCardUtils.SDPATH + directoryName);
             status = newPath.mkdirs();
             //status = true;
         } else
@@ -252,7 +252,7 @@ public class FileUtil {
         if (!fileName.equals("")) {
 
 
-            File newPath = new File(SDPATH + fileName);
+            File newPath = new File(SDCardUtils.SDPATH + fileName);
             checker.checkDelete(newPath.toString());
             if (newPath.isDirectory()) {
                 String[] listfile = newPath.list();
@@ -555,55 +555,9 @@ public class FileUtil {
         return new File(path).exists();
     }
 
-    /**
-     * 计算SD卡的剩余空间
-     *
-     * @return 返回-1，说明没有安装sd卡
-     */
-    public static long getFreeDiskSpace() {
-        String status = Environment.getExternalStorageState();
-        long freeSpace = 0;
-        if (status.equals(Environment.MEDIA_MOUNTED)) {
-            try {
-                File path = Environment.getExternalStorageDirectory();
-                StatFs stat = new StatFs(path.getPath());
-                long blockSize = stat.getBlockSize();
-                long availableBlocks = stat.getAvailableBlocks();
-                freeSpace = availableBlocks * blockSize / 1024;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            return -1;
-        }
-        return (freeSpace);
-    }
 
-    /**
-     * 检查是否安装SD卡
-     *
-     * @return
-     */
-    public static boolean checkSaveLocationExists() {
-        String sDCardStatus = Environment.getExternalStorageState();
-        boolean status;
-        if (sDCardStatus.equals(Environment.MEDIA_MOUNTED)) {
-            status = true;
-        } else
-            status = false;
-        return status;
-    }
 
-    /**
-     * 检查是否安装外置的SD卡
-     *
-     * @return
-     */
-    public static boolean checkExternalSDExists() {
 
-        Map<String, String> evn = System.getenv();
-        return evn.containsKey("SECONDARY_STORAGE");
-    }
 
 
     /**
