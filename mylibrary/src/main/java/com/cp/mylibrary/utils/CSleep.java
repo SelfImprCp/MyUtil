@@ -5,6 +5,8 @@ package com.cp.mylibrary.utils;
  *
  * 线程睡眠
  *
+ *  有问题
+ *
  */
 public class CSleep {
     public static final long DEFAULT_SLEEP_TIME = 500;

@@ -47,12 +47,23 @@ public class FileUtil {
 
     private Context context;
 
-//    public static String SDPATH = Environment.getExternalStorageDirectory()
-//            + "/AiLiBuLi/User/";
 
-    public static String DATA_DATA_FILE_PATH = "/data/data/cn.myasapp.main/files/";
 
-    public static String DATA_DATA_CACHE_PATH = "/data/data/cn.myasapp.main/cache/";
+//    public static String DATA_DATA_FILE_PATH = "/data/data/cn.myasapp.main/files/";
+//
+//    public static String DATA_DATA_CACHE_PATH = "/data/data/cn.myasapp.main/cache/";
+
+   public static String getDataDataFilePath(Context context)
+   {
+        return "/data/data/" + AppUtils.getPackageName(context) + "/files/";
+
+   }
+
+    public static String getDataDataCachePath(Context context)
+    {
+        return "/data/data/" + AppUtils.getPackageName(context) + "/cache/";
+
+    }
 
 
     public FileUtil(Context contex) {

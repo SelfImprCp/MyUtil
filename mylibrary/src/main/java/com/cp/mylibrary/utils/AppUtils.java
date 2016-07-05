@@ -20,6 +20,17 @@ public class AppUtils {
 
     }
 
+
+    /**
+     *
+     * @param context
+     * @return
+     */
+     public static String getPackageName  (Context context)
+     {
+          return context.getPackageName();
+     }
+
     /**
      * 获取应用程序名称
      */

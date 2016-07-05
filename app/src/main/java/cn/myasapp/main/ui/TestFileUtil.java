@@ -105,7 +105,7 @@ public class TestFileUtil extends BaseActivity {
 
 
                     ///data/data/cn.myasapp.main/files/crash/crash-2016-07-05-16-29-12-1467707352667.log
-                    String readContent = fileUtilT.readDataDataPackageFiles("crash/crash-2016-07-05-16-29-12-1467707352667.log");
+                    String readContent = fileUtilT.readDataDataPackageFiles("test");
                     ShowToastUtil.showToast(this, "  读取到的文件内容  " + readContent);
                     //   LogCp.i(LogCp.CP, PlanFragment.class + "  读取到的文件内容  " + readContent );
 
@@ -118,12 +118,14 @@ public class TestFileUtil extends BaseActivity {
 
 
             case R.id.file_isExist_test:
-                boolean isExist = FileUtil.isFileExist(FileUtil.DATA_DATA_FILE_PATH, "test");
+
+                 LogCp.i(LogCp.CP, TestActivity.class + "  取到的路径名 " + FileUtil.getDataDataFilePath(this));
+                boolean isExist = FileUtil.isFileExist(FileUtil.getDataDataFilePath(this), "test");
                 ShowToastUtil.showToast(this, "文件是否存在：" + isExist);
                 break;
 
             case R.id.file_delete_test:
-                boolean isDelete = FileUtil.delelteFile(FileUtil.DATA_DATA_FILE_PATH, "test");
+                boolean isDelete = FileUtil.delelteFile(FileUtil.getDataDataFilePath(this), "test");
                 ShowToastUtil.showToast(this, "文件是否删除：" + isDelete);
 
                 break;
@@ -188,7 +190,7 @@ public class TestFileUtil extends BaseActivity {
 
                 //   LogCp.i(LogCp.CP, TestActivity.class + "   SD 卡上的文件是否存在， " + isSD);
 
-                boolean isDATA = FileUtil.isFileExist(FileUtil.DATA_DATA_FILE_PATH, "test");
+                boolean isDATA = FileUtil.isFileExist(FileUtil.getDataDataFilePath(this), "test");
 
                 //        LogCp.i(LogCp.CP, TestActivity.class + "   DATA  卡上的文件是否存在， " + isDATA);
                 ShowToastUtil.showToast(this, "   DATA  卡上的文件是否存在， " + isDATA);
