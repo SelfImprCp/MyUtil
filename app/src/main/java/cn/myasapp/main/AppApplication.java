@@ -4,6 +4,10 @@ import android.app.Application;
 
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.utils.CrashHandler;
+import com.cp.mylibrary.utils.ImageLoaderUtils;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import cn.myasapp.R;
 
 /**
  * Created by Jerry on 2016/7/5.
@@ -20,6 +24,10 @@ public class AppApplication extends MyBaseApp
         CrashHandler crashHandler = CrashHandler.getInstance();
         // 注册crashHandler
         crashHandler.init(getApplicationContext());
+
+        // 配置图片
+
+        ImageLoaderUtils.configImageLoader(this,R.drawable.ic_launcher, R.drawable.ic_launcher,R.drawable.ic_launcher,AppConfig.DEFAULT_SAVE_IMAGE_PATH);
 
 
     }

@@ -8,6 +8,7 @@ import cn.myasapp.main.ui.TestActivity;
 import cn.myasapp.main.ui.TestCreateTwoCode;
 import cn.myasapp.main.ui.TestDateTimeUtil;
 import cn.myasapp.main.ui.TestFileUtil;
+import cn.myasapp.main.ui.TestImageLoad;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TestScreentUtils;
@@ -68,6 +69,10 @@ public class TestUIhelper {
     public static void showCreateTwoCode(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestCreateTwoCode.class);
     }
+    public static void showImageLoad(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestImageLoad.class);
+    }
+
 
 
 }

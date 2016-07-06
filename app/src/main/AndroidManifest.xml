@@ -94,13 +94,20 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".main.ui.TestTwoCode"
-            android:label="ScreenUtil "
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".main.ui.TestCreateTwoCode"
-            android:label="ScreenUtil "
+            android:label="TwoCode "
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".main.ui.TestCreateTwoCode"
+            android:label="CreateTwoCode "
+            android:screenOrientation="portrait" />
+
+
+
+        <activity
+            android:name=".main.ui.TestImageLoad"
+            android:label=" ImageLoad "
+            android:screenOrientation="portrait" />
 
 
 

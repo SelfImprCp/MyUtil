@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 /**
  * Created by Jerry on 2016/6/17.
  *
@@ -159,8 +161,8 @@ public void updatePosition(int position)
     {
 
 
-//        ImageLoader.getInstance().displayImage(url,
-  //              (ImageView) getView(viewId));
+        ImageLoader.getInstance().displayImage(url,
+                (ImageView) getView(viewId));
    //   ImageLoader.getInstance().loadImage(url,(ImageView) getView(viewId));
         return this;
     }

@@ -61,8 +61,13 @@ public class TestActivity extends BaseActivity {
 
     @BindView(id = R.id.two_codes_test, click = true)
     private TextView two_codes_test;
+
+
     @BindView(id = R.id.create_two_codes_test, click = true)
     private TextView create_two_codes_test;
+
+    @BindView(id = R.id.image_load_test, click = true)
+    private TextView image_load_test;
 
 
 
@@ -148,6 +153,15 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.showCreateTwoCode(this);
 
                 break;
+
+            case R.id.image_load_test:
+
+                TestUIhelper.showImageLoad(this);
+
+                break;
+
+
+
 
         }
 
