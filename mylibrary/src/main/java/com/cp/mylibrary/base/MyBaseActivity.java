@@ -23,8 +23,8 @@ public class MyBaseActivity extends KJActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         ActivityManagerUtil.getInstance().pushActivty(this);
-        ((MyBaseApp) this.getApplication()).getActivityManager().pushActivty(
-                this);
+
+
 
        mContext = MyBaseApp.getInstance();
 

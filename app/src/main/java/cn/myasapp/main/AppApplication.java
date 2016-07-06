@@ -2,12 +2,13 @@ package cn.myasapp.main;
 
 import android.app.Application;
 
+import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.utils.CrashHandler;
 
 /**
  * Created by Jerry on 2016/7/5.
  */
-public class AppApplication extends Application
+public class AppApplication extends MyBaseApp
 {
 
 

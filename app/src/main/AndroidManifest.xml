@@ -88,8 +88,12 @@
             android:screenOrientation="portrait" />
 
 
-        <activity
+            <activity
             android:name=".main.ui.TestScreentUtils"
+            android:label="ScreenUtil "
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.ui.TestTwoCode"
             android:label="ScreenUtil "
             android:screenOrientation="portrait" />
 

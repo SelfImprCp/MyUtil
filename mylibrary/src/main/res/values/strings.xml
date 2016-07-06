@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Library</string>
+
+    <!-- 二维码 -->
+    <string name="qr_scan_tips">将二维码/条码放入框内，即可自动扫描</string>
+
+
+
 </resources>

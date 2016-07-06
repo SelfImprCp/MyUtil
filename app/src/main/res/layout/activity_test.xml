@@ -78,6 +78,11 @@
                 style="@style/test_textview_style"
                 android:text="  测试  异常保存    " />
 
+            <TextView
+                android:id="@+id/two_codes_test"
+
+                style="@style/test_textview_style"
+                android:text="   二维码扫描    " />
 
 
 

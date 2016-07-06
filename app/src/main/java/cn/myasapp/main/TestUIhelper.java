@@ -10,6 +10,7 @@ import cn.myasapp.main.ui.TestFileUtil;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TestScreentUtils;
+import cn.myasapp.main.ui.TestTwoCode;
 import cn.myasapp.main.ui.TextNetWorkUtils;
 import cn.myasapp.main.ui.TextRandomUtils;
 
@@ -59,6 +60,10 @@ public class TestUIhelper {
     public static void showTestScreenUtils(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestScreentUtils.class);
     }
+    public static void showTwoCode(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestTwoCode.class);
+    }
+
 
 
 }
