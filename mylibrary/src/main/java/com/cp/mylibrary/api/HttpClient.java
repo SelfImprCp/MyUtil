@@ -51,7 +51,7 @@ public class HttpClient {
      * @param handler
      */
 
-    public static void get(String partUrl, HttpCallBack handler) {
+    public static void get(String partUrl, MyResponseHandler handler) {
         client.get(getAbsoluteApiUrl(partUrl), handler);
 
 
@@ -73,7 +73,7 @@ public class HttpClient {
      */
 
     public static void get(String partUrl, HttpParams params,
-                           HttpCallBack handler) {
+                           MyResponseHandler handler) {
         client.get(getAbsoluteApiUrl(partUrl), params, handler);
 
 
@@ -96,7 +96,7 @@ public class HttpClient {
      * @param handler
      */
     public static void post(String partUrl, HttpParams params,
-                            HttpCallBack handler) {
+                            MyResponseHandler handler) {
 
         client.post(getAbsoluteApiUrl(partUrl)  , params, handler);
 
@@ -125,7 +125,7 @@ public class HttpClient {
      * @param responseHandler
      */
     public static void postJsonUpServer(String url,
-                                        String jsonStr, HttpCallBack responseHandler) {
+                                        String jsonStr, MyResponseHandler responseHandler) {
 
 
         HttpParams params = new HttpParams();
