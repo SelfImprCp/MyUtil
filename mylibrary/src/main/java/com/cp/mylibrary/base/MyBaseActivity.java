@@ -7,8 +7,6 @@ import android.view.Window;
 
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
-import com.cp.mylibrary.utils.NetWorkUtil;
-import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.KJActivity;
 
