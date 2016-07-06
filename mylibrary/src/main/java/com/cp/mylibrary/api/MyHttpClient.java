@@ -3,13 +3,12 @@ package com.cp.mylibrary.api;
 import com.cp.mylibrary.utils.LogCp;
 
 import org.kymjs.kjframe.KJHttp;
-import org.kymjs.kjframe.http.HttpCallBack;
 import org.kymjs.kjframe.http.HttpParams;
 
 /**
  * Created by Jerry on 2016/7/6.
  */
-public class HttpClient {
+public class MyHttpClient {
 
    // public   static String HOST = "www.ailibuli.cn";
 
@@ -18,8 +17,6 @@ public class HttpClient {
 
     public static KJHttp client;
 
-//    public HttpClient() {
-//    }
 
 
 
@@ -55,11 +52,11 @@ public class HttpClient {
         client.get(getAbsoluteApiUrl(partUrl), handler);
 
 
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求方式：GET 无参"
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：GET 无参"
 
         );
 
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
 
         );
 
@@ -72,19 +69,19 @@ public class HttpClient {
      * @param handler
      */
 
-    public static void get(String partUrl, HttpParams params,
+    public static void get(String partUrl, MyHttpParams params,
                            MyResponseHandler handler) {
         client.get(getAbsoluteApiUrl(partUrl), params, handler);
 
 
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求方式：GET 有参"
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：GET 有参"
 
         );
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求参数 ："
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求参数 ："
                 + params.getUrlParams().toString()
 
         );
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
 
         );
 
@@ -95,19 +92,19 @@ public class HttpClient {
      * @param params
      * @param handler
      */
-    public static void post(String partUrl, HttpParams params,
+    public static void post(String partUrl, MyHttpParams params,
                             MyResponseHandler handler) {
 
         client.post(getAbsoluteApiUrl(partUrl)  , params, handler);
 
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求方式：POST"
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"
 
         );
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求参数 ："
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求参数 ："
                 + params.getUrlParams().toString()
 
         );
-        LogCp.d(LogCp.CP, HttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
 
         );
 
@@ -128,11 +125,11 @@ public class HttpClient {
                                         String jsonStr, MyResponseHandler responseHandler) {
 
 
-        HttpParams params = new HttpParams();
+        MyHttpParams params = new MyHttpParams();
 
 
         //这里传递json字符串，(JSONObject可以调用toString方法转换)
-        LogCp.i(LogCp.CP, HttpClient.class + "上传的 json :" + jsonStr);
+        LogCp.i(LogCp.CP, MyHttpClient.class + "上传的 json :" + jsonStr);
         params.putJsonParams(jsonStr);
 
 
