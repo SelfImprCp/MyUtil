@@ -84,6 +84,11 @@
                 style="@style/test_textview_style"
                 android:text="   二维码扫描    " />
 
+            <TextView
+                android:id="@+id/create_two_codes_test"
+
+                style="@style/test_textview_style"
+                android:text="   生成带logo的二维码    " />
 
 
         </LinearLayout>

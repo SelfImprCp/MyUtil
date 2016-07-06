@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/create_two_codes_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        </cn.myasapp.main.ui.TitleBarView>
+
+
+     <Button
+         android:id="@+id/create_two_codes_button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:text="生成二维码"
+         />
+
+     <ImageView
+
+          android:id="@+id/create_two_codes_img"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+
+         />
+
+
+
+</LinearLayout>

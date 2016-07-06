@@ -5,6 +5,7 @@ import android.content.Context;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 
 import cn.myasapp.main.ui.TestActivity;
+import cn.myasapp.main.ui.TestCreateTwoCode;
 import cn.myasapp.main.ui.TestDateTimeUtil;
 import cn.myasapp.main.ui.TestFileUtil;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
@@ -64,6 +65,9 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestTwoCode.class);
     }
 
+    public static void showCreateTwoCode(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestCreateTwoCode.class);
+    }
 
 
 }
