@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.cp.mylibrary.base.MyBaseActivity;
+
 import org.kymjs.kjframe.KJActivity;
 
 
@@ -24,7 +26,7 @@ import org.kymjs.kjframe.KJActivity;
  * initWidget(); //用于设置控件内容
  * registerBroadcast(); //用于注册广播与上下文菜单
  */
-public class BaseActivity extends KJActivity {
+public class BaseActivity extends MyBaseActivity {
 
 
     private Context mContext;

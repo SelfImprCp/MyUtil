@@ -121,6 +121,11 @@
             android:label=" WebView "
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".main.ui.SimpleBackActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+
 
 
     </application>

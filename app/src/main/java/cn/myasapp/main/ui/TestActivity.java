@@ -75,6 +75,8 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.webview_test, click = true)
     private TextView webview_test;
 
+    @BindView(id = R.id.viewpage_test, click = true)
+    private TextView viewpage_test;
 
 
 
@@ -176,6 +178,14 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.showWebView(this);
 
                 break;
+
+            case R.id.viewpage_test:
+
+                TestUIhelper.showTextViewPageFragment(this);
+
+                break;
+
+
 
 
         }

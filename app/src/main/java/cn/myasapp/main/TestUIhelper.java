@@ -1,9 +1,13 @@
 package cn.myasapp.main;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
 import com.cp.mylibrary.utils.OpenActivityUtil;
 
+import cn.myasapp.main.domian.SimpleBackPage;
+import cn.myasapp.main.ui.SimpleBackActivity;
 import cn.myasapp.main.ui.TestActivity;
 import cn.myasapp.main.ui.TestBanner;
 import cn.myasapp.main.ui.TestCreateTwoCode;
@@ -82,6 +86,51 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestWebView.class);
     }
 
+
+
+
+    /**
+     *  test view
+     * @param context
+     */
+    public static void showTextViewPageFragment(Context context   ) {
+        showSimpleBack(context, SimpleBackPage.VIEW_PAGE);
+
+
+    }
+
+
+
+
+    // ===============================以下代码勿改动======================================//
+
+
+
+    /**
+     *
+     * @param context
+     * @param page
+     */
+    public static void showSimpleBack(Context context, SimpleBackPage page) {
+        Intent intent = new Intent(context, SimpleBackActivity.class);
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
+        context.startActivity(intent);
+    }
+
+    /**
+     *
+     * @param context
+     * @param page
+     * @param args
+     */
+
+    public static void showSimpleBack(Context context, SimpleBackPage page,
+                                      Bundle args) {
+        Intent intent = new Intent(context, SimpleBackActivity.class);
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_ARGS, args);
+        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
+        context.startActivity(intent);
+    }
 
 
 
