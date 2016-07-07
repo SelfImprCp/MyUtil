@@ -21,9 +21,9 @@ public class AppApplication extends MyBaseApp
         super.onCreate();
 
         // 异常处理，不需要处理时注释掉这两句即可！
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        // 注册crashHandler
-        crashHandler.init(getApplicationContext());
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        // 注册crashHandler
+//        crashHandler.init(getApplicationContext());
 
         // 配置图片
 

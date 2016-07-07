@@ -19,6 +19,10 @@ public class MyBaseApp  extends Application {
         context = this;
         activityManager = ActivityManagerUtil.getInstance();
 
+
+
+
+
     }
 
     /**

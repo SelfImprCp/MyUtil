@@ -110,6 +110,12 @@
             android:screenOrientation="portrait" />
 
 
+        <activity
+            android:name=".main.ui.TestBanner"
+            android:label=" ImageLoad "
+            android:screenOrientation="portrait" />
+
+
 
 
     </application>

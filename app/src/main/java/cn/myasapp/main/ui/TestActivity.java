@@ -69,6 +69,9 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.image_load_test, click = true)
     private TextView image_load_test;
 
+    @BindView(id = R.id.banner_test, click = true)
+    private TextView banner_test;
+
 
 
 
@@ -160,6 +163,11 @@ public class TestActivity extends BaseActivity {
 
                 break;
 
+            case R.id.banner_test:
+
+                TestUIhelper.showBanner(this);
+
+                break;
 
 
 

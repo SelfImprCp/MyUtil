@@ -5,6 +5,7 @@ import android.content.Context;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 
 import cn.myasapp.main.ui.TestActivity;
+import cn.myasapp.main.ui.TestBanner;
 import cn.myasapp.main.ui.TestCreateTwoCode;
 import cn.myasapp.main.ui.TestDateTimeUtil;
 import cn.myasapp.main.ui.TestFileUtil;
@@ -73,6 +74,9 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestImageLoad.class);
     }
 
+    public static void showBanner(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestBanner.class);
+    }
 
 
 }

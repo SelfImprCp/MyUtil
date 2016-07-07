@@ -98,6 +98,13 @@
                 style="@style/test_textview_style"
                 android:text="    测ImageLoad    " />
 
+            <TextView
+                android:id="@+id/banner_test"
+
+                style="@style/test_textview_style"
+                android:text="    测Banner   " />
+
+
 
 
 
