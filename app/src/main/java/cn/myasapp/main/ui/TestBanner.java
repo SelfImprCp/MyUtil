@@ -7,6 +7,7 @@ import android.view.View;
 import com.cp.mylibrary.banner.ADInfo;
 import com.cp.mylibrary.banner.BannerInitUtil;
 import com.cp.mylibrary.banner.CycleViewPager;
+import com.cp.mylibrary.base.MyBaseFragmentActivity;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import cn.myasapp.R;
  * <p>
  * Banner 的用法，
  */
-public class TestBanner extends FragmentActivity {
+public class TestBanner extends MyBaseFragmentActivity {
 
 
     private TitleBarView banner_test_title;
@@ -30,10 +31,8 @@ public class TestBanner extends FragmentActivity {
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banner);
-        initView();
+    protected int setRootView() {
+        return  R.layout.activity_banner;
 
     }
 
