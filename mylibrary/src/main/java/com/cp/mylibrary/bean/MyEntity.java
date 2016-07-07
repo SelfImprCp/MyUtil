@@ -11,6 +11,9 @@ import java.io.Serializable;
  * @author liux (http://my.oschina.net/liux)
  * @version 1.0
  * @created 2012-3-21
+ *
+ *
+ * 如果子类是存在DB中的，不要继承这个类，子类必须写全所有的字段
  */
 
 public   class MyEntity implements Serializable {
