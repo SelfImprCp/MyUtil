@@ -16,6 +16,11 @@
 
 
 
+    <!---->
+    <string name="loading">加载中…</string>
+    <string name="loading_no_more">已加载全部</string>
+
+
 
 
 </resources>

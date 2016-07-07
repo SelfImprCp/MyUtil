@@ -6,16 +6,23 @@ import android.widget.TextView;
 
 import com.cp.mylibrary.utils.AppUtils;
 import com.cp.mylibrary.utils.FileUtil;
+import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.KeyBoardUtils;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.myasapp.R;
 import cn.myasapp.main.TestUIhelper;
+import cn.myasapp.main.bean.MainFocus;
 import cn.myasapp.main.bean.UserBean;
+import cn.myasapp.main.res.MainFocusListRes;
 
 
 /**
@@ -181,7 +188,29 @@ public class TestActivity extends BaseActivity {
 
             case R.id.viewpage_test:
 
-                TestUIhelper.showTextViewPageFragment(this);
+           //     TestUIhelper.showTextViewPageFragment(this);
+
+                MainFocusListRes res = new  MainFocusListRes();
+
+                List<MainFocus> result = new ArrayList<MainFocus>();
+
+                 for (int i = 0;i<10;i++)
+
+                 {
+
+                     MainFocus  mainFocus = new MainFocus();
+                     mainFocus.setId(i);
+                     mainFocus.setShopName(i+"爱理");
+
+                     result.add(mainFocus);
+
+                 }
+                res.setResult(result);
+                res.setCode(0);
+                res.setMsg("成功");
+                String gson = GsonUtil.beanTojsonStr(res);
+
+                LogCp.i(LogCp.CP,TestActivity.class + "生成的json：" + gson);
 
                 break;
 

@@ -1,9 +1,11 @@
 package cn.myasapp.main.bean;
 
+import com.cp.mylibrary.bean.MyEntity;
+
 /**
  * Created by Jerry on 2016/7/5.
  */
-public class UserBean extends  Entity {
+public class UserBean extends MyEntity {
 
       private String name ;
 

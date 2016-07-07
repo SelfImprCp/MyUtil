@@ -24,7 +24,7 @@ public class MyHttpClient {
      *
      */
     public static void initHttp(String host,String suffix) {
-        API_URL =  "https://" + host + "/"+suffix+"/%s";
+        API_URL =  "http://" + host + "/"+suffix+"/%s";
 
         // 初始化网络请求
         client   = new KJHttp( );

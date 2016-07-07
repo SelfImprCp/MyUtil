@@ -1,31 +1,54 @@
 package cn.myasapp.main.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.cp.mylibrary.adapter.ListBaseAdapter;
+import com.cp.mylibrary.base.BaseListFragment;
+import com.cp.mylibrary.interf.OnTabReselectListener;
+import com.cp.mylibrary.utils.GsonUtil;
 
-import com.cp.mylibrary.base.MyBaseFragment;
+import java.util.List;
 
-import cn.myasapp.R;
+import cn.myasapp.main.adapter.MainFocusAdapter;
+import cn.myasapp.main.api.TestApi;
+import cn.myasapp.main.bean.MainFocus;
+import cn.myasapp.main.res.MainFocusListRes;
 
 
 /**
  * 开户个人信息界面
  * Created by Jerry on 2016/6/21.
  */
-public class TestViewPageFragment extends MyBaseFragment implements View.OnClickListener {
+public class TestViewPageFragment extends BaseListFragment<MainFocus>
+implements OnTabReselectListener {
 
-
-
+    public MainFocusAdapter focusAdapter;
     @Override
-    protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
-        View view = inflater.inflate(R.layout.fragment_test1, container, false);
-        return view;
+    protected ListBaseAdapter<MainFocus> getListAdapter() {
+        focusAdapter = new MainFocusAdapter(getActivity() );
+        return focusAdapter;
+
     }
 
 
+    @Override
+    protected List<MainFocus> parseList(String is) throws Exception {
+        MainFocusListRes res = GsonUtil.jsonStrToBean(is,
+                MainFocusListRes.class);
 
+        return res.getResult();
+    }
 
+    @Override
+    protected void sendRequestData() {
+        TestApi.getMainFocusList("dynamiclist",mCurrentPage + "",    "76", mHandler);
+    }
 
+    @Override
+    public void onTabReselect() {
+
+    }
+
+    @Override
+    protected String getCacheKeyPrefix() {
+        return  " str ";
+    }
 }

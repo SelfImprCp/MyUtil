@@ -14,9 +14,18 @@ import java.io.File;
 public class AppConfig {
 
 
-    public static final String HOST = "www.ailibuli.cn";
-    public static final String SUFFIX = "api";
+//    public static final String HOST = "www.ailibuli.cn";
+//    public static final String SUFFIX = "api";
 
+
+
+    public static final String SUFFIX = "second/dynamic";
+
+
+    public final static String HOST = "apidev.mofox.cn";
+
+//    public static String IMAGE_URL = "http://"+HOST+"/second/dynamic/dynamiclist";
+//
 
     private static AppConfig appConfig;
 

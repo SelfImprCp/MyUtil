@@ -2,6 +2,7 @@ package cn.myasapp.main;
 
 import android.app.Application;
 
+import com.cp.mylibrary.api.MyHttpClient;
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.utils.CrashHandler;
 import com.cp.mylibrary.utils.ImageLoaderUtils;
@@ -28,6 +29,9 @@ public class AppApplication extends MyBaseApp
         // 配置图片
 
         ImageLoaderUtils.configImageLoader(this,R.drawable.ic_launcher, R.drawable.ic_launcher,R.drawable.ic_launcher,AppConfig.DEFAULT_SAVE_IMAGE_PATH);
+        // 初始化网络 请求
+        MyHttpClient.initHttp(AppConfig.HOST,AppConfig.SUFFIX);
+
 
 
     }
