@@ -112,9 +112,14 @@
 
         <activity
             android:name=".main.ui.TestBanner"
-            android:label=" ImageLoad "
+            android:label=" Banner  "
             android:screenOrientation="portrait" />
 
+
+        <activity
+            android:name=".main.ui.TestWebView"
+            android:label=" WebView "
+            android:screenOrientation="portrait" />
 
 
 

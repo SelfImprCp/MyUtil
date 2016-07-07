@@ -14,6 +14,7 @@ import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TestScreentUtils;
 import cn.myasapp.main.ui.TestTwoCode;
+import cn.myasapp.main.ui.TestWebView;
 import cn.myasapp.main.ui.TextNetWorkUtils;
 import cn.myasapp.main.ui.TextRandomUtils;
 
@@ -77,6 +78,12 @@ public class TestUIhelper {
     public static void showBanner(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestBanner.class);
     }
+    public static void showWebView(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestWebView.class);
+    }
+
+
+
 
 
 }

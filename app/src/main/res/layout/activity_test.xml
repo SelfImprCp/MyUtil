@@ -105,6 +105,13 @@
                 android:text="    测Banner   " />
 
 
+            <TextView
+                android:id="@+id/webview_test"
+
+                style="@style/test_textview_style"
+                android:text="    测WebView   " />
+
+
 
 
 

@@ -72,6 +72,8 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.banner_test, click = true)
     private TextView banner_test;
 
+    @BindView(id = R.id.webview_test, click = true)
+    private TextView webview_test;
 
 
 
@@ -169,6 +171,11 @@ public class TestActivity extends BaseActivity {
 
                 break;
 
+            case R.id.webview_test:
+
+                TestUIhelper.showWebView(this);
+
+                break;
 
 
         }
