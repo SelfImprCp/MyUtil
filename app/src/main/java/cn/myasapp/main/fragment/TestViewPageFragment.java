@@ -23,7 +23,7 @@ implements OnTabReselectListener {
     public MainFocusAdapter focusAdapter;
     @Override
     protected ListBaseAdapter<MainFocus> getListAdapter() {
-        focusAdapter = new MainFocusAdapter(getActivity() );
+     //   focusAdapter = new MainFocusAdapter(getActivity() );
         return focusAdapter;
 
     }
@@ -34,12 +34,12 @@ implements OnTabReselectListener {
         MainFocusListRes res = GsonUtil.jsonStrToBean(is,
                 MainFocusListRes.class);
 
-        return res.getResult();
+     return res.getResult();
     }
 
     @Override
     protected void sendRequestData() {
-        TestApi.getMainFocusList("dynamiclist",mCurrentPage + "",    "76", mHandler);
+        TestApi.getTestPageList( mCurrentPage + ""     , mHandler);
     }
 
     @Override

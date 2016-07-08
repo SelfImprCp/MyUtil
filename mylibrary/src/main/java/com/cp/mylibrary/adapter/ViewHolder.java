@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cp.mylibrary.utils.LogCp;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -80,6 +81,10 @@ public void updatePosition(int position)
         } else
         {
             ViewHolder holder = (ViewHolder) convertView.getTag();
+
+            LogCp.i(LogCp.CP, ViewHolder.class + "  为空了吗？ holder ， " + holder);
+
+
             holder.mPosition = position;
             return holder;
         }

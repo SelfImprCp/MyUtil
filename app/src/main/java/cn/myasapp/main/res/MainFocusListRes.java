@@ -24,6 +24,4 @@ public class MainFocusListRes extends Response {
     public void setResult(List<MainFocus> result) {
         this.result = result;
     }
-
-
 }

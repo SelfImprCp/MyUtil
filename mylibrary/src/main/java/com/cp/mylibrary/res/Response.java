@@ -11,47 +11,33 @@ import java.io.Serializable;
 public class Response implements Serializable {
  	public static final int SUCCESS = 0;
 
-	//  登录
- public static final int  LOGIN = 1;
+
 	//
 
 	/**
-	 * 0，成功；1，失败
+	 * 0，成功；非0，失败
 	 */
-	private int code = 0;
+	private int resultCode = 0;
 
 	/**
 	 * 错误描述
 	 */
-	private String msg = "";
+	private String resultMessage = "";
 
-	/**
-	 * 0没登录， 1登录
-	 */
-	private int isLogin = 0;
 
-	public int getCode() {
-		return code;
+	public int getResultCode() {
+		return resultCode;
 	}
 
-	public void setCode(int code) {
-		this.code = code;
+	public void setResultCode(int resultCode) {
+		this.resultCode = resultCode;
 	}
 
-	public int getIsLogin() {
-		return isLogin;
+	public String getResultMessage() {
+		return resultMessage;
 	}
 
-	public void setIsLogin(int isLogin) {
-		this.isLogin = isLogin;
+	public void setResultMessage(String resultMessage) {
+		this.resultMessage = resultMessage;
 	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
 }

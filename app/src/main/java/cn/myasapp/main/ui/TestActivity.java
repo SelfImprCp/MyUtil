@@ -84,6 +84,8 @@ public class TestActivity extends BaseActivity {
 
     @BindView(id = R.id.viewpage_test, click = true)
     private TextView viewpage_test;
+    @BindView(id = R.id.pullto_test, click = true)
+    private TextView pullto_test;
 
 
 
@@ -186,31 +188,40 @@ public class TestActivity extends BaseActivity {
 
                 break;
 
+
+
+            case R.id.pullto_test:
+
+                TestUIhelper.showPullableListViewActivity(this);
+
+                break;
+
+
             case R.id.viewpage_test:
 
-           //     TestUIhelper.showTextViewPageFragment(this);
+             TestUIhelper.showTextViewPageFragment(this);
 
-                MainFocusListRes res = new  MainFocusListRes();
-
-                List<MainFocus> result = new ArrayList<MainFocus>();
-
-                 for (int i = 0;i<10;i++)
-
-                 {
-
-                     MainFocus  mainFocus = new MainFocus();
-                     mainFocus.setId(i);
-                     mainFocus.setShopName(i+"爱理");
-
-                     result.add(mainFocus);
-
-                 }
-                res.setResult(result);
-                res.setCode(0);
-                res.setMsg("成功");
-                String gson = GsonUtil.beanTojsonStr(res);
-
-                LogCp.i(LogCp.CP,TestActivity.class + "生成的json：" + gson);
+//                MainFocusListRes res = new  MainFocusListRes();
+//
+//                List<MainFocus> result = new ArrayList<MainFocus>();
+//
+//                 for (int i = 0;i<10;i++)
+//
+//                 {
+//
+//                     MainFocus  mainFocus = new MainFocus();
+//                     mainFocus.setId(i);
+//                     mainFocus.setShopName(i+"爱理");
+//
+//                     result.add(mainFocus);
+//
+//                 }
+//                res.setResult(result);
+//                res.setCode(0);
+//                res.setMsg("成功");
+//                String gson = GsonUtil.beanTojsonStr(res);
+//
+//                LogCp.i(LogCp.CP,TestActivity.class + "生成的json：" + gson);
 
                 break;
 

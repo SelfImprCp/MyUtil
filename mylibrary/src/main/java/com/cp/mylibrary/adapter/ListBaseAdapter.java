@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.bean.MyEntity;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.StringUtils;
 
@@ -67,12 +68,7 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
     public abstract int getItemLayoutId();
 
 
-    public ListBaseAdapter(Context context, List<T> mDatas, int itemLayoutId) {
-        this.mContext = context;
-        this.mInflater = LayoutInflater.from(mContext);
-        this.mDatas = mDatas;
 
-    }
 
 
     protected LayoutInflater getLayoutInflater(Context context) {
@@ -119,6 +115,9 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
             default:
                 break;
         }
+
+
+
         return getDataSize();
     }
 
@@ -211,6 +210,13 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
      */
 
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        LogCp.i(LogCp.CP, ListBaseAdapter.class + "  总共有多少数据  ， " + getDataSize()  );
+
+
+        LogCp.i(LogCp.CP, ListBaseAdapter.class + "  getView  position ， " + position + " getCount()  " + getCount());
+
+
         if (position == getCount() - 1 && hasFooterView()) {// 最后一条
             // if (position < _data.size()) {
             // position = getCount() - 2; // footview
@@ -229,7 +235,7 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
                 TextView text = (TextView) mFooterView.findViewById(R.id.text);
                 switch (getState()) {
                     case STATE_LOAD_MORE:
-                        setFooterViewLoading();
+                        setFooterViewLoading("加载中...");
                         break;
                     case STATE_NO_MORE:
                         mFooterView.setVisibility(View.VISIBLE);
@@ -266,12 +272,14 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
         }
 
 
+
+
+
+        LogCp.i(LogCp.CP, ListBaseAdapter.class + "  为空了吗？ mContext ， " + mContext + "position " +position);
+
         //构造viewHolder ,
         ViewHolder viewHolder = ViewHolder.get(mContext, convertView, parent,
                 getItemLayoutId(), position);
-
-        // LogCp.i(LogCp.CP, ListBaseAdapter.class + "  哪个为空 ViewHolder " + viewHolder);
-
 
         convert(viewHolder, getItem(position));
         return viewHolder.getConvertView();
@@ -304,19 +312,7 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
         }
     }
 
-    public void setFooterViewLoading() {
-        setFooterViewLoading("");
-    }
 
-    public void setFooterViewText(String msg) {
-        ProgressBar progress = (ProgressBar) mFooterView
-                .findViewById(R.id.progressbar);
-        TextView text = (TextView) mFooterView.findViewById(R.id.text);
-        mFooterView.setVisibility(View.VISIBLE);
-        progress.setVisibility(View.GONE);
-        text.setVisibility(View.VISIBLE);
-        text.setText(msg);
-    }
 
 
     protected void setText(TextView textView, String text, boolean needGone) {

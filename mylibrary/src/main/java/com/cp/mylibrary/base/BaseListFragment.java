@@ -75,10 +75,6 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
         return mListView;
     }
 
-//    @Override
-//    protected int getLayoutId() {
-//        return R.layout.fragment_listview;
-//    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -330,68 +326,9 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
         }
     }
 
-    /***
-     * 判断是否需要读取缓存的数据
-     *
-     * @author 火蚁 2015-2-10 下午2:41:02
-     *
-     * @return boolean
-     * @param refresh
-     * @return
-     */
-    // private boolean isReadCacheData(boolean refresh) {
-    // String key = getCacheKey();
-    // /*
-    // * LogCp.i(LogCp.CP, BaseListFragment.class + "缓存中文件保存的路径:" + key);
-    // */
-    // if (!InternetUtil.hasInternetConnected()) {
-    // return true;
-    // }
-    // // 第一页若不是主动刷新，缓存存在，优先取缓存的
-    // if (CacheManager.isExistDataCache(getActivity(), key) && !refresh &&
-    // mCurrentPage == 1) {
-    // return true;
-    // }
-    // // 其他页数的，缓存存在以及还没有失效，优先取缓存的
-    // if (CacheManager.isExistDataCache(getActivity(), key) &&
-    // !CacheManager.isCacheDataFailure(getActivity(), key)
-    // && mCurrentPage != 1) {
-    // return true;
-    // }
-    //
-    // return false;
-    // }
 
-    // 是否到时间去刷新数据了
-     /*
-    private boolean onTimeRefresh() {
-     String lastRefreshTime = AppContext.getLastRefreshTime(getCacheKey());
-     String currTime = DateTimeUtil.getCurTimeStr();
-    long diff = DateTimeUtil.calDateDifferent(lastRefreshTime, currTime);
-      return needAutoRefresh() && diff > getAutoRefreshTime();
-     }
- */
 
-    /***
-     * 自动刷新的时间
-     * <p>
-     * 默认：自动刷新的时间为半天时间
-     *
-     * @return
-     * @author 火蚁 2015-2-9 下午5:55:11
-     */
-    protected long getAutoRefreshTime() {
-        return 12 * 60 * 60;
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        //  if (onTimeRefresh()) {
-        //onRefresh();
-        // }
-    }
 
     protected void sendRequestData() {
     }
@@ -411,65 +348,6 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
         }
     }
 
-    // private class CacheTask extends AsyncTask<String, Void, List<T>> {
-    // private final WeakReference<Context> mContext;
-    //
-    // private CacheTask(Context context) {
-    // mContext = new WeakReference<Context>(context);
-    // }
-    //
-    // @Override
-    // protected List<T> doInBackground(String... params) {
-    // Serializable seri = CacheManager.readObject(mContext.get(), params[0]);
-    // if (seri == null) {
-    // return null;
-    // } else {
-    // return readList(seri);
-    // }
-    // }
-    //
-    // protected void onPostExecute(List<T> list) {
-    // super.onPostExecute(list);
-    //
-    // list = null;
-    //
-    // if (list != null) {
-    // LogCp.i(LogCp.CP, BaseListFragment.class + "首缓存中的数据----》 " +
-    // list.size());
-    //
-    // executeOnLoadDataSuccess(list);
-    // } else {
-    //
-    // // 没有数据 读取缓存没有数据 ，
-    //
-    // // 取新的数据
-    // sendRequestData();
-    //
-    // // UIHelper.showToast("暂时没有数据哦");
-    // // executeOnLoadDataError(null);
-    // // executeOnLoadDataError();
-    // }
-    // executeOnLoadFinish();
-    // }
-    // }
-
-    // private class SaveCacheTask extends AsyncTask<Void, Void, Void> {
-    // private final WeakReference<Context> mContext;
-    // private final List seri;
-    // private final String key;
-    //
-    // private SaveCacheTask(Context context, List seri, String key) {
-    // mContext = new WeakReference<Context>(context);
-    // this.seri = seri;
-    // this.key = key;
-    // }
-    //
-    // @Override
-    // protected Void doInBackground(Void... params) {
-    // CacheManager.saveObject(mContext.get(), (Serializable) seri, key);
-    // return null;
-    // }
-    // }
 
     public MyResponseHandler mHandler = new MyResponseHandler() {
         @Override
@@ -486,7 +364,7 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
                 }
                 executeParserTask(arg1);
             }
-            LogCp.i(LogCp.CP, BaseListFragment.class + "ave cache ，" + getCacheKey() + arg1);
+
 
             // 缓存json数据
             MyCache.getMyCache(getActivity()).saveString(getCacheKey(), arg1);
@@ -505,22 +383,11 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
     };
 
 
-
     protected void executeOnLoadDataSuccess(List<T> data) {
         if (data == null) {
             data = new ArrayList<T>();
         }
-		/*
-		 * LogCp.i(LogCp.CP, BaseListFragment.class + "执行，" + "调用了吗？ " +
-		 * data.size());
-		 */
-        // 判断数据操作是否成功
 
-		/*
-		 * if (mResult != null && !mResult.OK()) {
-		 * AppContext.showToast(mResult.getErrorMessage()); //
-		 * 注销登陆，密码已经修改，cookie，失效了 AppContext.getInstance().Logout(); }
-		 */
 
         mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         if (mCurrentPage == 1) {
@@ -532,7 +399,10 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
 
         for (int i = 0; i < data.size(); i++) {
             if (compareTo(mAdapter.getData(), data.get(i))) {
-                data.remove(i);
+
+
+                // data.remove(i);
+
                 i--;
             }
         }
@@ -581,16 +451,24 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
         int s = data.size();
         if (enity != null) {
             for (int i = 0; i < s; i++) {
+
+
+
                 if (enity.getId() == data.get(i).getId()) {
                     return true;
-                }
+                 }
+
+
+
+
+
             }
         }
         return false;
     }
 
     protected int getPageSize() {
-        return 20;
+        return 10;
     }
 
     protected void onRefreshNetworkSuccess() {
@@ -666,16 +544,7 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
                 LogCp.i(LogCp.CP, BaseListFragment.class + "解析 出来的数据 的，值 ，，"
                         + list);
 
-                // new SaveCacheTask(getActivity(), list,
-                // getCacheKey()).execute();
 
-				/*
-				 * if (list == null) { Response res =
-				 * GsonUtil.jsonStrToBean(reponseData, Response.class); if (res
-				 * != null) { mResult = resultBean.getResult(); }
-				 *
-				 * }
-				 */
             } catch (Exception e) {
                 e.printStackTrace();
 
@@ -715,13 +584,21 @@ public abstract class BaseListFragment<T extends MyEntity> extends MyBaseFragmen
             scrollEnd = false;
         }
 
+
+        LogCp.i(LogCp.CP, BaseListFragment.class + " 滚动的状态，"
+                + mState +  " ,,, scrollEnd " + scrollEnd);
+
         if (mState == STATE_NONE && scrollEnd) {
+
+            LogCp.i(LogCp.CP, BaseListFragment.class + " 滚动的状态 mAdapter.getState()，"
+                    + mAdapter.getState() +  " ,,, scrollEnd " + scrollEnd);
+
             if (mAdapter.getState() == ListBaseAdapter.STATE_LOAD_MORE
                     || mAdapter.getState() == ListBaseAdapter.STATE_NETWORK_ERROR) {
                 mCurrentPage++;
                 mState = STATE_LOADMORE;
                 requestData(false);
-                mAdapter.setFooterViewLoading();
+                mAdapter.setFooterViewLoading("");
             }
         }
     }

@@ -31,6 +31,7 @@ public class AppApplication extends MyBaseApp
         ImageLoaderUtils.configImageLoader(this,R.drawable.ic_launcher, R.drawable.ic_launcher,R.drawable.ic_launcher,AppConfig.DEFAULT_SAVE_IMAGE_PATH);
         // 初始化网络 请求
         MyHttpClient.initHttp(AppConfig.HOST,AppConfig.SUFFIX);
+        MyHttpClient.Cookie = "我的cookie ";
 
 
 

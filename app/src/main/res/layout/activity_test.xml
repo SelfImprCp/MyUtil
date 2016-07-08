@@ -91,7 +91,6 @@
                 android:text="   生成带logo的二维码    " />
 
 
-
             <TextView
                 android:id="@+id/image_load_test"
 
@@ -112,13 +111,17 @@
                 android:text="    测WebView   " />
 
 
-
             <TextView
                 android:id="@+id/viewpage_test"
 
                 style="@style/test_textview_style"
                 android:text="    测viewpage fragment   " />
 
+            <TextView
+                android:id="@+id/pullto_test"
+
+                style="@style/test_textview_style"
+                android:text="    pullto_test     " />
 
 
         </LinearLayout>

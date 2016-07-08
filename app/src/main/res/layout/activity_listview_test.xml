@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+
+
+     <View
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/space_80"
+         android:background="@color/black_color_30"
+         ></View>
+
+
+    <include layout="@layout/activity_listview"></include>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+

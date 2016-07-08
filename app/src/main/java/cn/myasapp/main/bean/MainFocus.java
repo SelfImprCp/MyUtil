@@ -13,24 +13,14 @@ public class MainFocus extends MyEntity {
 
 	
 
-	//  Id
-	private int shopId;
-	// shopName
-	private String shopName;
+ 	// shopName
+	private String title;
 
-	public int getShopId() {
-		return shopId;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setShopId(int shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

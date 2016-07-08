@@ -7,6 +7,8 @@ import android.os.Bundle;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 
 import cn.myasapp.main.domian.SimpleBackPage;
+
+import cn.myasapp.main.ui.PullableListViewActivity;
 import cn.myasapp.main.ui.SimpleBackActivity;
 import cn.myasapp.main.ui.TestActivity;
 import cn.myasapp.main.ui.TestBanner;
@@ -87,6 +89,13 @@ public class TestUIhelper {
     }
 
 
+    public static void showPullableListViewActivity(Context context) {
+       OpenActivityUtil.getInstance().openActivity(context,PullableListViewActivity.class);
+    }
+
+
+
+
 
 
     /**
@@ -98,7 +107,6 @@ public class TestUIhelper {
 
 
     }
-
 
 
 

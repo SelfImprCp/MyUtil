@@ -97,6 +97,7 @@ public class BaseCaptureActivity extends MyBaseActivity implements
         super.initView();
 
 
+
         scanPreview = (SurfaceView) findViewById(R.id.capture_preview);
         scanContainer = (RelativeLayout)findViewById(R.id.capture_container);
 

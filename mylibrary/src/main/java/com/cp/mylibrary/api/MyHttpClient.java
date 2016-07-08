@@ -17,7 +17,7 @@ public class MyHttpClient {
 
     public static KJHttp client;
 
-
+public static String Cookie = "";
 
 
     /**
@@ -73,6 +73,8 @@ public class MyHttpClient {
 
     public static void get(String partUrl, MyHttpParams params,
                            MyResponseHandler handler) {
+        params.putHeaders("cookie",Cookie);
+
         client.get(getAbsoluteApiUrl(partUrl), params, handler);
 
 
@@ -96,6 +98,7 @@ public class MyHttpClient {
      */
     public static void post(String partUrl, MyHttpParams params,
                             MyResponseHandler handler) {
+        params.putHeaders("cookie",Cookie);
 
         client.post(getAbsoluteApiUrl(partUrl)  , params, handler);
 
@@ -106,6 +109,11 @@ public class MyHttpClient {
                 + params.getUrlParams().toString()
 
         );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求头  ："
+                +  params.getHeaders()
+
+        );
+
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
 
         );
@@ -152,14 +160,6 @@ public class MyHttpClient {
     public static String getApiUrl() {
         return API_URL;
     }
-
-
-
-
-
-
-
-
 
 
 
