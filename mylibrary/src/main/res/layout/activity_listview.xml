@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<com.cp.mylibrary.pullto.PullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/refresh_view"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/refresh_head" />
 
-
-    <com.cp.mylibrary.pullto.PullableListView
-        android:id="@+id/content_view"
+    <com.cp.mylibrary.custom.EmptyLayout
+        android:id="@+id/error_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_cp_util"
-        android:divider="@color/black_color_30"
-        android:dividerHeight="1dp" />
+        android:visibility="visible"></com.cp.mylibrary.custom.EmptyLayout>
 
-    <include layout="@layout/load_more" />
+    <com.cp.mylibrary.pullto.PullToRefreshLayout
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</com.cp.mylibrary.pullto.PullToRefreshLayout>
+
+        <include layout="@layout/refresh_head" />
+
+
+        <com.cp.mylibrary.pullto.PullableListView
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_cp_util"
+            android:divider="@color/black_color_30"
+            android:dividerHeight="1dp" />
+
+        <include layout="@layout/load_more" />
+
+    </com.cp.mylibrary.pullto.PullToRefreshLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>
+
 
 
 

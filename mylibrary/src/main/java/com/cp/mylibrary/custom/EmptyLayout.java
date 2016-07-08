@@ -150,6 +150,7 @@ public class EmptyLayout extends LinearLayout implements
 			animProgress.setVisibility(View.GONE);
 			clickEnable = true;
 			break;
+		//正在加载的显示
 		case NETWORK_LOADING:
 			mErrorState = NETWORK_LOADING;
 			// animProgress.setBackgroundDrawable(SkinsUtil.getDrawable(context,"loadingpage_bg"));
@@ -158,6 +159,7 @@ public class EmptyLayout extends LinearLayout implements
 			tv.setText(R.string.error_view_loading);
 			clickEnable = false;
 			break;
+		//没有数据 的显示
 		case NODATA:
 			mErrorState = NODATA;
 			// img.setBackgroundDrawable(SkinsUtil.getDrawable(context,"page_icon_empty"));

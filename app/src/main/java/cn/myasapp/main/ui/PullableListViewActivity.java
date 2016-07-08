@@ -1,13 +1,19 @@
 package cn.myasapp.main.ui;
 
+import android.view.View;
+import android.widget.AdapterView;
+
 import com.cp.mylibrary.base.BaseListActivity;
 import com.cp.mylibrary.utils.GsonUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
 import java.util.List;
 
 import cn.myasapp.R;
+import cn.myasapp.main.TestUIhelper;
 import cn.myasapp.main.adapter.MainFocusAdapter;
 import cn.myasapp.main.api.TestApi;
+import cn.myasapp.main.bean.MainFocus;
 import cn.myasapp.main.res.MainFocusListRes;
 
 
@@ -33,16 +39,18 @@ public class PullableListViewActivity extends BaseListActivity {
         mAdapter = new MainFocusAdapter(this);
 
 
-        content_view.setAdapter(mAdapter);
+        mListView.setAdapter(mAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainFocus mainFocus = (MainFocus) mData.get(position);
+                ShowToastUtil.showToast(PullableListViewActivity.this,"点击了哪一个，" +mainFocus.getTitle() );
+            }
+        });
+
+
     }
 
-    @Override
-    public void initMyData() {
-        super.initMyData();
-
-        requestData( );
-
-    }
 
     @Override
     protected void requestData(   ) {

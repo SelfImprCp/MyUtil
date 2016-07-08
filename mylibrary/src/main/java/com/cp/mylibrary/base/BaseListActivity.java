@@ -10,11 +10,7 @@ import com.cp.mylibrary.api.MyResponseHandler;
 import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.pullto.PullToRefreshLayout;
-import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.LogCp;
-
-import org.kymjs.kjframe.ui.BindView;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,26 +29,26 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
     public static int mState = STATE_NONE;
 
 
-
-
-
-
-
+    //解析数据
     private ParserTask mParserTask;
 
 
+    //当前页数
     protected int mCurrentPage = 1;
-
-      public PullToRefreshLayout refresh_view;
-
-     public ListView content_view;
-
+    //由新的控件
+    public PullToRefreshLayout refresh_view;
+    //
+    public ListView mListView;
+    //列表的甜酸器
     public ListBaseAdapter mAdapter;
 
-
+    //数据源
     public List<T> mData;
 
     public int PAGE_SIZE = 10;
+
+   // 没有数据 的情况
+    public EmptyLayout mErrorLayout;
 
 
 
@@ -68,12 +64,26 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
     protected void initView() {
         super.initView();
 
-        refresh_view = (PullToRefreshLayout)findViewById(R.id.refresh_view);
-        content_view = (ListView)findViewById(R.id.content_view);
+        refresh_view = (PullToRefreshLayout) findViewById(R.id.refresh_view);
+        mListView = (ListView) findViewById(R.id.content_view);
+
+
 
         refresh_view.setOnRefreshListener(myPullToListner);
-        content_view.setOnScrollListener(this);
+        mListView.setOnScrollListener(this);
+
+
+        mErrorLayout = (EmptyLayout)findViewById(R.id.error_layout);
+
+
+         // 界面初始完了，加载数据
+        requestData( );
     }
+
+
+
+
+
 
     public PullToRefreshLayout.OnRefreshListener myPullToListner = new PullToRefreshLayout.OnRefreshListener() {
 
@@ -83,7 +93,7 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
             mCurrentPage = 1;
 
             mData.clear();
-            requestData( );
+            requestData();
 
             LogCp.i(LogCp.CP, BaseListActivity.class + " 刷新了，， " + mCurrentPage);
 
@@ -96,11 +106,19 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
 //        }
     };
 
-    protected void requestData(   ) {
-
+    /**
+     * 子类要复写的加载数据 的方法
+     */
+    protected void requestData() {
+        if(mData.size()==0)
+        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
 
     }
 
+
+    /**
+     *  所有的子类的请求响应
+     */
 
     public MyResponseHandler responseHandler = new MyResponseHandler() {
 
@@ -128,10 +146,10 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
 
     protected void refreshLoadMoreFinish() {
         // 千万别忘了告诉控件刷新完毕了哦！
-        if(refresh_view!=null)
-        {
+        if (refresh_view != null) {
             refresh_view.refreshFinish(PullToRefreshLayout.SUCCEED);
             refresh_view.loadmoreFinish(PullToRefreshLayout.SUCCEED);
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         }
 
 
@@ -194,7 +212,7 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
     protected void executeOnLoadDataSuccess(List<T> data) {
 
 
-         //加载完成，设置状态
+        //加载完成，设置状态
         mState = STATE_NONE;
 
         //这里要判断 还有没有更多数据
@@ -205,7 +223,7 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         }
 
 
-     //   mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        //   mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         if (mState == STATE_REFRESH)
             mAdapter.clear();
 
@@ -225,19 +243,26 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         // 判断等于是因为最后有一项是listview的状态
         if (mAdapter.getCount() == 1) {
 
-//            if (needShowEmptyNoData()) {
-//                mErrorLayout.setErrorType(EmptyLayout.NODATA);
-//            } else {
-                mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
-                mAdapter.notifyDataSetChanged();
-          //  }
+           if (needShowEmptyNoData()) {
+                 mErrorLayout.setErrorType(EmptyLayout.NODATA);
+             } else {
+            mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
+            mAdapter.notifyDataSetChanged();
+              }
         }
-
-
 
 
     }
 
+    /**
+     * 是否需要隐藏listview，显示无数据状态
+     *
+     * @author 火蚁 2015-1-27 下午6:18:59
+     *
+     */
+    protected boolean needShowEmptyNoData() {
+        return true;
+    }
 
     protected int getPageSize() {
         return PAGE_SIZE;
@@ -246,7 +271,6 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
     protected List<T> parseList(String is) {
         return null;
     }
-
 
 
     @Override
@@ -273,7 +297,6 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         LogCp.i(LogCp.CP, BaseListActivity.class + "   到底了，， " + scrollEnd);
 
 
-
         if (mState == STATE_NONE && scrollEnd) {
             if (mAdapter.getState() == ListBaseAdapter.STATE_LOAD_MORE
                     || mAdapter.getState() == ListBaseAdapter.STATE_NETWORK_ERROR) {
@@ -281,7 +304,7 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
                 LogCp.i(LogCp.CP, BaseListActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
 
                 mState = STATE_LOADMORE;
-                requestData( );
+                requestData();
                 mAdapter.setFooterViewLoading("");
             }
         }

@@ -308,19 +308,5 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
 
 
 
-    protected void setText(TextView textView, String text, boolean needGone) {
-        if (text == null || TextUtils.isEmpty(text)) {
-            if (needGone) {
-                textView.setVisibility(View.GONE);
-            }
-        } else {
-            textView.setText(text);
-        }
-    }
-
-    protected void setText(TextView textView, String text) {
-        setText(textView, text, false);
-    }
-
 
 }
