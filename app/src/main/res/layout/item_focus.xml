@@ -7,7 +7,7 @@
      <TextView
          android:id="@+id/item_focus_text"
          android:layout_width="wrap_content"
-         android:layout_height="100px"
+         android:layout_height="200px"
          android:text="名字"
          />
 

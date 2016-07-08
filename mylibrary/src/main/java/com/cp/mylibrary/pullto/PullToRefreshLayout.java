@@ -64,7 +64,7 @@ public class PullToRefreshLayout extends RelativeLayout
 
 	private MyTimer timer;
 	// 回滚速度
-	public float MOVE_SPEED = 2;
+	public float MOVE_SPEED = 8;
 	// 第一次执行布局
 	private boolean isLayout = false;
 	// 在刷新过程中滑动操作
@@ -242,7 +242,7 @@ public class PullToRefreshLayout extends RelativeLayout
 				changeState(DONE);
 				hide();
 			}
-		}.sendEmptyMessageDelayed(0, 500);
+		}.sendEmptyMessageDelayed(0, 1000);
 	}
 
 	/**
@@ -280,7 +280,7 @@ public class PullToRefreshLayout extends RelativeLayout
 				changeState(DONE);
 				hide();
 			}
-		}.sendEmptyMessageDelayed(0,  0);
+		}.sendEmptyMessageDelayed(0,  1000);
 	}
 
 	private void changeState(int to)

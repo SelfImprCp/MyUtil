@@ -211,12 +211,6 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LogCp.i(LogCp.CP, ListBaseAdapter.class + "  总共有多少数据  ， " + getDataSize()  );
-
-
-        LogCp.i(LogCp.CP, ListBaseAdapter.class + "  getView  position ， " + position + " getCount()  " + getCount());
-
-
         if (position == getCount() - 1 && hasFooterView()) {// 最后一条
             // if (position < _data.size()) {
             // position = getCount() - 2; // footview
@@ -275,7 +269,6 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
 
 
 
-        LogCp.i(LogCp.CP, ListBaseAdapter.class + "  为空了吗？ mContext ， " + mContext + "position " +position);
 
         //构造viewHolder ,
         ViewHolder viewHolder = ViewHolder.get(mContext, convertView, parent,

@@ -16,14 +16,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * Created by Jerry on 2016/6/17.
- *
- *  ViewHolder 的封装,
- *
- *
+ * <p>
+ * ViewHolder 的封装,
  */
-public class ViewHolder extends RecyclerView.ViewHolder{
-
-
+public class ViewHolder extends RecyclerView.ViewHolder {
 
 
     private final SparseArray<View> mViews;
@@ -32,8 +28,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     private Context mContext;
 
 
-    public ViewHolder(Context context, View itemView, ViewGroup parent, int position)
-    {
+    public ViewHolder(Context context, View itemView, ViewGroup parent, int position) {
         super(itemView);
         mContext = context;
         mConvertView = itemView;
@@ -43,7 +38,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
     }
 
-//    private ViewHolder(Context context, ViewGroup parent, int layoutId,
+    //    private ViewHolder(Context context, ViewGroup parent, int layoutId,
 //                       int position)
 //    {
 //        this.mPosition = position;
@@ -53,10 +48,9 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 //        // setTag
 //        mConvertView.setTag(this);
 //    }
-public void updatePosition(int position)
-{
-    mPosition = position;
-}
+    public void updatePosition(int position) {
+        mPosition = position;
+    }
 
     /**
      * 拿到一个ViewHolder对象
@@ -69,20 +63,15 @@ public void updatePosition(int position)
      * @return
      */
     public static ViewHolder get(Context context, View convertView,
-                                 ViewGroup parent, int layoutId, int position)
-    {
-        if (convertView == null)
-        {
-            View itemView = LayoutInflater.from(context).inflate(layoutId, parent,
+                                 ViewGroup parent, int layoutId, int position) {
+        if (convertView == null || convertView.getTag() == null) {
+            convertView = LayoutInflater.from(context).inflate(layoutId, parent,
                     false);
-            ViewHolder holder = new ViewHolder(context, itemView, parent, position);
-
+            ViewHolder holder = new ViewHolder(context, convertView, parent, position);
+            convertView.setTag(holder);
             return holder;
-        } else
-        {
+        } else {
             ViewHolder holder = (ViewHolder) convertView.getTag();
-
-            LogCp.i(LogCp.CP, ViewHolder.class + "  为空了吗？ holder ， " + holder);
 
 
             holder.mPosition = position;
@@ -90,8 +79,7 @@ public void updatePosition(int position)
         }
     }
 
-    public View getConvertView()
-    {
+    public View getConvertView() {
         return mConvertView;
     }
 
@@ -101,11 +89,9 @@ public void updatePosition(int position)
      * @param viewId
      * @return
      */
-    public <T extends View> T getView(int viewId)
-    {
+    public <T extends View> T getView(int viewId) {
         View view = mViews.get(viewId);
-        if (view == null)
-        {
+        if (view == null) {
             view = mConvertView.findViewById(viewId);
             mViews.put(viewId, view);
         }
@@ -119,8 +105,7 @@ public void updatePosition(int position)
      * @param text
      * @return
      */
-    public ViewHolder setText(int viewId, String text)
-    {
+    public ViewHolder setText(int viewId, String text) {
         TextView view = getView(viewId);
         view.setText(text);
         return this;
@@ -133,8 +118,7 @@ public void updatePosition(int position)
      * @param drawableId
      * @return
      */
-    public ViewHolder setImageResource(int viewId, int drawableId)
-    {
+    public ViewHolder setImageResource(int viewId, int drawableId) {
         ImageView view = getView(viewId);
         view.setImageResource(drawableId);
 
@@ -148,8 +132,7 @@ public void updatePosition(int position)
      * @param
      * @return
      */
-    public ViewHolder setImageBitmap(int viewId, Bitmap bm)
-    {
+    public ViewHolder setImageBitmap(int viewId, Bitmap bm) {
         ImageView view = getView(viewId);
         view.setImageBitmap(bm);
         return this;
@@ -162,13 +145,12 @@ public void updatePosition(int position)
      * @param
      * @return
      */
-    public ViewHolder setImageByUrl(int viewId, String url)
-    {
+    public ViewHolder setImageByUrl(int viewId, String url) {
 
 
         ImageLoader.getInstance().displayImage(url,
                 (ImageView) getView(viewId));
-   //   ImageLoader.getInstance().loadImage(url,(ImageView) getView(viewId));
+        //   ImageLoader.getInstance().loadImage(url,(ImageView) getView(viewId));
         return this;
     }
 

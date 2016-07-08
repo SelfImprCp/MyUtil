@@ -206,25 +206,8 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
 
 
      //   mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-        if (mCurrentPage == 1) {
+        if (mState == STATE_REFRESH)
             mAdapter.clear();
-        }
-
-        LogCp.i(LogCp.CP,
-                BaseListActivity.class + "比较前有多少数据 ，， ，，" + data.size());
-
-        for (int i = 0; i < data.size(); i++) {
-//            if (compareTo(mAdapter.getData(), data.get(i))) {
-//
-//
-//                // data.remove(i);
-//
-//                i--;
-//            }
-        }
-
-        LogCp.i(LogCp.CP, BaseListActivity.class + "比较后有多少数据， ，，" + data.size());
-
 
 
         int adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
@@ -291,14 +274,16 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
 
 
 
-        if(scrollEnd)
-        {
-            mCurrentPage++;
-            //设置状态正在加载更多，避免多次加栽
-            mState = STATE_LOADMORE;
-            requestData( );
-            LogCp.i(LogCp.CP, BaseListActivity.class + "  加载更多了，， " + mCurrentPage);
+        if (mState == STATE_NONE && scrollEnd) {
+            if (mAdapter.getState() == ListBaseAdapter.STATE_LOAD_MORE
+                    || mAdapter.getState() == ListBaseAdapter.STATE_NETWORK_ERROR) {
+                mCurrentPage++;
+                LogCp.i(LogCp.CP, BaseListActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
 
+                mState = STATE_LOADMORE;
+                requestData( );
+                mAdapter.setFooterViewLoading("");
+            }
         }
 
     }
