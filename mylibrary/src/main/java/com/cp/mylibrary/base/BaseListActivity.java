@@ -43,7 +43,7 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
     public ListBaseAdapter mAdapter;
 
     //数据源
-    public List<T> mData;
+    public List<T> mData = new ArrayList<T>();
 
     public int PAGE_SIZE = 10;
 
@@ -110,8 +110,8 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
      * 子类要复写的加载数据 的方法
      */
     protected void requestData() {
-        if(mData.size()==0)
-        mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+       // if(mData.size()==0)
+     //   mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
 
     }
 
