@@ -29,6 +29,9 @@ public class TitleBarView extends RelativeLayout {
         super(context);
 
         initView(context);
+
+
+
     }
 
     public TitleBarView(Context context, AttributeSet attrs) {
