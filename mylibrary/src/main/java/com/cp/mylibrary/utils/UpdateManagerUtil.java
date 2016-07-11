@@ -70,7 +70,8 @@ public class UpdateManagerUtil {
         if (isShow) {
             showCheckDialog();
         }
-   //     MoFoxApi.getver(mCheckUpdateHandle);
+
+     //  MoFoxApi.getver(mCheckUpdateHandle);
 
     }
 

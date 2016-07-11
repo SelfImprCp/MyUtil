@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <cn.myasapp.main.ui.TitleBarView
+
+          android:id="@+id/dialog_test_title"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+
+     </cn.myasapp.main.ui.TitleBarView>
+
+
+          <com.zhy.autolayout.AutoLinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              >
+
+
+
+              <TextView
+                  android:id="@+id/dialog_wait"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/white"
+                  android:gravity="center"
+                  android:padding="@dimen/space_8"
+                  android:text="  弹个等待对话框 "
+                  android:textColor="@color/ailibuli_base_color"
+                  android:textSize="@dimen/text_size_15" />
+
+
+
+
+
+          </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+
+
+</LinearLayout>

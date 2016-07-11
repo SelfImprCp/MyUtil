@@ -21,7 +21,7 @@
                 android:id="@+id/test_app_utils"
                 style="@style/test_textview_style"
 
-                android:text="测试AppUtils" />
+                android:text="测试版本更新" />
 
 
             <TextView
@@ -122,6 +122,15 @@
 
                 style="@style/test_textview_style"
                 android:text="    pullto_test     " />
+
+
+            <TextView
+                android:id="@+id/dialog_test"
+
+                style="@style/test_textview_style"
+                android:text="   测试对话框    " />
+
+
 
 
         </LinearLayout>

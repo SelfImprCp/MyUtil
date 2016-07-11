@@ -26,7 +26,7 @@ public class WaitDialog extends Dialog {
 	public WaitDialog(Context context) {
 		super(context);
 		init(context);
-		mContext = context;
+
 	}
 
 	public WaitDialog(Context context, int defStyle) {
@@ -65,7 +65,7 @@ public class WaitDialog extends Dialog {
 	}
 
 	private void init(Context context) {
-		setCancelable(false);
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		View view = LayoutInflater.from(context).inflate(R.layout.dialog_wait, null);
 		_messageTv = (TextView) view.findViewById(R.id.waiting_tv);

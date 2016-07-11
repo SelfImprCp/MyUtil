@@ -131,6 +131,14 @@
 
             android:windowSoftInputMode="adjustResize"></activity>
 
+        <activity
+            android:name=".main.ui.DialogTestActivity"
+
+            android:windowSoftInputMode="adjustResize"></activity>
+
+
+
+
 
     </application>
 

@@ -8,6 +8,7 @@ import com.cp.mylibrary.utils.OpenActivityUtil;
 
 import cn.myasapp.main.domian.SimpleBackPage;
 
+import cn.myasapp.main.ui.DialogTestActivity;
 import cn.myasapp.main.ui.PullableListViewActivity;
 import cn.myasapp.main.ui.SimpleBackActivity;
 import cn.myasapp.main.ui.TestActivity;
@@ -92,6 +93,13 @@ public class TestUIhelper {
     public static void showPullableListViewActivity(Context context) {
        OpenActivityUtil.getInstance().openActivity(context,PullableListViewActivity.class);
     }
+
+
+    public static void showDialogTestActivity(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,DialogTestActivity.class);
+    }
+
+
 
 
 

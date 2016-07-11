@@ -1,11 +1,13 @@
 package cn.myasapp.main.ui;
 
 import android.app.Dialog;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
 import com.cp.mylibrary.utils.AppUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
+import com.cp.mylibrary.utils.UpdateManagerUtil;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -81,6 +83,14 @@ public class TestActivity extends BaseActivity {
 
 
 
+    @BindView(id = R.id.dialog_test, click = true)
+    private TextView dialog_test;
+
+
+
+
+
+
     @Override
     public void setRootView() {
 
@@ -96,7 +106,15 @@ public class TestActivity extends BaseActivity {
             // 测试AppUtils
             case R.id.test_app_utils:
 
-                ShowToastUtil.showToast(this, "AppName " + AppUtils.getAppName(this) + " app versionName " + AppUtils.getVersionName(this));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        new UpdateManagerUtil(TestActivity.this, false, false)
+                                .checkUpdate();
+                    }
+                }, 2000);
 
                 break;
 
@@ -217,6 +235,13 @@ public class TestActivity extends BaseActivity {
 
                 break;
 
+
+
+            case R.id.dialog_test:
+
+                TestUIhelper.   showDialogTestActivity(this);
+
+                break;
 
 
 
