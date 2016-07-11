@@ -5,10 +5,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.cp.mylibrary.custom.CircleImageView;
+import com.cp.mylibrary.custom.TimerTextView;
 import com.cp.mylibrary.twocode.CreateTwoCodeUtil;
 import com.cp.mylibrary.utils.ImageUtils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -29,6 +32,13 @@ public class TestCreateTwoCode extends BaseActivity {
     @BindView(id = R.id.create_two_codes_img)
     private ImageView create_two_codes_img;
 
+    @BindView(id = R.id.circle_imageview)
+    private CircleImageView circle_imageview;
+    @BindView(id = R.id.timer_text_view)
+    private TimerTextView timer_text_view;
+
+
+
 
     @Override
     public void setRootView() {
@@ -46,6 +56,14 @@ public class TestCreateTwoCode extends BaseActivity {
         create_two_codes_test_title.setTitleStr("生成二维码");
 
 
+        ImageLoader.getInstance().displayImage("http://avatar.csdn.net/3/D/6/1_u013193363.jpg",circle_imageview);
+
+
+
+        timer_text_view.setTimes(50);
+        if (!timer_text_view.isRun()) {
+            timer_text_view.start();
+        }
     }
 
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shop_two_view_nointent_lin"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:layout_centerInParent="true"
+    android:background="#fdeeba"
+    android:orientation="horizontal"
+    android:visibility="visible" >
+
+    <ImageView
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/red_bg_gantanhao" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="最遥远的距离就是没网络,请检查是否连网!"
+        android:layout_marginLeft="15dp"
+        android:textColor="#6f6d6e"
+        android:textSize="@dimen/text_size_sp_13" />
+
+</LinearLayout>

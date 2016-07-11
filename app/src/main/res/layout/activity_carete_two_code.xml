@@ -26,5 +26,22 @@
          />
 
 
+    <com.cp.mylibrary.custom.CircleImageView
+
+        android:id="@+id/circle_imageview"
+        android:layout_width="80px"
+        android:layout_height="80px"
+
+
+        />
+
+     <com.cp.mylibrary.custom.TimerTextView
+         android:id="@+id/timer_text_view"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          ></com.cp.mylibrary.custom.TimerTextView>
+
+
+
 
 </LinearLayout>

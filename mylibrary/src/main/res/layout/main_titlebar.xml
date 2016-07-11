@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/titlebar_height"
+    android:background="@color/ailibuli_base_color" >
+
+    <TextView
+        android:id="@+id/titlebar_text_title"
+        style="@style/titlebar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:maxEms="8"
+        android:singleLine="true"
+        android:textSize="17sp" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_back"
+        style="@style/titlebar_img"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/flash_default" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_menu_col"
+        style="@style/titlebar_img"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/titlebar_img_menu"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/flash_default"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_menu"
+        style="@style/titlebar_img"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/flash_default"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/titlebar_tv_menu2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:textColor="@color/black_color_30"
+        android:textSize="17sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
