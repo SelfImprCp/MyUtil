@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.view.Window;
 
 import com.cp.mylibrary.app.MyBaseApp;
+import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.kymjs.kjframe.KJActivity;
 
 /**
@@ -32,16 +37,18 @@ public class MyBaseActivity extends KJActivity {
 
 
         // 注册 事件
-    //    EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
 
 
     }
 
 
-//    public void onEvent(BaseEvent event) {
-//
-//    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void helloEventBus(BaseEvent message) {
 
+
+
+    }
 
 
 
@@ -104,7 +111,7 @@ public class MyBaseActivity extends KJActivity {
         ((MyBaseApp) this.getApplication()).getActivityManager().popActivity(
                 this);
         mContext = null;
-      //  EventBus.getDefault().unregister(this);
+   EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 

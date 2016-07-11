@@ -12,12 +12,16 @@ import com.cp.mylibrary.interf.OnTabReselectListener;
 import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import cn.myasapp.R;
 import cn.myasapp.main.adapter.MainFocusAdapter;
 import cn.myasapp.main.api.TestApi;
 import cn.myasapp.main.bean.MainFocus;
+import cn.myasapp.main.event.TestEvent;
 import cn.myasapp.main.res.MainFocusListRes;
 
 
@@ -69,6 +73,10 @@ public class TestViewPageFragment extends BaseListFragment
 
             return res.getResult();
         }
+
+
+
+
 
 
     }

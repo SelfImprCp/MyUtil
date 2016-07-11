@@ -34,4 +34,6 @@
 
 
 
+    <string name="down_state">正在下载：%s</string>
+
 </resources>

@@ -8,11 +8,13 @@ import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.SDCardUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.kymjs.kjframe.ui.BindView;
 
 import java.io.IOException;
 
 import cn.myasapp.R;
+import cn.myasapp.main.event.TestEvent;
 
 /**
  * Created by Jerry on 2016/7/4.
@@ -93,6 +95,9 @@ public class TestFileUtil extends BaseActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+
+
 
                 break;
             // 测试 读 文件
@@ -194,6 +199,18 @@ public class TestFileUtil extends BaseActivity {
 
                 //        LogCp.i(LogCp.CP, TestActivity.class + "   DATA  卡上的文件是否存在， " + isDATA);
                 ShowToastUtil.showToast(this, "   DATA  卡上的文件是否存在， " + isDATA);
+
+
+
+                // 测试 发个事件
+                TestEvent event = new TestEvent();
+                event.setString("测试 事件 ");
+                EventBus.getDefault().post(event);
+
+                LogCp.i(LogCp.CP,TestFileUtil.class + "发出事件 了");
+
+
+
 
                 break;
 

@@ -5,24 +5,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cp.mylibrary.utils.AppUtils;
-import com.cp.mylibrary.utils.FileUtil;
-import com.cp.mylibrary.utils.GsonUtil;
-import com.cp.mylibrary.utils.KeyBoardUtils;
-import com.cp.mylibrary.utils.LogCp;
-import com.cp.mylibrary.utils.NetWorkUtil;
-import com.cp.mylibrary.utils.OpenActivityUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.kymjs.kjframe.ui.BindView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import cn.myasapp.R;
 import cn.myasapp.main.TestUIhelper;
-import cn.myasapp.main.bean.MainFocus;
 import cn.myasapp.main.bean.UserBean;
-import cn.myasapp.main.res.MainFocusListRes;
+import cn.myasapp.main.event.TestEvent;
 
 
 /**
@@ -231,4 +223,13 @@ public class TestActivity extends BaseActivity {
         }
 
     }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void helloEventBus(TestEvent message) {
+
+         ShowToastUtil.showToast(this,"收到的事件 消息" + message.getString());
+
+    }
+
 }
