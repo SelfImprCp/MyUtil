@@ -10,7 +10,6 @@ import com.cp.mylibrary.utils.ShowToastUtil;
 import java.util.List;
 
 import cn.myasapp.R;
-import cn.myasapp.main.TestUIhelper;
 import cn.myasapp.main.adapter.MainFocusAdapter;
 import cn.myasapp.main.api.TestApi;
 import cn.myasapp.main.bean.MainFocus;
