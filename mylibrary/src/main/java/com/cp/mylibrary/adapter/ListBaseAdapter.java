@@ -27,14 +27,18 @@ import java.util.List;
  * 封装好的类,正常情况下无需修改,子类继承只需要复写两个方法就可以了
  */
 public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
-
-    public static final int STATE_EMPTY_ITEM = 0;
+   //没有数据 了，已加载全部
+  //  public static final int STATE_EMPTY_ITEM = 0;
+    //加载更多
     public static final int STATE_LOAD_MORE = 1;
+    //没有更多了，已加载全部
     public static final int STATE_NO_MORE = 2;
+    //没有任何数据
     public static final int STATE_NO_DATA = 3;
     public static final int STATE_LESS_ONE_PAGE = 4;
+    //网络错误
     public static final int STATE_NETWORK_ERROR = 5;
-    public static final int STATE_OTHER = 6;
+//    public static final int STATE_OTHER = 6;
 
     protected int state = STATE_LESS_ONE_PAGE;
 
@@ -101,8 +105,8 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
     @Override
     public int getCount() {
         switch (getState()) {
-            case STATE_EMPTY_ITEM:
-                return getDataSizePlus1();
+//            case STATE_EMPTY_ITEM:
+//                return getDataSizePlus1();
             case STATE_NETWORK_ERROR:
             case STATE_LOAD_MORE:
                 return getDataSizePlus1();
@@ -216,7 +220,7 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
             // position = getCount() - 2; // footview
             // }
             if (getState() == STATE_LOAD_MORE || getState() == STATE_NO_MORE
-                    || state == STATE_EMPTY_ITEM
+//                    || state == STATE_EMPTY_ITEM
                     || getState() == STATE_NETWORK_ERROR) {
                 this.mFooterView = (LinearLayout) LayoutInflater.from(
                         parent.getContext()).inflate(R.layout.list_cell_footer,
@@ -237,11 +241,11 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
                         text.setVisibility(View.VISIBLE);
                         text.setText(_loadFinishText);
                         break;
-                    case STATE_EMPTY_ITEM:
-                        progress.setVisibility(View.GONE);
-                        mFooterView.setVisibility(View.VISIBLE);
-                        text.setText(_noDateText);
-                        break;
+//                    case STATE_EMPTY_ITEM:
+//                        progress.setVisibility(View.GONE);
+//                        mFooterView.setVisibility(View.VISIBLE);
+//                        text.setText(_noDateText);
+//                        break;
                     case STATE_NETWORK_ERROR:
                         mFooterView.setVisibility(View.VISIBLE);
                         progress.setVisibility(View.GONE);

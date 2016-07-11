@@ -20,6 +20,7 @@ public class DialogHelper {
 
 	private static DialogHelper instantce = null;
 	private Dialog configDialog;
+	private Dialog dialog;
 
 	public Dialog getConfigDialog() {
 		return configDialog;
@@ -35,6 +36,15 @@ public class DialogHelper {
 		}
 		return instantce;
 	}
+
+	public Dialog getDialog() {
+		return dialog;
+	}
+
+	public void setDialog(Dialog dialog) {
+		this.dialog = dialog;
+	}
+
 
 	/**
 	 * 返回一个加载中的对话框
@@ -167,5 +177,25 @@ public class DialogHelper {
 		return instantce;
 	}
 
-
+	/**
+	 * 加载框
+	 */
+	public static DialogHelper loadDialog(Context context, String msg) {
+		Dialog d = new AlertDialog.Builder(context).create();
+		// 实例化对话框布局
+		View dialogLayout = LayoutInflater.from(context).inflate(
+				R.layout.base_load_dialog, null);
+		// 设置标题的内容
+		TextView title = (TextView) dialogLayout
+				.findViewById(R.id.base_load_txt);
+		title.setText(msg);
+		// requestFeature() show之后才有window
+		d.setCanceledOnTouchOutside(false); // 触摸外部不会取消
+		// d.setCancelable(false);//返回键不会取消
+		d.show();
+		d.setContentView(dialogLayout);
+		instantce = getInstances();
+		instantce.setDialog(d);
+		return instantce;
+	}
 }

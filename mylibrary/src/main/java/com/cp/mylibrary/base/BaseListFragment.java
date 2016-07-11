@@ -232,9 +232,9 @@ public class BaseListFragment<T extends MyEntity> extends MyBaseFragment impleme
             mAdapter.clear();
 
 
-        int adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
+        int adapterState = ListBaseAdapter.STATE_NO_DATA;
         if ((mAdapter.getCount() + data.size()) == 0) {
-            adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
+            adapterState = ListBaseAdapter.STATE_NO_DATA;
         } else if (data.size() == 0
                 || (data.size() < getPageSize() && mCurrentPage == 1)) {
             adapterState = ListBaseAdapter.STATE_NO_MORE;
@@ -250,7 +250,7 @@ public class BaseListFragment<T extends MyEntity> extends MyBaseFragment impleme
             if (needShowEmptyNoData()) {
                 mErrorLayout.setErrorType(EmptyLayout.NODATA);
             } else {
-                mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
+                mAdapter.setState(ListBaseAdapter.STATE_NO_DATA);
                 mAdapter.notifyDataSetChanged();
             }
         }

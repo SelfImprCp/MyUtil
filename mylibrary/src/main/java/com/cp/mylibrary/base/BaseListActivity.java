@@ -11,6 +11,7 @@ import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.pullto.PullToRefreshLayout;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.NetWorkUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,16 +41,15 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
     //
     public ListView mListView;
     //列表的甜酸器
-    public ListBaseAdapter mAdapter;
+    private ListBaseAdapter mAdapter;
 
     //数据源
     public List<T> mData = new ArrayList<T>();
 
     public int PAGE_SIZE = 10;
 
-   // 没有数据 的情况
+    // 没有数据 的情况
     public EmptyLayout mErrorLayout;
-
 
 
     @Override
@@ -67,22 +67,26 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         refresh_view = (PullToRefreshLayout) findViewById(R.id.refresh_view);
         mListView = (ListView) findViewById(R.id.content_view);
 
-
-
         refresh_view.setOnRefreshListener(myPullToListner);
         mListView.setOnScrollListener(this);
 
+      mAdapter =  getmAdapter();
 
-        mErrorLayout = (EmptyLayout)findViewById(R.id.error_layout);
+
+        mListView.setAdapter(mAdapter);
+
+        mErrorLayout = (EmptyLayout) findViewById(R.id.error_layout);
 
 
-         // 界面初始完了，加载数据
-        requestData( );
+        // 界面初始完了，加载数据
+        requestData();
     }
 
 
-
-
+    protected ListBaseAdapter getmAdapter ()
+    {
+        return  null;
+    };
 
 
     public PullToRefreshLayout.OnRefreshListener myPullToListner = new PullToRefreshLayout.OnRefreshListener() {
@@ -110,14 +114,29 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
      * 子类要复写的加载数据 的方法
      */
     protected void requestData() {
-       // if(mData.size()==0)
-     //   mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+        // 第一次加载的时候 ，转圈圈
+        if (mCurrentPage == 1)
+            mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+
+        //第一次加载，并且没有网络
+
+        if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(this)&&mData.size()==0) {
+            //设置整个界面
+            mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+
+        }
+        // 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
+        if (mCurrentPage != 1 && !NetWorkUtil.hasInternetConnected(this)) {
+            mAdapter.setState(ListBaseAdapter.STATE_NETWORK_ERROR);
+            mAdapter.notifyDataSetChanged();
+        }
+
 
     }
 
 
     /**
-     *  所有的子类的请求响应
+     * 所有的子类的请求响应
      */
 
     public MyResponseHandler responseHandler = new MyResponseHandler() {
@@ -174,6 +193,9 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         private final String reponseData;
         private boolean parserError;
 
+        private List<T>
+                currentList = new ArrayList<T>();
+
         public ParserTask(String data) {
             this.reponseData = data;
         }
@@ -181,9 +203,9 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         @Override
         protected String doInBackground(Void... params) {
             try {
-                mData = parseList(reponseData);
+                currentList = parseList(reponseData);
                 LogCp.i(LogCp.CP, BaseListFragment.class + "解析 出来的数据 的，值 ，，"
-                        + mData);
+                        + currentList);
 
 
             } catch (Exception e) {
@@ -201,38 +223,43 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
 
                 //解析出错了
                 //  readCacheData(getCacheKey());
+
+
             } else {
 
-                executeOnLoadDataSuccess(mData);
+                executeOnLoadDataSuccess(currentList);
 
             }
         }
     }
 
+    /**
+     * 解析出来的数据
+     * @param data
+     */
     protected void executeOnLoadDataSuccess(List<T> data) {
+
 
 
         //加载完成，设置状态
         mState = STATE_NONE;
 
-        //这里要判断 还有没有更多数据
-
-
-        if (data == null) {
-            data = new ArrayList<T>();
-        }
-
-
-        //   mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         if (mState == STATE_REFRESH)
             mAdapter.clear();
 
 
-        int adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
+        int adapterState = ListBaseAdapter.STATE_NO_DATA;
+         //没有任何数据
         if ((mAdapter.getCount() + data.size()) == 0) {
-            adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
-        } else if (data.size() == 0
-                || (data.size() < getPageSize() && mCurrentPage == 1)) {
+             // 设置adapter的状态
+            adapterState = ListBaseAdapter.STATE_NO_DATA;
+            //设置整个界面的状态
+            mErrorLayout.setErrorType(EmptyLayout.NODATA);
+
+        }
+        //没有更多数据 了
+        else if (data.size() == 0
+                || data.size() < getPageSize()  ) {
             adapterState = ListBaseAdapter.STATE_NO_MORE;
             mAdapter.notifyDataSetChanged();
         } else {
@@ -240,29 +267,11 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
         }
         mAdapter.setState(adapterState);
         mAdapter.addData(data);
-        // 判断等于是因为最后有一项是listview的状态
-        if (mAdapter.getCount() == 1) {
 
-           if (needShowEmptyNoData()) {
-                 mErrorLayout.setErrorType(EmptyLayout.NODATA);
-             } else {
-            mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
-            mAdapter.notifyDataSetChanged();
-              }
-        }
 
 
     }
 
-    /**
-     * 是否需要隐藏listview，显示无数据状态
-     *
-     * @author 火蚁 2015-1-27 下午6:18:59
-     *
-     */
-    protected boolean needShowEmptyNoData() {
-        return true;
-    }
 
     protected int getPageSize() {
         return PAGE_SIZE;

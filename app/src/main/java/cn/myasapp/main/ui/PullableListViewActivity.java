@@ -3,6 +3,7 @@ package cn.myasapp.main.ui;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.cp.mylibrary.adapter.ListBaseAdapter;
 import com.cp.mylibrary.base.BaseListActivity;
 import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
@@ -19,7 +20,6 @@ import cn.myasapp.main.res.MainFocusListRes;
 public class PullableListViewActivity extends BaseListActivity {
 
 
-
     @Override
     public void setRootView() {
         super.setRootView();
@@ -28,22 +28,22 @@ public class PullableListViewActivity extends BaseListActivity {
 
     }
 
+    @Override
+    protected ListBaseAdapter getmAdapter() {
+        MainFocusAdapter mAdapter = new MainFocusAdapter(this);
+        return mAdapter;
+    }
 
     @Override
     protected void initView() {
         super.initView();
 
 
-
-        mAdapter = new MainFocusAdapter(this);
-
-
-        mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MainFocus mainFocus = (MainFocus) mData.get(position);
-                ShowToastUtil.showToast(PullableListViewActivity.this,"点击了哪一个，" +mainFocus.getTitle() );
+                ShowToastUtil.showToast(PullableListViewActivity.this, "点击了哪一个，" + mainFocus.getTitle());
             }
         });
 
@@ -52,21 +52,20 @@ public class PullableListViewActivity extends BaseListActivity {
 
 
     @Override
-    protected void requestData(   ) {
-        super.requestData( );
+    protected void requestData() {
+        super.requestData();
 
-        TestApi.getTestPageList(mCurrentPage+"", responseHandler);
+        TestApi.getTestPageList(mCurrentPage + "", responseHandler);
 
     }
 
     @Override
     protected List parseList(String is) {
 
-        MainFocusListRes  res = GsonUtil.jsonStrToBean(is,MainFocusListRes.class);
+        MainFocusListRes res = GsonUtil.jsonStrToBean(is, MainFocusListRes.class);
 
         return res.getResult();
     }
-
 
 
 }
