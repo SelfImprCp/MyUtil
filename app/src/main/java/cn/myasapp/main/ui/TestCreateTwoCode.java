@@ -1,5 +1,7 @@
 package cn.myasapp.main.ui;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.Button;
@@ -8,12 +10,17 @@ import android.widget.ImageView;
 import com.cp.mylibrary.custom.CircleImageView;
 import com.cp.mylibrary.custom.TimerTextView;
 import com.cp.mylibrary.twocode.CreateTwoCodeUtil;
+import com.cp.mylibrary.utils.CameraAndSelectPicUtil;
 import com.cp.mylibrary.utils.ImageUtils;
+import com.cp.mylibrary.utils.ShowToastUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.kymjs.kjframe.ui.BindView;
+
+import java.io.File;
+import java.io.IOException;
 
 import cn.myasapp.R;
 
@@ -29,16 +36,31 @@ public class TestCreateTwoCode extends BaseActivity {
     @BindView(id = R.id.create_two_codes_button, click = true)
     private Button create_two_codes_button;
 
+
+    @BindView(id = R.id.select_photo_button, click = true)
+    private Button select_photo_button;
+
+
     @BindView(id = R.id.create_two_codes_img)
     private ImageView create_two_codes_img;
 
+    @BindView(id = R.id.select_photo_img)
+    private ImageView select_photo_img;
+
+
+
     @BindView(id = R.id.circle_imageview)
     private CircleImageView circle_imageview;
+
     @BindView(id = R.id.timer_text_view)
     private TimerTextView timer_text_view;
 
+    // 遮罩
+    @BindView(id = R.id.myview_user)
+    private View myview_user;
 
 
+    private CameraAndSelectPicUtil cameraAndSelectPicUtil;
 
     @Override
     public void setRootView() {
@@ -64,6 +86,16 @@ public class TestCreateTwoCode extends BaseActivity {
         if (!timer_text_view.isRun()) {
             timer_text_view.start();
         }
+
+        // new 一个出来，
+        cameraAndSelectPicUtil = new CameraAndSelectPicUtil(TestCreateTwoCode.this,
+                TestCreateTwoCode.this, myview_user);
+
+
+
+
+
+
     }
 
 
@@ -88,6 +120,78 @@ public class TestCreateTwoCode extends BaseActivity {
                 }
 
                 break;
+
+            case R.id.select_photo_button:
+
+                cameraAndSelectPicUtil.getPopupWindow(select_photo_img);
+
+
+                break;
+
+
         }
     }
+
+
+    /**
+     *  选择图片 ，返回 后的处理
+     */
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent imageReturnIntent) {
+
+        if (resultCode != Activity.RESULT_OK)
+            return;
+
+        switch (requestCode) {
+            case ImageUtils.REQUEST_CODE_GETIMAGE_BYCAMERA:
+                cameraAndSelectPicUtil.startActionCrop(null);// 拍照后裁剪
+                break;
+            case ImageUtils.REQUEST_CODE_GETIMAGE_BYCROP:
+                cameraAndSelectPicUtil.startActionCrop(imageReturnIntent.getData());// 选图后裁剪
+                break;
+
+            case ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD:
+
+
+                upImage();
+
+                break;
+        }
+
+    }
+
+    /**
+     * 拿到图片
+     */
+    private void upImage() {
+
+        // 获取头像缩略图
+
+       // if (cameraAndSelectPicUtil.getUpBitmapSetSize(200, 200) != null) {
+
+
+            File fileImg =  cameraAndSelectPicUtil.getUpFile();
+            Bitmap bitmap =  ImageUtils.getBitmapByFile(fileImg);
+
+
+             if(null!=bitmap)
+             {
+                 select_photo_img.setImageBitmap(bitmap);
+             }else
+             {
+                 ShowToastUtil.showToast(this,"图像不存在，上传失败");
+
+
+             }
+
+      //  } else {
+        //}
+
+    }
+
+
+
+
+
 }

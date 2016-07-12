@@ -8,6 +8,9 @@
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
          App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
 
+
+        <uses-permission android:name="android.permission.CAMERA" />
+
         <meta-data
             android:name="design_width"
             android:value="768"></meta-data>
