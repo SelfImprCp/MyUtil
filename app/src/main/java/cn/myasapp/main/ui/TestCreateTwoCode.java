@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.cp.mylibrary.activity.ImagePreviewActivity;
 import com.cp.mylibrary.custom.CircleImageView;
 import com.cp.mylibrary.custom.TimerTextView;
 import com.cp.mylibrary.twocode.CreateTwoCodeUtil;
@@ -41,7 +42,7 @@ public class TestCreateTwoCode extends BaseActivity {
     private Button select_photo_button;
 
 
-    @BindView(id = R.id.create_two_codes_img)
+    @BindView(id = R.id.create_two_codes_img,click = true)
     private ImageView create_two_codes_img;
 
     @BindView(id = R.id.select_photo_img)
@@ -128,6 +129,18 @@ public class TestCreateTwoCode extends BaseActivity {
 
                 break;
 
+            case R.id.create_two_codes_img:
+
+ String str [] = {"http://img5.imgtn.bdimg.com/it/u=614953024,3186504313&fm=21&gp=0.jpg"
+ ,"http://pic4.nipic.com/20090727/1843533_144804089_2.jpg"
+ ,"http://pic17.nipic.com/20111118/8868045_214622414000_2.jpg"
+ ,"http://pic31.nipic.com/20130624/8821914_104949466000_2.jpg"
+ ,"http://img5.imgtn.bdimg.com/it/u=3139005874,2415212363&fm=21&gp=0.jpg"};
+
+                 // 浏览大图
+            ImagePreviewActivity.showImagePrivew(this, 0, str);
+
+ break;
 
         }
     }

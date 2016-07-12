@@ -19,6 +19,14 @@
             android:value="1280"></meta-data>
 
         <service android:name="com.cp.mylibrary.service.DownloadService" />
+
+
+         <!-- 查看大图-->
+        <activity
+            android:name=".activity.ImagePreviewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
     </application>
 
 </manifest>
