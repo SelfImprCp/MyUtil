@@ -24,6 +24,7 @@ import cn.myasapp.main.ui.TestTwoCode;
 import cn.myasapp.main.ui.TestWebView;
 import cn.myasapp.main.ui.TextNetWorkUtils;
 import cn.myasapp.main.ui.TextRandomUtils;
+import cn.myasapp.main.ui.TestUrlActivity;
 
 /**
  * Created by Jerry on 2016/7/4.
@@ -99,6 +100,9 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,DialogTestActivity.class);
     }
 
+    public static void showUrlTestActivity(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestUrlActivity.class);
+    }
 
 
 
@@ -147,7 +151,6 @@ public class TestUIhelper {
         intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
         context.startActivity(intent);
     }
-
 
 
 

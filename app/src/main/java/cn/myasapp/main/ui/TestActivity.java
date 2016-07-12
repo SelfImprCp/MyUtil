@@ -87,6 +87,11 @@ public class TestActivity extends BaseActivity {
     private TextView dialog_test;
 
 
+    @BindView(id = R.id.url_test, click = true)
+    private TextView url_test;
+
+
+
 
 
 
@@ -242,6 +247,16 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.   showDialogTestActivity(this);
 
                 break;
+
+
+            case R.id.url_test:
+
+                TestUIhelper.   showUrlTestActivity(this);
+
+                break;
+
+
+
 
 
 
