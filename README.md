@@ -13,6 +13,7 @@ allprojects {
    compile 'com.github.SelfImprCp:MyUtil:v1.0.4'
 
 2.注意事项：
- 因为包中已经添加：  <uses-permission android:name="android.permission.CAMERA" />
+ 因为包中已经添加：  权限
+   android:name="android.permission.CAMERA"
  所以使用此包的项目中不用再重复添加
 
