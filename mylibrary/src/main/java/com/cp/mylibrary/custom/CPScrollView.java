@@ -32,7 +32,7 @@ import android.widget.ScrollView;
  * @author kymjs (https://github.com/kymjs)
  * @version 1.2
  */
-public class KJScrollView extends ScrollView {
+public class CPScrollView extends ScrollView {
 
 	// data
 	private static final float MOVE_FACTOR = 0.5f; // 移动因子,手指移动100px,那么View就只移动50px
@@ -51,11 +51,11 @@ public class KJScrollView extends ScrollView {
 	private boolean canPullUp = false; // 是否可以继续上拉
 	private boolean isMoved = false; // 记录是否移动了布局
 
-	public KJScrollView(Context context) {
+	public CPScrollView(Context context) {
 		super(context);
 	}
 
-	public KJScrollView(Context context, AttributeSet attrs) {
+	public CPScrollView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
