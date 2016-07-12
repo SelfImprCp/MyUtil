@@ -23,7 +23,7 @@
         android:clickable="true"
         android:contentDescription="@null"
         android:focusable="false"
-        android:src="@drawable/flash_default" />
+        android:src="@drawable/return_back_white" />
 
     <ImageView
         android:id="@+id/titlebar_img_menu_col"
