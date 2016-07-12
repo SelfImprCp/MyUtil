@@ -3,11 +3,13 @@ package cn.myasapp.main.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cp.mylibrary.activity.ImagePreviewActivity;
+import com.cp.mylibrary.custom.BadgeView;
 import com.cp.mylibrary.custom.CircleImageView;
 import com.cp.mylibrary.custom.TimerTextView;
 import com.cp.mylibrary.twocode.CreateTwoCodeUtil;
@@ -95,6 +97,15 @@ public class TestCreateTwoCode extends BaseActivity {
 
 
 
+        // BadgeView 的用法
+        BadgeView bv = new BadgeView(this, create_two_codes_img);
+        bv.setText("12");
+        bv.setTextColor(getResources().getColor(R.color.swiperefresh_color1));
+        bv.setTextSize(12);
+        bv.setPadding(8,8,8,8);
+
+        bv.setBadgePosition(BadgeView.POSITION_TOP_RIGHT); //默认值
+        bv.show();
 
 
     }
