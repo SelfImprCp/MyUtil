@@ -90,6 +90,9 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.url_test, click = true)
     private TextView url_test;
 
+    @BindView(id = R.id.pickview_test, click = true)
+    private TextView pickview_test;
+
 
 
 
@@ -254,6 +257,12 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.   showUrlTestActivity(this);
 
                 break;
+
+            case R.id.pickview_test:
+
+                TestUIhelper.showTestPickerView(this);
+                break;
+
 
 
 

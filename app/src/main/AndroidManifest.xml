@@ -139,6 +139,11 @@
             android:name=".main.ui.TestUrlActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".main.ui.TestPickerView"
+
+            android:windowSoftInputMode="adjustResize"></activity>
+
 
 
 

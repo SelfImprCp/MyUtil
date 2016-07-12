@@ -135,6 +135,11 @@
 
                 style="@style/test_textview_style"
                 android:text="   url 试    " />
+            <TextView
+                android:id="@+id/pickview_test"
+
+                style="@style/test_textview_style"
+                android:text="  pickerView 测试     " />
 
 
 

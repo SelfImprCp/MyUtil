@@ -19,6 +19,7 @@ import cn.myasapp.main.ui.TestFileUtil;
 import cn.myasapp.main.ui.TestImageLoad;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
+import cn.myasapp.main.ui.TestPickerView;
 import cn.myasapp.main.ui.TestScreentUtils;
 import cn.myasapp.main.ui.TestTwoCode;
 import cn.myasapp.main.ui.TestWebView;
@@ -104,6 +105,10 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestUrlActivity.class);
     }
 
+
+    public static void showTestPickerView(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestPickerView.class);
+    }
 
 
 
