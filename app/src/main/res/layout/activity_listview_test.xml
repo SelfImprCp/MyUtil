@@ -14,7 +14,7 @@
          ></View>
 
 
-    <include layout="@layout/activity_listview"></include>
+    <include layout="@layout/activity_listview_refresh"></include>
 
     </com.zhy.autolayout.AutoLinearLayout>
 

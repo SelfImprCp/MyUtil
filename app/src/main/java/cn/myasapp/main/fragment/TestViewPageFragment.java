@@ -49,7 +49,7 @@ public class TestViewPageFragment extends BaseListFragment
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     MainFocus mainFocus = (MainFocus) mData.get(position);
-                    ShowToastUtil.showToast(getActivity(),"点击了哪一个，TestViewPageFragment ," +mainFocus.getTitle() );
+                    ShowToastUtil.showToast(getActivity(),"点击了哪一个，TestViewPageFragment ," +mainFocus.getName() );
                 }
             });
 

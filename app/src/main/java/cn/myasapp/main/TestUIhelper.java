@@ -21,11 +21,13 @@ import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TestPickerView;
 import cn.myasapp.main.ui.TestScreentUtils;
+import cn.myasapp.main.ui.TestScrollViewRefreshActivity;
 import cn.myasapp.main.ui.TestTwoCode;
 import cn.myasapp.main.ui.TestWebView;
 import cn.myasapp.main.ui.TextNetWorkUtils;
 import cn.myasapp.main.ui.TextRandomUtils;
 import cn.myasapp.main.ui.TestUrlActivity;
+
 
 /**
  * Created by Jerry on 2016/7/4.
@@ -110,6 +112,9 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestPickerView.class);
     }
 
+    public static void showTestScrollViewRefreshActivity(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestScrollViewRefreshActivity.class);
+    }
 
 
 

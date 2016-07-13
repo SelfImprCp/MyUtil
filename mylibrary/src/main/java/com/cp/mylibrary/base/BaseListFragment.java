@@ -57,14 +57,14 @@ public class BaseListFragment<T extends MyEntity> extends MyBaseFragment impleme
 
     @Override
     protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
-        return inflater.inflate(R.layout.activity_listview,container,false);
+        return inflater.inflate(R.layout.activity_listview_pull,container,false);
     }
 
 
     @Override
     public void initView(View view) {
         super.initView(view);
-        refresh_view = (PullToRefreshLayout) view.findViewById(R.id.refresh_view);
+        refresh_view = (PullToRefreshLayout) view.findViewById(R.id.refresh_view_t);
         mListView = (ListView) view.findViewById(R.id.content_view);
 
 

@@ -15,10 +15,10 @@ public class AppConfig {
 
 
 
-public static final String SUFFIX = "estate";
+public static final String SUFFIX = "catering";
 //
 //
-   public final static String HOST = "v.juhe.cn";
+   public final static String HOST = "apis.juhe.cn";
 
     private static AppConfig appConfig;
 

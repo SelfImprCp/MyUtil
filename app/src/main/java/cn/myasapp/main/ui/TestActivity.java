@@ -93,6 +93,8 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.pickview_test, click = true)
     private TextView pickview_test;
 
+    @BindView(id = R.id.xrefreshview_scrollview_test, click = true)
+    private TextView xrefreshview_listview_test;
 
 
 
@@ -261,6 +263,13 @@ public class TestActivity extends BaseActivity {
             case R.id.pickview_test:
 
                 TestUIhelper.showTestPickerView(this);
+                break;
+
+
+
+            case R.id.xrefreshview_scrollview_test:
+
+             TestUIhelper.showTestScrollViewRefreshActivity(this);
                 break;
 
 

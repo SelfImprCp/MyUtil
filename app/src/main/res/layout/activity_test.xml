@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
 
-    <ScrollView
+    <com.cp.mylibrary.custom.CPScrollView
         android:layout_width="match_parent"
 
         android:layout_height="match_parent">
@@ -142,9 +142,15 @@
                 android:text="  pickerView 测试     " />
 
 
+            <TextView
+                android:id="@+id/xrefreshview_scrollview_test"
+
+                style="@style/test_textview_style"
+                android:text=" xrefreshview_scrollview_test       " />
+
 
 
         </LinearLayout>
-    </ScrollView>
+    </com.cp.mylibrary.custom.CPScrollView>
 
 </LinearLayout>

@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 
 import com.cp.mylibrary.dialog.DialogHelper;
+import com.cp.mylibrary.pullto.PullToRefreshLayout;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
@@ -31,6 +33,12 @@ public class DialogTestActivity extends BaseActivity {
     @BindView(id = R.id.dialog_wait, click = true)
     private TextView dialog_wait;
 
+    @BindView(id = R.id.refresh_view_dialog)
+    private PullToRefreshLayout refresh_view_dialog;
+
+
+
+
 
     @Override
     public void setRootView() {
@@ -50,6 +58,9 @@ public class DialogTestActivity extends BaseActivity {
                 finish();
             }
         });
+
+        refresh_view_dialog.setOnRefreshListener(myPullToListner);
+
     }
 
     @Override
@@ -68,7 +79,7 @@ public class DialogTestActivity extends BaseActivity {
                 //     DialogHelper.getPinterestDialog(this);
 
                 simplecDialog = DialogHelper.configDialog(DialogTestActivity.this,
-                        "温馨提示", "确认删除", "ccc", "ccc",
+                        "温馨提示", "确认删除", "删除", "取消",
                         new View.OnClickListener() {
 
                             @Override
@@ -129,5 +140,23 @@ public class DialogTestActivity extends BaseActivity {
         }
     }
 
+
+    public PullToRefreshLayout.OnRefreshListener myPullToListner = new PullToRefreshLayout.OnRefreshListener() {
+
+
+        @Override
+        public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {
+
+
+            LogCp.i(LogCp.CP, DialogTestActivity.class + " 刷新了，， "    );
+
+
+        }
+
+//        @Override
+//        public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
+//
+//        }
+    };
 
 }

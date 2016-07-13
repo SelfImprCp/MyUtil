@@ -43,7 +43,7 @@ public class MainFocusAdapter extends ListBaseAdapter<MainFocus> {
 
     @Override
     public void convert(com.cp.mylibrary.adapter.ViewHolder helper, MainFocus item) {
-        helper.setText(R.id.item_focus_text, item.getTitle());
+        helper.setText(R.id.item_focus_text, item.getName());
 
     }
 

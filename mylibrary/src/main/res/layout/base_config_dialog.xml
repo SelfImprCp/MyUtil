@@ -7,7 +7,7 @@
     android:layout_marginLeft="100dp"
     android:layout_marginRight="100dp"
     android:layout_marginTop="100dp"
-   android:background="@drawable/login_layout_btn_bg_white"
+    android:background="@drawable/login_layout_btn_bg_white"
     android:orientation="vertical" >
 
     <TextView
@@ -58,9 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal" >
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
 
         <Button
             android:id="@+id/base_config_dialog_cannel_btn"

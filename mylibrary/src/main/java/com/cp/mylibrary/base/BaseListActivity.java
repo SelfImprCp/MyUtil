@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.adapter.ListBaseAdapter;
 import com.cp.mylibrary.api.MyResponseHandler;
@@ -54,17 +55,16 @@ public class BaseListActivity<T extends MyEntity> extends MyBaseActivity impleme
 
     @Override
     public void setRootView() {
-        super.setRootView();
 
-        setContentView(R.layout.activity_listview);
+        setContentView(R.layout.activity_listview_pull);
 
     }
 
     @Override
-    protected void initView() {
+    public void initView() {
         super.initView();
 
-        refresh_view = (PullToRefreshLayout) findViewById(R.id.refresh_view);
+        refresh_view = (PullToRefreshLayout) findViewById(R.id.refresh_view_t);
         mListView = (ListView) findViewById(R.id.content_view);
 
         refresh_view.setOnRefreshListener(myPullToListner);

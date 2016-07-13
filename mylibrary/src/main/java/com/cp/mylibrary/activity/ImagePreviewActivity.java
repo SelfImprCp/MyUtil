@@ -43,6 +43,8 @@ public class ImagePreviewActivity extends MyBaseActivity {
 		setContentView(R.layout.activity_image_preview);
 	}
 
+
+
 	@Override
 	public void initWidget() {
 		// TODO Auto-generated method stub

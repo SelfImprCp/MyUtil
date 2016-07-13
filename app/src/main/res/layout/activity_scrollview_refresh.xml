@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <cn.myasapp.main.ui.TitleBarView
+        android:id="@+id/scrollview_refresh_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </cn.myasapp.main.ui.TitleBarView>
+
+
+
+    <com.cp.mylibrary.pullto.XRefreshView
+
+
+    android:id="@+id/xrefresh_custom_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+   >
+
+    <com.cp.mylibrary.pullto.XScrollView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+
+                 android:padding="8dp"
+                 android:layout_width="match_parent"
+                 android:layout_height="500dp"
+                android:text=" 测试 scrollView 刷新      " />
+            <TextView
+
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:text=" 测试 scrollView 刷新      " />
+            <TextView
+
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:text=" 测试 scrollView 刷新      " />
+            <TextView
+
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:text=" 测试 scrollView 刷新      " />
+
+
+        </LinearLayout>
+    </com.cp.mylibrary.pullto.XScrollView>
+
+</com.cp.mylibrary.pullto.XRefreshView>
+
+     </LinearLayout>

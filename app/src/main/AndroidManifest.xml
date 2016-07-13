@@ -144,6 +144,11 @@
 
             android:windowSoftInputMode="adjustResize"></activity>
 
+        <activity
+            android:name=".main.ui.TestScrollViewRefreshActivity"
+
+            android:windowSoftInputMode="adjustResize"></activity>
+
 
 
 

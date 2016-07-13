@@ -16,5 +16,19 @@
         <attr name="horizontalSpace" format="dimension"/>  
         <attr name="rows" format="integer"/>  
         <attr name="columns" format="integer"/>  
-</declare-styleable> 
+</declare-styleable>
+
+
+
+    <declare-styleable name="XRefreshView">
+        <attr name="isHeightMatchParent" format="boolean" />
+        <attr name="isWidthMatchParent" format="boolean" />
+        <attr name="autoRefresh" format="boolean" />
+        <attr name="autoLoadMore" format="boolean" />
+    </declare-styleable>
+
+
+
+
+
 </resources>
