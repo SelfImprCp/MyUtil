@@ -274,6 +274,14 @@ public class TestActivity extends BaseActivity {
 
 
 
+            case R.id.xrefreshview_receylie_test:
+
+                TestUIhelper.showXRefreshListViewActivity(this);
+                break;
+
+
+
+
 
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.cp.mylibrary.base.XRefreshListViewActivity;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 
 import cn.myasapp.main.domian.SimpleBackPage;
@@ -116,6 +117,11 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestScrollViewRefreshActivity.class);
     }
 
+
+    public static void showXRefreshListViewActivity(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,    XRefreshListViewActivity
+                .class);
+    }
 
 
 

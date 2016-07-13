@@ -148,6 +148,12 @@
                 style="@style/test_textview_style"
                 android:text=" xrefreshview_scrollview_test       " />
 
+            <TextView
+                android:id="@+id/xrefreshview_receylie_test"
+
+                style="@style/test_textview_style"
+                android:text=" xrefreshview_scrollview_test       " />
+
 
 
         </LinearLayout>

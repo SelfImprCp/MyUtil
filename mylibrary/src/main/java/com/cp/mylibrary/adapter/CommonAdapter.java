@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.cp.mylibrary.interf.OnItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -124,4 +125,17 @@ public abstract class CommonAdapter<T> extends  RecyclerView.Adapter<ViewHolder>
 	{
 		return mDatas.size();
 	}
+
+
+	public List<T> getData() {
+		return mDatas == null ? (mDatas = new ArrayList<T>()) : mDatas;
+	}
+
+	public void addData(List<T> data) {
+		if (mDatas != null && data != null && !data.isEmpty()) {
+			mDatas.addAll(data);
+		}
+		notifyDataSetChanged();
+	}
+
 }

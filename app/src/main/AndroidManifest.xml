@@ -150,6 +150,11 @@
             android:windowSoftInputMode="adjustResize"></activity>
 
 
+        <activity
+            android:name=".main.ui.XRefreshListViewActivity"
+
+            android:windowSoftInputMode="adjustResize"></activity>
+
 
 
 
