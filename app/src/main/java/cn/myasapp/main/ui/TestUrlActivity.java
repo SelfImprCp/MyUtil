@@ -2,6 +2,7 @@ package cn.myasapp.main.ui;
 
 import android.widget.TextView;
 
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.SpannableStringUitl;
 
 import org.kymjs.kjframe.ui.BindView;

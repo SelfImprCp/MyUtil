@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.KeyBoardUtils;
 
 import org.kymjs.kjframe.ui.BindView;

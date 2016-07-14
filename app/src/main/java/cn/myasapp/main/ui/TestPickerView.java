@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
+import com.cp.mylibrary.custom.TitleBarView;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -40,7 +41,7 @@ public class TestPickerView extends BaseActivity {
 
 
      @BindView(id =  R.id.pickview_test_title)
-              private  TitleBarView pickview_test_title;
+              private TitleBarView pickview_test_title;
 
 
 

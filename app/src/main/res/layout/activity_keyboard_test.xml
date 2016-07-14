@@ -6,13 +6,13 @@
 
 
 
-    <cn.myasapp.main.ui.TitleBarView
+    <com.cp.mylibrary.custom.TitleBarView
         android:id="@+id/key_borad_test_title"
         android:layout_width="match_parent"
         android:layout_height="80px">
 
 
-    </cn.myasapp.main.ui.TitleBarView>
+    </com.cp.mylibrary.custom.TitleBarView>
 
 
      <EditText

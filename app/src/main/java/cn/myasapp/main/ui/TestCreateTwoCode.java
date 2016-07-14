@@ -12,6 +12,7 @@ import com.cp.mylibrary.activity.ImagePreviewActivity;
 import com.cp.mylibrary.custom.BadgeView;
 import com.cp.mylibrary.custom.CircleImageView;
 import com.cp.mylibrary.custom.TimerTextView;
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.twocode.CreateTwoCodeUtil;
 import com.cp.mylibrary.utils.CameraAndSelectPicUtil;
 import com.cp.mylibrary.utils.ImageUtils;

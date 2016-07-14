@@ -2,6 +2,7 @@ package cn.myasapp.main.ui;
 
 import android.widget.ImageView;
 
+import com.cp.mylibrary.custom.TitleBarView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.kymjs.kjframe.ui.BindView;

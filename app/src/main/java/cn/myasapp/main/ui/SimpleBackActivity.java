@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 
 import com.cp.mylibrary.base.MyBaseFragment;
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.LogCp;
 
 import org.kymjs.kjframe.ui.BindView;

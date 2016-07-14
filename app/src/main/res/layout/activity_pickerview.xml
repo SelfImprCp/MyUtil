@@ -4,11 +4,11 @@
     android:layout_height="match_parent">
 
 
-     <cn.myasapp.main.ui.TitleBarView
+     <com.cp.mylibrary.custom.TitleBarView
          android:id="@+id/pickview_test_title"
 
          android:layout_width="match_parent"
-         android:layout_height="wrap_content"></cn.myasapp.main.ui.TitleBarView>
+         android:layout_height="wrap_content"></com.cp.mylibrary.custom.TitleBarView>
 
 
 

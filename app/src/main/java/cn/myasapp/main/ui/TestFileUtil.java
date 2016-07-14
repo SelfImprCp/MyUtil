@@ -3,6 +3,7 @@ package cn.myasapp.main.ui;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.FileUtil;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.SDCardUtils;

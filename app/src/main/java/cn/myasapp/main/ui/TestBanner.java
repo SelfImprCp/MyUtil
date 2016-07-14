@@ -8,6 +8,7 @@ import com.cp.mylibrary.banner.ADInfo;
 import com.cp.mylibrary.banner.BannerInitUtil;
 import com.cp.mylibrary.banner.CycleViewPager;
 import com.cp.mylibrary.base.MyBaseFragmentActivity;
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
 import java.util.ArrayList;

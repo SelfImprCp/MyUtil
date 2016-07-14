@@ -1,6 +1,7 @@
 package cn.myasapp.main.ui;
 
 import com.cp.mylibrary.base.XRefreshScrollViewActivity;
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.LogCp;
 
 import org.kymjs.kjframe.ui.BindView;

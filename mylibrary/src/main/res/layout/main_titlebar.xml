@@ -3,7 +3,7 @@
     android:id="@+id/titlebar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/titlebar_height"
-    android:background="@color/ailibuli_base_color" >
+    android:background="@color/white_cp_util" >
 
     <TextView
         android:id="@+id/titlebar_text_title"
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:maxEms="8"
+        android:text="标题"
         android:singleLine="true"
         android:textSize="17sp" />
 
@@ -23,7 +24,7 @@
         android:clickable="true"
         android:contentDescription="@null"
         android:focusable="false"
-        android:src="@drawable/return_back_white" />
+        android:src="@drawable/return_back_black" />
 
     <ImageView
         android:id="@+id/titlebar_img_menu_col"
@@ -60,5 +61,13 @@
         android:textColor="@color/black_color_30"
         android:textSize="17sp"
         android:visibility="gone" />
+
+     <View
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/space_1"
+          android:background="#e1e1e1"
+         android:layout_alignParentBottom="true"
+         ></View>
+
 
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.ScreenUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
 

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.dialog.DialogHelper;
 
 import com.cp.mylibrary.pullto.XRefreshView;

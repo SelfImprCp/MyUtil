@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <cn.myasapp.main.ui.TitleBarView
+    <com.cp.mylibrary.custom.TitleBarView
 
         android:id="@+id/dialog_test_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-    </cn.myasapp.main.ui.TitleBarView>
+    </com.cp.mylibrary.custom.TitleBarView>
 
     <com.cp.mylibrary.pullto.XRefreshView
         android:id="@+id/refresh_view_dialog"

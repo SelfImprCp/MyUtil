@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cp.mylibrary.base.XRefreshRecyclerViewActivity;
+import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.interf.OnItemClickListener;
 import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;

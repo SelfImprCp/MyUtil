@@ -3,11 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <cn.myasapp.main.ui.TitleBarView
+    <com.cp.mylibrary.custom.TitleBarView
         android:id="@+id/create_two_codes_test_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        </cn.myasapp.main.ui.TitleBarView>
+        </com.cp.mylibrary.custom.TitleBarView>
 
 
      <Button

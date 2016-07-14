@@ -63,7 +63,7 @@
 
     <style name="titlebar_text" parent="titlebar">
         <item name="android:textSize">17sp</item>
-        <item name="android:textColor">@color/white_cp_util</item>
+        <item name="android:textColor">@color/title_text_color</item>
         <item name="android:gravity">center</item>
     </style>
 

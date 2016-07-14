@@ -1,6 +1,7 @@
 package cn.myasapp.main.ui;
 
 import com.cp.mylibrary.custom.ProgressWebView;
+import com.cp.mylibrary.custom.TitleBarView;
 
 import org.kymjs.kjframe.ui.BindView;
 
