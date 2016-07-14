@@ -1,7 +1,6 @@
 package com.cp.mylibrary.adapter;
 
 import android.content.Context;
-
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,9 @@ import java.util.List;
  *
  * @param <T>
  */
-public abstract class CommonAdapter<T> extends  RecyclerView.Adapter<ViewHolder>
+public abstract class CommonAdapter<T> extends
+
+	 RecyclerView.Adapter<ViewHolder>
 {
 
 
@@ -67,6 +68,8 @@ public abstract class CommonAdapter<T> extends  RecyclerView.Adapter<ViewHolder>
 	}
 
 
+
+
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position)
 	{
@@ -87,6 +90,9 @@ public abstract class CommonAdapter<T> extends  RecyclerView.Adapter<ViewHolder>
 	 * @return
      */
 	public abstract int  getItemLayoutId();
+
+
+
 
 	protected void setListener(final ViewGroup parent, final ViewHolder viewHolder, int viewType)
 	{
@@ -120,12 +126,11 @@ public abstract class CommonAdapter<T> extends  RecyclerView.Adapter<ViewHolder>
 		});
 	}
 
+
 	@Override
-	public int getItemCount()
-	{
+	public int getItemCount() {
 		return mDatas.size();
 	}
-
 
 	public List<T> getData() {
 		return mDatas == null ? (mDatas = new ArrayList<T>()) : mDatas;

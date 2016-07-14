@@ -96,6 +96,10 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.xrefreshview_scrollview_test, click = true)
     private TextView xrefreshview_listview_test;
 
+    @BindView(id = R.id.xrefreshview_receylie_test, click = true)
+    private TextView xrefreshview_receylie_test;
+
+
 
 
 

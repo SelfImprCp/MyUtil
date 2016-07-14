@@ -10,35 +10,56 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 
+import com.cp.mylibrary.adapter.ViewHolder;
 import com.cp.mylibrary.pullto.callback.IFooterCallBack;
 import com.cp.mylibrary.pullto.utils.LogUtils;
 import com.cp.mylibrary.pullto.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
  * An abstract adapter which can be extended for Recyclerview
  */
-public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder>
-        extends RecyclerView.Adapter<VH> {
+public abstract class BaseRecyclerAdapter <T>
+        extends RecyclerView.Adapter<ViewHolder> {
 
     protected View customLoadMoreView = null;
     protected View customHeaderView = null;
 
+    private List<T> mDatas = new ArrayList<T>();
+
+    protected Context mContext;
+    public BaseRecyclerAdapter(Context context )
+    {
+        mContext = context;
+//        mInflater = LayoutInflater.from(context);
+
+
+    }
+
+
+
+
     @Override
-    public VH onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         showFooter(customLoadMoreView, false);
-        if (viewType == VIEW_TYPES.FOOTER) {
-            Utils.removeViewFromParent(customLoadMoreView);
-            VH viewHolder = getViewHolder(customLoadMoreView);
+//        if (viewType == VIEW_TYPES.FOOTER) {
+//            Utils.removeViewFromParent(customLoadMoreView);
+//           // ViewHolder viewHolder = getViewHolder(customLoadMoreView);
+//            return viewHolder;
+//        } else if (viewType == VIEW_TYPES.HEADER) {
+//            Utils.removeViewFromParent(customHeaderView);
+//            ViewHolder viewHolder = getViewHolder(customHeaderView);
+//            return viewHolder;
+//        }else
+//        {
+            ViewHolder viewHolder = ViewHolder.get(mContext, null, parent, getItemLayoutId(), -1);
             return viewHolder;
-        } else if (viewType == VIEW_TYPES.HEADER) {
-            Utils.removeViewFromParent(customHeaderView);
-            VH viewHolder = getViewHolder(customHeaderView);
-            return viewHolder;
-        }
-        return onCreateViewHolder(parent, viewType, true);
+
+       // }
+
     }
 
     private void showFooter(View footerview, boolean show) {
@@ -84,14 +105,41 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder>
         }
     }
 
-    public abstract VH getViewHolder(View view);
+
+
+    /**
+     *
+     * @return
+     */
+    public abstract int  getItemLayoutId();
+
+    /**
+     *  子类必须复写，
+     * @param holder
+     * @param t
+     */
+    public abstract void convert(ViewHolder holder, T t);
+
+
+    public List<T> getData() {
+        return mDatas == null ? (mDatas = new ArrayList<T>()) : mDatas;
+    }
+
+    public void addData(List<T> data) {
+        if (mDatas != null && data != null && !data.isEmpty()) {
+            mDatas.addAll(data);
+        }
+        notifyDataSetChanged();
+    }
+
+//    public abstract ViewHolder getViewHolder(View view);
 
     /**
      * @param parent
      * @param viewType
      * @param isItem   如果是true，才需要做处理 ,但是这个值总是true
      */
-    public abstract VH onCreateViewHolder(ViewGroup parent, int viewType, boolean isItem);
+//    public abstract ViewHolder onCreateViewHolder(ViewGroup parent, int viewType, boolean isItem);
 
     /**
      * 替代onBindViewHolder方法，实现这个方法就行了
@@ -99,10 +147,10 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder>
      * @param holder
      * @param position
      */
-    public abstract void onBindViewHolder(VH holder, int position, boolean isItem);
+//    public abstract void onBindViewHolder(ViewHolder holder, int position, boolean isItem);
 
     @Override
-    public final void onBindViewHolder(VH holder, int position) {
+    public final void onBindViewHolder(ViewHolder holder, int position) {
         int start = getStart();
         if (isHeader(position) || isFooter(position)) {
             ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
@@ -110,7 +158,10 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder>
                 Utils.setFullSpan((StaggeredGridLayoutManager.LayoutParams) layoutParams);
             }
         } else {
-            onBindViewHolder(holder, position - start, true);
+
+            convert(holder, mDatas.get(position));
+
+
         }
     }
 
@@ -211,7 +262,10 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder>
      *
      * @return The number of items in the bound adapter
      */
-    public abstract int getAdapterItemCount();
+    public   int getAdapterItemCount(){
+         return mDatas.size();
+
+    };
 
     /**
      * Swap the item of list

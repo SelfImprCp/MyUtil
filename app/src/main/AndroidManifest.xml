@@ -151,7 +151,7 @@
 
 
         <activity
-            android:name=".main.ui.XRefreshListViewActivity"
+            android:name=".main.ui.TestRecyclerActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
 

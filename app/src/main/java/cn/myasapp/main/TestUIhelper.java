@@ -21,6 +21,7 @@ import cn.myasapp.main.ui.TestImageLoad;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TestPickerView;
+import cn.myasapp.main.ui.TestRecyclerActivity;
 import cn.myasapp.main.ui.TestScreentUtils;
 import cn.myasapp.main.ui.TestScrollViewRefreshActivity;
 import cn.myasapp.main.ui.TestTwoCode;
@@ -119,7 +120,7 @@ public class TestUIhelper {
 
 
     public static void showXRefreshListViewActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,    XRefreshListViewActivity
+        OpenActivityUtil.getInstance().openActivity(context,    TestRecyclerActivity
                 .class);
     }
 
