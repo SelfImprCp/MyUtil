@@ -1,15 +1,14 @@
 package cn.myasapp.main.ui;
 
 import android.app.Dialog;
+import android.os.Handler;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-
 import com.cp.mylibrary.dialog.DialogHelper;
-import com.cp.mylibrary.pullto.PullToRefreshLayout;
+
+import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
-import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -34,7 +33,7 @@ public class DialogTestActivity extends BaseActivity {
     private TextView dialog_wait;
 
     @BindView(id = R.id.refresh_view_dialog)
-    private PullToRefreshLayout refresh_view_dialog;
+    private XRefreshView refresh_view_dialog;
 
 
 
@@ -59,7 +58,8 @@ public class DialogTestActivity extends BaseActivity {
             }
         });
 
-        refresh_view_dialog.setOnRefreshListener(myPullToListner);
+
+        refresh_view_dialog.setXRefreshViewListener(myPullToListner);
 
     }
 
@@ -141,22 +141,42 @@ public class DialogTestActivity extends BaseActivity {
     }
 
 
-    public PullToRefreshLayout.OnRefreshListener myPullToListner = new PullToRefreshLayout.OnRefreshListener() {
+    public XRefreshView.XRefreshViewListener myPullToListner = new XRefreshView.XRefreshViewListener() {
 
 
         @Override
-        public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {
-
+        public void onRefresh() {
 
             LogCp.i(LogCp.CP, DialogTestActivity.class + " 刷新了，， "    );
 
 
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    refresh_view_dialog.stopRefresh();
+                }
+            }, 2000);
+
+
+
         }
 
-//        @Override
-//        public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
-//
-//        }
+        @Override
+        public void onLoadMore(boolean isSilence) {
+
+        }
+
+        @Override
+        public void onRelease(float direction) {
+
+        }
+
+        @Override
+        public void onHeaderMove(double offset, int offsetY) {
+
+        }
+
+
     };
 
 }

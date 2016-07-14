@@ -12,8 +12,6 @@ import com.cp.mylibrary.R;
 import com.cp.mylibrary.adapter.ListBaseAdapter;
 import com.cp.mylibrary.api.MyResponseHandler;
 import com.cp.mylibrary.bean.MyEntity;
-import com.cp.mylibrary.custom.EmptyLayout;
-import com.cp.mylibrary.pullto.PullToRefreshLayout;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;

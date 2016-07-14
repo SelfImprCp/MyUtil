@@ -13,13 +13,11 @@
 
     </cn.myasapp.main.ui.TitleBarView>
 
-    <com.cp.mylibrary.pullto.PullToRefreshLayout
+    <com.cp.mylibrary.pullto.XRefreshView
         android:id="@+id/refresh_view_dialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <include layout="@layout/refresh_head" />
 
 
 
@@ -44,8 +42,7 @@
             </com.zhy.autolayout.AutoLinearLayout>
 
 
-        <include layout="@layout/load_more" />
 
-    </com.cp.mylibrary.pullto.PullToRefreshLayout>
+    </com.cp.mylibrary.pullto.XRefreshView>
 
 </LinearLayout>
