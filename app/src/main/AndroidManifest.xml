@@ -127,7 +127,7 @@
             android:windowSoftInputMode="adjustResize"></activity>
 
         <activity
-            android:name=".main.ui.PullableListViewActivity"
+            android:name=".main.ui.TestListViewRefreshActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
 
@@ -151,7 +151,7 @@
 
 
         <activity
-            android:name=".main.ui.TestRecyclerActivity"
+            android:name=".main.ui.TestRecyclerRefreshActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
 

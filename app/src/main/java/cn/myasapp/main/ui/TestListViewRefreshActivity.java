@@ -5,6 +5,7 @@ import android.widget.AdapterView;
 
 import com.cp.mylibrary.adapter.ListBaseAdapter;
 
+ 
 import com.cp.mylibrary.base.XRefreshListViewActivity;
 import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
@@ -23,7 +24,7 @@ import cn.myasapp.main.res.MainFocusListRes;
  *
  */
 
-public class PullableListViewActivity extends XRefreshListViewActivity {
+public class TestListViewRefreshActivity extends XRefreshListViewActivity {
 
 
     @Override
@@ -49,7 +50,7 @@ public class PullableListViewActivity extends XRefreshListViewActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MainFocus mainFocus = (MainFocus) mData.get(position);
-                ShowToastUtil.showToast(PullableListViewActivity.this, "点击了哪一个，" + mainFocus.getName());
+                ShowToastUtil.showToast(TestListViewRefreshActivity.this, "点击了哪一个，" + mainFocus.getName());
             }
         });
 

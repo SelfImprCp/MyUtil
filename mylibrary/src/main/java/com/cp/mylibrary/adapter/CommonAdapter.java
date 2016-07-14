@@ -14,7 +14,7 @@ import java.util.List;
 /**
  *
  *
- *
+ *不带下拉刷新，上拉加载的recyclerView要继承的
  *
  * @param <T>
  */

@@ -1,28 +1,23 @@
 package cn.myasapp.main.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 
 import com.cp.mylibrary.adapter.ViewHolder;
+import com.cp.mylibrary.interf.OnItemClickListener;
 import com.cp.mylibrary.pullto.recyclerview.BaseRecyclerAdapter;
-
-import org.kymjs.kjframe.utils.DensityUtils;
-
-import java.util.List;
 
 import cn.myasapp.R;
 import cn.myasapp.main.bean.MainFocus;
 
-public class SimpleAdapter extends BaseRecyclerAdapter<MainFocus> {
-    private List<MainFocus> list;
 
-    public SimpleAdapter(Context context  ) {
+/**
+ *   带下拉刷新，上拉加载的recyclerView要继承的
+ */
+public class RefreshRecyclerAdapter extends BaseRecyclerAdapter<MainFocus> {
+
+    public RefreshRecyclerAdapter(Context context  ) {
         super(context   );
     }
 
@@ -37,6 +32,7 @@ public class SimpleAdapter extends BaseRecyclerAdapter<MainFocus> {
         holder.setText(R.id.item_focus_text, mainFocus.getName());
 
     }
+
 
 
 }

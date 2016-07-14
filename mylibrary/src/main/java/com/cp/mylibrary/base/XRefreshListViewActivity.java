@@ -73,7 +73,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 		mAdapter = getmAdapter();
 
-		LogCp.i(LogCp.CP, BaseListActivity.class + " 哪个为空了，mAdapter， " + mAdapter + " ,,mListView  " + mListView + " refreshView " + refreshView);
+		LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 哪个为空了，mAdapter， " + mAdapter + " ,,mListView  " + mListView + " refreshView " + refreshView);
 
 		mListView.setAdapter(mAdapter);
 
@@ -106,7 +106,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 				mData.clear();
 				requestData();
 
-				LogCp.i(LogCp.CP, BaseListActivity.class + " 刷新了，， " + mCurrentPage);
+				LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 刷新了，， " + mCurrentPage);
 
 						lastRefreshTime = refreshView.getLastRefreshTime();
 
@@ -119,15 +119,13 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 					LogCp.i(LogCp.CP , XRefreshListViewActivity.class + "执行到加载更多");
 
 
-				if (mAdapter.getState() == ListBaseAdapter.STATE_LOAD_MORE
-						|| mAdapter.getState() == ListBaseAdapter.STATE_NETWORK_ERROR) {
+
 					mCurrentPage++;
-					LogCp.i(LogCp.CP, BaseListActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
+					LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
 
 					mState = STATE_LOADMORE;
 					requestData();
-					mAdapter.setFooterViewLoading("");
-				}
+
 
 
 			}
@@ -182,7 +180,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 		}
 		// 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
 		if (mCurrentPage != 1 && !NetWorkUtil.hasInternetConnected(this)) {
-			mAdapter.setState(ListBaseAdapter.STATE_NETWORK_ERROR);
+
 			mAdapter.notifyDataSetChanged();
 		}
 
@@ -198,7 +196,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 		@Override
 		public void dataSuccess(String res) {
 
-			LogCp.i(LogCp.CP, BaseListActivity.class + "请求来的数据 " + res);
+			LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "请求来的数据 " + res);
 
 			executeParserTask(res);
 			refreshLoadMoreFinish();
@@ -260,7 +258,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 		protected String doInBackground(Void... params) {
 			try {
 				currentList = parseList(reponseData);
-				LogCp.i(LogCp.CP, BaseListFragment.class + "解析 出来的数据 的，值 ，，"
+				LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "解析 出来的数据 的，值 ，，"
 						+ currentList);
 
 
@@ -313,24 +311,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 			mAdapter.clear();
 
 
-		int adapterState = ListBaseAdapter.STATE_NO_DATA;
-		//没有任何数据
-		if ((mAdapter.getCount() + data.size()) == 0) {
-			// 设置adapter的状态
-			adapterState = ListBaseAdapter.STATE_NO_DATA;
-			//设置整个界面的状态
-		//	mErrorLayout.setErrorType(EmptyLayout.NODATA);
-
-		}
-		//没有更多数据 了
-		else if (data.size() == 0
-				|| data.size() < getPageSize()  ) {
-			adapterState = ListBaseAdapter.STATE_NO_MORE;
-			mAdapter.notifyDataSetChanged();
-		} else {
-			adapterState = ListBaseAdapter.STATE_LOAD_MORE;
-		}
-		mAdapter.setState(adapterState);
 		mAdapter.addData(data);
 
 

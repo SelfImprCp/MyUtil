@@ -4,13 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.cp.mylibrary.base.XRefreshListViewActivity;
 import com.cp.mylibrary.utils.OpenActivityUtil;
 
 import cn.myasapp.main.domian.SimpleBackPage;
 
 import cn.myasapp.main.ui.DialogTestActivity;
-import cn.myasapp.main.ui.PullableListViewActivity;
+import cn.myasapp.main.ui.TestListViewRefreshActivity;
 import cn.myasapp.main.ui.SimpleBackActivity;
 import cn.myasapp.main.ui.TestActivity;
 import cn.myasapp.main.ui.TestBanner;
@@ -21,7 +20,7 @@ import cn.myasapp.main.ui.TestImageLoad;
 import cn.myasapp.main.ui.TestKeyBoardUtils;
 import cn.myasapp.main.ui.TestObjectUtils;
 import cn.myasapp.main.ui.TestPickerView;
-import cn.myasapp.main.ui.TestRecyclerActivity;
+import cn.myasapp.main.ui.TestRecyclerRefreshActivity;
 import cn.myasapp.main.ui.TestScreentUtils;
 import cn.myasapp.main.ui.TestScrollViewRefreshActivity;
 import cn.myasapp.main.ui.TestTwoCode;
@@ -97,7 +96,7 @@ public class TestUIhelper {
 
 
     public static void showPullableListViewActivity(Context context) {
-       OpenActivityUtil.getInstance().openActivity(context,PullableListViewActivity.class);
+       OpenActivityUtil.getInstance().openActivity(context,TestListViewRefreshActivity.class);
     }
 
 
@@ -120,7 +119,7 @@ public class TestUIhelper {
 
 
     public static void showXRefreshListViewActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,    TestRecyclerActivity
+        OpenActivityUtil.getInstance().openActivity(context,    TestRecyclerRefreshActivity
                 .class);
     }
 

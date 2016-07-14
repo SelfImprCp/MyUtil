@@ -1,6 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
+
+
+
+     <cn.myasapp.main.ui.TitleBarView
+         android:id="@+id/recycler_refresh_title"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"></cn.myasapp.main.ui.TitleBarView>
+
+
 
     <com.cp.mylibrary.pullto.XRefreshView
         android:id="@+id/recycler_xrefreshview"
@@ -16,4 +26,4 @@
             android:scrollbars="vertical" />
     </com.cp.mylibrary.pullto.XRefreshView>
 
-</RelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

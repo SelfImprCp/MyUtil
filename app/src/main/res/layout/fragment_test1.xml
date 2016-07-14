@@ -11,6 +11,6 @@
        />
 
 
-    <include  layout="@layout/activity_listview_pull"></include>
+    <include  layout="@layout/activity_listview_refresh"></include>
 
 </LinearLayout>

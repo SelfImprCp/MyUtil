@@ -4,10 +4,8 @@ import android.os.AsyncTask;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
 
 import com.cp.mylibrary.R;
-import com.cp.mylibrary.adapter.ListBaseAdapter;
 import com.cp.mylibrary.api.MyResponseHandler;
 import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.pullto.XRefreshView;
@@ -15,19 +13,21 @@ import com.cp.mylibrary.pullto.recyclerview.BaseRecyclerAdapter;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
 
-import org.kymjs.kjframe.ui.BindView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
+ *
+ *  带上拉加载，下拉刷新的Recycler 继承
+ *
  * Created by Jerry on 2016/7/13.
  */
 public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseActivity{
 
 
 
-   public  RecyclerView recyclerView;
+   public  RecyclerView mRecyclerView;
 
     public   XRefreshView xRefreshView;
 
@@ -44,7 +44,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
     public List<T> mData = new ArrayList<T>();
 
    // 布局管理器
-   public   LinearLayoutManager layoutManager;
+   public   LinearLayoutManager mLayoutManager;
 
     //解析数据
     private ParserTask mParserTask;
@@ -64,13 +64,13 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
         super.initView();
 
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_xrefreshview_rv);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_xrefreshview_rv);
         xRefreshView = (XRefreshView) findViewById(R.id.recycler_xrefreshview);
         xRefreshView.setPullLoadEnable(true);
-        recyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
 
-        layoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(layoutManager);
+        mLayoutManager = new GridLayoutManager(this, 2);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         // 设置静默加载模式
         xRefreshView.setSlienceLoadMore();
@@ -98,7 +98,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
             public void onLoadMore(boolean isSilence) {
                 super.onLoadMore(isSilence);
 
-                LogCp.i(LogCp.CP, BaseListActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
+                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
 
                 mCurrentPage++;
 
@@ -107,7 +107,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
             }
         });
         mAdapter = getmAdapter();
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
 
 

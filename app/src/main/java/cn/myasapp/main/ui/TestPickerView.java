@@ -17,6 +17,9 @@ import cn.myasapp.main.bean.ProvinceBean;
 
 /**
  * Created by Jerry on 2016/7/12.
+ *
+ *
+ *  测试时间地区选择的
  */
 public class TestPickerView extends BaseActivity {
 

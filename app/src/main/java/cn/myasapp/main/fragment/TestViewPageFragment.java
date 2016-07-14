@@ -6,14 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import com.cp.mylibrary.adapter.ListBaseAdapter;
-import com.cp.mylibrary.base.BaseListFragment;
-import com.cp.mylibrary.interf.OnTabReselectListener;
+import com.cp.mylibrary.base.XRefreshListViewFragment;
 import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -21,15 +16,14 @@ import cn.myasapp.R;
 import cn.myasapp.main.adapter.MainFocusAdapter;
 import cn.myasapp.main.api.TestApi;
 import cn.myasapp.main.bean.MainFocus;
-import cn.myasapp.main.event.TestEvent;
 import cn.myasapp.main.res.MainFocusListRes;
 
 
 /**
- * 开户个人信息界面
+ *
  * Created by Jerry on 2016/6/21.
  */
-public class TestViewPageFragment extends BaseListFragment
+public class TestViewPageFragment extends XRefreshListViewFragment
     {
 
         @Override
@@ -42,7 +36,10 @@ public class TestViewPageFragment extends BaseListFragment
             super.initView(view);
 
             mAdapter = new MainFocusAdapter(getActivity());
-
+            // 设置是否可以下拉刷新
+            refreshView.setPullRefreshEnable(true);
+            // 设置是否可以上拉加载
+            refreshView.setPullLoadEnable(true);
 
             mListView.setAdapter(mAdapter);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

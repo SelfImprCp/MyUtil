@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 
 
 import com.cp.mylibrary.adapter.ViewHolder;
+import com.cp.mylibrary.interf.OnItemClickListener;
 import com.cp.mylibrary.pullto.callback.IFooterCallBack;
 import com.cp.mylibrary.pullto.utils.LogUtils;
 import com.cp.mylibrary.pullto.utils.Utils;
@@ -21,6 +22,9 @@ import java.util.List;
 
 /**
  * An abstract adapter which can be extended for Recyclerview
+ *
+ *
+ * 带下拉刷新，上拉加载的recyclerView要继承的
  */
 public abstract class BaseRecyclerAdapter <T>
         extends RecyclerView.Adapter<ViewHolder> {
@@ -40,7 +44,17 @@ public abstract class BaseRecyclerAdapter <T>
     }
 
 
+    private OnItemClickListener onItemClickListener;
 
+
+    /**
+     *
+     * @param onItemClickListener
+     */
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener)
+    {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -56,11 +70,54 @@ public abstract class BaseRecyclerAdapter <T>
 //        }else
 //        {
             ViewHolder viewHolder = ViewHolder.get(mContext, null, parent, getItemLayoutId(), -1);
-            return viewHolder;
+
+        setListener(parent, viewHolder, viewType);
+
+
+        return viewHolder;
 
        // }
 
     }
+
+
+
+    protected void setListener(final ViewGroup parent, final ViewHolder viewHolder, int viewType)
+    {
+
+        viewHolder.getConvertView().setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if (onItemClickListener != null)
+                {
+                    int position = getPosition(viewHolder);
+                    onItemClickListener.onItemClick(parent, v, mDatas.get(position), position);
+                }
+            }
+        });
+
+
+        viewHolder.getConvertView().setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                if (onItemClickListener != null)
+                {
+                    int position = getPosition(viewHolder);
+                    return onItemClickListener.onItemLongClick(parent, v, mDatas.get(position), position);
+                }
+                return false;
+            }
+        });
+    }
+    protected int getPosition(RecyclerView.ViewHolder viewHolder)
+    {
+        return viewHolder.getAdapterPosition();
+    }
+
 
     private void showFooter(View footerview, boolean show) {
         if (show) {
