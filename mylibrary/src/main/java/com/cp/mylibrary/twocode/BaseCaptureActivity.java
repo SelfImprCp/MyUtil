@@ -107,6 +107,18 @@ public class BaseCaptureActivity extends MyBaseActivity implements
 
 
 
+        mFlash = (ImageView)findViewById(R.id.capture_flash);
+
+        //设置闪光灯事件
+        mFlash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                light();
+
+            }
+        });
+
+
 
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
