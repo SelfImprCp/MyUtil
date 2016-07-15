@@ -20,6 +20,7 @@
     <ImageView
         android:id="@+id/titlebar_img_back"
         style="@style/titlebar_img"
+        android:layout_height="58px"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
         android:clickable="true"

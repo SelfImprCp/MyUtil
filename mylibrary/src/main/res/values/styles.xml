@@ -69,7 +69,7 @@
 
     <style name="titlebar_img" parent="titlebar">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">78px</item>
+        <item name="android:layout_height">58px</item>
         <item name="android:padding">4dp</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
