@@ -92,13 +92,13 @@ public class WaitDialog extends Dialog {
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 		if ( isTablet()) {
-			int i = (int) DensityUtils.dp2px(mContext,360F);
-			if (i < ScreenUtils.getScreenWidth(mContext)) {
-				WindowManager.LayoutParams params = getWindow()
-						.getAttributes();
-				params.width = i;
-				getWindow().setAttributes(params);
-			}
+//			int i = (int) DensityUtils.dp2px(mContext,360F);
+//			if (i < ScreenUtils.getScreenWidth(mContext)) {
+//				WindowManager.LayoutParams params = getWindow()
+//						.getAttributes();
+//				params.width = i;
+//				getWindow().setAttributes(params);
+//			}
 		}
 	}
 
