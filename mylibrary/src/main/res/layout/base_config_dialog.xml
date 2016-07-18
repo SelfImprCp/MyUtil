@@ -71,7 +71,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/base_config_dialog_cannel_btn"
+            android:id="@+id/base_config_dialog_cannel_btn_b"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginRight="20dp"
@@ -89,7 +89,7 @@
 
 
         <Button
-            android:id="@+id/base_config_dialog_sure_btn"
+            android:id="@+id/base_config_dialog_sure_btn_b"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_weight="1"
