@@ -70,9 +70,9 @@
 
         android:orientation="horizontal">
 
-        <Button
+        <TextView
             android:id="@+id/base_config_dialog_cannel_btn_b"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
@@ -84,13 +84,13 @@
 
             android:layout_width="@dimen/space_1"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:background="@color/gray_cp_util"></View>
 
 
-        <Button
+        <TextView
             android:id="@+id/base_config_dialog_sure_btn_b"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_weight="1"
             android:gravity="center"

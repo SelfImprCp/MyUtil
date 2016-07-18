@@ -88,6 +88,9 @@
 
 
 
+    <dimen name="dialog_margin">7.0dip</dimen>
+    <dimen name="global_padding">8.0dip</dimen>
+    <dimen name="global_dialog_padding">15.0dip</dimen>
  
     <!-- 所有EditText中的提示字体的大小 -->
     <dimen name="edit_text_size_commen">14sp</dimen>
@@ -103,5 +106,11 @@
 
     <dimen name="view_small_padding">1dp</dimen>
     <dimen name="view_padding">6dp</dimen>
+
+
+
+    <dimen name="text_regular_primary_size">14.0dip</dimen>
+    <dimen name="text_large_secondary_size">12.0dip</dimen>
+    <dimen name="text_large_primary_size">16.0dip</dimen>
 
 </resources>

@@ -33,7 +33,6 @@
     <color name="link_color">#1d6a2a</color>
     
     <color name="main_background">#ffebedf0</color>
-    <color name="list_divider_color">#DADADA</color>
     <color name="list_item_background_normal">@color/white</color>
     <color name="teamlist_item_background_normal">#ffffff</color>
     <color name="list_item_background_pressed">#efefef</color>
@@ -43,10 +42,7 @@
     
     <color name="actionbar_item_background_normal">@color/transparent</color>
     <color name="actionbar_item_background_pressed">#0b751e</color>
-    
-    <color name="ui_dialog_divider">@color/list_divider_color</color>
-    <color name="ui_dialog_list_text">#5E5E5E</color>
-    <color name="text_dark">#af000000</color>
+
     <color name="text_light">#3f000000</color>
     <color name="light_gray">#1a000000</color>
     <color name="lightest_gray">#0a000000</color>

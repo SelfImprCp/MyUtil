@@ -153,14 +153,14 @@ public class DialogHelper {
 				.findViewById(R.id.base_config_dialog_txt);
 		msg_tv.setVisibility(View.VISIBLE);
 		msg_tv.setText(msg);
-		Button cancelbtn = (Button) dialogLayout
+		TextView cancelbtn = (TextView) dialogLayout
 				.findViewById(R.id.base_config_dialog_cannel_btn_b);
 		if (!StringUtils.isEmpty(leftStr)) {
 			cancelbtn.setText(leftStr);
 		} else {
 			cancelbtn.setVisibility(View.GONE);
 		}
-		Button delbtn = (Button) dialogLayout
+		TextView delbtn = (TextView) dialogLayout
 				.findViewById(R.id.base_config_dialog_sure_btn_b);
 		if (!StringUtils.isEmpty(rightStr)) {
 			delbtn.setText(rightStr);
