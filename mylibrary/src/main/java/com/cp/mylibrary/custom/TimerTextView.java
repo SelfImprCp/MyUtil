@@ -46,8 +46,8 @@ public class TimerTextView extends TextView implements Runnable {
 		// time.append("天");
 		// time.append(hour);
 		// time.append("小时");
-		time.append(minute);
-		time.append("：");
+//		time.append(minute);
+//		time.append("：");
 		time.append(second);
 		time.append("");
 
