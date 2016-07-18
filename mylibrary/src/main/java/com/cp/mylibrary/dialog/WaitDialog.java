@@ -25,17 +25,20 @@ public class WaitDialog extends Dialog {
 
 	public WaitDialog(Context context) {
 		super(context);
+		mContext = context;
 		init(context);
 
 	}
 
 	public WaitDialog(Context context, int defStyle) {
 		super(context, defStyle);
+		mContext= context;
 		init(context);
 	}
 
 	protected WaitDialog(Context context, boolean cancelable, DialogInterface.OnCancelListener listener) {
 		super(context, cancelable, listener);
+		mContext= context;
 		init(context);
 	}
 
