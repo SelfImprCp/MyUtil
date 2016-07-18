@@ -70,7 +70,7 @@
 
         android:orientation="horizontal">
 
-        <TextView
+        <Button
             android:id="@+id/base_config_dialog_cannel_btn"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
@@ -88,7 +88,7 @@
             android:background="@color/gray_cp_util"></View>
 
 
-        <TextView
+        <Button
             android:id="@+id/base_config_dialog_sure_btn"
             android:layout_width="wrap_content"
             android:layout_height="35dp"

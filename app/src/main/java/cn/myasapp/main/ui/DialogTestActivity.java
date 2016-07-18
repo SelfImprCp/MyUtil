@@ -73,35 +73,35 @@ public class DialogTestActivity extends BaseActivity {
 
 
 
-          DialogHelper.getWaitDialog(this,"加载中").show();
+       //   DialogHelper.getWaitDialog(this,"加载中").show();
 
                 //    DialogHelper.getCancelableWaitDialog(this,"加载中").show();
 
                 //     DialogHelper.getPinterestDialog(this);
 
-//                simplecDialog = DialogHelper.configDialog(DialogTestActivity.this,
-//                        "温馨提示", "确认删除", "删除", "消",
-//                        new View.OnClickListener() {
-//
-//                            @Override
-//                            public void onClick(View arg0) {
-//                                switch (arg0.getId()) {
-//                                    case R.id.base_config_dialog_sure_btn:
-//
-//                                        simplecDialog.dismiss();
-//
-//                                        break;
-//                                    case R.id.base_config_dialog_cannel_btn:
-//                                        simplecDialog.dismiss();
-//
-//                                        break;
-//                                    default:
-//                                        break;
-//                                }
-//
-//                            }
-//                        }).getConfigDialog();
-//                simplecDialog.show();
+                simplecDialog = DialogHelper.configDialog(DialogTestActivity.this,
+                        "温馨提示", "确认删除", "删除", "消",
+                        new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View arg0) {
+                                switch (arg0.getId()) {
+                                    case R.id.base_config_dialog_sure_btn:
+
+                                        simplecDialog.dismiss();
+
+                                        break;
+                                    case R.id.base_config_dialog_cannel_btn:
+                                        simplecDialog.dismiss();
+
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+                        }).getConfigDialog();
+                simplecDialog.show();
 
 
 //                simplecDialog = DialogHelper.EditTextDialog(this, "delete ", " msg ,", "confim ", "ttest", new View.OnClickListener() {
