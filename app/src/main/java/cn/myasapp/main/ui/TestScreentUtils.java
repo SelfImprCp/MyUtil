@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cp.mylibrary.custom.TitleBarView;
+import com.cp.mylibrary.utils.DensityUtils;
 import com.cp.mylibrary.utils.ScreenUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
@@ -82,7 +83,8 @@ public class TestScreentUtils extends BaseActivity {
         switch (v.getId()) {
             case R.id.screen_test_getScreenWidth:
 
-                ShowToastUtil.showToast(this, " 屏幕宽度 ：" + ScreenUtils.getScreenWidth(this));
+                ShowToastUtil.showToast(this, " 屏幕宽度 ：" + ScreenUtils.getScreenWidth(this)  +
+                        " 转换下单位 ：" + DensityUtils.px2dp(this,26));
 
                 break;
 
