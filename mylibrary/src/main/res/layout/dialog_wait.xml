@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:padding="20.0dip" >
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300px"
+    android:layout_height="300px"
+    android:padding="20.0dip">
 
     <ProgressBar
         android:id="@+id/waiting_pb"
@@ -15,12 +15,12 @@
 
     <TextView
         android:id="@+id/waiting_tv"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_below="@id/waiting_pb"
- android:layout_marginTop="@dimen/space_15"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_15"
         android:text="加载中"
         android:textSize="15sp" />
 
-</RelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

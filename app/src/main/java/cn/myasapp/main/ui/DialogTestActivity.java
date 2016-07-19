@@ -73,12 +73,12 @@ public class DialogTestActivity extends BaseActivity {
 
 
 
-   DialogHelper.getWaitDialog(this,"加载中").show();
+  DialogHelper.getWaitDialog(this,"加载中").show();
 
                 //    DialogHelper.getCancelableWaitDialog(this,"加载中").show();
 
                 //     DialogHelper.getPinterestDialog(this);
-
+//
 //                simplecDialog = DialogHelper.configDialog(DialogTestActivity.this,
 //                        "温馨提示", "确认删除", "删除", "消",
 //                        new View.OnClickListener() {
