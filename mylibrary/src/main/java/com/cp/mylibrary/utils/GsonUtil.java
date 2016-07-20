@@ -26,13 +26,21 @@ import java.util.Date;
  * 2015-8-8
  */
 public class GsonUtil {
-	private static Gson gson = new GsonBuilder()
-			.registerTypeAdapter(Date.class, new UtilDateSerializer())
-			.setDateFormat(DateFormat.LONG).setPrettyPrinting().create();
+
+
+
+	private static Gson gson = new Gson();
+
+
+
+
+//	private static Gson gson = new GsonBuilder()
+//			.registerTypeAdapter(Date.class, new UtilDateSerializer())
+//			.setDateFormat(DateFormat.LONG).setPrettyPrinting().create();
 
 	/**
 	 * 将JSON字符串转换成bean(特殊情况)
-	 * @param jsonString
+	 * @param
 	 * @param cls
 	 * @return
 	 */
@@ -49,11 +57,13 @@ public class GsonUtil {
 	/**
 	 * 将bean转换成JSON字符串
 	 * 
-	 * @param jsonString
-	 * @param cls
+	 * @param
+	 * @param
 	 * @return
 	 */
 	public static String beanTojsonStr(Object obj) {
+
+
 		return gson.toJson(obj);
 	}
 
