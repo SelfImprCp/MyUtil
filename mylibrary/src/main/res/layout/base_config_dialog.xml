@@ -53,6 +53,20 @@
         android:textSize="16sp"
         android:visibility="gone" />
 
+
+    <TextView
+        android:id="@+id/base_config_nickname_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+
+        android:text="昵称不得超过10个字"
+        android:textColor="@color/ailibuli_base_color"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_1"

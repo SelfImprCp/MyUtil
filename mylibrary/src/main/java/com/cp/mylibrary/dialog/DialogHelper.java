@@ -90,7 +90,7 @@ public class DialogHelper {
      * @return
      */
 	public static DialogHelper EditTextDialog(Context context, String title,
-											  String msg, String rightStr, String leftStr,
+											  String msg, String nickName,String rightStr, String leftStr,
 											  View.OnClickListener itemsOnClick) {
 		Dialog cd = new AlertDialog.Builder(context).create();
 		// 实例化对话框布局
@@ -99,6 +99,33 @@ public class DialogHelper {
 		// 设置标题
 		TextView title_tv = (TextView) dialogLayout
 				.findViewById(R.id.base_config_dialog_title);
+
+		// 设置内容
+		TextView msg_tv = (TextView) dialogLayout
+				.findViewById(R.id.base_config_dialog_txt);
+		if(StringUtils.isEmpty(msg))
+		{
+			msg_tv.setVisibility(View.GONE);
+		}else
+		{
+			msg_tv.setVisibility(View.VISIBLE);
+			msg_tv.setText(msg);
+		}
+		// 昵称的提示
+		TextView base_config_nickname_text = (TextView) dialogLayout
+				.findViewById(R.id.base_config_nickname_text);
+
+		if(StringUtils.isEmpty(nickName))
+		{
+			base_config_nickname_text.setVisibility(View.GONE);
+		}else
+		{
+			base_config_nickname_text.setVisibility(View.VISIBLE);
+			base_config_nickname_text.setText(nickName);
+		}
+
+
+
 		title_tv.setText(title);
 		// 输入内容
 		msg_tv = (EditText) dialogLayout
@@ -107,15 +134,15 @@ public class DialogHelper {
 
 		msg_tv.setVisibility(View.VISIBLE);
 		msg_tv.setText(msg);
-		Button cancelbtn = (Button) dialogLayout
-				.findViewById(R.id.base_config_dialog_cannel_btn);
+		TextView cancelbtn = (TextView) dialogLayout
+				.findViewById(R.id.base_config_dialog_cannel_btn_b);
 		if (!StringUtils.isEmpty(leftStr)) {
 			cancelbtn.setText(leftStr);
 		} else {
 			cancelbtn.setVisibility(View.GONE);
 		}
-		Button delbtn = (Button) dialogLayout
-				.findViewById(R.id.base_config_dialog_sure_btn);
+		TextView delbtn = (TextView) dialogLayout
+				.findViewById(R.id.base_config_dialog_sure_btn_b);
 		if (!StringUtils.isEmpty(rightStr)) {
 			delbtn.setText(rightStr);
 		} else {

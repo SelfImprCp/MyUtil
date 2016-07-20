@@ -3,6 +3,7 @@ package cn.myasapp.main.ui;
 import android.app.Dialog;
 import android.os.Handler;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cp.mylibrary.custom.TitleBarView;
@@ -10,6 +11,7 @@ import com.cp.mylibrary.dialog.DialogHelper;
 
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -73,7 +75,7 @@ public class DialogTestActivity extends BaseActivity {
 
 
 
-  DialogHelper.getWaitDialog(this,"加载中").show();
+ // DialogHelper.getWaitDialog(this,"加载中").show();
 
                 //    DialogHelper.getCancelableWaitDialog(this,"加载中").show();
 
@@ -104,34 +106,34 @@ public class DialogTestActivity extends BaseActivity {
 //                simplecDialog.show();
 
 
-//                simplecDialog = DialogHelper.EditTextDialog(this, "delete ", " msg ,", "confim ", "ttest", new View.OnClickListener() {
-//
-//
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                        switch (v.getId()) {
-//                            case R.id.base_config_dialog_sure_btn:
-//
-//                                simplecDialog.dismiss();
-//
-//                                EditText editText = DialogHelper.getDialogEditText();
-//                                String str = editText.getText().toString();
-//                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
-//
-//                                break;
-//                            case R.id.base_config_dialog_cannel_btn:
-//                                simplecDialog.dismiss();
-//
-//                                break;
-//                            default:
-//                                break;
-//                        }
-//
-//                    }
-//                }  ).getConfigDialog();
-//
-//                simplecDialog.show();
+                simplecDialog = DialogHelper.EditTextDialog(this, "delete ", null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+
+                        switch (v.getId()) {
+                            case R.id.base_config_dialog_sure_btn:
+
+                                simplecDialog.dismiss();
+
+                                EditText editText = DialogHelper.getDialogEditText();
+                                String str = editText.getText().toString();
+                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
+
+                                break;
+                            case R.id.base_config_dialog_cannel_btn:
+                                simplecDialog.dismiss();
+
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                }  ).getConfigDialog();
+
+                simplecDialog.show();
 
 
 
