@@ -238,6 +238,24 @@ public class StringUtils {
 		return str.substring(start, end);
 	}
 
+
+	/**
+	 *  截取字符串 指定字符串
+	 * @param start
+	 * @param end
+	 * @param decry
+     * @return
+     */
+	public static String getSubString(String start, String end, String decry) {
+		String jieguo =   decry.substring(decry.indexOf(start),decry.indexOf(end));
+
+
+		return jieguo;
+	}
+
+
+
+
 	/**
 	 * 判断一个List是否为空
 	 * 
