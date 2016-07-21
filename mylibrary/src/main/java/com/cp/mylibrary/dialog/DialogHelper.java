@@ -72,10 +72,10 @@ public class DialogHelper {
 	 * @return
 	 */
 
-	public static EditText msg_tv;
+	public static EditText edit_config_dialog_txt;
 
 	public static EditText getDialogEditText() {
-		return msg_tv;
+		return edit_config_dialog_txt;
 	}
 
 
@@ -128,12 +128,12 @@ public class DialogHelper {
 
 		title_tv.setText(title);
 		// 输入内容
-		msg_tv = (EditText) dialogLayout
+		edit_config_dialog_txt = (EditText) dialogLayout
 				.findViewById(R.id.edit_config_dialog_txt);
 
 
-		msg_tv.setVisibility(View.VISIBLE);
-		msg_tv.setText(msg);
+		edit_config_dialog_txt.setVisibility(View.VISIBLE);
+		edit_config_dialog_txt.setText(msg);
 		TextView cancelbtn = (TextView) dialogLayout
 				.findViewById(R.id.base_config_dialog_cannel_btn_b);
 		if (!StringUtils.isEmpty(leftStr)) {
