@@ -19,7 +19,7 @@ public class ActivityManagerUtil {
     /**
      * 单一实例
      */
-    public static ActivityManagerUtil getAppManager() {
+    public static ActivityManagerUtil getInstance() {
         if (instance == null) {
             instance = new ActivityManagerUtil();
         }
@@ -49,7 +49,7 @@ public class ActivityManagerUtil {
     /**
      * 添加Activity到堆栈
      */
-    public void addActivity(Activity activity) {
+    public void pushActivty(Activity activity) {
         activityStack.add(activity);
     }
 

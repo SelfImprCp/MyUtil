@@ -143,7 +143,7 @@ public class MyBaseActivity extends KJActivity {
 
     @Override
     protected void onDestroy() {
-        ((MyBaseApp) this.getApplication()).getActivityManager().popActivity(
+        ((MyBaseApp) this.getApplication()).getActivityManager().finishActivity(
                 this);
         mContext = null;
    EventBus.getDefault().unregister(this);
