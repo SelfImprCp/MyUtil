@@ -1,5 +1,7 @@
 package com.cp.mylibrary.db;
 
+import android.content.Context;
+
 import org.kymjs.kjframe.KJDB;
 
 /**
@@ -7,9 +9,10 @@ import org.kymjs.kjframe.KJDB;
  */
 public class MyDbUtil {
 
-    public KJDB kjdb = KJDB.create();
 
-    public KJDB getKJDB() {
+    public KJDB getKJDB(Context context) {
+          KJDB kjdb = KJDB.create(context);
+
         return kjdb;
 
     }
