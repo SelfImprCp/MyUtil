@@ -1,5 +1,9 @@
 package com.cp.mylibrary.base;
 
+import android.view.View;
+
+import com.bigkoo.pickerview.OptionsPickerView;
+import com.cp.mylibrary.bean.ProvinceBean;
 import com.cp.mylibrary.res.AreaRes;
 import com.cp.mylibrary.utils.GsonUtil;
 
@@ -71,6 +75,10 @@ public class BaseAddressActivity extends MyBaseActivity {
 
  // 所有市
 	public ArrayList<AreaBean> citysList ;
+
+
+	OptionsPickerView pvOptions;
+
 
 
 	protected void initProvinceDatas() {
@@ -170,43 +178,100 @@ public class BaseAddressActivity extends MyBaseActivity {
 
 		}
 
-		// 获取解析出来的数据
-		// provinceList = handler.getDataList();
-		// */ 初始化默认选中的省、市、区
-		/*
-		 * if (provinceList != null && !provinceList.isEmpty()) {
-		 * mCurrentProviceName = provinceList.get(0).getName(); List<CityModel>
-		 * cityList = provinceList.get(0).getCityList(); if (cityList != null &&
-		 * !cityList.isEmpty()) { mCurrentCityName = cityList.get(0).getName();
-		 * List<AreaBean> districtList = cityList.get(0) .getDistrictList();
-		 * mCurrentDistrictName = districtList.get(0).getRname(); //
-		 * mCurrentZipCode = districtList.get(0).getZipcode(); } }
-		 */
-		// */
-		/*
-		 * mProvinceDatas = new String[provinceList.size()]; for (int i = 0; i <
-		 * provinceList.size(); i++) { // 遍历所有省的数据 mProvinceDatas[i] =
-		 * provinceList.get(i).getName(); List<CityModel> cityList =
-		 * provinceList.get(i).getCityList(); String[] cityNames = new
-		 * String[cityList.size()]; for (int j = 0; j < cityList.size(); j++) {
-		 * // 遍历省下面的所有市的数据 cityNames[j] = cityList.get(j).getName();
-		 * List<AreaBean> districtList = cityList.get(j) .getDistrictList();
-		 * //String[] distrinctNameArray = new String[districtList // .size()];
-		 * //AreaBean[] distrinctArray = new AreaBean[districtList // .size()];
-		 * for (int k = 0; k < districtList.size(); k++) { // 遍历市下面所有区/县的数据
-		 * AreaBean districtModel = new AreaBean(
-		 * districtList.get(k).getRname(), districtList
-		 * .get(k).getPid(),districtList.get(k).getRtype()); //
-		 * 区/县对于的邮编，保存到mZipcodeDatasMap
-		 * mZipcodeDatasMap.put(districtList.get(k).getName(),
-		 * districtList.get(k).getZipcode()); distrinctArray[k] = districtModel;
-		 * distrinctNameArray[k] = districtModel.getRname(); } //
-		 * 市-区/县的数据，保存到mDistrictDatasMap mDistrictDatasMap.put(cityNames[j],
-		 * distrinctNameArray); } // 省-市的数据，保存到mCitisDatasMap
-		 * mCitisDatasMap.put(provinceList.get(i).getName(), cityNames); }
-		 */
+
 
 	}
+
+
+
+
+	public void showSelectArea()
+	{
+
+		initProvinceDatas();
+
+
+		//省
+		final ArrayList<ProvinceBean> options1Items = new ArrayList<ProvinceBean>();
+
+		ArrayList<ArrayList<ProvinceBean>> options2Items = new ArrayList<ArrayList<ProvinceBean>>();
+
+
+
+		//选项选择器
+		pvOptions = new OptionsPickerView(this);
+
+
+		for (AreaBean areaBean : provincesList) {
+
+			ProvinceBean pro = new ProvinceBean(areaBean.getId(), areaBean.getRname());
+			options1Items.add(pro);
+
+
+			ArrayList<ProvinceBean> options2Items_01 = new ArrayList<ProvinceBean>();
+
+			for (AreaBean cityBean : citysList) {
+
+
+//                LogCp.i(LogCp.CP, UserInfoActivity.class +
+//                        "  当前省的id   " + areaBean.getId() +
+//                        " 当前市的" + cityBean.getRname() + cityBean.getPid()
+//                );
+
+
+				if (areaBean.getId() == cityBean.getPid()) {
+
+
+					ProvinceBean proTwo = new ProvinceBean(cityBean.getId(), cityBean.getRname());
+
+
+					options2Items_01.add(proTwo);
+
+
+				}
+
+
+			}
+			options2Items.add(options2Items_01);
+
+
+		}
+
+
+
+		//三级联动效果
+
+		//
+		//  pvOptions.setPicker(options1Items);
+		//
+		pvOptions.setPicker(options1Items, options2Items, true);
+		//设置选择的三级单位
+//        pwOptions.setLabels("省", "市", "区");
+		pvOptions.setTitle("选择城市");
+		pvOptions.setCyclic(false, false ,false  );
+		//设置默认选中的三级项目
+		//监听确定选择按钮
+		pvOptions.setSelectOptions(1, 1, 1);
+//		pvOptions.setOnoptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
+//
+//			@Override
+//			public void onOptionsSelect(int options1, int option2, int options3) {
+//				//返回的分别是三个级别的选中位置
+////                 String tx = options1Items.get(options1).getPickerViewText()
+////                         + options2Items.get(options1).get(option2);
+//
+//				vMasker.setVisibility(View.GONE);
+//			}
+//		});
+
+
+		pvOptions.show();
+
+
+	}
+
+
+
 
 
 }
