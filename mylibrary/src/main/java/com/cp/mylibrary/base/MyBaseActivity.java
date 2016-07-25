@@ -25,7 +25,7 @@ import org.kymjs.kjframe.KJActivity;
  */
 public class MyBaseActivity extends KJActivity {
 
-   private Context mContext;
+   public Context mContext;
     //为状态栏着色
   public SystemBarTintManager tintManager ;
 
