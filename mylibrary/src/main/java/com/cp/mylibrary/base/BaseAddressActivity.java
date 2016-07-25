@@ -80,6 +80,14 @@ public class BaseAddressActivity extends MyBaseActivity {
 	public OptionsPickerView pvOptions;
 
 
+	//省
+	public	ArrayList<ProvinceBean> options1Items = new ArrayList<ProvinceBean>();
+
+	public	ArrayList<ArrayList<ProvinceBean>> options2Items = new ArrayList<ArrayList<ProvinceBean>>();
+
+
+
+
 
 	protected void initProvinceDatas() {
 
@@ -190,11 +198,6 @@ public class BaseAddressActivity extends MyBaseActivity {
 
 		initProvinceDatas();
 
-
-		//省
-		final ArrayList<ProvinceBean> options1Items = new ArrayList<ProvinceBean>();
-
-		ArrayList<ArrayList<ProvinceBean>> options2Items = new ArrayList<ArrayList<ProvinceBean>>();
 
 
 
