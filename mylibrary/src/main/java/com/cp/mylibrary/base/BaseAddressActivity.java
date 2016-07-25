@@ -77,7 +77,7 @@ public class BaseAddressActivity extends MyBaseActivity {
 	public ArrayList<AreaBean> citysList ;
 
 
-	OptionsPickerView pvOptions;
+	public OptionsPickerView pvOptions;
 
 
 
