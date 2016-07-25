@@ -66,6 +66,9 @@ public class BaseAddressActivity extends MyBaseActivity {
 	 * 解析省市区的XML数据
 	 */
 
+	 // 所有的省
+	public 		List<AreaBean> provincesList;
+
 	protected void initProvinceDatas() {
 
 		String strAreaJson = GsonUtil.getJsonForFile(mContext, "area_json.txt");
@@ -73,7 +76,7 @@ public class BaseAddressActivity extends MyBaseActivity {
 		AreaRes areaRes = GsonUtil.jsonStrToBean(strAreaJson, AreaRes.class);
 
 		// 所有的省
-		List<AreaBean> provincesList = areaRes.getResult().getProvinces();
+		  provincesList = areaRes.getResult().getProvinces();
 		// 所有的市
 		List<AreaBean> citysList = areaRes.getResult().getCitys();
 		// 所有的区
