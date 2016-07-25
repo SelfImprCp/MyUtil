@@ -67,7 +67,7 @@ public class BaseAddressActivity extends MyBaseActivity {
 	 */
 
 	 // 所有的省
-	public 		List<AreaBean> provincesList;
+	public 		ArrayList<AreaBean> provincesList;
 
 	protected void initProvinceDatas() {
 

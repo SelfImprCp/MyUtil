@@ -2,6 +2,7 @@ package com.cp.mylibrary.base;
 
 import com.cp.mylibrary.bean.MyEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,13 +12,13 @@ import java.util.List;
  *
  */
 public class AreaListBean extends MyEntity{
-   private List<AreaBean> provinces;
+   private ArrayList<AreaBean> provinces;
    private List<AreaBean> citys;
    private List<AreaBean> areas;
-   public List<AreaBean> getProvinces() {
+   public ArrayList<AreaBean> getProvinces() {
        return provinces;
    }
-   public void setProvinces(List<AreaBean> provinces) {
+   public void setProvinces(ArrayList<AreaBean> provinces) {
        this.provinces = provinces;
    }
    public List<AreaBean> getCitys() {
