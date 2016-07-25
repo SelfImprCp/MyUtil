@@ -3,11 +3,13 @@ package com.cp.mylibrary.base;
 import android.view.View;
 
 import com.bigkoo.pickerview.OptionsPickerView;
+import com.bigkoo.pickerview.TimePickerView;
 import com.cp.mylibrary.bean.ProvinceBean;
 import com.cp.mylibrary.res.AreaRes;
 import com.cp.mylibrary.utils.GsonUtil;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,8 +78,11 @@ public class BaseAddressActivity extends MyBaseActivity {
  // 所有市
 	public ArrayList<AreaBean> citysList ;
 
-
+    //  地区
 	public OptionsPickerView pvOptions;
+
+
+	public TimePickerView pvTime;
 
 
 	//省
@@ -190,6 +195,21 @@ public class BaseAddressActivity extends MyBaseActivity {
 
 	}
 
+
+	 public void showTime()
+	 {
+		 //时间选择器
+		 pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
+		 //控制时间范围
+//        Calendar calendar = Calendar.getInstance();
+//        pvTime.setRange(calendar.get(Calendar.YEAR) - 20, calendar.get(Calendar.YEAR));//要在setTime 之前才有效果哦
+		 pvTime.setTime(new Date());
+		 pvTime.setCyclic(false);
+		 pvTime.setCancelable(true);
+
+
+
+	 }
 
 
 

@@ -82,6 +82,10 @@ public class TestPickerView extends BaseActivity {
                 tvTime.setText(getTime(date));
             }
         });
+
+
+
+
         //弹出时间选择器
         tvTime.setOnClickListener(new View.OnClickListener() {
 
