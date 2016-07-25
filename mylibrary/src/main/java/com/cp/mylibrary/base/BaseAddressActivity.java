@@ -195,6 +195,9 @@ public class BaseAddressActivity extends MyBaseActivity {
 
 	}
 
+	/**
+	 *
+	 */
 
 	 public void showTime()
 	 {
