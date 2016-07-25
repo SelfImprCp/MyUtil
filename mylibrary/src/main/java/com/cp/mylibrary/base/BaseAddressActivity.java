@@ -69,8 +69,10 @@ public class BaseAddressActivity extends MyBaseActivity {
 	 // 所有的省
 	public 		ArrayList<AreaBean> provincesList;
 
+ // 所有市
+	public ArrayList<AreaBean> citysList ;
 
-	public List<AreaBean> citysList ;
+
 	protected void initProvinceDatas() {
 
 		String strAreaJson = GsonUtil.getJsonForFile(mContext, "area_json.txt");

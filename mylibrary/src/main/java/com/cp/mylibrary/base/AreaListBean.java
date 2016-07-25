@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class AreaListBean extends MyEntity{
    private ArrayList<AreaBean> provinces;
-   private List<AreaBean> citys;
+   private ArrayList<AreaBean> citys;
    private List<AreaBean> areas;
    public ArrayList<AreaBean> getProvinces() {
        return provinces;
@@ -21,10 +21,10 @@ public class AreaListBean extends MyEntity{
    public void setProvinces(ArrayList<AreaBean> provinces) {
        this.provinces = provinces;
    }
-   public List<AreaBean> getCitys() {
+   public ArrayList<AreaBean> getCitys() {
        return citys;
    }
-   public void setCitys(List<AreaBean> citys) {
+   public void setCitys(ArrayList<AreaBean> citys) {
        this.citys = citys;
    }
    public List<AreaBean> getAreas() {
