@@ -90,7 +90,7 @@ public class DialogHelper {
      * @return
      */
 	public static DialogHelper EditTextDialog(Context context, String title,
-											  String msg, String nickName,String rightStr, String leftStr,
+											  String msg,String nickName, String nickNameTag,String rightStr, String leftStr,
 											  View.OnClickListener itemsOnClick) {
 		Dialog cd = new AlertDialog.Builder(context).create();
 		// 实例化对话框布局
@@ -115,13 +115,13 @@ public class DialogHelper {
 		TextView base_config_nickname_text = (TextView) dialogLayout
 				.findViewById(R.id.base_config_nickname_text);
 
-		if(StringUtils.isEmpty(nickName))
+		if(StringUtils.isEmpty(nickNameTag))
 		{
 			base_config_nickname_text.setVisibility(View.GONE);
 		}else
 		{
 			base_config_nickname_text.setVisibility(View.VISIBLE);
-			base_config_nickname_text.setText(nickName);
+			base_config_nickname_text.setText(nickNameTag);
 		}
 
 
@@ -133,7 +133,7 @@ public class DialogHelper {
 
 
 		edit_config_dialog_txt.setVisibility(View.VISIBLE);
-		edit_config_dialog_txt.setText(msg);
+		edit_config_dialog_txt.setText(nickName);
 		TextView cancelbtn = (TextView) dialogLayout
 				.findViewById(R.id.base_config_dialog_cannel_btn_b);
 		if (!StringUtils.isEmpty(leftStr)) {
