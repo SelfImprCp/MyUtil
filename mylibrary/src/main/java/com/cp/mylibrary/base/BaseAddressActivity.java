@@ -210,6 +210,7 @@ public class BaseAddressActivity extends MyBaseActivity {
 		 pvTime.setCyclic(false);
 		 pvTime.setCancelable(true);
 
+		 pvTime.show();
 
 
 	 }

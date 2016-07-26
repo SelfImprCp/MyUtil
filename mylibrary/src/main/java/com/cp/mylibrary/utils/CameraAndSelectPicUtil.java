@@ -101,6 +101,14 @@ public class CameraAndSelectPicUtil {
 		 protraitFile = new File(protraitPath);
 		 return protraitFile;
 	 }
+
+	/**
+	 *  取得 上传图片的路径
+	 */
+	 public String getUpFilePath()
+	 {
+		 return  protraitPath;
+	 }
 	
 	 
 	  /**
