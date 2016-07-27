@@ -358,7 +358,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         }
 
         // 没有更多了
-        if (mAdapter.getData().size() != 0 && data == null || data.size() < PAGE_SIZE) {
+        if (mAdapter.getData().size() != 0 &&   data.size() < PAGE_SIZE) {
 
             mState = STATE_NOMORE;
 
