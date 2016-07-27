@@ -154,6 +154,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
                     requestData();
 
 
+
+
                 } else {
 
 
