@@ -319,7 +319,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 		mAdapter.addData(data);
 
        // 没有数据
-		if(mData.size()==0)
+		if(mData.size()==0||data==null)
 		{
 			listview_refresh_enptylayou.setErrorType(EmptyLayout.NODATA);
 		}
