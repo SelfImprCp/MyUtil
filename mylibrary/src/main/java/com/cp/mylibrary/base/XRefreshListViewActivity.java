@@ -50,7 +50,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     //列表的甜酸器
     public ListBaseAdapter mAdapter;
 
-    public int PAGE_SIZE = 10;
+    public int PAGE_SIZE = 20;
 
     //数据源所有的数据
 //    public List<T> mData = new ArrayList<T>();
@@ -356,6 +356,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
         }
+
+        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "  判断 是不是还有更多   " + mAdapter.getData().size() +  " data.size()  " + data.size() );
 
         // 没有更多了
         if (mAdapter.getData().size() != 0 &&   data.size() < PAGE_SIZE) {
