@@ -341,7 +341,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             listview_refresh_enptylayou.setVisibility(View.VISIBLE);
             listview_refresh_enptylayou.setErrorType(EmptyLayout.NODATA);
 
-            refreshView.setVisibility(View.GONE);
+            mListView.setVisibility(View.GONE);
 
 
         }
