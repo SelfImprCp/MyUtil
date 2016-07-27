@@ -379,7 +379,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         if (mAdapter.getData().size() != 0 && data.size() < PAGE_SIZE) {
 
             mState = STATE_NOMORE;
-            refreshView.setLoadComplete(false);
+            refreshView.setLoadComplete(true);
 
         }
 
