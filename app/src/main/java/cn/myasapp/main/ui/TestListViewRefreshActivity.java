@@ -49,7 +49,7 @@ public class TestListViewRefreshActivity extends XRefreshListViewActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MainFocus mainFocus = (MainFocus) mData.get(position);
+                MainFocus mainFocus = (MainFocus) mAdapter.getData().get(position);
                 ShowToastUtil.showToast(TestListViewRefreshActivity.this, "点击了哪一个，" + mainFocus.getName());
             }
         });

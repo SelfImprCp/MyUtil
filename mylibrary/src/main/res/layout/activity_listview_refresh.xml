@@ -10,18 +10,18 @@
     android:orientation="vertical"
 
    >
+    <com.cp.mylibrary.custom.EmptyLayout
+        android:id="@+id/listview_refresh_enptylayou"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"></com.cp.mylibrary.custom.EmptyLayout>
+
 
     <ListView
         android:id="@+id/lv_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
-<com.cp.mylibrary.custom.EmptyLayout
-    android:id="@+id/listview_refresh_enptylayou"
-    android:layout_width="match_parent"
-    android:visibility="gone"
-    android:layout_height="match_parent"></com.cp.mylibrary.custom.EmptyLayout>
 
 
 

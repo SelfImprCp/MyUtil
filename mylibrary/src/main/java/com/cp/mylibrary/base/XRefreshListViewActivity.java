@@ -1,6 +1,7 @@
 package com.cp.mylibrary.base;
 
 import android.os.AsyncTask;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
@@ -43,7 +44,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     protected int mCurrentPage = 1;
 
     //列表的甜酸器
-    private ListBaseAdapter mAdapter;
+    public ListBaseAdapter mAdapter;
 
     public int PAGE_SIZE = 10;
 
@@ -318,7 +319,11 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
         // 没有数据
         if (mAdapter.getData().size() == 0 || data == null) {
+            listview_refresh_enptylayou.setVisibility(View.VISIBLE);
             listview_refresh_enptylayou.setErrorType(EmptyLayout.NODATA);
+
+
+
         }
 
 
