@@ -199,12 +199,24 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
      */
     protected void requestData() {
         // 第一次加载的时候 ，转圈圈
-        if (mCurrentPage == 1)
+        if (mCurrentPage == 1||mAdapter.getData().size()==0) {
+
+            LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "第一次加载 ，转圈圈 "   );
+
+
+
+            listview_refresh_enptylayou.setVisibility(View.VISIBLE);
             listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
 
+        }
         //第一次加载，并且没有网络
 
         if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(this) && mAdapter.getData().size() == 0) {
+
+
+            listview_refresh_enptylayou.setVisibility(View.VISIBLE);
+
+
             //设置整个界面
             listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_ERROR);
 
@@ -344,7 +356,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         if (mState == STATE_REFRESH)
             mAdapter.clear();
 
-//        mData.addAll(data);
         mAdapter.addData(data);
 
         // 没有数据 一条都没有
@@ -355,14 +366,20 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             refreshView.setVisibility(View.GONE);
 
 
+        } else {
+
+            listview_refresh_enptylayou.setVisibility(View.GONE);
+
+
         }
 
-        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "  判断 是不是还有更多   " + mAdapter.getData().size() +  " data.size()  " + data.size() );
+        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "  判断 是不是还有更多   " + mAdapter.getData().size() + " data.size()  " + data.size());
 
         // 没有更多了
-        if (mAdapter.getData().size() != 0 &&   data.size() < PAGE_SIZE) {
+        if (mAdapter.getData().size() != 0 && data.size() < PAGE_SIZE) {
 
             mState = STATE_NOMORE;
+            refreshView.setLoadComplete(false);
 
         }
 
