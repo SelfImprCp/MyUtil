@@ -86,6 +86,11 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
                 if (listview_refresh_enptylayou.getErrorState() == EmptyLayout.NETWORK_ERROR || listview_refresh_enptylayou.getErrorState() == EmptyLayout.NODATA) {
                   mCurrentPage = 1;
+
+                    listview_refresh_enptylayou.setVisibility(View.VISIBLE);
+                    listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
+
+
                     requestData();
                 }
 
