@@ -321,7 +321,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
        // 没有数据
 		if(mData.size()==0)
 		{
-
+			listview_refresh_enptylayou.setErrorType(EmptyLayout.NODATA);
 		}
 
 

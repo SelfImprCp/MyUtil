@@ -163,7 +163,7 @@ public class EmptyLayout extends LinearLayout implements
 		case NODATA:
 			mErrorState = NODATA;
 			// img.setBackgroundDrawable(SkinsUtil.getDrawable(context,"page_icon_empty"));
-			img.setBackgroundResource(R.drawable.page_icon_empty);
+			//img.setBackgroundResource(R.drawable.page_icon_empty);
 			img.setVisibility(View.VISIBLE);
 			animProgress.setVisibility(View.GONE);
 			setTvNoDataContent();
@@ -174,7 +174,7 @@ public class EmptyLayout extends LinearLayout implements
 			break;
 		case NODATA_ENABLE_CLICK:
 			mErrorState = NODATA_ENABLE_CLICK;
-			img.setBackgroundResource(R.drawable.page_icon_empty);
+			//	img.setBackgroundResource(R.drawable.page_icon_empty);
 			// img.setBackgroundDrawable(SkinsUtil.getDrawable(context,"page_icon_empty"));
 			img.setVisibility(View.VISIBLE);
 			animProgress.setVisibility(View.GONE);
