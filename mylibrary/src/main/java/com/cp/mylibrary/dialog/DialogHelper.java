@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -151,8 +152,12 @@ public class DialogHelper {
 
 		delbtn.setOnClickListener(itemsOnClick);
 		cancelbtn.setOnClickListener(itemsOnClick);
-		cd.show();
+	//	cd.show();
 		cd.setContentView(dialogLayout);
+
+		cd.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+		cd.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+
 		instantce = getInstances();
 		instantce.setConfigDialog(cd);
 		return instantce;

@@ -16,6 +16,7 @@ import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
 
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             public void onClick(View v) {
 
                 if (listview_refresh_enptylayou.getErrorState() == EmptyLayout.NETWORK_ERROR || listview_refresh_enptylayou.getErrorState() == EmptyLayout.NODATA) {
-                  mCurrentPage = 1;
+                    mCurrentPage = 1;
 
                     listview_refresh_enptylayou.setVisibility(View.VISIBLE);
                     listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
@@ -145,11 +146,17 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
                 LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "执行到加载更多");
 
 
-                mCurrentPage++;
-                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
+                if (mState != STATE_NOMORE) {
+                    mCurrentPage++;
+                    LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
 
-                mState = STATE_LOADMORE;
-                requestData();
+                    mState = STATE_LOADMORE;
+                    requestData();
+
+
+                } else {
+                    ShowToastUtil.showToast(mContext, "没有更多了");
+                }
 
 
             }
@@ -193,15 +200,15 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     protected void requestData() {
         // 第一次加载的时候 ，转圈圈
         if (mCurrentPage == 1)
-            //	mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+            listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
 
-            //第一次加载，并且没有网络
+        //第一次加载，并且没有网络
 
-            if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(this) && mAdapter.getData().size() == 0) {
-                //设置整个界面
-                //	mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+        if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(this) && mAdapter.getData().size() == 0) {
+            //设置整个界面
+            listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_ERROR);
 
-            }
+        }
         // 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
         if (mCurrentPage != 1 && !NetWorkUtil.hasInternetConnected(this)) {
 
@@ -267,7 +274,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             mParserTask = null;
         }
     }
-
 
 
     class ParserTask extends AsyncTask<Void, Void, String> {
@@ -341,13 +347,20 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 //        mData.addAll(data);
         mAdapter.addData(data);
 
-        // 没有数据
+        // 没有数据 一条都没有
         if (mAdapter.getData().size() == 0 || data == null) {
             listview_refresh_enptylayou.setVisibility(View.VISIBLE);
             listview_refresh_enptylayou.setErrorType(EmptyLayout.NODATA);
 
             refreshView.setVisibility(View.GONE);
 
+
+        }
+
+        // 没有更多了
+        if (mAdapter.getData().size() != 0 && data == null || data.size() < PAGE_SIZE) {
+
+            mState = STATE_NOMORE;
 
         }
 
