@@ -155,7 +155,11 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
                 } else {
+
+
                     ShowToastUtil.showToast(mContext, "没有更多了");
+                    refreshView.setLoadComplete(true);
+
                 }
 
 
@@ -379,7 +383,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         if (mAdapter.getData().size() != 0 && data.size() < PAGE_SIZE) {
 
             mState = STATE_NOMORE;
-            refreshView.setLoadComplete(true);
 
         }
 
