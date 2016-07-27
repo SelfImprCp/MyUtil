@@ -1,6 +1,8 @@
 package com.cp.mylibrary.base;
 
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
@@ -14,6 +16,7 @@ import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +77,20 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         refreshView = (XRefreshView) findViewById(R.id.custom_view);
         listview_refresh_enptylayou = (EmptyLayout) findViewById(R.id.listview_refresh_enptylayou);
 
+
+        listview_refresh_enptylayou.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+                if (listview_refresh_enptylayou.getErrorState() == EmptyLayout.NETWORK_ERROR || listview_refresh_enptylayou.getErrorState() == EmptyLayout.NODATA) {
+                  mCurrentPage = 1;
+                    requestData();
+                }
+
+            }
+        });
 
         mAdapter = getmAdapter();
 
@@ -245,6 +262,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             mParserTask = null;
         }
     }
+
+
 
     class ParserTask extends AsyncTask<Void, Void, String> {
 
