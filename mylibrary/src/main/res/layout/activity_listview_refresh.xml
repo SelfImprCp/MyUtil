@@ -16,4 +16,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+
+<com.cp.mylibrary.custom.EmptyLayout
+    android:id="@+id/listview_refresh_enptylayou"
+    android:layout_width="match_parent"
+    android:visibility="gone"
+    android:layout_height="match_parent"></com.cp.mylibrary.custom.EmptyLayout>
+
+
+
+
+
 </com.cp.mylibrary.pullto.XRefreshView>

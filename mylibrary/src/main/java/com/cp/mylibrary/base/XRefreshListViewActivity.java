@@ -9,6 +9,7 @@ import com.cp.mylibrary.R;
 import com.cp.mylibrary.adapter.ListBaseAdapter;
 import com.cp.mylibrary.api.MyResponseHandler;
 import com.cp.mylibrary.bean.MyEntity;
+import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
@@ -48,12 +49,14 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 	public int PAGE_SIZE = 10;
 
-	//数据源
+	//数据源所有的数据
 	public List<T> mData = new ArrayList<T>();
 
 	private XRefreshView refreshView;
 
 	public static long lastRefreshTime;
+
+	public EmptyLayout listview_refresh_enptylayou;
 
 	@Override
 	public void setRootView() {
@@ -70,6 +73,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 		mListView = (ListView) findViewById(R.id.lv_refresh);
 		refreshView = (XRefreshView) findViewById(R.id.custom_view);
+		listview_refresh_enptylayou = (EmptyLayout)findViewById(R.id.listview_refresh_enptylayou);
+
 
 		mAdapter = getmAdapter();
 
@@ -312,6 +317,13 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
 		mAdapter.addData(data);
+
+       // 没有数据
+		if(mData.size()==0)
+		{
+
+		}
+
 
 
 
