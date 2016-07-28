@@ -137,6 +137,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
                 lastRefreshTime = refreshView.getLastRefreshTime();
 
+
+
             }
 
             @Override
@@ -160,7 +162,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
                     ShowToastUtil.showToast(mContext, "没有更多了");
-                    refreshView.setLoadComplete(true);
+                    refreshView.endLoadMore(true);
 
                 }
 
@@ -181,8 +183,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " onScrollStateChanged");
-
+//                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " onScrollStateChanged");
+//
 
             }
 
@@ -190,7 +192,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             public void onScroll(AbsListView view, int firstVisibleItem,
                                  int visibleItemCount, int totalItemCount) {
 
-                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " onScroll");
+//                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " onScroll");
 
 
             }
