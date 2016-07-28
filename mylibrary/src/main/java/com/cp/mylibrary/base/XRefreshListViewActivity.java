@@ -45,7 +45,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
     //当前页数
-    protected int mCurrentPage = 1;
+    protected int mCurrentPage = 0;
 
     //列表的甜酸器
     public ListBaseAdapter mAdapter;
