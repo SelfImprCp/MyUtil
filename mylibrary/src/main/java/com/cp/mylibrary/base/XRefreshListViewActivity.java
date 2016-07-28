@@ -162,7 +162,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
                     ShowToastUtil.showToast(mContext, "没有更多了");
-                    refreshView.endLoadMore(true);
+                    refreshView.stopLoadMore(true);
 
                 }
 
