@@ -1,12 +1,11 @@
 package com.cp.mylibrary.base;
 
-import android.view.View;
-
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
 import com.cp.mylibrary.bean.ProvinceBean;
 import com.cp.mylibrary.res.AreaRes;
 import com.cp.mylibrary.utils.GsonUtil;
+import com.cp.mylibrary.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -142,7 +141,7 @@ public class BaseAddressActivity extends MyBaseActivity {
 			AreaBean province = provincesList.get(i);
 
 			// 此级的id
-			int proID = province.getId();
+			int proID = StringUtils.toInt(province.getId());
 
 			mProvinceDatas[i] = provincesList.get(i).getRname();
 			// mProvinceDatas[province.getRname()];
@@ -160,7 +159,9 @@ public class BaseAddressActivity extends MyBaseActivity {
 						newCitysList.add(city);
 
 					// 把区放到市里面
-					int cityID = city.getId();
+
+
+					int cityID = 	StringUtils.toInt(city.getId());
 					
 					// 某个市下所有的区
 					List<AreaBean> newAreasList = new ArrayList<AreaBean>();
@@ -246,7 +247,7 @@ public class BaseAddressActivity extends MyBaseActivity {
 //                );
 
 
-				if (areaBean.getId() == cityBean.getPid()) {
+				if (areaBean.getId() .equals(cityBean.getPid())) {
 
 
 					ProvinceBean proTwo = new ProvinceBean(cityBean.getId(), cityBean.getRname());
