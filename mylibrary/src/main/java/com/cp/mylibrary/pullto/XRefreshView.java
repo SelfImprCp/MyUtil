@@ -825,7 +825,7 @@ public class XRefreshView extends LinearLayout {
     public void stopLoadMore(final boolean hideFooter) {
         if (needAddFooterView()) {
             if (mPullLoading == true) {
-                mStopingRefresh = true;
+           //     mStopingRefresh = true;
                 mState = XRefreshViewState.STATE_COMPLETE;
                 mFooterCallBack.onStateFinish(hideFooter);
                 if (mPinnedTime >= 1000) {// 在加载更多完成以后，只有mPinnedTime大于1s才生效，不然效果不好
