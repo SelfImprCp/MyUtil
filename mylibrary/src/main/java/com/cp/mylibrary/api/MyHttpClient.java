@@ -23,8 +23,8 @@ public static String Cookie = "";
     /**
      *
      */
-    public static void initHttp(String host,String suffix) {
-        API_URL =  "http://" + host + "/"+suffix+"/%s";
+    public static void initHttp(String host) {
+        API_URL =  "http://" + host + "/";
 
         // 初始化网络请求
         client   = new KJHttp( );
@@ -151,7 +151,8 @@ public static String Cookie = "";
 
 
     public static String getAbsoluteApiUrl(String partUrl) {
-        String url = String.format(API_URL, partUrl);
+     //   String url = String.format(API_URL, partUrl);
+        String url = API_URL + partUrl;
         //  Log.d("BASE_CLIENT", "request:" + url);
         return url;
     }
