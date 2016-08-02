@@ -1,8 +1,9 @@
 package com.cp.mylibrary.banner;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
