@@ -108,8 +108,9 @@
 
 
     <!-- parent="@style/Theme.Base.AppCompat.Dialog.Light.FixedSize" -->
-    <style name="dialog_common"   />
-
+    <style name="dialog_common"  parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
 
 
     <style name="dialog_animation" parent="android:Animation">

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.dialog.DialogHelper;
 
+import com.cp.mylibrary.dialog.ShareDialog;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.ShowToastUtil;
@@ -34,12 +35,17 @@ public class DialogTestActivity extends BaseActivity {
 
     @BindView(id = R.id.dialog_wait, click = true)
     private TextView dialog_wait;
+    @BindView(id = R.id.dialog_share, click = true)
+    private TextView dialog_share;
+
 
     @BindView(id = R.id.refresh_view_dialog)
     private XRefreshView refresh_view_dialog;
 
 
 
+
+    private ShareDialog mDialog;
 
 
     @Override
@@ -140,6 +146,17 @@ public class DialogTestActivity extends BaseActivity {
 
 
                 break;
+
+            case R.id.dialog_share:
+
+                if (mDialog == null)
+                    mDialog = new ShareDialog(this);
+                mDialog.setCancelable(true);
+                mDialog.setCanceledOnTouchOutside(true);
+                mDialog.setTitle(R.string.share_to);
+                mDialog.show();
+                break;
+
         }
     }
 
