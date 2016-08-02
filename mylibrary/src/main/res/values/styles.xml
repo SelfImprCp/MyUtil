@@ -128,5 +128,76 @@
         <item name="android:maxLines">2</item>
         <item name="android:layout_weight">1.0</item>
     </style>
+    <style name="fullline_view">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="dialog_title" parent="@style/fullline_view">
+    <item name="android:textSize">@dimen/text_large_primary_size</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textColor">@color/text_dark</item>
+    <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <style name="dialog_subtitle" parent="@style/fullline_view">
+        <item name="android:textSize">@dimen/text_large_secondary_size</item>
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <style name="dialog_text">
+        <item name="android:textSize">@dimen/text_large_secondary_size</item>
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/global_dialog_padding</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+    <style name="dialog_divider">
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">@color/light_gray</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0px</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+
+    <!-- 分享对话框样式 start -->
+    <style name="dialog_content_share_ll">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="dialog_content_share_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableTop">@drawable/share_icon_qq_selector</item>
+        <item name="android:drawablePadding">@dimen/space_4</item>
+        <item name="android:textColor">@color/main_gray</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+    <!-- 分享对话框样式 end -->
+
+
+    <style name="dialog_bottom" parent="@style/dialog_common">
+        <item name="android:windowBackground">@drawable/dialog_bottom_background</item>
+        <item name="android:windowAnimationStyle">@style/dialog_animation</item>
+    </style>
+
+    <style name="quick_option_dialog" parent="@style/dialog_common">
+        <item name="android:windowBackground">@color/white_cp_util</item>
+        <item name="android:windowAnimationStyle">@style/dialog_animation</item>
+    </style>
+
+
 
 </resources>

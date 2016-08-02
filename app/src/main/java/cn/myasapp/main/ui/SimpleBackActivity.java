@@ -41,7 +41,7 @@ public class SimpleBackActivity extends BaseActivity {
 
 
 	@BindView(id = R.id.aty_simpleback_title)
-	 private TitleBarView aty_simpleback_title;
+	 public TitleBarView aty_simpleback_title;
 
 
 

@@ -13,7 +13,7 @@
     <color name="gray_cp_util">#9A9A9A</color>
 
     <color name="black_color_30">#000000</color>
-
+    <color name="text_light">#3f000000</color>
 
     <!-- 下拉刷新时，颜色值 -->
     <color name="swiperefresh_color1">#ff00ddff</color>
@@ -21,12 +21,13 @@
     <color name="swiperefresh_color3">#ffff4444</color>
     <color name="swiperefresh_color4">#ffaa66cc</color>
 
-
+    <color name="light_gray">#1a000000</color>
+    <color name="lightest_gray">#0a000000</color>
 
     <color name="ailibuli_base_color">#2a70ed</color>
     <color name="ailibuli_orange_color">#FE5F12</color>
     <color name="ailibuli_hong_color">#FF5E5B</color>
-
+    <color name="main_gray">#9A9A9A</color>
 
     <color name="ui_dialog_divider">@color/list_divider_color</color>
     <color name="ui_dialog_list_text">#5E5E5E</color>

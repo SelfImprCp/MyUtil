@@ -1,13 +1,19 @@
 package com.cp.mylibrary.utils;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.WindowManager;
+
+import com.cp.mylibrary.app.MyBaseApp;
 
 /**
  * Created by Jerry on 2016/7/5.
  * 常用单位转换的辅助类
  */
 public class DensityUtils {
+
+    private static Boolean _isTablet = null;
 
     private DensityUtils() {
         /* cannot be instantiated */
@@ -24,6 +30,39 @@ public class DensityUtils {
     public static int dp2px(Context context, float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dpVal, context.getResources().getDisplayMetrics());
+    }
+    public static float dpToPixel(float dp) {
+        return dp * (getDisplayMetrics().densityDpi / 160F);
+    }
+
+
+
+    public static boolean isTablet() {
+        if (_isTablet == null) {
+            boolean flag;
+            if ((0xf & MyBaseApp.getInstance().getResources()
+                    .getConfiguration().screenLayout) >= 3)
+                flag = true;
+            else
+                flag = false;
+            _isTablet = Boolean.valueOf(flag);
+        }
+        return _isTablet.booleanValue();
+    }
+
+    public static float getScreenHeight() {
+        return getDisplayMetrics().heightPixels;
+    }
+
+    public static float getScreenWidth() {
+        return getDisplayMetrics().widthPixels;
+    }
+    public static DisplayMetrics getDisplayMetrics() {
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        ((WindowManager) MyBaseApp.getInstance().getSystemService(
+                Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(
+                displaymetrics);
+        return displaymetrics;
     }
 
     /**
