@@ -53,9 +53,8 @@ public class TestBanner extends MyBaseFragmentActivity {
     private void initViewPger() {
 
         //初始化控件
-        cycleViewPager = (CycleViewPager) getSupportFragmentManager()
+        cycleViewPager = (CycleViewPager) getFragmentManager()
                 .findFragmentById(R.id.fragment_home_viewpager_content);
-
 
 
 
