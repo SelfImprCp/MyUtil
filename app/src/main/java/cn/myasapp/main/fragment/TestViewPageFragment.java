@@ -57,8 +57,8 @@ public class TestViewPageFragment extends XRefreshListViewFragment
         @Override
         protected void requestData() {
             super.requestData();
-            TestApi.getTestPageList(mCurrentPage+"", responseHandler);
-
+//            TestApi.getTestPageList(mCurrentPage+"", responseHandler);
+//
 
         }
 

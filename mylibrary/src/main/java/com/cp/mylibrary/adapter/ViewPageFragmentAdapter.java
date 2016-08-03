@@ -34,6 +34,7 @@ public class ViewPageFragmentAdapter extends FragmentStatePagerAdapter {
         mViewPager = pager;
         mViewPager.setAdapter(this);
         mPagerStrip.setViewPager(mViewPager);
+
     }
 
     public void addTab(String title, String tag, Class<?> clss, Bundle args) {

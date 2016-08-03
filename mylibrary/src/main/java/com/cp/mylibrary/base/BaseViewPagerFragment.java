@@ -48,6 +48,7 @@ public abstract class BaseViewPagerFragment extends MyBaseFragment {
 
         mTabsAdapter = new ViewPageFragmentAdapter(getChildFragmentManager(),
                 mTabStrip, mViewPager);
+
         setScreenPageLimit();
         onSetupTabAdapter(mTabsAdapter);
 
