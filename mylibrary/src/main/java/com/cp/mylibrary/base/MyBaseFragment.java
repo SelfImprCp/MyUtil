@@ -18,7 +18,16 @@ public class MyBaseFragment  extends SupportFragment {
                              Bundle savedInstanceState) {
         this.mInflater = inflater;
 
+
+
         View view = inflaterView(inflater, container, savedInstanceState);
+
+
+ //http://blog.csdn.net/hack8/article/details/25432503
+        ViewGroup parent=(ViewGroup)view.getParent();
+        if( parent!=null)
+            parent.removeView(view);
+
 
 
         //加载界面
@@ -65,4 +74,7 @@ public class MyBaseFragment  extends SupportFragment {
     public void initData() {
 
     }
+
+
+
 }
