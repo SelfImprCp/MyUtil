@@ -38,7 +38,7 @@ public class ShareDialog extends CommonDialog implements
         this.context = context;
     }
 
-    private ShareDialog(Context context, ShareListener listener) {
+    public ShareDialog(Context context, ShareListener listener) {
         super(context);
         this.context = context;
         this.shareListenr = listener;
