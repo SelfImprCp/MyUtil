@@ -70,7 +70,7 @@ public class ShareDialog extends CommonDialog implements
         this(context, R.style.dialog_bottom);
     }
 
-    @SuppressWarnings("deprecation")
+
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
