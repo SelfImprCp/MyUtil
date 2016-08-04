@@ -5,12 +5,9 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
-import com.cp.mylibrary.utils.AppUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.UpdateManagerUtil;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 import org.kymjs.kjframe.ui.BindView;
 
 import cn.myasapp.R;
@@ -295,11 +292,7 @@ public class TestActivity extends BaseActivity {
     }
 
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void helloEventBus(TestEvent message) {
 
-         ShowToastUtil.showToast(this,"收到的事件 消息" + message.getString());
 
-    }
 
 }

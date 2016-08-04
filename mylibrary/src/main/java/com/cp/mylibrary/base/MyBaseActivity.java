@@ -8,16 +8,13 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.cp.mylibrary.R;
 import com.cp.mylibrary.app.MyBaseApp;
+
 import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
-
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
+
 import org.kymjs.kjframe.KJActivity;
 
 /**
@@ -42,9 +39,6 @@ public class MyBaseActivity extends KJActivity {
 
         super.onCreate(savedInstanceState);
 
-
-        // 注册 事件
-        EventBus.getDefault().register(this);
 
 
 
@@ -78,12 +72,11 @@ public class MyBaseActivity extends KJActivity {
 
 
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void helloEventBus(BaseEvent message) {
-
-
-
+    public void onEvent(BaseEvent event) {
     }
+
+
+
 
 
 
@@ -126,6 +119,9 @@ public class MyBaseActivity extends KJActivity {
         super.onStart();
     }
 
+
+
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -146,7 +142,7 @@ public class MyBaseActivity extends KJActivity {
         ((MyBaseApp) this.getApplication()).getActivityManager().finishActivity(
                 this);
         mContext = null;
-   EventBus.getDefault().unregister(this);
+
         super.onDestroy();
     }
 

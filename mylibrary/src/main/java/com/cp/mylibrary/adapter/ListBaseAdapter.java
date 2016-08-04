@@ -64,7 +64,7 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
      * @param helper
      * @param item
      */
-    public abstract void convert(ViewHolder helper, T item);
+    public abstract void convert(ViewHolder helper, T item,int postion);
 
     /**
      * 子类要复写的方法,指定item 的布局界面
@@ -205,7 +205,7 @@ public abstract class ListBaseAdapter<T extends MyEntity> extends BaseAdapter {
         ViewHolder viewHolder = ViewHolder.get(mContext, convertView, parent,
                 getItemLayoutId(), position);
 
-        convert(viewHolder, getItem(position));
+        convert(viewHolder, getItem(position),position);
         return viewHolder.getConvertView();
 
 
