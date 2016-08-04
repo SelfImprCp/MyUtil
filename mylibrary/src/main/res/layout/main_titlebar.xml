@@ -2,7 +2,7 @@
 <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/titlebar"
     android:layout_width="match_parent"
-    android:layout_height="88px"
+    android:layout_height="70px"
     android:background="@color/white_cp_util">
 
 
@@ -21,7 +21,7 @@
         <ImageView
             android:id="@+id/titlebar_img_back"
             style="@style/titlebar_img"
-            android:layout_height="58px"
+
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -33,12 +33,13 @@
         <ImageView
             android:id="@+id/titlebar_img_menu_col"
             style="@style/titlebar_img"
-            android:layout_centerVertical="true"
+
             android:layout_marginRight="15dp"
             android:layout_toLeftOf="@+id/titlebar_img_menu"
             android:clickable="true"
             android:contentDescription="@null"
-            android:focusable="false"
+            android:focusable="false" android:layout_centerVertical="true"
+
             android:src="@drawable/flash_default"
             android:visibility="gone" />
 
@@ -62,8 +63,10 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:clickable="true"
-            android:textColor="@color/black_color_30"
-            android:textSize="17sp"
+            android:text="清空"
+
+            android:textSize="14sp"
+            android:textColor="#646464"
             android:visibility="gone" />
 
         <View
