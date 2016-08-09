@@ -100,6 +100,7 @@ public static String Cookie = "";
                             MyResponseHandler handler) {
         params.putHeaders("cookie",Cookie);
 
+
         client.post(getAbsoluteApiUrl(partUrl)  , params, handler);
 
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"

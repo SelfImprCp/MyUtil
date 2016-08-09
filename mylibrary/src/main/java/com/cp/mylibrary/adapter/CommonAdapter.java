@@ -74,7 +74,7 @@ public abstract class CommonAdapter<T> extends
 	public void onBindViewHolder(ViewHolder holder, int position)
 	{
 		holder.updatePosition(position);
-		convert(holder, mDatas.get(position));
+		convert(holder, mDatas.get(position),position);
 
 	}
 
@@ -83,7 +83,7 @@ public abstract class CommonAdapter<T> extends
 	 * @param holder
 	 * @param t
      */
-	public abstract void convert(ViewHolder holder, T t);
+	public abstract void convert(ViewHolder holder, T t,int postion);
 
 	/**
 	 *
