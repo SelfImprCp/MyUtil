@@ -28,10 +28,12 @@ public class RecyclerAdapter extends CommonAdapter<MainFocus> {
     }
 
     @Override
-    public void convert(ViewHolder holder, MainFocus mainFocus) {
+    public void convert(ViewHolder holder, MainFocus mainFocus, int postion) {
         holder.setText(R.id.item_focus_text, mainFocus.getName());
 
     }
+
+
 
     @Override
     public int getItemLayoutId() {
