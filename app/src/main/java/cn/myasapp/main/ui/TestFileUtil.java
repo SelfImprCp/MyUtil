@@ -9,14 +9,13 @@ import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.SDCardUtils;
 import com.cp.mylibrary.utils.ShowToastUtil;
 
-
 import org.kymjs.kjframe.ui.BindView;
 
 import java.io.IOException;
 
 import cn.myasapp.R;
 import cn.myasapp.main.event.TestEvent;
-import de.greenrobot.event.EventBus;
+
 
 /**
  * Created by Jerry on 2016/7/4.
@@ -207,7 +206,7 @@ public class TestFileUtil extends BaseActivity {
                 // 测试 发个事件
                 TestEvent event = new TestEvent();
                 event.setString("测试 事件 ");
-                EventBus.getDefault().post(event);
+//                EventBus.getDefault().post(event);
 
                 LogCp.i(LogCp.CP,TestFileUtil.class + "发出事件 了");
 
