@@ -88,7 +88,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
             @Override
             public void onRefresh() {
 
-                mCurrentPage = 1;
+                mCurrentPage = 0;
 
                 mData.clear();
                 requestData();
@@ -124,18 +124,18 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
          */
     protected void requestData() {
         // 第一次加载的时候 ，转圈圈
-        if (mCurrentPage == 1)
+        if (mCurrentPage == 0)
             //	mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
 
             //第一次加载，并且没有网络
 
-            if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(this)&&mData.size()==0) {
+            if (mCurrentPage == 0 && !NetWorkUtil.hasInternetConnected(this)&&mData.size()==0) {
                 //设置整个界面
                 //	mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
 
             }
         // 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
-        if (mCurrentPage != 1 && !NetWorkUtil.hasInternetConnected(this)) {
+        if (mCurrentPage != 0 && !NetWorkUtil.hasInternetConnected(this)) {
            // mAdapter.setState(ListBaseAdapter.STATE_NETWORK_ERROR);
             mAdapter.notifyDataSetChanged();
         }

@@ -41,7 +41,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
 
     //当前页数
-    protected int mCurrentPage =0;
+    protected int mCurrentPage = 0;
     //由新的控件
     public XRefreshView refreshView;
     //
@@ -100,7 +100,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
             public void onRefresh() {
 
 
-                mCurrentPage = 1;
+                mCurrentPage = 0;
 
                 mData.clear();
                 requestData();
@@ -175,18 +175,18 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         // if(mData.size()==0)
         //   mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
         // 第一次加载的时候 ，转圈圈
-        if (mCurrentPage == 1)
+        if (mCurrentPage == 0)
             //	mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
 
             //第一次加载，并且没有网络
 
-            if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(getActivity())&&mData.size()==0) {
+            if (mCurrentPage == 0 && !NetWorkUtil.hasInternetConnected(getActivity())&&mData.size()==0) {
                 //设置整个界面
                 //	mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
 
             }
         // 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
-        if (mCurrentPage != 1 && !NetWorkUtil.hasInternetConnected(getActivity())) {
+        if (mCurrentPage != 0 && !NetWorkUtil.hasInternetConnected(getActivity())) {
 
             mAdapter.notifyDataSetChanged();
         }

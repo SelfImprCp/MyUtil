@@ -86,7 +86,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             public void onClick(View v) {
 
                 if (listview_refresh_enptylayou.getErrorState() == EmptyLayout.NETWORK_ERROR || listview_refresh_enptylayou.getErrorState() == EmptyLayout.NODATA) {
-                    mCurrentPage = 1;
+                    mCurrentPage = 0;
 
                     listview_refresh_enptylayou.setVisibility(View.VISIBLE);
                     listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
@@ -128,7 +128,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             public void onRefresh() {
 
 
-                mCurrentPage = 1;
+                mCurrentPage = 0;
 
                 mAdapter.getData().clear();
                 requestData();
@@ -207,7 +207,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
      */
     protected void requestData() {
         // 第一次加载的时候 ，转圈圈
-        if (mCurrentPage == 1||mAdapter.getData().size()==0) {
+        if (mCurrentPage == 0||mAdapter.getData().size()==0) {
 
             LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "第一次加载 ，转圈圈 "   );
 
@@ -219,7 +219,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         }
         //第一次加载，并且没有网络
 
-        if (mCurrentPage == 1 && !NetWorkUtil.hasInternetConnected(this) && mAdapter.getData().size() == 0) {
+        if (mCurrentPage == 0 && !NetWorkUtil.hasInternetConnected(this) && mAdapter.getData().size() == 0) {
 
 
             listview_refresh_enptylayou.setVisibility(View.VISIBLE);
@@ -230,7 +230,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
         }
         // 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
-        if (mCurrentPage != 1 && !NetWorkUtil.hasInternetConnected(this)) {
+        if (mCurrentPage != 0&& !NetWorkUtil.hasInternetConnected(this)) {
 
             mAdapter.notifyDataSetChanged();
         }
