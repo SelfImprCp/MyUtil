@@ -1,33 +1,39 @@
 package com.cp.mylibrary.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cp.mylibrary.app.MyBaseApp;
+import com.cp.mylibrary.event.BaseEvent;
+
 import org.kymjs.kjframe.ui.SupportFragment;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Jerry on 2016/7/7.
  */
-public class MyBaseFragment  extends SupportFragment {
+public class MyBaseFragment extends SupportFragment {
     protected LayoutInflater mInflater;
+    public Context mContext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.mInflater = inflater;
 
-
+        mContext = MyBaseApp.getInstance();
 
         View view = inflaterView(inflater, container, savedInstanceState);
 
 
- //http://blog.csdn.net/hack8/article/details/25432503
-        ViewGroup parent=(ViewGroup)view.getParent();
-        if( parent!=null)
+        //http://blog.csdn.net/hack8/article/details/25432503
+        ViewGroup parent = (ViewGroup) view.getParent();
+        if (parent != null)
             parent.removeView(view);
-
 
 
         //加载界面
@@ -35,10 +41,11 @@ public class MyBaseFragment  extends SupportFragment {
         // 处理数据
         initData();
 
+        EventBus.getDefault().register(this);
+
 
         return view;
     }
-
 
 
     @Override
@@ -75,6 +82,13 @@ public class MyBaseFragment  extends SupportFragment {
 
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
+        EventBus.getDefault().unregister(this);
+    }
 
+    public void onEvent(BaseEvent event) {
+    }
 }

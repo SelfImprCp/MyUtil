@@ -17,6 +17,8 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import org.kymjs.kjframe.KJActivity;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Jerry on 2016/7/6.
  */
@@ -51,6 +53,8 @@ public class MyBaseActivity extends KJActivity {
         tintManager.setStatusBarTintEnabled(true);
 
 
+        EventBus.getDefault().register(this);
+
 
     }
 
@@ -72,10 +76,19 @@ public class MyBaseActivity extends KJActivity {
 
 
 
-    public void onEvent(BaseEvent event) {
+    @Override
+    protected void onDestroy() {
+
+        ((MyBaseApp) this.getApplication()).getActivityManager().finishActivity(
+                this);
+        mContext = null;
+
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
-
+    public void onEvent(BaseEvent event) {
+    }
 
 
 
@@ -137,14 +150,6 @@ public class MyBaseActivity extends KJActivity {
         super.onStop();
     }
 
-    @Override
-    protected void onDestroy() {
-        ((MyBaseApp) this.getApplication()).getActivityManager().finishActivity(
-                this);
-        mContext = null;
-
-        super.onDestroy();
-    }
 
 
 }

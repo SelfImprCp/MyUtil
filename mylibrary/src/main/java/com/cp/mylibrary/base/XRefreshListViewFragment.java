@@ -15,6 +15,7 @@ import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +103,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
                 mCurrentPage = 0;
 
-                mData.clear();
+                mAdapter.getData().clear();
                 requestData();
 
                 LogCp.i(LogCp.CP, XRefreshListViewFragment.class + " 刷新了，， " + mCurrentPage);
@@ -119,12 +120,24 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
 
 
+                if (mState != STATE_NOMORE) {
                     mCurrentPage++;
                     LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "   到 加载数据 了了，， " + mCurrentPage);
 
                     mState = STATE_LOADMORE;
                     requestData();
-                  //  mAdapter.setFooterViewLoading("");
+
+
+
+
+                } else {
+
+
+                    ShowToastUtil.showToast(mContext, "没有更多了");
+                    refreshView.stopLoadMore(true);
+
+                }
+
 
 
             }
