@@ -33,7 +33,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
 
 
     //当前页数
-    protected int mCurrentPage = 1;
+    protected int mCurrentPage = 0;
 
     public int PAGE_SIZE = 10;
 

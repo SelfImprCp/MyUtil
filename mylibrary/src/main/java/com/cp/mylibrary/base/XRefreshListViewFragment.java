@@ -41,7 +41,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
 
     //当前页数
-    protected int mCurrentPage = 1;
+    protected int mCurrentPage =0;
     //由新的控件
     public XRefreshView refreshView;
     //
