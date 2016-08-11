@@ -10,6 +10,20 @@ import com.cp.mylibrary.bean.MyEntity;
  */
 
 public class AreaBean extends MyEntity {
+
+	public String id;
+
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
 	// 名称
 	private String rname;
 	// 爸爸级
