@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.utils.StringUtils;
 
+import org.w3c.dom.Text;
+
 
 /**
  * 标题
@@ -20,7 +22,7 @@ import com.cp.mylibrary.utils.StringUtils;
 
 public class TitleBarView extends RelativeLayout {
 
-    private TextView titleBarTitle, titlebar_tv_menu2;
+    private TextView titleBarTitle, titlebar_tv_menu2,titlebar_text_title_two_1,titlebar_text_title_two_2;
     private ImageView titlebar_img_back;
     private ImageView titlebar_img_menu;
 
@@ -55,17 +57,49 @@ public class TitleBarView extends RelativeLayout {
 
         titlebar_tv_menu2 = (TextView) view.findViewById(R.id.titlebar_tv_menu2);
 
+        titlebar_text_title_two_1 = (TextView)view.findViewById(R.id.titlebar_text_title_two_1);
+        titlebar_text_title_two_2 = (TextView)view.findViewById(R.id.titlebar_text_title_two_2);
+
+
+
         titlebar_img_menu = (ImageView) view.findViewById(R.id.titlebar_img_menu);
         titlebar_img_back = (ImageView) view.findViewById(R.id.titlebar_img_back);
 
 
     }
 
+    public void setTitleTwo1Str(String str) {
+        if (!StringUtils.isEmpty(str))
+
+        {
+            titlebar_text_title_two_1.setText(str);
+            titlebar_text_title_two_1.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    public void setTitleTwo2Str(String str) {
+        if (!StringUtils.isEmpty(str))
+
+        {
+            titlebar_text_title_two_2.setText(str);
+            titlebar_text_title_two_2.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+
     /**
      * @param str
      */
     public void setTitleStr(String str) {
-        titleBarTitle.setText(str);
+        if (!StringUtils.isEmpty(str))
+
+        {
+            titleBarTitle.setText(str);
+            titleBarTitle.setVisibility(View.VISIBLE);
+        }
+
     }
 
     /**

@@ -2,8 +2,43 @@
 <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/titlebar"
     android:layout_width="match_parent"
-    android:layout_height="70px"
+    android:layout_height="48dp"
     android:background="@color/white_cp_util">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     android:orientation="vertical"
+    android:layout_centerInParent="true"
+    >
+
+        <TextView
+            android:id="@+id/titlebar_text_title_two_1"
+            style="@style/titlebar_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:maxEms="8"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:text="标题"
+            android:visibility="gone"
+            android:textColor="#646464"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/titlebar_text_title_two_2"
+            style="@style/titlebar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxEms="8"
+            android:singleLine="true"
+            android:text="123456"
+            android:visibility="gone"
+            android:textColor="#646464"
+            android:textSize="13sp" />
+
+</LinearLayout>
 
 
         <TextView
@@ -15,8 +50,10 @@
             android:maxEms="8"
             android:singleLine="true"
             android:text="标题"
+            android:visibility="gone"
+
             android:textColor="#646464"
-            android:textSize="17sp" />
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/titlebar_img_back"
