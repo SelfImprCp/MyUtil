@@ -87,11 +87,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
         xRefreshView.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
             @Override
             public void onRefresh() {
-
-                mCurrentPage = 0;
-
-                mData.clear();
-                requestData();
+                onListViewRefresh();
             }
 
             @Override
@@ -115,6 +111,24 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
 
 
     }
+
+
+    /**
+     *  执行刷新
+     */
+    public void onListViewRefresh()
+    {
+        mCurrentPage = 0;
+
+        mAdapter.getData().clear();
+        requestData();
+
+        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 刷新了，， " + mCurrentPage);
+
+
+
+    }
+
 
 
 

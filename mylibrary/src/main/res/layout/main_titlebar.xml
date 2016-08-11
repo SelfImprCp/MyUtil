@@ -17,7 +17,7 @@
             style="@style/titlebar_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:maxEms="8"
+
             android:layout_gravity="center_vertical"
             android:singleLine="true"
             android:text="标题"
@@ -31,7 +31,7 @@
             style="@style/titlebar_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxEms="8"
+
             android:singleLine="true"
             android:text="123456"
             android:visibility="gone"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:maxEms="8"
+
             android:singleLine="true"
             android:text="标题"
             android:visibility="gone"

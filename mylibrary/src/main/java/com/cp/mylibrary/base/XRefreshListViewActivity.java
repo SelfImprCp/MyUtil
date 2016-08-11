@@ -128,16 +128,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             public void onRefresh() {
 
 
-                mCurrentPage = 0;
-
-                mAdapter.getData().clear();
-                requestData();
-
-                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 刷新了，， " + mCurrentPage);
-
-                lastRefreshTime = refreshView.getLastRefreshTime();
-
-
+                onListViewRefresh();
 
             }
 
@@ -200,6 +191,24 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
     }
+
+
+    /**
+     *  执行刷新
+     */
+    public void onListViewRefresh()
+     {
+         mCurrentPage = 0;
+
+         mAdapter.getData().clear();
+         requestData();
+
+         LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 刷新了，， " + mCurrentPage);
+
+         lastRefreshTime = refreshView.getLastRefreshTime();
+
+
+     }
 
 
     /**

@@ -101,15 +101,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
             public void onRefresh() {
 
 
-                mCurrentPage = 0;
-
-                mAdapter.getData().clear();
-                requestData();
-
-                LogCp.i(LogCp.CP, XRefreshListViewFragment.class + " 刷新了，， " + mCurrentPage);
-
-                lastRefreshTime = refreshView.getLastRefreshTime();
-
+                onListViewRefresh();
             }
 
             @Override
@@ -176,6 +168,22 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
 
 
+    /**
+     *  执行刷新
+     */
+    public void onListViewRefresh()
+    {
+        mCurrentPage = 0;
+
+        mAdapter.getData().clear();
+        requestData();
+
+        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 刷新了，， " + mCurrentPage);
+
+        lastRefreshTime = refreshView.getLastRefreshTime();
+
+
+    }
 
 
 
