@@ -10,6 +10,7 @@ import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.dialog.DialogHelper;
 
 import com.cp.mylibrary.dialog.ShareDialog;
+import com.cp.mylibrary.interf.ShareListener;
 import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.ShowToastUtil;
@@ -150,7 +151,7 @@ public class DialogTestActivity extends BaseActivity {
             case R.id.dialog_share:
 
                 if (mDialog == null)
-                    mDialog = new ShareDialog(this);
+                    mDialog = new ShareDialog(this, shareListener);
                 mDialog.setCancelable(true);
                 mDialog.setCanceledOnTouchOutside(true);
                 mDialog.setTitle(R.string.share_to);
@@ -159,7 +160,22 @@ public class DialogTestActivity extends BaseActivity {
 
         }
     }
+    ShareListener shareListener = new ShareListener() {
+        @Override
+        public void onWeiChatCircle() {
 
+        }
+
+        @Override
+        public void onWeiChat() {
+
+        }
+
+        @Override
+        public void onSinaWeiBo() {
+
+        }
+    };
 
     public XRefreshView.XRefreshViewListener myPullToListner = new XRefreshView.XRefreshViewListener() {
 
