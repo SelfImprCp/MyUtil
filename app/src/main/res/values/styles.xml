@@ -6,25 +6,6 @@
     </style>
 
 
-    <!-- 分享对话框样式 start -->
-    <style name="dialog_content_share_ll">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="dialog_content_share_text">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:drawableTop">@drawable/share_icon_qq_selector</item>
-        <item name="android:drawablePadding">@dimen/space_4</item>
-        <item name="android:textColor">@color/main_gray</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/text_size_12</item>
-    </style>
-
 
 
 

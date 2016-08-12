@@ -74,6 +74,19 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="text_color_white">
+        <item name="android:textColor">@color/white_cp_util</item>
+    </style>
+
+    <style name="text_mofox_white_12" parent="@style/text_color_white">
+        <item name="android:textSize">@dimen/text_size_sp_12</item>
+    </style>
+
+    <style name="text_mofox_white_14" parent="@style/text_color_white">
+        <item name="android:textSize">@dimen/text_size_sp_14</item>
+    </style>
+
+
     <style name="tv_title_white_16">
         <item name="android:textColor">@color/white_cp_util</item>
         <item name="android:textSize">@dimen/space_16</item>
