@@ -46,8 +46,7 @@
     <color name="text_light">#3f000000</color>
     <color name="light_gray">#1a000000</color>
     <color name="lightest_gray">#0a000000</color>
-    <color name="bg_touch">@color/lightest_gray</color>
-    
+
     <color name="main_link_text_color">#ffbedfff</color>
     <color name="timeline_clickable_text_highlighted_background">#ffbedfff</color>
     

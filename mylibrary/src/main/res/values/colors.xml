@@ -36,5 +36,6 @@
 
     <color name="text_dark">#af000000</color>
 
+    <color name="bg_touch">@color/lightest_gray</color>
 
 </resources>
