@@ -5,25 +5,23 @@
     android:layout_height="68px"
     android:background="@color/white_cp_util">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-     android:orientation="vertical"
-    android:layout_centerInParent="true"
-    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/titlebar_text_title_two_1"
             style="@style/titlebar_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_gravity="center_vertical"
 
-            android:text="标题"
-            android:visibility="gone"
+            android:text="标题标题标题标题标题标题"
             android:textColor="#646464"
-            android:textSize="16sp" />
+            android:textSize="12sp"
+            android:visibility="gone" />
 
 
         <TextView
@@ -31,87 +29,90 @@
             style="@style/titlebar_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+android:layout_gravity="center"
 
             android:text="123456"
-            android:visibility="gone"
             android:textColor="#646464"
-            android:textSize="13sp" />
-
-</LinearLayout>
-
-
-        <TextView
-            android:id="@+id/titlebar_text_title"
-            style="@style/titlebar_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-
-            android:singleLine="true"
-            android:text="标题"
-            android:visibility="gone"
-
-            android:textColor="#646464"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/titlebar_img_back"
-            style="@style/titlebar_img"
-android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:clickable="true"
-            android:contentDescription="@null"
-            android:focusable="false"
-            android:src="@drawable/return_back_black" />
-
-        <ImageView
-            android:id="@+id/titlebar_img_menu_col"
-            style="@style/titlebar_img"
-
-            android:layout_marginRight="15dp"
-            android:layout_toLeftOf="@+id/titlebar_img_menu"
-            android:clickable="true"
-            android:contentDescription="@null"
-            android:focusable="false" android:layout_centerVertical="true"
-
-            android:src="@drawable/flash_default"
+            android:textSize="8sp"
             android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/titlebar_img_menu"
-            style="@style/titlebar_img"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:clickable="true"
-            android:contentDescription="@null"
-            android:focusable="false"
-            android:src="@drawable/flash_default"
-            android:visibility="gone" />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/titlebar_tv_menu2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:clickable="true"
-            android:text="清空"
 
-            android:textSize="14sp"
-            android:textColor="#646464"
-            android:visibility="gone" />
+    <TextView
+        android:id="@+id/titlebar_text_title"
+        style="@style/titlebar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/space_1"
-            android:layout_alignParentBottom="true"
-            android:background="#e1e1e1"></View>
+        android:singleLine="true"
+        android:text="标题"
+        android:textColor="#646464"
+
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_back"
+        style="@style/titlebar_img"
+        android:layout_width="38px"
+        android:layout_height="48px"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/return_back_black" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_menu_col"
+        style="@style/titlebar_img"
+
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/titlebar_img_menu"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="false"
+
+        android:src="@drawable/flash_default"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_menu"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        style="@style/titlebar_img"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/flash_default"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/titlebar_tv_menu2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:text="清空"
+
+        android:textColor="#646464"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        android:layout_alignParentBottom="true"
+        android:background="#e1e1e1"></View>
 
 
 </com.zhy.autolayout.AutoRelativeLayout>
