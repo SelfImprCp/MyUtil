@@ -2,7 +2,7 @@
 <resources>
     <color name="title_text_color">#000000</color>
 
-    <color name="white_cp_util">#FFFFFF</color>
+    <color name="white_cp_util">#FFFFFFFF</color>
 
     <color name="green_cp_util">#00FF00</color>
 
