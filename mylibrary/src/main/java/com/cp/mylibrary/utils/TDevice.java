@@ -13,6 +13,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -31,6 +32,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 
 import java.io.File;
@@ -219,6 +221,26 @@ public class TDevice {
 		intent.putExtra(Intent.EXTRA_TEXT, title + " " + url);
 		context.startActivity(Intent.createChooser(intent, "选择分享"));
 	}
+
+
+
+	/**
+	 * 显示 删除线
+	 *
+	 * @param
+	 * @param
+	 * @param shouYI
+	 */
+	public static void showDeleteLine(TextView peizhifangan_detial_felv_befor, String shouYI) {
+
+		peizhifangan_detial_felv_befor.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+		peizhifangan_detial_felv_befor.setText(shouYI);
+		peizhifangan_detial_felv_befor.getPaint().setAntiAlias(true);// 抗锯齿
+
+
+	}
+
+
 
 
 }
