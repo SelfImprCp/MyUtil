@@ -57,8 +57,8 @@
     <ImageView
         android:id="@+id/titlebar_img_back"
         style="@style/titlebar_img"
-        android:layout_width="38px"
-        android:layout_height="48px"
+        android:layout_width="28dp"
+        android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
@@ -81,8 +81,8 @@
     <ImageView
         android:id="@+id/titlebar_img_menu"
         style="@style/titlebar_img"
-        android:layout_width="48px"
-        android:layout_height="48px"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
