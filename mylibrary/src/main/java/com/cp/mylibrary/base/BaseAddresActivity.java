@@ -5,6 +5,7 @@ import com.bigkoo.pickerview.TimePickerView;
 import com.cp.mylibrary.bean.ProvinceBean;
 import com.cp.mylibrary.res.AreaRes;
 import com.cp.mylibrary.utils.GsonUtil;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 
 
-public class BaseAddressActivity extends MyBaseActivity {
+public class BaseAddresActivity extends MyBaseActivity {
 
 	/**
 	 * 所有省
@@ -110,11 +111,11 @@ public class BaseAddressActivity extends MyBaseActivity {
 		// List<AreaBean> newProvincesList = new ArrayList<AreaBean>();
 
 
-//		LogCp.i(LogCp.CP, BaseAddressActivity.class + " 多少省  ，，"
-//				+ provincesList.size() + " ,,, 多少个市 ，， " + citysList.size()
-//				+ " ,, 多少区，， "
-//
-//				+ areasList.size());
+ 	LogCp.i(LogCp.CP, BaseAddresActivity.class + " 多少省  ，，"
+ 				+ provincesList.size() + " ,,, 多少个市 ，， " + citysList.size()
+ 			+ " ,, 多少区，， "
+
+ 				+ areasList.size());
 
 		// List<ProvinceModel> provinceList = null;
 		// AssetManager asset = getAssets();
@@ -177,16 +178,16 @@ public class BaseAddressActivity extends MyBaseActivity {
 
 					}
 					
-//					LogCp.i(LogCp.CP,
-//							BaseAddressActivity.class + " 当前的市  " +city.getRname() +   "当前市下有多少区：" +newAreasList.size());
+ 				LogCp.i(LogCp.CP,
+ 						BaseAddresActivity.class + " 当前的市  " +city.getRname() +   "当前市下有多少区：" +newAreasList.size());
 
 					mDistrictDatasMap.put(city.getRname(), newAreasList);
 				}
 			}
 			
 			
-		//	LogCp.i(LogCp.CP,
-			//		BaseAddressActivity.class + " 当前的省  " +province.getRname() +   "当前省下有多少市" +newCitysList.size());
+ LogCp.i(LogCp.CP,
+		 		BaseAddresActivity.class + " 当前的省  " +province.getRname() +   "当前省下有多少市" +newCitysList.size());
 
 			mCitisDatasMap.put(province.getRname(), newCitysList);
 
