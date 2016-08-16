@@ -149,6 +149,8 @@ public class BaseAddresActivity extends MyBaseActivity {
                 AreaBean city = citysList.get(j);
                 mCityDatas[j] = city.getRname();
                 // 上级的id 和此类中的爸爸级ID相同，说明这个当前市是当前省下的
+
+
                 if (proID == city.getPid()) {
                     newCitysList.add(city);
 
@@ -162,6 +164,7 @@ public class BaseAddresActivity extends MyBaseActivity {
 
 
                     for (AreaBean area : areasList) {
+
                         if (cityID == area.getPid()) {
 
 
@@ -229,10 +232,10 @@ public class BaseAddresActivity extends MyBaseActivity {
             for (AreaBean cityBean : citysList) {
 
 
-//                LogCp.i(LogCp.CP, UserInfoActivity.class +
-//                        "  当前省的id   " + areaBean.getId() +
-//                        " 当前市的" + cityBean.getRname() + cityBean.getPid()
-//                );
+                LogCp.i(LogCp.CP, BaseAddresActivity.class +
+                        "  当前省的id   " + areaBean.getId() +
+                        " 当前市的" + cityBean.getRname() + cityBean.getPid()
+                );
 
 
                 if (areaBean.getId() ==cityBean.getPid()) {
