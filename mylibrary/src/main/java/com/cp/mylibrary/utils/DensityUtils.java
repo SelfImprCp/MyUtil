@@ -65,6 +65,32 @@ public class DensityUtils {
         return displaymetrics;
     }
 
+
+
+    /**
+     * 通过手机分辨率来算出fragment的高度
+     * @param height
+     * @param width
+     * @return
+     */
+    public static int getFragmentHeight(float height, float width) {
+        int ttHeight = 800;
+
+        if (width <= 720 && height <= 1280) {
+            ttHeight = 800;
+        } else if (width <= 800 && height <= 1280) {
+            ttHeight = 900;
+
+        } else if (width <= 1080 && height <= 1920) {
+            ttHeight = 1100;
+        }
+        return ttHeight;
+
+
+    }
+
+
+
     /**
      * sp转px
      *
