@@ -244,6 +244,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView implements
 								* slidingBlockRight);
 					}
 				}
+
 				slidingBlockDrawable.setBounds((int) slidingBlockLeft, 0,
 						(int) slidingBlockRight, getHeight());
 				slidingBlockDrawable.draw(canvas);
