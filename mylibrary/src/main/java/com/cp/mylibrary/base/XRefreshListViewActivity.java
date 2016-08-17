@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.adapter.ListBaseAdapter;
 import com.cp.mylibrary.api.MyResponseHandler;
+import com.cp.mylibrary.app.Config;
 import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.custom.EmptyLayout;
-import com.cp.mylibrary.pullto.XRefreshView;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
@@ -27,7 +29,7 @@ import java.util.List;
  * @param <T>
  */
 
-public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity {
+public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
 
 
     public static final int STATE_NONE = 0;
@@ -37,8 +39,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     public static final int STATE_PRESSNONE = 4;// 正在下拉但还没有到刷新的状态
     public static int mState = STATE_NONE;
 
-
-    public ListView mListView;
 
     //解析数据
     private ParserTask mParserTask;
@@ -50,16 +50,19 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     //列表的甜酸器
     public ListBaseAdapter mAdapter;
 
-    public int PAGE_SIZE = 20;
 
     //数据源所有的数据
-//    public List<T> mData = new ArrayList<T>();
+    public List<T> mData = new ArrayList<T>();
 
-    private XRefreshView refreshView;
+    //
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
 
-    public static long lastRefreshTime;
+    public EmptyLayout mErrorLayout;
 
-    public EmptyLayout listview_refresh_enptylayou;
+    public ListView mListView;
+
+    protected int mStoreEmptyState = -1;
+
 
     @Override
     public void setRootView() {
@@ -74,178 +77,143 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         super.initView();
 
 
-        mListView = (ListView) findViewById(R.id.lv_refresh);
-        refreshView = (XRefreshView) findViewById(R.id.custom_view);
-        listview_refresh_enptylayou = (EmptyLayout) findViewById(R.id.listview_refresh_enptylayou);
+        mListView = (ListView) findViewById(R.id.listview);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefreshlayout);
+        mErrorLayout = (EmptyLayout) findViewById(R.id.error_layout);
 
 
-        listview_refresh_enptylayou.setOnClickListener(new View.OnClickListener() {
 
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(
+                R.color.swiperefresh_color1, R.color.swiperefresh_color2,
+                R.color.swiperefresh_color3, R.color.swiperefresh_color4);
+
+        mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
-                if (listview_refresh_enptylayou.getErrorState() == EmptyLayout.NETWORK_ERROR || listview_refresh_enptylayou.getErrorState() == EmptyLayout.NODATA) {
-                    mCurrentPage = 0;
-
-                    listview_refresh_enptylayou.setVisibility(View.VISIBLE);
-                    listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
-
-
-                    requestData();
-                }
-
+                mCurrentPage = 0;
+                mState = STATE_REFRESH;
+                mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+                sendRequestData(true);
             }
         });
 
-        mAdapter = getmAdapter();
 
-        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 哪个为空了，mAdapter， " + mAdapter + " ,,mListView  " + mListView + " refreshView " + refreshView);
+        mListView.setOnItemClickListener(this);
+        mListView.setOnScrollListener(this);
 
-        mListView.setAdapter(mAdapter);
+        if (mAdapter != null) {
+            mListView.setAdapter(mAdapter);
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        } else {
+            mAdapter = getmAdapter();
+            mListView.setAdapter(mAdapter);
 
-        // 设置是否可以下拉刷新
-        refreshView.setPullRefreshEnable(true);
-        // 设置是否可以上拉加载
-        refreshView.setPullLoadEnable(true);
-        // 设置上次刷新的时间
-        refreshView.restoreLastRefreshTime(lastRefreshTime);
-        // 设置时候可以自动刷新
-        refreshView.setAutoRefresh(false);
-//		refreshView.setOnBottomLoadMoreTime(new OnBottomLoadMoreTime() {
-//			@Override
-//			public boolean isBottom() {
-//				return false;
-//			}
-//		});
+            if (requestDataIfViewCreated()) {
+                mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+                mState = STATE_NONE;
+                sendRequestData(false);
+            } else {
+                mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+            }
 
+        }
+        if (mStoreEmptyState != -1) {
+            mErrorLayout.setErrorType(mStoreEmptyState);
+        }
+
+    }
+
+
+    @Override
+    public void onDestroy() {
+        mStoreEmptyState = mErrorLayout.getErrorState();
+        cancelParserTask();
+        super.onDestroy();
+    }
+
+    protected ListBaseAdapter getmAdapter() {
+        return null;
+    }
+
+    ;
+
+
+    @Override
+    public void onRefresh() {
+        if (mState == STATE_REFRESH) {
+            return;
+        }
+        // 设置顶部正在刷新
+        mListView.setSelection(0);
+        setSwipeRefreshLoadingState();
+        mCurrentPage = 0;
+        mState = STATE_REFRESH;
+        sendRequestData(true);
+    }
+
+
+
+    /***
+     * 获取列表数据
+     *
+     * @param refresh
+     * @return void
+     * @author 火蚁 2015-2-9 下午3:16:12
+     */
+    protected void sendRequestData(boolean refresh) {
+//        String key = getCacheKey();
+//        if (isReadCacheData(refresh)) {
+//            readCacheData(key);
+//        } else {
+        // 取新的数据
         requestData();
-
-
-        refreshView.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
-
-            @Override
-            public void onRefresh() {
-
-
-                onListViewRefresh();
-
-            }
-
-            @Override
-            public void onLoadMore(boolean isSlience) {
-
-
-                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "执行到加载更多");
-
-
-                if (mState != STATE_NOMORE) {
-                    mCurrentPage++;
-                    LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "   到 加载数据 了了，， " + mCurrentPage);
-
-                    mState = STATE_LOADMORE;
-                    requestData();
-
-
-
-
-                } else {
-
-
-                    ShowToastUtil.showToast(mContext, "没有更多了");
-                    refreshView.stopLoadMore(true);
-
-                }
-
-
-            }
-
-            @Override
-            public void onRelease(float direction) {
-                super.onRelease(direction);
-                if (direction > 0) {
-                    //	toast("下拉");
-                } else {
-                    //	toast("上拉");
-                }
-            }
-        });
-        refreshView.setOnAbsListViewScrollListener(new OnScrollListener() {
-
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-//                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " onScrollStateChanged");
-//
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem,
-                                 int visibleItemCount, int totalItemCount) {
-
-//                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " onScroll");
-
-
-            }
-        });
-
-
+        // }
     }
 
 
-    /**
-     *  执行刷新
-     */
-    public void onListViewRefresh()
-     {
-         mCurrentPage = 0;
-
-         mAdapter.getData().clear();
-         requestData();
-
-         LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 刷新了，， " + mCurrentPage);
-
-         lastRefreshTime = refreshView.getLastRefreshTime();
-
-
-     }
-
-
-    /**
-     * 子类要复写的加载数据 的方法
-     */
     protected void requestData() {
-        // 第一次加载的时候 ，转圈圈
-        if (mCurrentPage == 0||mAdapter.getData().size()==0) {
-
-            LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "第一次加载 ，转圈圈 "   );
-
-
-
-            listview_refresh_enptylayou.setVisibility(View.VISIBLE);
-            listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_LOADING);
-
-        }
-        //第一次加载，并且没有网络
-
-        if (mCurrentPage == 0 && !NetWorkUtil.hasInternetConnected(this) && mAdapter.getData().size() == 0) {
-
-
-            listview_refresh_enptylayou.setVisibility(View.VISIBLE);
-
-
-            //设置整个界面
-            listview_refresh_enptylayou.setErrorType(EmptyLayout.NETWORK_ERROR);
-
-        }
-        // 不是第一次加载，并且底下有部分数据了，要把欺adapter的状态设置为网络错误
-        if (mCurrentPage != 0&& !NetWorkUtil.hasInternetConnected(this)) {
-
-            mAdapter.notifyDataSetChanged();
-        }
-
-
     }
+
+
+    protected boolean requestDataIfViewCreated() {
+        return true;
+    }
+
+
+
+
+    // 完成刷新
+    protected void executeOnLoadFinish() {
+        setSwipeRefreshLoadedState();
+        mState = STATE_NONE;
+    }
+
+    /**
+     * 设置顶部正在加载的状态
+     */
+    protected void setSwipeRefreshLoadingState() {
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setRefreshing(true);
+            // 防止多次重复刷新
+            mSwipeRefreshLayout.setEnabled(false);
+        }
+    }
+
+    /**
+     * 设置顶部加载完毕的状态
+     */
+    protected void setSwipeRefreshLoadedState() {
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+            mSwipeRefreshLayout.setEnabled(true);
+        }
+    }
+
+
+
+
 
     /**
      * 所有的子类的请求响应
@@ -259,7 +227,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "请求来的数据 " + res);
 
             executeParserTask(res);
-           // refreshLoadMoreFinish();
+            // refreshLoadMoreFinish();
         }
 
         @Override
@@ -275,21 +243,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     };
 
 
-    protected void refreshLoadMoreFinish() {
-        // 千万别忘了告诉控件刷新完毕了哦！
-        if (refreshView != null) {
-         //   refreshView.stopRefresh();
-          //  refreshView.stopLoadMore();
-        }
 
 
-    }
-
-    protected ListBaseAdapter getmAdapter() {
-        return null;
-    }
-
-    ;
 
     private void executeParserTask(String data) {
         cancelParserTask();
@@ -302,6 +257,23 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             mParserTask.cancel(true);
             mParserTask = null;
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
     }
 
 
@@ -352,7 +324,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
     protected int getPageSize() {
-        return PAGE_SIZE;
+        return Config.PAGE_SIXE;
     }
 
     protected List<T> parseList(String is) {
@@ -367,42 +339,57 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     protected void executeOnLoadDataSuccess(List<T> data) {
 
 
-        //加载完成，设置状态
-        mState = STATE_NONE;
 
-        if (mState == STATE_REFRESH)
+        if (data == null) {
+            data = new ArrayList<T>();
+        }
+
+
+
+        mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        if (mCurrentPage == 0) {
             mAdapter.clear();
+        }
 
-        mAdapter.addData(data);
-
-        // 没有数据 一条都没有
-        if (mAdapter.getData().size() == 0 || data == null) {
-            listview_refresh_enptylayou.setVisibility(View.VISIBLE);
-            listview_refresh_enptylayou.setErrorType(EmptyLayout.NODATA);
-
-            refreshView.setVisibility(View.GONE);
-
-
+//        for (int i = 0; i < data.size(); i++) {
+//            if (compareTo(mAdapter.getData(), data.get(i))) {
+//                data.remove(i);
+//                i--;
+//            }
+//        }
+        int adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
+        if ((mAdapter.getCount() + data.size()) == 0) {
+            adapterState = ListBaseAdapter.STATE_EMPTY_ITEM;
+        } else if (data.size() == 0
+                || (data.size() < getPageSize() && mCurrentPage == 0)) {
+            adapterState = ListBaseAdapter.STATE_NO_MORE;
+            mAdapter.notifyDataSetChanged();
         } else {
-            refreshView.setVisibility(View.VISIBLE);
-
-
-            listview_refresh_enptylayou.setVisibility(View.GONE);
-
-
+            adapterState = ListBaseAdapter.STATE_LOAD_MORE;
         }
+        mAdapter.setState(adapterState);
+        mAdapter.addData(data);
+        // 判断等于是因为最后有一项是listview的状态
+        if (mAdapter.getCount() == 1) {
 
-        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "  判断 是不是还有更多   " + mAdapter.getData().size() + " data.size()  " + data.size());
-
-        // 没有更多了
-        if (mAdapter.getData().size() != 0 && data.size() < PAGE_SIZE) {
-
-            mState = STATE_NOMORE;
-
+            if (needShowEmptyNoData()) {
+                mErrorLayout.setErrorType(EmptyLayout.NODATA);
+            } else {
+                mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
+                mAdapter.notifyDataSetChanged();
+            }
         }
-
 
     }
 
+
+    /**
+     * 是否需要隐藏listview，显示无数据状态
+     *
+     * @author 火蚁 2015-1-27 下午6:18:59
+     */
+    protected boolean needShowEmptyNoData() {
+        return true;
+    }
 
 }

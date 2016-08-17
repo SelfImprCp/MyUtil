@@ -36,10 +36,10 @@ public class TestViewPageFragment extends XRefreshListViewFragment
             super.initView(view);
 
             mAdapter = new MainFocusAdapter(getActivity());
-            // 设置是否可以下拉刷新
-            refreshView.setPullRefreshEnable(true);
-            // 设置是否可以上拉加载
-            refreshView.setPullLoadEnable(true);
+//            // 设置是否可以下拉刷新
+//            refreshView.setPullRefreshEnable(true);
+//            // 设置是否可以上拉加载
+//            refreshView.setPullLoadEnable(true);
 
             mListView.setAdapter(mAdapter);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
