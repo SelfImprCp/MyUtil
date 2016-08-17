@@ -2,6 +2,7 @@ package com.cp.mylibrary.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,15 @@ import de.greenrobot.event.EventBus;
 public class MyBaseFragment extends SupportFragment {
     protected LayoutInflater mInflater;
     public Context mContext;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,8 +51,6 @@ public class MyBaseFragment extends SupportFragment {
         initView(view);
         // 处理数据
         initData();
-
-        EventBus.getDefault().register(this);
 
 
         return view;
@@ -82,6 +90,7 @@ public class MyBaseFragment extends SupportFragment {
     public void initData() {
 
     }
+
 
     @Override
     public void onDestroyView() {
