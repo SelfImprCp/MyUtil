@@ -19,6 +19,7 @@ import org.kymjs.kjframe.KJActivity;
 
 import de.greenrobot.event.EventBus;
 
+
 /**
  * Created by Jerry on 2016/7/6.
  */

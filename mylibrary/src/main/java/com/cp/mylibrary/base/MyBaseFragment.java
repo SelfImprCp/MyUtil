@@ -13,6 +13,7 @@ import org.kymjs.kjframe.ui.SupportFragment;
 
 import de.greenrobot.event.EventBus;
 
+
 /**
  * Created by Jerry on 2016/7/7.
  */
@@ -88,6 +89,8 @@ public class MyBaseFragment extends SupportFragment {
 
         EventBus.getDefault().unregister(this);
     }
+
+
 
     public void onEvent(BaseEvent event) {
     }
