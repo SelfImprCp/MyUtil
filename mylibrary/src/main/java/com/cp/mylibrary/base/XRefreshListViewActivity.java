@@ -259,7 +259,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
             LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "请求来的数据 " + res);
 
             executeParserTask(res);
-            refreshLoadMoreFinish();
+           // refreshLoadMoreFinish();
         }
 
         @Override
@@ -278,8 +278,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     protected void refreshLoadMoreFinish() {
         // 千万别忘了告诉控件刷新完毕了哦！
         if (refreshView != null) {
-            refreshView.stopRefresh();
-            refreshView.stopLoadMore();
+         //   refreshView.stopRefresh();
+          //  refreshView.stopLoadMore();
         }
 
 
