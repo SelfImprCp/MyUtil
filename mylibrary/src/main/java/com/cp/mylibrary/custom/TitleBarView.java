@@ -129,6 +129,16 @@ public class TitleBarView extends RelativeLayout {
     }
 
     /**
+     *
+     * @return
+     */
+     public ImageView getTitleBarMenuImg()
+     {
+          return  titlebar_img_menu;
+     }
+
+
+    /**
      * @param onClickListener
      */
     public void setTitlebarMenuImgOnClick(OnClickListener onClickListener) {
