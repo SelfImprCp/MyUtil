@@ -155,4 +155,35 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
 
+    /**
+     *
+     *
+     * @param viewId
+     * @param
+     * @return
+     */
+    public ViewHolder setVisible(int viewId ) {
+        View view = getView(viewId);
+        view.setVisibility(View.VISIBLE);
+     return this;
+    }
+
+
+    /**
+     *
+     *
+     * @param viewId
+     * @param
+     * @return
+     */
+    public ViewHolder setGone(int viewId ) {
+
+        View view = getView(viewId);
+        view.setVisibility(View.GONE);
+      return this;
+    }
+
+
+
+
 }
