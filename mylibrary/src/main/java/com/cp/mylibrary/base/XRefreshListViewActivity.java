@@ -82,6 +82,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         mErrorLayout = (EmptyLayout) findViewById(R.id.error_layout);
 
 
+        addHeadView();
+        addFooterView();
 
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(
@@ -125,6 +127,55 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
     }
 
+    /**
+     *
+     * @param
+     */
+     private  void addHeadView()
+     {
+
+
+          if(getHeadView()!=null)
+          {
+              mListView.addHeaderView(getHeadView());
+          }
+
+
+     }
+    /**
+     *
+     * @param
+     */
+    private  void addFooterView(   )
+    {
+        if(getFooterView()!=null)
+        {
+            mListView.addFooterView(getFooterView());
+        }
+
+
+    }
+
+    /**
+     *
+     * @return
+     */
+     public View getHeadView()
+     {
+
+         return  null;
+     }
+
+    /**
+     *
+     * @return
+     */
+    public View getFooterView()
+    {
+
+        return  null;
+    }
+
 
     @Override
     public void onDestroy() {
@@ -137,7 +188,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         return null;
     }
 
-    ;
 
 
     @Override
