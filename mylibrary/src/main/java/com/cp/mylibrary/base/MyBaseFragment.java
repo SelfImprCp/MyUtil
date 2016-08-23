@@ -8,11 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cp.mylibrary.app.MyBaseApp;
-import com.cp.mylibrary.event.BaseEvent;
 
 import org.kymjs.kjframe.ui.SupportFragment;
-
-import de.greenrobot.event.EventBus;
 
 
 /**
@@ -26,8 +23,6 @@ public class MyBaseFragment extends SupportFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
-
 
     }
 
@@ -92,15 +87,7 @@ public class MyBaseFragment extends SupportFragment {
     }
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-        EventBus.getDefault().unregister(this);
-    }
 
 
 
-    public void onEvent(BaseEvent event) {
-    }
 }

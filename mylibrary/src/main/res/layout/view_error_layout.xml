@@ -46,9 +46,10 @@
                 android:layout_marginTop="3.0dip"
                 android:gravity="center"
                 android:lines="2"
+
                 android:text="@string/error_view_click_to_refresh"
-                android:textColor="@color/black_color_30"
-                android:textSize="@dimen/text_size_15" />
+                android:textColor="#269edc"
+                android:textSize="@dimen/text_size_16" />
 
          
         </LinearLayout>

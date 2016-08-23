@@ -9,15 +9,10 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.cp.mylibrary.app.MyBaseApp;
-
-import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-
 import org.kymjs.kjframe.KJActivity;
-
-import de.greenrobot.event.EventBus;
 
 
 /**
@@ -54,9 +49,6 @@ public class MyBaseActivity extends KJActivity {
         tintManager.setStatusBarTintEnabled(true);
 
 
-        EventBus.getDefault().register(this);
-
-
     }
 
 
@@ -85,10 +77,7 @@ public class MyBaseActivity extends KJActivity {
         mContext = null;
 
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
-
-    public void onEvent(BaseEvent event) {
+    //    EventBus.getDefault().unregister(this);
     }
 
 
