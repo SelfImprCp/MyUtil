@@ -85,7 +85,7 @@ public class MyBaseActivity extends KJActivity {
         mContext = null;
 
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+   //     EventBus.getDefault().unregister(this);
     }
 
     public void onEvent(BaseEvent event) {

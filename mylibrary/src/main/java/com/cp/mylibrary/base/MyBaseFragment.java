@@ -61,7 +61,7 @@ public class MyBaseFragment extends SupportFragment {
     public void onDestroy() {
 
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+   //     EventBus.getDefault().unregister(this);
 
     }
 
