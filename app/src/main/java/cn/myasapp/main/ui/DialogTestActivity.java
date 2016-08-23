@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.dialog.DialogHelper;
 
+import com.cp.mylibrary.dialog.EditTextDialog;
 import com.cp.mylibrary.dialog.ShareDialog;
 import com.cp.mylibrary.interf.ShareListener;
 import com.cp.mylibrary.pullto.XRefreshView;
@@ -42,8 +43,6 @@ public class DialogTestActivity extends BaseActivity {
 
     @BindView(id = R.id.refresh_view_dialog)
     private XRefreshView refresh_view_dialog;
-
-
 
 
     private ShareDialog mDialog;
@@ -81,8 +80,7 @@ public class DialogTestActivity extends BaseActivity {
             case R.id.dialog_wait:
 
 
-
- // DialogHelper.getWaitDialog(this,"加载中").show();
+                // DialogHelper.getWaitDialog(this,"加载中").show();
 
                 //    DialogHelper.getCancelableWaitDialog(this,"加载中").show();
 
@@ -113,37 +111,41 @@ public class DialogTestActivity extends BaseActivity {
 //                simplecDialog.show();
 
 
-                simplecDialog = DialogHelper.EditTextDialog(this, "delete ", null,null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
+                EditTextDialog dialog = (EditTextDialog) DialogHelper.getEditTextDialog(DialogTestActivity.this, "来啊，", "cc");
+                dialog.show();
+                dialog.getEditText();
 
 
-                    @Override
-                    public void onClick(View v) {
-
-                        switch (v.getId()) {
-                            case R.id.base_config_dialog_sure_btn:
-
-                                simplecDialog.dismiss();
-
-                                EditText editText = DialogHelper.getDialogEditText();
-                                String str = editText.getText().toString();
-                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
-
-                                break;
-                            case R.id.base_config_dialog_cannel_btn:
-                                simplecDialog.dismiss();
-
-                                break;
-                            default:
-                                break;
-                        }
-
-                    }
-                }  ).getConfigDialog();
-
-                simplecDialog.show();
-
-
-
+//
+//                simplecDialog = DialogHelper.EditTextDialog(DialogTestActivity.this, "delete ", null,null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
+//
+//
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        switch (v.getId()) {
+//                            case R.id.base_config_dialog_sure_btn:
+//
+//                                simplecDialog.dismiss();
+//
+//                                EditText editText = DialogHelper.getDialogEditText();
+//                                String str = editText.getText().toString();
+//                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
+//
+//                                break;
+//                            case R.id.base_config_dialog_cannel_btn:
+//                                simplecDialog.dismiss();
+//
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//
+//                    }
+//                }  ).getConfigDialog();
+//
+//                simplecDialog.show();
+//
 
 
                 break;
@@ -160,6 +162,7 @@ public class DialogTestActivity extends BaseActivity {
 
         }
     }
+
     ShareListener shareListener = new ShareListener() {
         @Override
         public void onWeiChatCircle() {
@@ -183,7 +186,7 @@ public class DialogTestActivity extends BaseActivity {
         @Override
         public void onRefresh() {
 
-            LogCp.i(LogCp.CP, DialogTestActivity.class + " 刷新了，， "    );
+            LogCp.i(LogCp.CP, DialogTestActivity.class + " 刷新了，， ");
 
 
             new Handler().postDelayed(new Runnable() {
@@ -192,7 +195,6 @@ public class DialogTestActivity extends BaseActivity {
                     refresh_view_dialog.stopRefresh();
                 }
             }, 2000);
-
 
 
         }
