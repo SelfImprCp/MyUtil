@@ -108,6 +108,12 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         mListView.setOnItemClickListener(this);
         mListView.setOnScrollListener(this);
 
+
+        LogCp.i(LogCp.CP,XRefreshListViewActivity.class + " 为空吗？ mErrorLayout" + mErrorLayout);
+
+
+
+
         if (mAdapter != null) {
             mListView.setAdapter(mAdapter);
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
