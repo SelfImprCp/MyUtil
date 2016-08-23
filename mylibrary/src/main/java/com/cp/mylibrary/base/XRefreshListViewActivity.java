@@ -85,6 +85,9 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         addHeadView();
         addFooterView();
 
+
+         LogCp.i(LogCp.CP,XRefreshListViewActivity.class + " 为空吗？" + mSwipeRefreshLayout);
+
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.swiperefresh_color1, R.color.swiperefresh_color2,
