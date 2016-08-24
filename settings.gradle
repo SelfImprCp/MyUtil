@@ -1,1 +1,1 @@
-include ':app', ':mylibrary'
+include ':app', ':mylibrary', ':social_sdk_library_project'

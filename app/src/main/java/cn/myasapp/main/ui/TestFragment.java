@@ -7,8 +7,7 @@ import android.view.View;
 import com.cp.mylibrary.adapter.ViewPageFragmentAdapter;
 import com.cp.mylibrary.base.BaseViewPagerFragment;
 import com.cp.mylibrary.interf.OnTabReselectListener;
-
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.fragment.TestViewPageFragment;
 import cn.myasapp.main.fragment.TestViewPageFragment2;
 import cn.myasapp.main.fragment.TestViewPageFragment3;

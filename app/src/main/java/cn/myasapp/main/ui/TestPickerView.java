@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.bean.ProvinceBean;
 
 /**

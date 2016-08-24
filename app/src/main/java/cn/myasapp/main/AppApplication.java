@@ -8,7 +8,7 @@ import com.cp.mylibrary.utils.CrashHandler;
 import com.cp.mylibrary.utils.ImageLoaderUtils;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 
 /**
  * Created by Jerry on 2016/7/5.

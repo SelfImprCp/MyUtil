@@ -14,7 +14,7 @@ import com.cp.mylibrary.utils.ShowToastUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 
 /**
  * Created by Jerry on 2016/7/7.

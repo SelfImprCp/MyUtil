@@ -9,7 +9,7 @@ import com.cp.mylibrary.utils.RandomUtils;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 
 /**
  * Created by Jerry on 2016/7/5.

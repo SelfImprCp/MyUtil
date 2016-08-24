@@ -8,8 +8,7 @@ import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.KeyBoardUtils;
 
 import org.kymjs.kjframe.ui.BindView;
-
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 
 /**
  * Created by Jerry on 2016/7/5.

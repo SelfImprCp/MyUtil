@@ -18,8 +18,7 @@ import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import cn.myasapp.R;
-
+import cn.myasapp.main.R;
 /**
  * Created by Jerry on 2016/6/28.
  * <p>
@@ -154,6 +153,7 @@ public class DialogTestActivity extends BaseActivity {
 
                 if (mDialog == null)
                     mDialog = new ShareDialog(this, shareListener);
+                mDialog.setShareInfo("cc","bb","www.baidu.com","http://img4.imgtn.bdimg.com/it/u=98923187,3761999633&fm=11&gp=0.jpg");
                 mDialog.setCancelable(true);
                 mDialog.setCanceledOnTouchOutside(true);
                 mDialog.setTitle(R.string.share_to);

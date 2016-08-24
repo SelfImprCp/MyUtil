@@ -8,7 +8,7 @@ import com.cp.mylibrary.adapter.ViewHolder;
 import com.cp.mylibrary.interf.OnItemClickListener;
 import com.cp.mylibrary.pullto.recyclerview.BaseRecyclerAdapter;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.bean.MainFocus;
 
 

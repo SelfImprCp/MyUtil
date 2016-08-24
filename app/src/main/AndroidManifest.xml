@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.myasapp" >
+    package="cn.myasapp.main" >
 
 
 
@@ -29,14 +29,14 @@
 
 
     <application
-        android:name=".main.AppApplication"
+        android:name=".AppApplication"
 
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".main.ui.TestActivity"
+            android:name=".ui.TestActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,25 +48,25 @@
 
 
         <activity
-            android:name=".main.ui.TestFileUtil"
+            android:name=".ui.TestFileUtil"
             android:label="测试文件"
             android:screenOrientation="portrait" />
 
 
         <activity
-            android:name=".main.ui.TestDateTimeUtil"
+            android:name=".ui.TestDateTimeUtil"
             android:label="测试DateTimeUtils"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".main.ui.TestKeyBoardUtils"
+            android:name=".ui.TestKeyBoardUtils"
             android:label="测试软盘"
             android:screenOrientation="portrait" />
 
 
 
         <activity
-            android:name=".main.ui.TextNetWorkUtils"
+            android:name=".ui.TextNetWorkUtils"
             android:label="测试网络"
             android:screenOrientation="portrait" />
 
@@ -75,29 +75,29 @@
 
 
         <activity
-            android:name=".main.ui.TestObjectUtils"
+            android:name=".ui.TestObjectUtils"
             android:label="Object Util "
             android:screenOrientation="portrait" />
 
 
 
         <activity
-            android:name=".main.ui.TextRandomUtils"
+            android:name=".ui.TextRandomUtils"
             android:label="RandomUtil "
             android:screenOrientation="portrait" />
 
 
             <activity
-            android:name=".main.ui.TestScreentUtils"
+            android:name=".ui.TestScreentUtils"
             android:label="ScreenUtil "
             android:screenOrientation="portrait" />
         <activity
-            android:name=".main.ui.TestTwoCode"
+            android:name=".ui.TestTwoCode"
             android:label="TwoCode "
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".main.ui.TestCreateTwoCode"
+            android:name=".ui.TestCreateTwoCode"
             android:label="CreateTwoCode "
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -105,59 +105,62 @@
 
 
         <activity
-            android:name=".main.ui.TestImageLoad"
+            android:name=".ui.TestImageLoad"
             android:label=" ImageLoad "
             android:screenOrientation="portrait" />
 
 
         <activity
-            android:name=".main.ui.TestBanner"
+            android:name=".ui.TestBanner"
             android:label=" Banner  "
             android:screenOrientation="portrait" />
 
 
         <activity
-            android:name=".main.ui.TestWebView"
+            android:name=".ui.TestWebView"
             android:label=" WebView "
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".main.ui.SimpleBackActivity"
+            android:name=".ui.SimpleBackActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"></activity>
 
         <activity
-            android:name=".main.ui.TestListViewRefreshActivity"
+            android:name=".ui.TestListViewRefreshActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
 
          <activity
-            android:name=".main.ui.DialogTestActivity"
+            android:name=".ui.DialogTestActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".main.ui.TestUrlActivity"
+            android:name=".ui.TestUrlActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".main.ui.TestPickerView"
+            android:name=".ui.TestPickerView"
 
             android:windowSoftInputMode="adjustResize"></activity>
 
         <activity
-            android:name=".main.ui.TestScrollViewRefreshActivity"
+            android:name=".ui.TestScrollViewRefreshActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
 
 
         <activity
-            android:name=".main.ui.TestRecyclerRefreshActivity"
+            android:name=".ui.TestRecyclerRefreshActivity"
 
             android:windowSoftInputMode="adjustResize"></activity>
 
 
 
-
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
 
     </application>
 

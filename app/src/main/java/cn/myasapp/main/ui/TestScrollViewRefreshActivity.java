@@ -6,8 +6,7 @@ import com.cp.mylibrary.utils.LogCp;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import cn.myasapp.R;
-
+import cn.myasapp.main.R;
 
 /**
  *  scrollView Refresh

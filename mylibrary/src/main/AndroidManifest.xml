@@ -21,7 +21,13 @@
         <service android:name="com.cp.mylibrary.service.DownloadService" />
 
 
-         <!-- 查看大图-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+
+        <!-- 查看大图-->
         <activity
             android:name=".activity.ImagePreviewActivity"
             android:screenOrientation="portrait" >
@@ -30,6 +36,25 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+
+
+
+        <!-- 我的 5625ecd667e58e19c1008322 ,,,ecc8e70c3cd241f1b02efc0622150582 -->
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5788a1a6e0f55a1bcd00210b" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="ecc8e70c3cd241f1b02efc0622150582" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng" >
+        </meta-data>
+
 
     </application>
 

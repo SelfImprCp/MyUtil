@@ -12,7 +12,7 @@ import com.cp.mylibrary.pullto.recyclerview.BaseRecyclerAdapter;
 
 import java.util.List;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.bean.MainFocus;
 
 /**

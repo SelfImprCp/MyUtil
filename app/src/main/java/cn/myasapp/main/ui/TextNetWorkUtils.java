@@ -9,7 +9,7 @@ import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.TestUIhelper;
 
 /**

@@ -10,7 +10,7 @@ import com.cp.mylibrary.utils.UpdateManagerUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.TestUIhelper;
 import cn.myasapp.main.bean.UserBean;
 import cn.myasapp.main.event.TestEvent;

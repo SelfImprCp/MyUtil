@@ -7,8 +7,7 @@ import android.view.MenuItem;
 
 import com.cp.mylibrary.MTestUitl;
 
-import cn.myasapp.R;
-
+import cn.myasapp.main.R;
 
 public class MainActivity extends ActionBarActivity {
 

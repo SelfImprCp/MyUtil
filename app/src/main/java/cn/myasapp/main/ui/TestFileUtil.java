@@ -13,7 +13,7 @@ import org.kymjs.kjframe.ui.BindView;
 
 import java.io.IOException;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.event.TestEvent;
 
 

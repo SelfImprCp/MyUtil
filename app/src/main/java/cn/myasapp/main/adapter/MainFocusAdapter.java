@@ -21,7 +21,8 @@ import com.cp.mylibrary.utils.LogCp;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.myasapp.R;
+
+import cn.myasapp.main.R;
 import cn.myasapp.main.bean.MainFocus;
 
 

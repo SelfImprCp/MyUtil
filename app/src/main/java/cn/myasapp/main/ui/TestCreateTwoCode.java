@@ -26,7 +26,7 @@ import org.kymjs.kjframe.ui.BindView;
 import java.io.File;
 import java.io.IOException;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 
 /**
  * Created by Jerry on 2016/7/6.

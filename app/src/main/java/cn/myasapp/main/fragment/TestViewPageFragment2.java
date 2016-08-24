@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 
 
 import com.cp.mylibrary.base.MyBaseFragment;
-
-import cn.myasapp.R;
-
+import cn.myasapp.main.R;
 
 /**
  * 开户个人信息界面

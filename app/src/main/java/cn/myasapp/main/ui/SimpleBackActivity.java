@@ -15,7 +15,7 @@ import org.kymjs.kjframe.ui.SupportFragment;
 
 import java.lang.ref.WeakReference;
 
-import cn.myasapp.R;
+import cn.myasapp.main.R;
 import cn.myasapp.main.domian.SimpleBackPage;
 
 
