@@ -50,6 +50,7 @@
 
         <LinearLayout
             android:id="@+id/ly_share_qq"
+            android:visibility="gone"
             style="@style/dialog_content_share_ll" >
 
             <TextView
@@ -60,6 +61,7 @@
 
         <LinearLayout
             android:id="@+id/ly_share_copy_link"
+            android:visibility="gone"
             style="@style/dialog_content_share_ll" >
 
             <TextView
@@ -69,6 +71,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/ly_share_more_option"
             style="@style/dialog_content_share_ll" >
 

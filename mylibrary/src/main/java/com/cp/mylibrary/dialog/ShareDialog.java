@@ -54,11 +54,11 @@ public class ShareDialog extends CommonDialog implements
         this.context = context;
         View shareView = getLayoutInflater().inflate(
                 R.layout.dialog_cotent_share, null);
-        shareView.findViewById(R.id.ly_share_qq).setOnClickListener(this);
-        shareView.findViewById(R.id.ly_share_copy_link)
-                .setOnClickListener(this);
-        shareView.findViewById(R.id.ly_share_more_option).setOnClickListener(
-                this);
+//        shareView.findViewById(R.id.ly_share_qq).setOnClickListener(this);
+//        shareView.findViewById(R.id.ly_share_copy_link)
+//                .setOnClickListener(this);
+//        shareView.findViewById(R.id.ly_share_more_option).setOnClickListener(
+//                this);
         shareView.findViewById(R.id.ly_share_sina_weibo).setOnClickListener(
                 this);
         shareView.findViewById(R.id.ly_share_weichat).setOnClickListener(this);

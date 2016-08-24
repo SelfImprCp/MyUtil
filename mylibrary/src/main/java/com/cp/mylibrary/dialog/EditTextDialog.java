@@ -25,7 +25,7 @@ public class EditTextDialog  extends Dialog {
         setCustomDialog();
 
         edittext_dialog_dialog_title.setText(title);
-        edit_config_dialog_txt.setText(msg);
+        edittext_dialog_dialog_txt.setText(msg);
 
     }
 
