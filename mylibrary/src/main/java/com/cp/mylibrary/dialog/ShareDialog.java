@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.app.Config;
 import com.cp.mylibrary.interf.ShareListener;
+import com.cp.mylibrary.utils.ImageLoaderUtils;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -228,6 +229,13 @@ public class ShareDialog extends CommonDialog implements
 //        mController.postShare(this.context, SHARE_MEDIA.QQ, null);
 //    }
 
+
+    private void getSinaImg()
+    {
+
+
+    }
+
     private UMImage getShareImg( ) {
         LogCp.i(LogCp.CP, ShareDialog.class + " 分享的图片：  " + share_img_url);
 
@@ -235,6 +243,7 @@ public class ShareDialog extends CommonDialog implements
         if (!StringUtils.isEmpty(share_img_url)) {
             img = new UMImage(context, share_img_url);
         } else {
+
             img = new UMImage(context, R.drawable.ic_launcher);
         }
 
