@@ -12,6 +12,7 @@ import com.umeng.socialize.weixin.view.WXCallbackActivity;
 import cn.myasapp.main.R;
 
 /**
+ *
  * 微信回调的activity
  * Created by zhangdeyi on 15/7/27.
  */
