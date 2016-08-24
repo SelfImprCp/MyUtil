@@ -16,6 +16,8 @@ import cn.myasapp.main.R;
  * Created by zhangdeyi on 15/7/27.
  */
 public class WXEntryActivity extends Activity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
