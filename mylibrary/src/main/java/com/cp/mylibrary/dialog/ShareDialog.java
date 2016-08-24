@@ -179,6 +179,9 @@ public class ShareDialog extends CommonDialog implements
         weixinContent.setShareImage(getShareImg());
         mController.setShareMedia(weixinContent);
         mController.postShare(this.context, SHARE_MEDIA.WEIXIN, null);
+
+
+
     }
 
     private void shareToSinaWeibo() {
