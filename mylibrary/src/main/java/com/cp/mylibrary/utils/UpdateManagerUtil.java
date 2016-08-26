@@ -38,7 +38,7 @@ import java.io.File;
  * @version 创建时间：2014年11月18日 下午4:21:00
  */
 
-public abstract class UpdateManagerUtil {
+public   class UpdateManagerUtil {
 
     // 服务器返回 的版本信息
     // private UpdateRes mUpdate;
