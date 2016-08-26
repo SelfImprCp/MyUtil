@@ -110,38 +110,38 @@ public  abstract   class UpdateManagerUtil {
     /**
      *
      */
-    private MyResponseHandler mCheckUpdateHandle = new MyResponseHandler() {
-
-        @Override
-        public void dataSuccess(String res) {
-            LogCp.i(LogCp.CP, UpdateManagerUtil.class + "更新返回 ，，" + res);
-
-            UpdateRes mUpdate = GsonUtil.jsonStrToBean(res, UpdateRes.class);
-            onFinshCheck(mUpdate);
-        }
-
-        @Override
-        public void dataFinish() {
-            hideCheckDialog();
-        }
-
-        @Override
-        public void dataFailuer(int errorNo, String strMsg) {
-
-
-        }
-
-
-
-    };
+//    private MyResponseHandler mCheckUpdateHandle = new MyResponseHandler() {
+//
+//        @Override
+//        public void dataSuccess(String res) {
+//            LogCp.i(LogCp.CP, UpdateManagerUtil.class + "更新返回 ，，" + res);
+//
+//            UpdateRes mUpdate = GsonUtil.jsonStrToBean(res, UpdateRes.class);
+//            onFinshCheck(mUpdate);
+//        }
+//
+//        @Override
+//        public void dataFinish() {
+//            hideCheckDialog();
+//        }
+//
+//        @Override
+//        public void dataFailuer(int errorNo, String strMsg) {
+//
+//
+//        }
+//
+//
+//
+//    };
 
     /**
      * 处理从服务器返回 的版本信息
      *
      * @param updateRes
      */
-    public void onFinshCheck(UpdateRes updateRes) {
-        if (haveNew(mContext,updateRes)) {
+    public void onFinshCheck(UpdateRes updateRes,String currentVersion) {
+        if (haveNew(mContext,updateRes,currentVersion)) {
             showUpdateInfo(updateRes);
         } else {
             if (isShow) {
@@ -156,7 +156,7 @@ public  abstract   class UpdateManagerUtil {
      * @param updateRes
      * @return
      */
-    public boolean haveNew(Context context,UpdateRes updateRes) {
+    public boolean haveNew(Context context,UpdateRes updateRes,String currentVersion) {
         if (updateRes == null) {
             return false;
         }
@@ -447,7 +447,7 @@ public  abstract   class UpdateManagerUtil {
                     context.getPackageName(), 0);
 
 
-            return packageInfo.versionName+packageInfo.versionCode;
+            return packageInfo.versionName+"."+packageInfo.versionCode;
 
         } catch (PackageManager.NameNotFoundException e)
         {
