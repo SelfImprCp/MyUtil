@@ -263,6 +263,9 @@ public  abstract   class UpdateManagerUtil {
      *
      * @param packageName
      * @return
+     *
+     *
+     *
      */
     public static int getVersionCode(Context context,String packageName) {
         int versionCode = 0;
