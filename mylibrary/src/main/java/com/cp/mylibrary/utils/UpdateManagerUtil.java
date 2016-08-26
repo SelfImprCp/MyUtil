@@ -47,21 +47,36 @@ public abstract class UpdateManagerUtil {
 
     private boolean isShow = false;
 
-    private boolean isShowTT = false;
+//    private boolean isShowTT = false;
 
     private WaitDialog _waitDialog;
     private Dialog simplecDialog;
 
     /**
      * @param context
-     * @param isShow   是否显示 正在获取版本信息的弹框
-     * @param isShowTT
+     * @param
+     * @param
      */
-    public UpdateManagerUtil(Context context, boolean isShow, boolean isShowTT) {
+    public UpdateManagerUtil(Context context ) {
         this.mContext = context;
-        this.isShow = isShow;
-        this.isShowTT = isShowTT;
+
     }
+    /**
+     *
+     *   正在获取版本信息的弹框
+     * @param
+     */
+     public void setShowDialog(  boolean isShow)
+     {
+
+         this.isShow = isShow;
+
+     }
+
+
+
+
+
 
     /**
      * 从服务器猎取版本信息
@@ -77,9 +92,11 @@ public abstract class UpdateManagerUtil {
 
 
     /**
-     *  子类要实现的抽象方法 ，从服务器取数据
+     * 子类要实现的方法 ，从服务器取数据
      */
-    public abstract void getServerUpdate();
+    public void getServerUpdate() {
+
+    }
 
     /**
      * 是否显示 正在猎取 的弹框
@@ -113,9 +130,7 @@ public abstract class UpdateManagerUtil {
         @Override
         public void dataFailuer(int errorNo, String strMsg) {
 
-            if (isShowTT) {
-                //    ShowToastUtil.showToast("已是最新版本哦  ^_~ ");
-            }
+
         }
 
 
