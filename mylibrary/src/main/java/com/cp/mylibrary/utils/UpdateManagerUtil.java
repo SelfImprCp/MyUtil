@@ -140,7 +140,7 @@ public  abstract   class UpdateManagerUtil {
      *
      * @param updateRes
      */
-    private void onFinshCheck(UpdateRes updateRes) {
+    public void onFinshCheck(UpdateRes updateRes) {
         if (haveNew(mContext,updateRes)) {
             showUpdateInfo(updateRes);
         } else {
