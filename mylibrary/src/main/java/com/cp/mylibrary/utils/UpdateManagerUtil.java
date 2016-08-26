@@ -38,7 +38,7 @@ import java.io.File;
  * @version 创建时间：2014年11月18日 下午4:21:00
  */
 
-public   class UpdateManagerUtil {
+public  abstract   class UpdateManagerUtil {
 
     // 服务器返回 的版本信息
     // private UpdateRes mUpdate;
@@ -94,9 +94,7 @@ public   class UpdateManagerUtil {
     /**
      * 子类要实现的方法 ，从服务器取数据
      */
-    public void getServerUpdate() {
-
-    }
+    public  abstract void getServerUpdate()  ;
 
     /**
      * 是否显示 正在猎取 的弹框
