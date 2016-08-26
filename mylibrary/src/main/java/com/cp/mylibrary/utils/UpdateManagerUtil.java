@@ -38,7 +38,7 @@ import java.io.File;
  * @version 创建时间：2014年11月18日 下午4:21:00
  */
 
-public  abstract   class UpdateManagerUtil {
+public abstract class UpdateManagerUtil {
 
     // 服务器返回 的版本信息
     // private UpdateRes mUpdate;
@@ -57,25 +57,21 @@ public  abstract   class UpdateManagerUtil {
      * @param
      * @param
      */
-    public UpdateManagerUtil(Context context ) {
+    public UpdateManagerUtil(Context context) {
         this.mContext = context;
 
     }
+
     /**
+     * 正在获取版本信息的弹框
      *
-     *   正在获取版本信息的弹框
      * @param
      */
-     public void setShowDialog(  boolean isShow)
-     {
+    public void setShowDialog(boolean isShow) {
 
-         this.isShow = isShow;
+        this.isShow = isShow;
 
-     }
-
-
-
-
+    }
 
 
     /**
@@ -86,7 +82,7 @@ public  abstract   class UpdateManagerUtil {
             showCheckDialog();
         }
 
-     //  MoFoxApi.getver(mCheckUpdateHandle);
+        //  MoFoxApi.getver(mCheckUpdateHandle);
         getServerUpdate();
     }
 
@@ -94,7 +90,7 @@ public  abstract   class UpdateManagerUtil {
     /**
      * 子类要实现的方法 ，从服务器取数据
      */
-    public  abstract void getServerUpdate()  ;
+    public abstract void getServerUpdate();
 
     /**
      * 是否显示 正在猎取 的弹框
@@ -137,12 +133,18 @@ public  abstract   class UpdateManagerUtil {
 
     /**
      * 处理从服务器返回 的版本信息
-     *
+     *  最后一个参数，是否弹出选择更新的框
      * @param updateRes
      */
-    public void onFinshCheck(UpdateRes updateRes,String currentVersion) {
-        if (haveNew(mContext,updateRes,currentVersion)) {
-            showUpdateInfo(updateRes);
+    public void onFinshCheck(UpdateRes updateRes, String currentVersion, boolean isDialogSelect) {
+        if (haveNew(mContext, updateRes, currentVersion)) {
+
+            if (isDialogSelect) {
+                showUpdateInfoDialog(updateRes);
+            } else {
+                showUpdateInfo(updateRes);
+            }
+
         } else {
             if (isShow) {
                 showLatestDialog(mContext);
@@ -156,7 +158,7 @@ public  abstract   class UpdateManagerUtil {
      * @param updateRes
      * @return
      */
-    public boolean haveNew(Context context,UpdateRes updateRes,String currentVersion) {
+    public boolean haveNew(Context context, UpdateRes updateRes, String currentVersion) {
         if (updateRes == null) {
             return false;
         }
@@ -166,7 +168,7 @@ public  abstract   class UpdateManagerUtil {
 //
 
 
-         LogCp.i(LogCp.CP,UpdateManagerUtil.class + "取得的版本，" +currentVersion + " 传来的版本" + updateRes.getVersion());
+        LogCp.i(LogCp.CP, UpdateManagerUtil.class + "取得的版本，" + currentVersion + " 传来的版本" + updateRes.getVersion());
 
         if (!currentVersion.equals(updateRes.getVersion())) {
             haveNew = true;
@@ -184,18 +186,38 @@ public  abstract   class UpdateManagerUtil {
         }
     }
 
+
+    /**
+     * 有新版本， 不弹出是否更新的弹框
+     *
+     * @param updateRes
+     */
+    private void showUpdateInfo(final UpdateRes updateRes) {
+        if (updateRes == null) {
+            return;
+        }
+
+        // 启动下载新版本的服务
+        openDownLoadService(mContext, updateRes.getUrl(),
+                updateRes.getVersion());
+
+        ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+
+
+    }
+
     /**
      * 有新版本，弹出是否更新的弹框
      *
      * @param updateRes
      */
 
-    private void showUpdateInfo(final UpdateRes updateRes) {
+    private void showUpdateInfoDialog(final UpdateRes updateRes) {
         if (updateRes == null) {
             return;
         }
         /*
-		 * CommonDialog dialog = DialogHelper
+         * CommonDialog dialog = DialogHelper
 		 * .getPinterestDialogCancelable(mContext); dialog.setTitle("");
 		 * dialog.setMessage(mUpdate.getDesc()); dialog.setNegativeButton("取消",
 		 * null); dialog.setPositiveButton("更新版本", new
@@ -216,24 +238,18 @@ public  abstract   class UpdateManagerUtil {
                     public void onClick(View arg0) {
 
 
-                            if(arg0.getId()== R.id.base_config_dialog_sure_btn)
+                        if (arg0.getId() == R.id.base_config_dialog_sure_btn)
 
-                            {
-                                // 启动下载新版本的服务
-                                openDownLoadService(mContext, updateRes.getUrl(),
-                                        updateRes.getVersion());
+                        {
+                            // 启动下载新版本的服务
+                            openDownLoadService(mContext, updateRes.getUrl(),
+                                    updateRes.getVersion());
 
-                                ShowToastUtil.showToast(mContext,"开始下载新版本，下载完后会自动安装");
-                                simplecDialog.dismiss();
-                            }else if(arg0.getId()==R.id.base_config_dialog_cannel_btn)
-                            {
-                                simplecDialog.dismiss();
-                            }
-
-
-
-
-
+                            ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+                            simplecDialog.dismiss();
+                        } else if (arg0.getId() == R.id.base_config_dialog_cannel_btn) {
+                            simplecDialog.dismiss();
+                        }
 
 
                     }
@@ -248,7 +264,7 @@ public  abstract   class UpdateManagerUtil {
      */
     private void showLatestDialog(Context context) {
 
-        ShowToastUtil.showToast(context,"已是最新版本哦  ^_~");
+        ShowToastUtil.showToast(context, "已是最新版本哦  ^_~");
     }
 
     /**
@@ -267,11 +283,8 @@ public  abstract   class UpdateManagerUtil {
      *
      * @param packageName
      * @return
-     *
-     *
-     *
      */
-    public static int getVersionCode(Context context,String packageName) {
+    public static int getVersionCode(Context context, String packageName) {
         int versionCode = 0;
         try {
             versionCode = context.getPackageManager()
@@ -309,7 +322,7 @@ public  abstract   class UpdateManagerUtil {
     }
 
     public static void uninstallApk(Context context, String packageName) {
-        if (isPackageExist(context,packageName)) {
+        if (isPackageExist(context, packageName)) {
             Uri packageURI = Uri.parse("package:" + packageName);
             Intent uninstallIntent = new Intent(Intent.ACTION_DELETE,
                     packageURI);
@@ -317,9 +330,9 @@ public  abstract   class UpdateManagerUtil {
         }
     }
 
-    public static boolean isPackageExist(Context context,String pckName) {
+    public static boolean isPackageExist(Context context, String pckName) {
         try {
-            PackageInfo pckInfo =context.getPackageManager()
+            PackageInfo pckInfo = context.getPackageManager()
                     .getPackageInfo(pckName, 0);
             if (pckInfo != null)
                 return true;
@@ -416,17 +429,14 @@ public  abstract   class UpdateManagerUtil {
     /**
      * 获取应用程序名称
      */
-    public static String getAppName(Context context)
-    {
-        try
-        {
+    public static String getAppName(Context context) {
+        try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
                     context.getPackageName(), 0);
             int labelRes = packageInfo.applicationInfo.labelRes;
             return context.getResources().getString(labelRes);
-        } catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -438,19 +448,16 @@ public  abstract   class UpdateManagerUtil {
      * @param context
      * @return 当前应用的版本名称
      */
-    public static String getVersionNameAndVersionCode (Context context)
-    {
-        try
-        {
+    public static String getVersionNameAndVersionCode(Context context) {
+        try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
                     context.getPackageName(), 0);
 
 
-            return packageInfo.versionName+"."+packageInfo.versionCode;
+            return packageInfo.versionName + "." + packageInfo.versionCode;
 
-        } catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return null;
