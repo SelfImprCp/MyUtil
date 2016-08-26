@@ -162,13 +162,13 @@ public  abstract   class UpdateManagerUtil {
         }
         boolean haveNew = false;
 
-        String curVersionName = getVersionNameAndVersionCode(context);
+//        String curVersionName = getVersionNameAndVersionCode(context);
+//
 
 
+         LogCp.i(LogCp.CP,UpdateManagerUtil.class + "取得的版本，" +currentVersion + " 传来的版本" + updateRes.getVersion());
 
-         LogCp.i(LogCp.CP,UpdateManagerUtil.class + "取得的版本，" +curVersionName + " 传来的版本" + updateRes.getVersion());
-
-        if (!curVersionName.equals(updateRes.getVersion())) {
+        if (!currentVersion.equals(updateRes.getVersion())) {
             haveNew = true;
         }
 
