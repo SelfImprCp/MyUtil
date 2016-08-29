@@ -2,6 +2,7 @@ package com.cp.mylibrary.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class EditTextDialog  extends Dialog {
         edittext_dialog_dialog_txt = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_txt);
 
         edit_config_dialog_txt = (EditText) mView.findViewById(R.id.edit_config_dialog_txt);
+        edit_config_dialog_txt.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
         edittext_dialog_dialog_cannel_btn_b = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_cannel_btn_b);
         edittext_dialog_dialog_sure_btn_b = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_sure_btn_b);
         super.setContentView(mView);

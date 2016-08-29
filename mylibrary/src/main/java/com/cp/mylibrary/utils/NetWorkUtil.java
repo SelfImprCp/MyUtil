@@ -148,7 +148,7 @@ public class NetWorkUtil {
      */
     public static boolean yesNext(Context context) {
         if (!NetWorkUtil.hasInternetConnected(context)) {
-            //  UIHelper.showToast("没有可用的网络");
+              ShowToastUtil.showToast(context,"没有可用的网络");
             return false;
         } else {
             return true;
