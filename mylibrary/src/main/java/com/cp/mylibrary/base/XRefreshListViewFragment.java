@@ -18,6 +18,7 @@ import com.cp.mylibrary.app.Config;
 import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.NetWorkUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -160,8 +161,21 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 //            readCacheData(key);
 //        } else {
         // 取新的数据
-        requestData();
+     //   requestData();
         // }
+
+
+        if (NetWorkUtil.hasInternetConnected(getActivity()))
+        {
+            requestData();
+        }else
+        {
+            mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+
+        }
+
+
+
     }
 
 

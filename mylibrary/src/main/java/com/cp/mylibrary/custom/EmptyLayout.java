@@ -144,7 +144,7 @@ public class EmptyLayout extends LinearLayout implements
 				img.setBackgroundResource(R.drawable.pagefailed_bg);
 			} else {
 				tv.setText(R.string.error_view_network_error_click_to_refresh);
-				img.setBackgroundResource(R.drawable.page_icon_network);
+				img.setBackgroundResource(R.drawable.wangluo_not);
 			}
 			img.setVisibility(View.VISIBLE);
 			animProgress.setVisibility(View.GONE);

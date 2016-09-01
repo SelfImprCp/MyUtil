@@ -227,7 +227,19 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 //            readCacheData(key);
 //        } else {
         // 取新的数据
-        requestData();
+
+
+
+        if (NetWorkUtil.hasInternetConnected(this))
+        {
+            requestData();
+        }else
+        {
+            mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+
+        }
+
+
         // }
     }
 
