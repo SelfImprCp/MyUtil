@@ -122,8 +122,8 @@ public class TestActivity extends BaseActivity {
 
                     @Override
                     public void run() {
-                        new UpdateManagerUtil(TestActivity.this, false, false)
-                                .checkUpdate();
+//                        new UpdateManagerUtil(TestActivity.this)
+//                                .checkUpdate();
                     }
                 }, 2000);
 
