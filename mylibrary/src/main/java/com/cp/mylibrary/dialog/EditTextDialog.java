@@ -50,6 +50,10 @@ public class EditTextDialog  extends Dialog {
     public void setContentView(int layoutResID) {
     }
 
+
+
+
+
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
     }

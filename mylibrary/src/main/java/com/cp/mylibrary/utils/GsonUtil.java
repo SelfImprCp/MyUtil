@@ -29,7 +29,9 @@ public class GsonUtil {
 
 
 
-	private static Gson gson = new Gson();
+//	private static Gson gson = new Gson();
+
+	private static Gson gson =  new GsonBuilder().disableHtmlEscaping().create();
 
 
 
