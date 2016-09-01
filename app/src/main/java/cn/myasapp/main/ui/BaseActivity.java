@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Window;
 
 import com.cp.mylibrary.base.MyBaseActivity;
+import com.cp.mylibrary.utils.NetWorkUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.KJActivity;
 
@@ -67,7 +69,9 @@ public class BaseActivity extends MyBaseActivity {
      * 子类复写，初始化UI
      */
      protected void initView() {
-    }
+
+
+     }
 
 
     @Override

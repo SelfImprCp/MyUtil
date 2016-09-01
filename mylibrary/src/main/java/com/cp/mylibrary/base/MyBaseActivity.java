@@ -12,6 +12,8 @@ import com.cp.mylibrary.app.MyBaseApp;
 
 import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
+import com.cp.mylibrary.utils.NetWorkUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
@@ -112,6 +114,11 @@ public class MyBaseActivity extends KJActivity {
      * 子类复写，初始化UI
      */
     protected void initView() {
+        if (!NetWorkUtil.hasInternetConnected(this)) {
+
+            ShowToastUtil.showToast(this,"请检查网络");
+        }
+
     }
 
 

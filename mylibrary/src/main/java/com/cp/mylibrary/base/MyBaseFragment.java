@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.event.BaseEvent;
+import com.cp.mylibrary.utils.NetWorkUtil;
+import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.SupportFragment;
 
@@ -28,6 +30,11 @@ public class MyBaseFragment extends SupportFragment {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
 
+
+        if (!NetWorkUtil.hasInternetConnected(getActivity())) {
+
+            ShowToastUtil.showToast(getActivity(),"请检查网络");
+        }
 
     }
 
