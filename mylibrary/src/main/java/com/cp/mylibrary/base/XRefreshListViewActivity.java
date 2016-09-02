@@ -3,6 +3,7 @@ package com.cp.mylibrary.base;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
@@ -63,6 +64,11 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
     protected int mStoreEmptyState = -1;
 
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+    }
 
     @Override
     public void setRootView() {
