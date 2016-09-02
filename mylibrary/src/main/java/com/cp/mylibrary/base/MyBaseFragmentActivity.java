@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.cp.mylibrary.event.BaseEvent;
+
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Jerry on 2016/7/7.
  */
@@ -15,6 +19,10 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
 
         setContentView(setRootView());
         initView();
+
+
+
+        EventBus.getDefault().register(this);
 
     }
 
@@ -29,6 +37,8 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
      */
     protected abstract  void initView();
 
+    public void onEvent(BaseEvent event) {
+    }
 
 
 }
