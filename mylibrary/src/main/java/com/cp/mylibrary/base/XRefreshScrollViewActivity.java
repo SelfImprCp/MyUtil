@@ -34,6 +34,10 @@ public class XRefreshScrollViewActivity extends  MyBaseActivity {
     }
 
 
+
+
+
+
     @Override
     protected void initView() {
         super.initView();
