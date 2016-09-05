@@ -49,6 +49,8 @@ public class MyBaseActivity extends KJActivity {
 
 
 
+
+
         //只对api19以上版本有效
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
