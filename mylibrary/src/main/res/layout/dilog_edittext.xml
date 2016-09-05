@@ -51,6 +51,7 @@
         android:textColor="@color/black_color_30"
         android:textCursorDrawable="@null"
         android:textSize="16sp"
+
         android:inputType="textPassword|numberPassword"
         android:visibility="visible" />
 

@@ -43,6 +43,11 @@ public class EditTextDialog  extends Dialog {
     }
 
     public View getEditText() {
+
+        edit_config_dialog_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+
+
         return edit_config_dialog_txt;
     }
 
