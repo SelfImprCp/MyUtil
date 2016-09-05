@@ -35,7 +35,7 @@ public class EditTextDialog  extends Dialog {
         edittext_dialog_dialog_title = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_title);
         edittext_dialog_dialog_txt = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_txt);
 
-        edit_config_dialog_txt = (EditText) mView.findViewById(R.id.edit_config_dialog_txt);
+        edit_config_dialog_txt = (EditText) mView.findViewById(R.id.edit_my_config_dialog_txt);
         edit_config_dialog_txt.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
         edittext_dialog_dialog_cannel_btn_b = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_cannel_btn_b);
         edittext_dialog_dialog_sure_btn_b = (TextView) mView.findViewById(R.id.edittext_dialog_dialog_sure_btn_b);
@@ -43,9 +43,9 @@ public class EditTextDialog  extends Dialog {
     }
 
     public View getEditText() {
-
-        edit_config_dialog_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
+//
+//        edit_config_dialog_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+//
 
 
         return edit_config_dialog_txt;

@@ -40,7 +40,7 @@
         android:visibility="visible" />
 
     <EditText
-        android:id="@+id/edit_config_dialog_txt"
+        android:id="@+id/edit_my_config_dialog_txt"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
@@ -51,8 +51,9 @@
         android:textColor="@color/black_color_30"
         android:textCursorDrawable="@null"
         android:textSize="16sp"
+        android:inputType="textPassword"
+        android:digits="01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-        android:inputType="textPassword|numberPassword"
         android:visibility="visible" />
 
 
