@@ -66,8 +66,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState  );
     }
 
     @Override

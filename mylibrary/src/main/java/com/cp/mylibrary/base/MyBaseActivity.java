@@ -42,6 +42,8 @@ public class MyBaseActivity extends KJActivity {
 
        mContext = MyBaseApp.getInstance();
 
+
+
         super.onCreate(savedInstanceState);
 
 
