@@ -3,6 +3,7 @@ package com.cp.mylibrary.api;
 import com.cp.mylibrary.utils.LogCp;
 
 import org.kymjs.kjframe.KJHttp;
+import org.kymjs.kjframe.http.HttpConfig;
 import org.kymjs.kjframe.http.HttpParams;
 
 /**
@@ -27,7 +28,9 @@ public static String Cookie = "";
         API_URL =  "http://" + host + "/";
 
         // 初始化网络请求
-        client   = new KJHttp( );
+        HttpConfig httpConfig = new HttpConfig();
+        httpConfig.delayTime = 120;
+        client   = new KJHttp(httpConfig );
 
 
 
