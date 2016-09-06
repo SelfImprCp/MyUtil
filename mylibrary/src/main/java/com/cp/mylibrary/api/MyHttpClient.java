@@ -24,12 +24,13 @@ public static String Cookie = "";
     /**
      *
      */
-    public static void initHttp(String host) {
+    public static void initHttp(String host) throws InterruptedException {
         API_URL =  "http://" + host + "/";
 
         // 初始化网络请求
         HttpConfig httpConfig = new HttpConfig();
-        httpConfig.delayTime = 120;
+     //   httpConfig.delayTime = 120;
+        httpConfig.wait(120);
         client   = new KJHttp(httpConfig );
 
 
