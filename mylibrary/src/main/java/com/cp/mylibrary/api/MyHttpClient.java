@@ -29,7 +29,8 @@ public static String Cookie = "";
 
         // 初始化网络请求
         HttpConfig httpConfig = new HttpConfig();
-        httpConfig.delayTime = 1200;
+        httpConfig.TIMEOUT = 5000*5;
+
 
         client   = new KJHttp(  );
  client.setConfig(httpConfig);
