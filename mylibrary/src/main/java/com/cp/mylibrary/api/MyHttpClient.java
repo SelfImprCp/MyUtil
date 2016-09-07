@@ -28,11 +28,11 @@ public static String Cookie = "";
         API_URL =  "http://" + host + "/";
 
         // 初始化网络请求
-      //  HttpConfig httpConfig = new HttpConfig();
-     //   httpConfig.delayTime = 120;
-     //   httpConfig.wait(120);
-        client   = new KJHttp(  );
+        HttpConfig httpConfig = new HttpConfig();
+        httpConfig.delayTime = 1200;
 
+        client   = new KJHttp(  );
+ client.setConfig(httpConfig);
 
 
 
