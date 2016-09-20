@@ -190,7 +190,7 @@ public class EmptyLayout extends LinearLayout implements
 			if (imgResource != 0) {
 				img.setBackgroundResource(imgResource);
 			} else {
-				img.setBackgroundResource(R.drawable.wangluo_not);
+				img.setBackgroundResource(R.drawable.no_data);
 			}
 		} catch (Exception e) {
 		}
