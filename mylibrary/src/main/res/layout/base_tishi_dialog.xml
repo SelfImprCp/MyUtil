@@ -33,7 +33,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:gravity="center"
+
         android:text="内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内 "
         android:textColor="@color/black_color_30"
         android:textSize="16sp"
