@@ -240,4 +240,56 @@ public class DialogHelper {
     }
 
 
+    /**
+     * 返回一个 提示框
+     *
+     *
+     */
+    public static DialogHelper getTiShiDialog(Context context, String title,
+                                              String msg, String rightStr,
+                                              View.OnClickListener itemsOnClick) {
+        Dialog cd = new AlertDialog.Builder(context).create();
+        // 实例化对话框布局
+        View dialogLayout = LayoutInflater.from(context).inflate(
+                R.layout.base_tishi_dialog, null);
+        // 设置标题
+        TextView title_tv = (TextView) dialogLayout
+                .findViewById(R.id.base_tishi_dialog_title);
+
+        // 设置内容
+        TextView msg_tv = (TextView) dialogLayout
+                .findViewById(R.id.base_tishi_dialog_txt);
+        if (StringUtils.isEmpty(msg)) {
+            msg_tv.setVisibility(View.GONE);
+        } else {
+            msg_tv.setVisibility(View.VISIBLE);
+            msg_tv.setText(msg);
+        }
+
+
+        title_tv.setText(title);
+
+
+
+        TextView delbtn = (TextView) dialogLayout
+                .findViewById(R.id.base_tishi_dialog_sure_btn_b);
+        if (!StringUtils.isEmpty(rightStr)) {
+            delbtn.setText(rightStr);
+        } else {
+            delbtn.setVisibility(View.VISIBLE);
+        }
+
+        delbtn.setOnClickListener(itemsOnClick);
+
+        cd.setContentView(dialogLayout);
+
+        cd.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        cd.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+
+        instantce = getInstances();
+        instantce.setConfigDialog(cd);
+        return instantce;
+    }
+
+
 }
