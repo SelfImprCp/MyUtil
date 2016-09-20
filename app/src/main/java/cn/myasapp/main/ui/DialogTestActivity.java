@@ -110,9 +110,37 @@ public class DialogTestActivity extends BaseActivity {
 //                simplecDialog.show();
 
 
-                EditTextDialog dialog = (EditTextDialog) DialogHelper.getEditTextDialog(DialogTestActivity.this, "来啊，", "cc");
-                dialog.show();
-                dialog.getEditText();
+
+
+                 // 提示对话框
+
+                 simplecDialog = DialogHelper.getTiShiDialog(DialogTestActivity.this,"标题","提示","知道了", new View.OnClickListener() {
+                     @Override
+                     public void onClick(View v) {
+
+                          switch (v.getId())
+                          {
+                               case R.id.base_tishi_dialog_sure_btn_b:
+//
+//                                simplecDialog.dismiss();
+//
+//                                EditText editText = DialogHelper.getDialogEditText();
+//                                String str = editText.getText().toString();
+//                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
+//
+                              break;
+
+                          }
+
+                     }
+                 }).getConfigDialog();
+
+                simplecDialog.show();
+
+
+//                EditTextDialog dialog = (EditTextDialog) DialogHelper.getEditTextDialog(DialogTestActivity.this, "来啊，", "cc");
+//                dialog.show();
+//                dialog.getEditText();
 
 
 //
