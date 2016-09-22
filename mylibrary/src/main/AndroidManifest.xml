@@ -49,7 +49,7 @@
         </meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="ecc8e70c3cd241f1b02efc0622150582" >
+            android:value="0428a17a6c02bdf6ac205944210c7a67" >
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"

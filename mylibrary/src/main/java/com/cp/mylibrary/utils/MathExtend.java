@@ -186,8 +186,6 @@ public class MathExtend {
     public static double round(double v,int scale)
     {
 
-
-
         return round(v, scale, BigDecimal.ROUND_HALF_EVEN);
     }
     /**
