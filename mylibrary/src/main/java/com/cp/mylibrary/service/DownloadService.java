@@ -55,7 +55,6 @@ public class DownloadService extends Service {
     private String mTitle = "正在下载%s";
 
 
-
     // 下载的apk保存的位置
     public static String saveFileName = Config.DEFAULT_SAVE_FILE_PATH;
 
@@ -90,7 +89,7 @@ public class DownloadService extends Service {
                 case 0:
                     // 下载完毕
 
-                    LogCp.i(LogCp.CP, DownloadService.this + "   下载   good   "    );
+                    LogCp.i(LogCp.CP, DownloadService.this + "   下载   good   ");
 
 
                     mNotificationManager.cancel(NOTIFY_ID);
@@ -115,19 +114,18 @@ public class DownloadService extends Service {
                                 false);
 
 
-
                         mNotificationManager.notify(NOTIFY_ID, mNotification);
                     } else {
                         // 下载完毕后变换通知形式
                         mNotification.flags = Notification.FLAG_AUTO_CANCEL;
                         mNotification.contentView = null;
-                      //  Intent intent = new Intent(mContext, MainActivity.class);
+                        //  Intent intent = new Intent(mContext, MainActivity.class);
                         // 告知已完成
                         //intent.putExtra("completed", "yes");
                         // 更新参数,注意flags要使用FLAG_UPDATE_CURRENT
                         //PendingIntent contentIntent = PendingIntent.getActivity(
-                          //      mContext, 0, intent,
-                            //    PendingIntent.FLAG_UPDATE_CURRENT);
+                        //      mContext, 0, intent,
+                        //    PendingIntent.FLAG_UPDATE_CURRENT);
 // 				mNotification.setLatestEventInfo(mContext, "下载完成",
 // 						"文件已下载完毕", contentIntent);
                         serviceIsDestroy = true;
@@ -212,8 +210,7 @@ public class DownloadService extends Service {
         File apkfile = new File(saveFileName);
 
 
-
-        LogCp.i(LogCp.CP, DownloadService.this + "   下载 版本  installApk   " +  saveFileName + " apk File " + apkfile);
+        LogCp.i(LogCp.CP, DownloadService.this + "   下载 版本  installApk   " + saveFileName + " apk File " + apkfile);
 
 
         if (!apkfile.exists()) {
@@ -227,13 +224,13 @@ public class DownloadService extends Service {
     private Runnable mdownApkRunnable = new Runnable() {
         @Override
         public void run() {
-            File file = new File(saveFileName);
+            File file = new File(Config.DEFAULT_SAVE_FILE_PATH);
 
             if (!file.exists()) {
                 file.mkdirs();
             }
-        //    String apkFile = saveFileName;
-            File saveFile = new File(saveFileName);
+            String apkFile = saveFileName;
+            File saveFile = new File(apkFile);
             try {
                 downloadUpdateFile(downloadUrl, saveFile);
             } catch (Exception e) {
@@ -249,7 +246,7 @@ public class DownloadService extends Service {
         // 注，需要这样的下载链接
 
 
-        LogCp.i(LogCp.CP, DownloadService.this + "   下载 downloadUpdateFile " + downloadUrl + " file n：" +saveFile );
+        LogCp.i(LogCp.CP, DownloadService.this + "   下载 downloadUpdateFile " + downloadUrl + " file n：" + saveFile);
 
 
         int downloadCount = 0;
@@ -283,23 +280,19 @@ public class DownloadService extends Service {
             }
 
 
-
-
             is = httpConnection.getInputStream();
 
 //           fos = openFileOutput(saveFile.getName(), Context.MODE_APPEND); //追加模式继续写
 
 //            fos = new FileOutputStream(saveFile, false);
 
-            fos = new   FileOutputStream(saveFile,false);
+            fos = new FileOutputStream(saveFile, false);
 
 
             byte buffer[] = new byte[1024];
 
 
-
             int readsize = 0;
-
 
 
             while ((readsize = is.read(buffer)) > 0) {
