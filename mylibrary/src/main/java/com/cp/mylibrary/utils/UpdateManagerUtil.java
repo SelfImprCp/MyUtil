@@ -360,7 +360,7 @@ public abstract class UpdateManagerUtil {
 
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                DownloadService.DownloadBinder binder = (DownloadService.DownloadBinder) service;
+               DownloadService.DownloadBinder binder = (DownloadService.DownloadBinder) service;
                 binder.addCallback(callback);
                 binder.start();
 

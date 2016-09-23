@@ -1,5 +1,6 @@
 package com.cp.mylibrary.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -7,6 +8,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -63,6 +65,7 @@ public class DownloadService extends Service {
 	
 	private Handler mHandler = new Handler() {
 
+		@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 		@Override
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
@@ -89,15 +92,32 @@ public class DownloadService extends Service {
 					// 下载完毕后变换通知形式
 					mNotification.flags = Notification.FLAG_AUTO_CANCEL;
 					mNotification.contentView = null;
-				//	Intent intent = new Intent(mContext, MainActivity.class);
-					// 告知已完成
-				//	intent.putExtra("completed", "yes");
-					// 更新参数,注意flags要使用FLAG_UPDATE_CURRENT
-				//	PendingIntent contentIntent = PendingIntent.getActivity(
-				//			mContext, 0, intent,
-				//			PendingIntent.FLAG_UPDATE_CURRENT);
+//					Intent intent = new Intent(mContext, MainActivity.class);
+////					 告知已完成
+//					intent.putExtra("completed", "yes");
+//					// 更新参数,注意flags要使用FLAG_UPDATE_CURRENT
+//					PendingIntent contentIntent = PendingIntent.getActivity(
+//							mContext, 0, intent,
+//							PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+
+					Notification notification = new Notification.Builder(mContext)
+							.setAutoCancel(true)
+							.setContentTitle("下载完成")
+							.setContentText("文件已下载完毕")
+						//	.setContentIntent(contentIntent)
+							.setSmallIcon(R.drawable.ic_launcher)
+							.setWhen(System.currentTimeMillis())
+							.build();
+
 //					mNotification.setLatestEventInfo(mContext, "下载完成",
 //							"文件已下载完毕", contentIntent);
+
+
+					mNotificationManager.notify(NOTIFY_ID,
+							notification);// 通知一下才会生效哦
+
 					serviceIsDestroy = true;
 					stopSelf();// 停掉服务自身
 				}
