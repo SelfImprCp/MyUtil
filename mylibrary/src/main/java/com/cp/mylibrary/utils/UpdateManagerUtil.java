@@ -51,7 +51,7 @@ public abstract class UpdateManagerUtil {
 
     private WaitDialog _waitDialog;
     private Dialog simplecDialog;
-
+    public      Class mActivity;
     /**
      * @param context
      * @param
@@ -369,8 +369,9 @@ public abstract class UpdateManagerUtil {
         Intent intent = new Intent(context, DownloadService.class);
         intent.putExtra(DownloadService.BUNDLE_KEY_DOWNLOAD_URL, downurl);
         intent.putExtra(DownloadService.BUNDLE_KEY_TITLE, tilte);
-        context.startService(intent);
+    context.startService(intent);
         context.bindService(intent, conn, Context.BIND_AUTO_CREATE);
+
     }
 
     // ///////////////////////////////////////

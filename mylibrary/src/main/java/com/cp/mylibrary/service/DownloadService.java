@@ -1,6 +1,7 @@
 package com.cp.mylibrary.service;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -15,7 +16,9 @@ import android.os.Message;
 import android.widget.RemoteViews;
 
 import com.cp.mylibrary.R;
+import com.cp.mylibrary.base.MyBaseActivity;
 import com.cp.mylibrary.interf.ICallbackResult;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 import com.cp.mylibrary.utils.TDevice;
 
@@ -62,7 +65,15 @@ public class DownloadService extends Service {
 	private Thread downLoadThread;
 
 	private Notification mNotification;
-	
+//
+// 	public  static   Class mActivity;
+
+//	 public  static  void setActivity(Class activity)
+//	 {
+//		 mActivity = activity;
+//	 }
+
+//
 	private Handler mHandler = new Handler() {
 
 		@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -82,6 +93,12 @@ public class DownloadService extends Service {
 				break;
 			case 1:
 				int rate = msg.arg1;
+
+
+
+				LogCp.i(LogCp.CP, DownloadService.this + "   下载 版本 " + rate);
+
+
 				if (rate < 100) {
 					RemoteViews contentview = mNotification.contentView;
 					contentview.setTextViewText(R.id.tv_download_state, mTitle + "(" + rate
@@ -92,21 +109,21 @@ public class DownloadService extends Service {
 					// 下载完毕后变换通知形式
 					mNotification.flags = Notification.FLAG_AUTO_CANCEL;
 					mNotification.contentView = null;
-//					Intent intent = new Intent(mContext, MainActivity.class);
+//					Intent intent = new Intent(mContext, mActivity);
 ////					 告知已完成
 //					intent.putExtra("completed", "yes");
 //					// 更新参数,注意flags要使用FLAG_UPDATE_CURRENT
 //					PendingIntent contentIntent = PendingIntent.getActivity(
 //							mContext, 0, intent,
 //							PendingIntent.FLAG_UPDATE_CURRENT);
-
+//
 
 
 					Notification notification = new Notification.Builder(mContext)
 							.setAutoCancel(true)
 							.setContentTitle("下载完成")
 							.setContentText("文件已下载完毕")
-						//	.setContentIntent(contentIntent)
+						// 	.setContentIntent(contentIntent)
 							.setSmallIcon(R.drawable.ic_launcher)
 							.setWhen(System.currentTimeMillis())
 							.build();
@@ -121,6 +138,9 @@ public class DownloadService extends Service {
 					serviceIsDestroy = true;
 					stopSelf();// 停掉服务自身
 				}
+
+
+
 				mNotificationManager.notify(NOTIFY_ID, mNotification);
 				break;
 			}
@@ -130,7 +150,8 @@ public class DownloadService extends Service {
 	@Override
 	public IBinder onBind(Intent intent) {
 		downloadUrl = intent.getStringExtra(BUNDLE_KEY_DOWNLOAD_URL);
-		saveFileName = saveFileName + getSaveFileName(downloadUrl); 
+		saveFileName = saveFileName + getSaveFileName(downloadUrl);
+
 		mTitle = String.format(mTitle, intent.getStringExtra(BUNDLE_KEY_TITLE));
 		return binder;
 	}
@@ -158,7 +179,7 @@ public class DownloadService extends Service {
 	/**
 	 * 创建通知
 	 */
-	private void setUpNotification() {
+	private void setUpNotification( ) {
 		int icon = R.drawable.ic_launcher;
 		CharSequence tickerText = "准备下载";
 		long when = System.currentTimeMillis();
@@ -173,13 +194,15 @@ public class DownloadService extends Service {
 		// 指定个性化视图
 		mNotification.contentView = contentView;
 
-//		Intent intent = new Intent(this, MainActivity.class);
+//		Intent intent = new Intent(this, MyBaseActivity.this);
 //		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
 //				intent, PendingIntent.FLAG_UPDATE_CURRENT);
 //
 //		// 指定内容意图
 //		mNotification.contentIntent = contentIntent;
-//		mNotificationManager.notify(NOTIFY_ID, mNotification);
+
+
+		mNotificationManager.notify(NOTIFY_ID, mNotification);
 	}
 
 	private void downloadApk() {
