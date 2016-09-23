@@ -19,6 +19,7 @@ import com.cp.mylibrary.R;
 import com.cp.mylibrary.base.MyBaseActivity;
 import com.cp.mylibrary.interf.ICallbackResult;
 
+import com.cp.mylibrary.utils.FileUtil;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 import com.cp.mylibrary.utils.TDevice;
@@ -302,7 +303,10 @@ public class DownloadService extends Service {
             is = httpConnection.getInputStream();
             LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度   ccccccccc  " + httpConnection.getInputStream() );
 
-            fos = new FileOutputStream(saveFile);
+          //  fos = new FileOutputStream(saveFile);
+             fos = openFileOutput(saveFile.getName(), Context.MODE_APPEND); //追加模式继续写
+
+
 
 
             byte buffer[] = new byte[1024];
