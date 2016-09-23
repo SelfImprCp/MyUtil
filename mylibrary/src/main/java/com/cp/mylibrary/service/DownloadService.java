@@ -16,6 +16,7 @@ import android.os.Message;
 import android.widget.RemoteViews;
 
 import com.cp.mylibrary.R;
+import com.cp.mylibrary.app.Config;
 import com.cp.mylibrary.base.MyBaseActivity;
 import com.cp.mylibrary.interf.ICallbackResult;
 
@@ -53,7 +54,7 @@ public class DownloadService extends Service {
 
     private String mTitle = "正在下载%s";
     // 下载的apk保存的位置
-    public static String saveFileName = "";
+    public static String saveFileName = Config.DEFAULT_SAVE_FILE_PATH;
 
     private ICallbackResult callback;
 
@@ -285,7 +286,9 @@ public class DownloadService extends Service {
 
 //           fos = openFileOutput(saveFile.getName(), Context.MODE_APPEND); //追加模式继续写
 
-            fos = new FileOutputStream(saveFile, false);
+//            fos = new FileOutputStream(saveFile, false);
+
+            fos = new   FileOutputStream(saveFile,false);
 
 
             byte buffer[] = new byte[1024];
