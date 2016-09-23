@@ -85,6 +85,10 @@ public class DownloadService extends Service {
             switch (msg.what) {
                 case 0:
                     // 下载完毕
+
+                    LogCp.i(LogCp.CP, DownloadService.this + "   下载   good   "    );
+
+
                     mNotificationManager.cancel(NOTIFY_ID);
                     installApk();
                     break;
@@ -106,43 +110,27 @@ public class DownloadService extends Service {
                         contentview.setProgressBar(R.id.pb_download, 100, rate,
                                 false);
 
-                        mNotificationManager.notify(NOTIFY_ID, mNotification);
+
 
                     } else {
                         // 下载完毕后变换通知形式
                         mNotification.flags = Notification.FLAG_AUTO_CANCEL;
                         mNotification.contentView = null;
-//					Intent intent = new Intent(mContext, mActivity);
-////					 告知已完成
-//					intent.putExtra("completed", "yes");
-//					// 更新参数,注意flags要使用FLAG_UPDATE_CURRENT
-//					PendingIntent contentIntent = PendingIntent.getActivity(
-//							mContext, 0, intent,
-//							PendingIntent.FLAG_UPDATE_CURRENT);
-//
-
-
-                        Notification notification = new Notification.Builder(mContext)
-                                .setAutoCancel(true)
-                                .setContentTitle("下载完成")
-                                .setContentText("文件已下载完毕")
-                                // 	.setContentIntent(contentIntent)
-                                .setSmallIcon(R.drawable.ic_launcher)
-                                .setWhen(System.currentTimeMillis())
-                                .build();
-
-//					mNotification.setLatestEventInfo(mContext, "下载完成",
-//							"文件已下载完毕", contentIntent);
-
-
-                        mNotificationManager.notify(NOTIFY_ID,
-                                notification);// 通知一下才会生效哦
-
+                      //  Intent intent = new Intent(mContext, MainActivity.class);
+                        // 告知已完成
+                        //intent.putExtra("completed", "yes");
+                        // 更新参数,注意flags要使用FLAG_UPDATE_CURRENT
+                        //PendingIntent contentIntent = PendingIntent.getActivity(
+                          //      mContext, 0, intent,
+                            //    PendingIntent.FLAG_UPDATE_CURRENT);
+// 				mNotification.setLatestEventInfo(mContext, "下载完成",
+// 						"文件已下载完毕", contentIntent);
                         serviceIsDestroy = true;
                         stopSelf();// 停掉服务自身
+
                     }
 
-
+                    mNotificationManager.notify(NOTIFY_ID, mNotification);
 //
 
                     break;
@@ -219,6 +207,8 @@ public class DownloadService extends Service {
     private void installApk() {
         File apkfile = new File(saveFileName);
         if (!apkfile.exists()) {
+
+
             return;
         }
         TDevice.installAPK(mContext, apkfile);
@@ -231,8 +221,8 @@ public class DownloadService extends Service {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            String apkFile = saveFileName;
-            File saveFile = new File(apkFile);
+        //    String apkFile = saveFileName;
+            File saveFile = new File(saveFileName);
             try {
                 downloadUpdateFile(downloadUrl, saveFile);
             } catch (Exception e) {
@@ -248,7 +238,7 @@ public class DownloadService extends Service {
         // 注，需要这样的下载链接
 
 
-        LogCp.i(LogCp.CP, DownloadService.this + "   下载 downloadUpdateFile " + downloadUrl);
+        LogCp.i(LogCp.CP, DownloadService.this + "   下载 downloadUpdateFile " + downloadUrl + " file n：" +saveFile );
 
 
         int downloadCount = 0;
@@ -267,23 +257,15 @@ public class DownloadService extends Service {
                     .setRequestProperty("User-Agent", "PacificHttpClient");
 
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  1 "  );
-
-
             if (currentSize > 0) {
                 httpConnection.setRequestProperty("RANGE", "bytes="
                         + currentSize + "-");
             }
 
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度 2  "   );
-
             httpConnection.setConnectTimeout(10000);
             httpConnection.setReadTimeout(20000);
             updateTotalSize = httpConnection.getContentLength();
-
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
-
 
             if (httpConnection.getResponseCode() == 404) {
                 throw new Exception("fail!");
@@ -292,20 +274,7 @@ public class DownloadService extends Service {
 
 
 
-
-
-
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getInputStream()  我删除 了这行 " + httpConnection.getInputStream() );
-
-
-
-
-
-//            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  pp   " + httpConnection.getResponseCode() );
-
-
             is = httpConnection.getInputStream();
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度   ccccccccc  " + httpConnection.getInputStream() );
 
           //  fos = new FileOutputStream(saveFile);
              fos = openFileOutput(saveFile.getName(), Context.MODE_APPEND); //追加模式继续写
