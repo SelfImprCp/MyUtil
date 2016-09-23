@@ -206,6 +206,12 @@ public class DownloadService extends Service {
      */
     private void installApk() {
         File apkfile = new File(saveFileName);
+
+
+
+        LogCp.i(LogCp.CP, DownloadService.this + "   下载 版本  installApk   " +  saveFileName + " apk File " + apkfile);
+
+
         if (!apkfile.exists()) {
 
 
@@ -218,6 +224,7 @@ public class DownloadService extends Service {
         @Override
         public void run() {
             File file = new File(saveFileName);
+
             if (!file.exists()) {
                 file.mkdirs();
             }
