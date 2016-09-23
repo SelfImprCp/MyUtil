@@ -276,7 +276,7 @@ public class DownloadService extends Service {
             httpConnection.setReadTimeout(20000);
             updateTotalSize = httpConnection.getContentLength();
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
+//            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
 
 
 //            if (httpConnection.getResponseCode() == 404) {
@@ -288,7 +288,7 @@ public class DownloadService extends Service {
 
 
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  pp   " + httpConnection.getResponseCode() );
+//            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  pp   " + httpConnection.getResponseCode() );
 
 
             is = httpConnection.getInputStream();
