@@ -283,10 +283,9 @@ public class DownloadService extends Service {
 
             is = httpConnection.getInputStream();
 
-          //  fos = new FileOutputStream(saveFile);
-             fos = openFileOutput(saveFile.getName(), Context.MODE_APPEND); //追加模式继续写
+//           fos = openFileOutput(saveFile.getName(), Context.MODE_APPEND); //追加模式继续写
 
-
+            fos = new FileOutputStream(saveFile, false);
 
 
             byte buffer[] = new byte[1024];
