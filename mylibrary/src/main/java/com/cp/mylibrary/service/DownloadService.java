@@ -285,6 +285,9 @@ public class DownloadService extends Service {
 
 
 
+
+
+
             LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  pp   " + httpConnection.getResponseCode() );
 
 
