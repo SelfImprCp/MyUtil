@@ -112,6 +112,7 @@ public class DownloadService extends Service {
 
 
 
+                        mNotificationManager.notify(NOTIFY_ID, mNotification);
                     } else {
                         // 下载完毕后变换通知形式
                         mNotification.flags = Notification.FLAG_AUTO_CANCEL;
@@ -130,7 +131,6 @@ public class DownloadService extends Service {
 
                     }
 
-                    mNotificationManager.notify(NOTIFY_ID, mNotification);
 //
 
                     break;
