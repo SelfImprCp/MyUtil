@@ -53,6 +53,9 @@ public class DownloadService extends Service {
     private String downloadUrl;
 
     private String mTitle = "正在下载%s";
+
+
+
     // 下载的apk保存的位置
     public static String saveFileName = Config.DEFAULT_SAVE_FILE_PATH;
 
