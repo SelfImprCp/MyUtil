@@ -282,6 +282,9 @@ public class DownloadService extends Service {
             if (httpConnection.getResponseCode() == 404) {
                 throw new Exception("fail!");
             }
+
+
+
             LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  pp   " + httpConnection.getResponseCode() );
 
 
