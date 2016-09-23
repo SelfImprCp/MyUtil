@@ -261,7 +261,7 @@ public class DownloadService extends Service {
                     .setRequestProperty("User-Agent", "PacificHttpClient");
 
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  1 " + downloadCount);
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  1 "  );
 
 
             if (currentSize > 0) {
@@ -270,7 +270,7 @@ public class DownloadService extends Service {
             }
 
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度 2  " + downloadCount);
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度 2  "   );
 
             httpConnection.setConnectTimeout(10000);
             httpConnection.setReadTimeout(20000);
@@ -279,9 +279,9 @@ public class DownloadService extends Service {
             LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
 
 
-            if (httpConnection.getResponseCode() == 404) {
-                throw new Exception("fail!");
-            }
+//            if (httpConnection.getResponseCode() == 404) {
+//                throw new Exception("fail!");
+//            }
 
 
 
