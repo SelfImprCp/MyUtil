@@ -275,6 +275,10 @@ public class DownloadService extends Service {
             httpConnection.setConnectTimeout(10000);
             httpConnection.setReadTimeout(20000);
             updateTotalSize = httpConnection.getContentLength();
+
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
+
+
             if (httpConnection.getResponseCode() == 404) {
                 throw new Exception("fail!");
             }
