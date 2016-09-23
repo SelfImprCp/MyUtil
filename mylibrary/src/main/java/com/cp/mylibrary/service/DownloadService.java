@@ -140,7 +140,9 @@ public class DownloadService extends Service {
                     }
 
 
-                    mNotificationManager.notify(NOTIFY_ID, mNotification);
+//                    mNotificationManager.notify(NOTIFY_ID, mNotification);
+//
+
                     break;
             }
         }
