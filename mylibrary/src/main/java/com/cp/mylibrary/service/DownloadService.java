@@ -282,9 +282,19 @@ public class DownloadService extends Service {
             if (httpConnection.getResponseCode() == 404) {
                 throw new Exception("fail!");
             }
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  pp   " + httpConnection.getResponseCode() );
+
+
             is = httpConnection.getInputStream();
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getInputStream()  " + httpConnection.getInputStream() );
+
             fos = new FileOutputStream(saveFile, false);
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  fos " + fos );
+
             byte buffer[] = new byte[1024];
+
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  buffer " + buffer );
+
             int readsize = 0;
 
 
