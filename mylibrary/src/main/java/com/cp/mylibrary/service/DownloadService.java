@@ -18,6 +18,7 @@ import android.widget.RemoteViews;
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.base.MyBaseActivity;
 import com.cp.mylibrary.interf.ICallbackResult;
+
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 import com.cp.mylibrary.utils.TDevice;
@@ -276,12 +277,12 @@ public class DownloadService extends Service {
             httpConnection.setReadTimeout(20000);
             updateTotalSize = httpConnection.getContentLength();
 
-//            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getResponseCode()   " + httpConnection.getResponseCode() );
 
 
-//            if (httpConnection.getResponseCode() == 404) {
-//                throw new Exception("fail!");
-//            }
+            if (httpConnection.getResponseCode() == 404) {
+                throw new Exception("fail!");
+            }
 
 
 
@@ -299,19 +300,18 @@ public class DownloadService extends Service {
 
 
             is = httpConnection.getInputStream();
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  httpConnection.getInputStream()  " + httpConnection.getInputStream() );
+            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度   ccccccccc  " + httpConnection.getInputStream() );
 
-            fos = new FileOutputStream(saveFile, false);
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  fos " + fos );
+            fos = new FileOutputStream(saveFile);
+
 
             byte buffer[] = new byte[1024];
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  buffer " + buffer );
+
 
             int readsize = 0;
 
 
-            LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  3 " + downloadCount);
 
             while ((readsize = is.read(buffer)) > 0) {
                 fos.write(buffer, 0, readsize);
