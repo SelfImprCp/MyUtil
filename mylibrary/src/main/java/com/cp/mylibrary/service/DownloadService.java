@@ -240,6 +240,12 @@ public class DownloadService extends Service {
 
 	public long downloadUpdateFile(String downloadUrl, File saveFile)
 			throws Exception {
+
+
+		LogCp.i(LogCp.CP, DownloadService.this + "   下载 downloadUpdateFile " + downloadUrl);
+
+
+
 		int downloadCount = 0;
 		int currentSize = 0;
 		long totalSize = 0;
@@ -275,6 +281,12 @@ public class DownloadService extends Service {
 				if ((downloadCount == 0)
 						|| (int) (totalSize * 100 / updateTotalSize) - 10 >= downloadCount) {
 					downloadCount += 10;
+
+
+					LogCp.i(LogCp.CP, DownloadService.this + "   下载  更新进度  " + downloadCount);
+
+
+
 					// 更新进度
 					Message msg = mHandler.obtainMessage();
 					msg.what = 1;
