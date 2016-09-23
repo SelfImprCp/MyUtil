@@ -51,7 +51,8 @@ public abstract class UpdateManagerUtil {
 
     private WaitDialog _waitDialog;
     private Dialog simplecDialog;
-    public      Class mActivity;
+    public Class mActivity;
+
     /**
      * @param context
      * @param
@@ -133,7 +134,8 @@ public abstract class UpdateManagerUtil {
 
     /**
      * 处理从服务器返回 的版本信息
-     *  最后一个参数，是否弹出选择更新的框
+     * 最后一个参数，是否弹出选择更新的框
+     *
      * @param updateRes
      */
     public void onFinshCheck(UpdateRes updateRes, String currentVersion, boolean isDialogSelect) {
@@ -360,16 +362,19 @@ public abstract class UpdateManagerUtil {
 
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-               DownloadService.DownloadBinder binder = (DownloadService.DownloadBinder) service;
+                DownloadService.DownloadBinder binder = (DownloadService.DownloadBinder) service;
                 binder.addCallback(callback);
                 binder.start();
+
+                LogCp.i(LogCp.CP,  "   启动下载  版本   "  );
+
 
             }
         };
         Intent intent = new Intent(context, DownloadService.class);
         intent.putExtra(DownloadService.BUNDLE_KEY_DOWNLOAD_URL, downurl);
         intent.putExtra(DownloadService.BUNDLE_KEY_TITLE, tilte);
-    context.startService(intent);
+        context.startService(intent);
         context.bindService(intent, conn, Context.BIND_AUTO_CREATE);
 
     }

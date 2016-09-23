@@ -323,6 +323,13 @@ public class DownloadService extends Service {
 				setUpNotification();
 				new Thread() {
 					public void run() {
+
+
+
+						LogCp.i(LogCp.CP, DownloadService.this + "   启动下载   "  );
+
+
+
 						// 下载
 						startDownload();
 					};
