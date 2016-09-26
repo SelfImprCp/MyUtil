@@ -68,7 +68,7 @@
         android:textSize="16sp"
         android:inputType="textPassword"
         android:digits="01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
+ android:hint="交易密码(非银行卡密码)"
         android:visibility="visible" />
 
 
