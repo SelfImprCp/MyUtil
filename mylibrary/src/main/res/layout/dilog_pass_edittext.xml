@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_popup"
-    android:layout_width="wrap_content"
+  android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginLeft="100dp"
-    android:layout_marginRight="100dp"
-    android:layout_marginTop="100dp"
-    android:background="@drawable/login_layout_btn_bg_white"
-    android:orientation="vertical">
+    >
+
+
+     <LinearLayout
+         android:id="@+id/ll_popup"
+
+
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginLeft="100dp"
+         android:layout_marginRight="100dp"
+         android:layout_marginTop="100dp"
+         android:background="@drawable/login_layout_btn_bg_white"
+         android:orientation="vertical"
+         >
+
 
     <TextView
         android:id="@+id/edittext_input_pass_dialog_title"
@@ -119,5 +129,5 @@
             android:text="确定"
             android:textColor="#4ba6ee" />
     </LinearLayout>
-
+     </LinearLayout>
 </LinearLayout>
