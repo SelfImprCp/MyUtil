@@ -1,133 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+     android:layout_gravity="center"
+    android:layout_marginLeft="100dp"
+    android:layout_marginRight="100dp"
+    android:layout_marginTop="100dp"
+    android:background="@drawable/login_layout_btn_bg_white"
+    android:id="@+id/ll_popup"
     >
 
 
-     <LinearLayout
-         android:id="@+id/ll_popup"
 
-
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center"
-         android:layout_marginLeft="100dp"
-         android:layout_marginRight="100dp"
-         android:layout_marginTop="100dp"
-         android:background="@drawable/login_layout_btn_bg_white"
-         android:orientation="vertical"
-         >
-
-
-    <TextView
-        android:id="@+id/edittext_input_pass_dialog_title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:text="标题:"
-        android:textColor="@color/black_color_30"
-        android:textSize="18sp" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/gray_cp_util" />
-
-    <TextView
-        android:id="@+id/edittext_input_pass_dialog_txt"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="内容提示 示 示内 "
-        android:textColor="@color/gray_cp_util"
-        android:textSize="14sp"
-        android:visibility="visible" />
-
-
-
-    <TextView
-        android:id="@+id/edittext_input_pass_dialog_txt_two"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="内容提示 示 示内 "
-        android:textColor="@color/gray_cp_util"
-        android:textSize="12sp"
-        android:visibility="visible" />
-
-    <EditText
-        android:id="@+id/edit_input_pass_dialog_txt"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edittext_bg_color_bottom"
-        android:gravity="center"
-        android:textColor="@color/black_color_30"
-        android:textCursorDrawable="@null"
-        android:textSize="16sp"
-        android:inputType="textPassword"
-        android:digits="01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
- android:hint="交易密码(非银行卡密码)"
-        android:visibility="visible" />
-
-
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_1"
-        android:layout_marginTop="@dimen/space_15"
-        android:background="@color/gray_cp_util"></View>
-
-
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="35dp"
-
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-
-        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/edittext_input_pass_dialog_cannel_btn_b"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
+            android:id="@+id/edittext_input_pass_dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:gravity="center"
-            android:text="取消"
-            android:textColor="#4ba6ee"/>
+            android:text="标题:"
+            android:textColor="@color/black_color_30"
+            android:textSize="18sp" />
 
         <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray_cp_util" />
 
-            android:layout_width="@dimen/space_1"
-            android:layout_height="match_parent"
+        <TextView
+            android:id="@+id/edittext_input_pass_dialog_txt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
+            android:text="内容提示 示 示内 "
+            android:textColor="@color/gray_cp_util"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/edittext_input_pass_dialog_txt_two"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="内容提示 示 示内 "
+            android:textColor="@color/gray_cp_util"
+            android:textSize="12sp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/edit_input_pass_dialog_txt"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_bg_color_bottom"
+            android:digits="01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:gravity="center"
+            android:hint="交易密码(非银行卡密码)"
+            android:textColorHint="#b2b2b2"
+            android:inputType="textPassword"
+            android:textColor="@color/black_color_30"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"
+            android:layout_marginTop="@dimen/space_15"
             android:background="@color/gray_cp_util"></View>
 
 
-        <TextView
-            android:id="@+id/edittext_input_pass_dialog_sure_btn_b"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="35dp"
-            android:layout_weight="1"
-            android:gravity="center"
 
-            android:text="确定"
-            android:textColor="#4ba6ee" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/edittext_input_pass_dialog_cannel_btn_b"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#4ba6ee" />
+
+            <View
+
+                android:layout_width="@dimen/space_1"
+                android:layout_height="match_parent"
+                android:background="@color/gray_cp_util"
+                android:gravity="center"></View>
+
+
+            <TextView
+                android:id="@+id/edittext_input_pass_dialog_sure_btn_b"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                android:text="确定"
+                android:textColor="#4ba6ee" />
+        </LinearLayout>
     </LinearLayout>
-     </LinearLayout>
-</LinearLayout>
