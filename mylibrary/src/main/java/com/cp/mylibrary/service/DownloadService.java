@@ -56,7 +56,7 @@ public class DownloadService extends Service {
 
 
     // 下载的apk保存的位置
-    public   String saveFileName = Config.DEFAULT_SAVE_FILE_PATH;
+    public String saveFileName = Config.DEFAULT_SAVE_FILE_PATH;
 
     private ICallbackResult callback;
 
@@ -290,6 +290,7 @@ public class DownloadService extends Service {
 
 
             int readsize = 0;
+
 
 
             while ((readsize = is.read(buffer)) > 0) {

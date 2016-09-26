@@ -332,9 +332,9 @@ public class StringUtils {
         String phoneStar = StringUtils.getSubString(0, 3, strPhone);
 
 
-        String phoneEnd = StringUtils.getSubString(7, 10, strPhone);
+        String phoneEnd = StringUtils.getSubString(8, 10, strPhone);
 
-        String newPhone = phoneStar + "****" + phoneEnd;
+        String newPhone = phoneStar + "*****" + phoneEnd;
 
         return newPhone;
 
