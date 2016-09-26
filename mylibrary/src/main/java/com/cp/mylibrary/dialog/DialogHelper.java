@@ -47,7 +47,6 @@ public class DialogHelper {
     }
 
 
-
     /**
      * @param context
      * @param title
@@ -223,18 +222,22 @@ public class DialogHelper {
     }
 
 
+    public static Dialog getInputPassDialog(Context mContext, String title, String tagOne, String tagTwo, String hint) {
+        InputPassDialog dialog = new InputPassDialog(mContext, title, tagOne, tagTwo, hint);
+
+
+        return dialog;
+
+
+    }
+
+
     /**
      * 返回一个 提示框
-     *
-     *
      */
     public static DialogHelper getTiShiDialog(Context context, String title,
                                               String msg, String rightStr,
                                               View.OnClickListener itemsOnClick) {
-
-
-
-
 
 
         Dialog cd = new AlertDialog.Builder(context).create();
@@ -270,14 +273,7 @@ public class DialogHelper {
         return instantce;
 
 
-
-
-
-
-
-
     }
-
 
 
     /**
@@ -297,8 +293,6 @@ public class DialogHelper {
         }
         return dialog;
     }
-
-
 
 
 }
