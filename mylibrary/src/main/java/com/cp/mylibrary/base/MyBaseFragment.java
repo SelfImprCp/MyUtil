@@ -46,23 +46,22 @@ public class MyBaseFragment extends SupportFragment {
 
         mContext = MyBaseApp.getInstance();
 
-//        if (view == null) {
-//
-//            view = inflaterView(inflater, container, savedInstanceState);
-//
-//
-//
-//
-//
-//        }
+        if (view == null) {
+
+            view = inflaterView(inflater, container, savedInstanceState);
 
 
-        view = inflaterView(inflater, container, savedInstanceState);
+            //加载界面
+            initView(view);
+            // 处理数据
+            initData();
 
-        //加载界面
-        initView(view);
-        // 处理数据
-        initData();
+
+        }
+
+
+
+
 
         //http://blog.csdn.net/hack8/article/details/25432503
         ViewGroup parent = (ViewGroup) view.getParent();
