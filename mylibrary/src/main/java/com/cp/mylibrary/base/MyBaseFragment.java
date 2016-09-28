@@ -45,22 +45,22 @@ public class MyBaseFragment extends SupportFragment {
         this.mInflater = inflater;
 
         mContext = MyBaseApp.getInstance();
-
-        if (view == null) {
-
-            view = inflaterView(inflater, container, savedInstanceState);
-
-
-            //加载界面
-            initView(view);
-            // 处理数据
-            initData();
+//
+//        if (view == null) {
+//
+//
+//
+//
+//        }
 
 
-        }
+        view = inflaterView(inflater, container, savedInstanceState);
 
 
-
+        //加载界面
+        initView(view);
+        // 处理数据
+        initData();
 
 
         //http://blog.csdn.net/hack8/article/details/25432503
