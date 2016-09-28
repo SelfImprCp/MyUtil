@@ -51,10 +51,12 @@ public class MyBaseFragment extends SupportFragment {
             view = inflaterView(inflater, container, savedInstanceState);
 
 
-            //加载界面
-            initView(view);
 
         }
+
+        //加载界面
+        initView(view);
+
 
         // 处理数据
         initData();
