@@ -24,6 +24,7 @@ public class MyBaseFragment extends SupportFragment {
     protected LayoutInflater mInflater;
     public Context mContext;
 
+    public View view;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MyBaseFragment extends SupportFragment {
 
         if (!NetWorkUtil.hasInternetConnected(getActivity())) {
 
-            ShowToastUtil.showToast(getActivity(),"请检查网络");
+            ShowToastUtil.showToast(getActivity(), "请检查网络");
         }
 
     }
@@ -45,20 +46,23 @@ public class MyBaseFragment extends SupportFragment {
 
         mContext = MyBaseApp.getInstance();
 
-        View view = inflaterView(inflater, container, savedInstanceState);
+        if (view == null) {
+
+            view = inflaterView(inflater, container, savedInstanceState);
+
+
+            //加载界面
+            initView(view);
+            // 处理数据
+            initData();
+
+        }
 
 
         //http://blog.csdn.net/hack8/article/details/25432503
         ViewGroup parent = (ViewGroup) view.getParent();
         if (parent != null)
             parent.removeView(view);
-
-
-        //加载界面
-        initView(view);
-        // 处理数据
-        initData();
-
 
         return view;
     }
@@ -68,7 +72,7 @@ public class MyBaseFragment extends SupportFragment {
     public void onDestroy() {
 
         super.onDestroy();
-   //     EventBus.getDefault().unregister(this);
+        //     EventBus.getDefault().unregister(this);
 
     }
 
@@ -105,8 +109,7 @@ public class MyBaseFragment extends SupportFragment {
     public void onDestroyView() {
         super.onDestroyView();
 
-   }
-
+    }
 
 
     public void onEvent(BaseEvent event) {
