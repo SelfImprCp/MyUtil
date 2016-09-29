@@ -32,6 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
+        android:paddingBottom="@dimen/space_20"
+        android:paddingTop="@dimen/space_20"
         android:layout_marginTop="10dp"
 
         android:text="内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内 "
