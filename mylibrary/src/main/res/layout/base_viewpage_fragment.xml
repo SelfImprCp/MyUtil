@@ -7,6 +7,8 @@
     android:orientation="vertical">
 
 
+
+
     <!-- 导航标题栏 -->
     <com.cp.mylibrary.custom.PagerSlidingTabStrip
 
