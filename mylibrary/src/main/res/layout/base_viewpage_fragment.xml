@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:background="@drawable/sliding_tab_strip_background"
+        android:background="@drawable/image_sliding_block"
         app:allowWidthFull="true"
         app:slidingBlock="@drawable/image_sliding_block"></com.cp.mylibrary.custom.PagerSlidingTabStrip>
 
