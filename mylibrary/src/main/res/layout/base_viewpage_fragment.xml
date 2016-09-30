@@ -20,6 +20,13 @@
         app:allowWidthFull="true"
         app:slidingBlock="@drawable/image_sliding_block"></com.cp.mylibrary.custom.PagerSlidingTabStrip>
 
+    <View
+        android:id="@+id/view_pager_line"
+        android:layout_width="match_parent"
+        android:layout_below="@id/pager_tabstrip"
+        android:layout_height="1px"
+        android:background="#e7e7e7" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         style="@style/fill_fill"
