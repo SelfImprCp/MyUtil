@@ -75,12 +75,13 @@ public class TitleBarView extends RelativeLayout {
 
 
 
-    public void setTitleBarImageMenuText(String str) {
+    public void setTitleBarImageMenuText(String str,OnClickListener onClickListener) {
         if (!StringUtils.isEmpty(str))
 
         {
             titlebar_tv_menu_text.setText(str);
             titlebar_tv_menu_text.setVisibility(View.VISIBLE);
+            titlebar_tv_menu_text.setOnClickListener(onClickListener);
         }
 
     }

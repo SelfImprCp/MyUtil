@@ -88,7 +88,7 @@
         android:text="完成"
         android:layout_alignRight="@+id/titlebar_img_menu"
 
-        android:textColor="#646464"
+        android:textColor="#269edc"
         android:textSize="14sp"
         android:visibility="gone" />
 
