@@ -81,15 +81,13 @@
         android:id="@+id/titlebar_tv_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_alignRight="@+id/titlebar_img_menu"
         android:layout_centerVertical="true"
         android:layout_marginRight="40dp"
         android:clickable="true"
         android:text="完成"
-        android:layout_alignRight="@+id/titlebar_img_menu"
-
         android:textColor="#269edc"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:visibility="gone" />
 
     <ImageView
