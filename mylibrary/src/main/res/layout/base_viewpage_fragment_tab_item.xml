@@ -16,7 +16,7 @@
         android:paddingRight="@dimen/space_16"
         android:paddingTop="@dimen/space_8"
         android:text="最新资讯"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
 
     <TextView

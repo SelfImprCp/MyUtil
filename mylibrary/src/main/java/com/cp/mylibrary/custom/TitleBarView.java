@@ -22,9 +22,11 @@ import org.w3c.dom.Text;
 
 public class TitleBarView extends RelativeLayout {
 
-    private TextView titleBarTitle, titlebar_tv_menu2,titlebar_text_title_two_1,titlebar_text_title_two_2;
+    private TextView titleBarTitle, titlebar_tv_menu2,titlebar_text_title_two_1,titlebar_text_title_two_2,titlebar_tv_menu_text;
     private ImageView titlebar_img_back;
     private ImageView titlebar_img_menu;
+
+
 
 
     public TitleBarView(Context context) {
@@ -60,11 +62,26 @@ public class TitleBarView extends RelativeLayout {
         titlebar_text_title_two_1 = (TextView)view.findViewById(R.id.titlebar_text_title_two_1);
         titlebar_text_title_two_2 = (TextView)view.findViewById(R.id.titlebar_text_title_two_2);
 
+        titlebar_tv_menu_text = (TextView)view.findViewById(R.id.titlebar_tv_menu_text);
+
+
 
 
         titlebar_img_menu = (ImageView) view.findViewById(R.id.titlebar_img_menu);
         titlebar_img_back = (ImageView) view.findViewById(R.id.titlebar_img_back);
 
+
+    }
+
+
+
+    public void setTitleBarImageMenuText(String str) {
+        if (!StringUtils.isEmpty(str))
+
+        {
+            titlebar_tv_menu_text.setText(str);
+            titlebar_tv_menu_text.setVisibility(View.VISIBLE);
+        }
 
     }
 
