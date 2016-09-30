@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
 
-    android:background="#FFFFFF">
+    android:background="#00FFFFFF">
 
     <TextView
         android:id="@+id/tab_title"
