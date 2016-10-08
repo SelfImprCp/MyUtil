@@ -9,6 +9,7 @@ import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -200,8 +201,8 @@ public class BaseAddresActivity extends MyBaseActivity {
         //时间选择器
         pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
         //控制时间范围
-//        Calendar calendar = Calendar.getInstance();
-//        pvTime.setRange(calendar.get(Calendar.YEAR) - 20, calendar.get(Calendar.YEAR));//要在setTime 之前才有效果哦
+       Calendar calendar = Calendar.getInstance();
+        pvTime.setRange(calendar.get(Calendar.YEAR) - 80, calendar.get(Calendar.YEAR));//要在setTime 之前才有效果哦
         pvTime.setTime(new Date());
         pvTime.setCyclic(false);
         pvTime.setCancelable(true);
