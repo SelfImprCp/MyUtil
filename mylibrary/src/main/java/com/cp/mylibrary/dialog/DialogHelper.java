@@ -212,7 +212,7 @@ public class DialogHelper {
     }
 
 
-    public static Dialog getEditTextDialog(Context mContext, String title, String msg) {
+    public static Dialog getEditTextDialogs(Context mContext, String title, String msg) {
         EditTextDialog dialog = new EditTextDialog(mContext, title, msg);
 
 
