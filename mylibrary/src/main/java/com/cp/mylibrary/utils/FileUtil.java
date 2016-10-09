@@ -5,6 +5,8 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 
+import com.cp.mylibrary.app.Config;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -778,43 +780,81 @@ public class FileUtil {
      * @param newFilename 保存的路位置
      * @param _urlStr     下载路进
      */
-    public static void dowloadFile(String newFilename, String _urlStr) {
+
+    private String newFilename;
+    private String _urlStr;
+
+    public void dowloadFile(String newFilename, String _urlStr) {
 
 
-        File file = new File(newFilename);
-//如果目标文件已经存在，则删除。产生覆盖旧文件的效果
-        if (file.exists()) {
-            file.delete();
-        }
-        try {
-            // 构造URL
-            URL url = new URL(_urlStr);
-            // 打开连接
-            URLConnection con = url.openConnection();
-            //获得文件的长度
-            int contentLength = con.getContentLength();
-            System.out.println("长度 :" + contentLength);
-            // 输入流
-            InputStream is = con.getInputStream();
-            // 1K的数据缓冲
-            byte[] bs = new byte[1024];
-            // 读取到的数据长度
-            int len;
-            // 输出的文件流
-            OutputStream os = new FileOutputStream(newFilename);
-            // 开始读取
-            while ((len = is.read(bs)) != -1) {
-                os.write(bs, 0, len);
-            }
-            // 完毕，关闭所有链接
-            os.close();
-            is.close();
+        this.newFilename = newFilename;
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this._urlStr = _urlStr;
+        Thread downLoadThread = new Thread(mdownFileRunnable);
+        downLoadThread.start();
 
+        LogCp.i(LogCp.CP,FileUtil.class + " 下载文件来了，" +newFilename + ",," + _urlStr );
     }
+
+
+    /**
+     *
+     */
+    private Runnable mdownFileRunnable = new Runnable() {
+        @Override
+        public void run() {
+
+            // 文件夹
+            File file = new File(Config.APATCH_PATH);
+
+            if (!file.exists()) {
+                LogCp.i(LogCp.CP,FileUtil.class +  "创建文件夹"   );
+
+
+                file.mkdirs();
+
+
+            }
+
+            File pachFile = new File(newFilename);
+
+
+//如果目标文件已经存在，则删除。产生覆盖旧文件的效果
+            if (pachFile.exists()) {
+                pachFile.delete();
+            }
+
+
+            try {
+                // 构造URL
+                URL url = new URL(_urlStr);
+                // 打开连接
+                URLConnection con = url.openConnection();
+                //获得文件的长度
+                int contentLength = con.getContentLength();
+                System.out.println("长度 :" + contentLength);
+                // 输入流
+                InputStream is = con.getInputStream();
+                // 1K的数据缓冲
+                byte[] bs = new byte[1024];
+                // 读取到的数据长度
+                int len;
+                // 输出的文件流
+                FileOutputStream os = new FileOutputStream(newFilename,false);
+                // 开始读取
+                while ((len = is.read(bs)) != -1) {
+                    os.write(bs, 0, len);
+                }
+                // 完毕，关闭所有链接
+                os.close();
+                is.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    };
 
 
 }

@@ -18,7 +18,6 @@ public class MyBaseApp  extends Application {
     private static ActivityManagerUtil activityManager = null;
     private static final String TAG = "euler";
 
-    private static final String APATCH_PATH =Config.DEFAULT_SAVE_FILE_PATH + "/out.apatch";
 
     private static final String DIR = "apatch";
 
@@ -56,12 +55,11 @@ public class MyBaseApp  extends Application {
          // add patch at runtime
          try {
              // .apatch file path
-             String patchFileString = Environment.getExternalStorageDirectory()
-                     .getAbsolutePath() + APATCH_PATH;
+             String patchFileString =   Config.APATCH_PATH;
              mPatchManager.addPatch(patchFileString);
              Log.d(TAG, "apatch:" + patchFileString + " added.");
              //这里添加一个方法 ，复制补丁成功后，删除sdCard的补丁，避免每次进入程序都重新加载一次
-             File f = new File(this.getFilesDir(), DIR + APATCH_PATH);
+             File f = new File(this.getFilesDir(), DIR +Config. APATCH_PATH);
              if (f.exists()) {
                  boolean result = new File(patchFileString).delete();
                  if (!result)

@@ -128,7 +128,7 @@
                 android:id="@+id/dialog_test"
 
                 style="@style/test_textview_style"
-                android:text="   测试对话框    " />
+                android:text="   测试下载文件    " />
 
             <TextView
                 android:id="@+id/url_test"

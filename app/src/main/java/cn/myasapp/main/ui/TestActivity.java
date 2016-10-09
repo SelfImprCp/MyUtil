@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cp.mylibrary.app.Config;
+import com.cp.mylibrary.utils.FileUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.UpdateManagerUtil;
 
@@ -250,7 +252,15 @@ public class TestActivity extends BaseActivity {
 
             case R.id.dialog_test:
 
-                TestUIhelper.   showDialogTestActivity(this);
+//                TestUIhelper.   showDialogTestActivity(this);
+//
+
+                 ShowToastUtil.showToast(TestActivity.this,"下载文件来了");
+
+                FileUtil fileUtil = new FileUtil(TestActivity.this)
+;
+                fileUtil.dowloadFile(Config.APATCH_NAME,"http://h5image.oss-cn-shanghai.aliyuncs.com/out.apatch");
+
 
                 break;
 
