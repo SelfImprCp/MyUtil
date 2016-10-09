@@ -777,7 +777,7 @@ public class FileUtil {
     /**
      * 从服务器下载文件，
      *
-     * @param newFilename 保存的路位置
+     * @param newFilename 保存的文件名称
      * @param _urlStr     下载路进
      */
 
@@ -793,7 +793,7 @@ public class FileUtil {
         Thread downLoadThread = new Thread(mdownFileRunnable);
         downLoadThread.start();
 
-        LogCp.i(LogCp.CP,FileUtil.class + " 下载文件来了，" +newFilename + ",," + _urlStr );
+        LogCp.i(LogCp.CP, FileUtil.class + " 下载文件来了，" + newFilename + ",," + _urlStr);
     }
 
 
@@ -805,10 +805,10 @@ public class FileUtil {
         public void run() {
 
             // 文件夹
-            File file = new File(Config.APATCH_PATH);
+            File file = new File(Config.DEFAULT_SAVE_FILE_PATH);
 
             if (!file.exists()) {
-                LogCp.i(LogCp.CP,FileUtil.class +  "创建文件夹"   );
+                LogCp.i(LogCp.CP, FileUtil.class + "创建文件夹");
 
 
                 file.mkdirs();
@@ -816,13 +816,13 @@ public class FileUtil {
 
             }
 
-            File pachFile = new File(newFilename);
+            File pachFile = new File(Config.DEFAULT_SAVE_FILE_PATH + newFilename);
 
 
 //如果目标文件已经存在，则删除。产生覆盖旧文件的效果
-            if (pachFile.exists()) {
-                pachFile.delete();
-            }
+//            if (pachFile.exists()) {
+//                pachFile.delete();
+//            }
 
 
             try {
@@ -830,6 +830,13 @@ public class FileUtil {
                 URL url = new URL(_urlStr);
                 // 打开连接
                 URLConnection con = url.openConnection();
+                con
+                        .setRequestProperty("User-Agent", "PacificHttpClient");
+
+
+                con.setConnectTimeout(10000);
+                con.setReadTimeout(20000);
+
                 //获得文件的长度
                 int contentLength = con.getContentLength();
                 System.out.println("长度 :" + contentLength);
@@ -840,7 +847,7 @@ public class FileUtil {
                 // 读取到的数据长度
                 int len;
                 // 输出的文件流
-                FileOutputStream os = new FileOutputStream(newFilename,false);
+                FileOutputStream os = new FileOutputStream(pachFile, false);
                 // 开始读取
                 while ((len = is.read(bs)) != -1) {
                     os.write(bs, 0, len);

@@ -13,7 +13,7 @@ public class Config {
     public static final String WEICHAT_APPID = "wx744cc51b4beacc83";
     public static final String WEICHAT_SECRET = "85b3190f2c55026312cea022e465e05a";
 
-    public static final String APATCH_PATH = Config.DEFAULT_SAVE_FILE_PATH + "apatch" + File.separator;
+//    public static final String APATCH_PATH = Config.DEFAULT_SAVE_FILE_PATH + "apatch" + File.separator;
 
     public static final String APATCH_NAME = "out.apatch";
 
