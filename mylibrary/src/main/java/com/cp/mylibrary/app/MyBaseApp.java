@@ -18,7 +18,7 @@ public class MyBaseApp  extends Application {
     private static ActivityManagerUtil activityManager = null;
     private static final String TAG = "euler";
 
-    private static final String APATCH_PATH = "/out.apatch";
+    private static final String APATCH_PATH =Config.DEFAULT_SAVE_FILE_PATH + "/out.apatch";
 
     private static final String DIR = "apatch";
 

@@ -12,6 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,19 +51,16 @@ public class FileUtil {
     private Context context;
 
 
-
 //    public static String DATA_DATA_FILE_PATH = "/data/data/cn.myasapp.main/files/";
 //
 //    public static String DATA_DATA_CACHE_PATH = "/data/data/cn.myasapp.main/cache/";
 
-   public static String getDataDataFilePath(Context context)
-   {
+    public static String getDataDataFilePath(Context context) {
         return "/data/data/" + AppUtils.getPackageName(context) + "/files/";
 
-   }
+    }
 
-    public static String getDataDataCachePath(Context context)
-    {
+    public static String getDataDataCachePath(Context context) {
         return "/data/data/" + AppUtils.getPackageName(context) + "/cache/";
 
     }
@@ -182,7 +182,7 @@ public class FileUtil {
             //
 
             if (file.exists()) {
-                  isSuccess = file.delete();
+                isSuccess = file.delete();
                 LogCp.i(LogCp.CP, FileUtil.class + "   删除 文件  文件路经：  " + path + name + " 是否删除成功：" + isSuccess);
 
             } else {
@@ -195,7 +195,7 @@ public class FileUtil {
 
         }
 
-         return  isSuccess;
+        return isSuccess;
 
     }
 
@@ -240,14 +240,13 @@ public class FileUtil {
     public static boolean createDirectory(String directoryName) throws IOException {
         boolean status;
         if (!directoryName.equals("")) {
-              File newPath = new File(SDCardUtils.SDPATH + directoryName);
+            File newPath = new File(SDCardUtils.SDPATH + directoryName);
             status = newPath.mkdirs();
             //status = true;
         } else
             status = false;
         return status;
     }
-
 
 
     /**
@@ -289,32 +288,31 @@ public class FileUtil {
     }
 
 
-
-
     /**
-     *  写内容到sdCard
+     * 写内容到sdCard
+     *
      * @param content
      * @param pathName
      * @param fileName
      */
     public static boolean saveContentToSDCard(String content, String pathName, String fileName) {
 
-         boolean isSaveSuccess = false;
+        boolean isSaveSuccess = false;
         try {
             File path = new File(pathName);
-            File file = new File(pathName +"/"+ fileName);
+            File file = new File(pathName + "/" + fileName);
             if (!path.exists()) {
 
-              //  mkdir()：只能创建一层目录.
-                boolean isSuccess =  path.mkdirs();
+                //  mkdir()：只能创建一层目录.
+                boolean isSuccess = path.mkdirs();
                 LogCp.i(LogCp.CP, FileUtil.class + "  Create the file dir  " + pathName + " is success  " + isSuccess);
 
             }
             if (!file.exists()) {
 
-                boolean isSuccessS =  file.createNewFile();
+                boolean isSuccessS = file.createNewFile();
                 LogCp.i(LogCp.CP, FileUtil.class + "  Create the file  " + fileName + " is success " + isSuccessS);
-           }
+            }
             FileOutputStream
                     stream = new FileOutputStream(file);
 
@@ -328,22 +326,17 @@ public class FileUtil {
             LogCp.e(LogCp.CP, FileUtil.class + "  Error on writeFilToSD " + e.getMessage());
             e.printStackTrace();
         }
-        return  isSaveSuccess;
+        return isSaveSuccess;
     }
 
     /**
-
      * 读取SD卡中文本文件
-
      *
-
      * @param fileName
-
      * @return
-
      */
 
-    public static String readSDFile(String pathName,String fileName) {
+    public static String readSDFile(String pathName, String fileName) {
 
         StringBuffer sb = new StringBuffer();
 
@@ -379,7 +372,6 @@ public class FileUtil {
 
 
     /**
-     *
      * @param inStream
      * @return
      */
@@ -401,7 +393,6 @@ public class FileUtil {
         }
         return null;
     }
-
 
 
     /**
@@ -451,10 +442,10 @@ public class FileUtil {
      * @param
      * @return
      */
-    public static long getFileSize(String path,String fileName) {
+    public static long getFileSize(String path, String fileName) {
         long size = 0;
 
-        File file = new File(path +fileName);
+        File file = new File(path + fileName);
         if (file != null && file.exists()) {
             size = file.length();
         }
@@ -545,10 +536,10 @@ public class FileUtil {
      * @param name
      * @return
      */
-    public static boolean checkFileExists(String path ,String name) {
+    public static boolean checkFileExists(String path, String name) {
         boolean status;
         if (!name.equals("")) {
-             File newPath = new File(path + name);
+            File newPath = new File(path + name);
             status = newPath.exists();
         } else {
             status = false;
@@ -567,17 +558,13 @@ public class FileUtil {
     }
 
 
-
-
-
-
     /**
      * 删除文件
      *
      * @param
      * @return
      */
-    public static boolean deleteFile(String path,String fileName) {
+    public static boolean deleteFile(String path, String fileName) {
         boolean status;
         SecurityManager checker = new SecurityManager();
 
@@ -723,7 +710,6 @@ public class FileUtil {
     }
 
 
-
     /**
      * 截取路径名
      *
@@ -751,7 +737,6 @@ public class FileUtil {
         savedir = null;
         return savePath;
     }
-
 
 
     /**
@@ -784,6 +769,51 @@ public class FileUtil {
         }
 
         return text;
+    }
+
+
+    /**
+     * 从服务器下载文件，
+     *
+     * @param newFilename 保存的路位置
+     * @param _urlStr     下载路进
+     */
+    public static void dowloadFile(String newFilename, String _urlStr) {
+
+
+        File file = new File(newFilename);
+//如果目标文件已经存在，则删除。产生覆盖旧文件的效果
+        if (file.exists()) {
+            file.delete();
+        }
+        try {
+            // 构造URL
+            URL url = new URL(_urlStr);
+            // 打开连接
+            URLConnection con = url.openConnection();
+            //获得文件的长度
+            int contentLength = con.getContentLength();
+            System.out.println("长度 :" + contentLength);
+            // 输入流
+            InputStream is = con.getInputStream();
+            // 1K的数据缓冲
+            byte[] bs = new byte[1024];
+            // 读取到的数据长度
+            int len;
+            // 输出的文件流
+            OutputStream os = new FileOutputStream(newFilename);
+            // 开始读取
+            while ((len = is.read(bs)) != -1) {
+                os.write(bs, 0, len);
+            }
+            // 完毕，关闭所有链接
+            os.close();
+            is.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
