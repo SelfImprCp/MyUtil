@@ -34,7 +34,7 @@ public class MyBaseApp extends Application {
         activityManager = ActivityManagerUtil.getInstance();
 
 
-        addPatchManager();
+//        addPatchManager();
 
 
     }
