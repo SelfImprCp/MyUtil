@@ -1,6 +1,7 @@
 package com.cp.mylibrary.app;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
@@ -98,4 +99,10 @@ public class MyBaseApp extends Application {
     }
 
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+
+
+    }
 }

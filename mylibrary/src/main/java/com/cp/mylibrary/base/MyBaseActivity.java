@@ -93,7 +93,7 @@ public class MyBaseActivity extends KJActivity {
         super.onDestroy();
 
 
-        android.os.Process.killProcess(android.os.Process.myPid());
+//        android.os.Process.killProcess(android.os.Process.myPid());
 
    //     EventBus.getDefault().unregister(this);
     }
