@@ -187,12 +187,12 @@ public class DownloadService extends Service {
         // 指定个性化视图
         mNotification.contentView = contentView;
 
-//		Intent intent = new Intent(this, MyBaseActivity.this);
-//		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-//				intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//		// 指定内容意图
-//		mNotification.contentIntent = contentIntent;
+		Intent intent = new Intent(this, MyBaseActivity.class);
+		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+				intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		// 指定内容意图
+		mNotification.contentIntent = contentIntent;
 
 
         mNotificationManager.notify(NOTIFY_ID, mNotification);
