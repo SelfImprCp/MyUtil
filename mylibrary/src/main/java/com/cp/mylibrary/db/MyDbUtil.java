@@ -22,8 +22,14 @@ import java.util.Map;
 public class MyDbUtil {
 
 
-    public KJDB getKJDB(Context context) {
-          KJDB kjdb = KJDB.create(context);
+    public KJDB getKJDB(Context context,int version ,String dbName) {
+
+        DaoConfig daoConfig = new DaoConfig();
+
+        daoConfig.setDbVersion(version);
+        daoConfig.setDbName(dbName);
+
+        KJDB kjdb = KJDB.create(daoConfig);
 
 
 
@@ -32,28 +38,30 @@ public class MyDbUtil {
     }
 
 
-    /**
-     *
-     * @param context
-     */
-
-    public  void   dropDb(Context context ) {
-        getKJDB(context).dropDb();
-
-    }
-
-
-    /**
-     *
-     * @param context
-     * @param version
-     */
-    public  void   setDbVersion(Context context,int version ) {
-         DaoConfig daoConfig = new DaoConfig();
-         daoConfig.setDbVersion(version);
-
-
-    }
+//    /**
+//     *
+//     * @param context
+//     */
+//
+//    public  void   dropDb(Context context ) {
+//        getKJDB(context).dropDb();
+//
+//    }
+//
+//
+//    /**
+//     *
+//     * @param context
+//     * @param version
+//     */
+//    public  void   setDbVersion(Context context,int version ) {
+//
+//        KJDB kjdb =   getKJDB(context);
+//
+//
+//
+//
+//    }
 
 
 
