@@ -250,6 +250,13 @@ public abstract class UpdateManagerUtil {
                             ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
                             simplecDialog.dismiss();
                         } else if (arg0.getId() == R.id.base_config_dialog_cannel_btn) {
+
+
+                            if (updateRes.isForceupdate()) {
+                                ActivityManagerUtil.getInstance().finishAllActivity();
+                            }
+
+
                             simplecDialog.dismiss();
                         }
 
@@ -366,7 +373,7 @@ public abstract class UpdateManagerUtil {
                 binder.addCallback(callback);
                 binder.start();
 
-                LogCp.i(LogCp.CP,  "   启动下载  版本   "  );
+                LogCp.i(LogCp.CP, "   启动下载  版本   ");
 
 
             }
