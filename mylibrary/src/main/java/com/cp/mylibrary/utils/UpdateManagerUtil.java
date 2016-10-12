@@ -255,7 +255,7 @@ public abstract class UpdateManagerUtil {
                             simplecDialog.dismiss();
                             // 如果 要求强制更新，没有更新的话，就退出
                          //   if (updateRes.isForceupdate()) {
-                                ActivityManagerUtil.getInstance().finishAllActivity();
+                              // ActivityManagerUtil.getInstance().finishAllActivity();
                            // }
 
 
