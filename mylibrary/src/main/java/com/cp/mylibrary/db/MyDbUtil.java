@@ -5,9 +5,12 @@ import android.database.Cursor;
 import android.database.SQLException;
 
 import org.kymjs.kjframe.KJDB;
+import org.kymjs.kjframe.database.DaoConfig;
 import org.kymjs.kjframe.database.utils.Property;
 import org.kymjs.kjframe.database.utils.TableInfo;
+import org.kymjs.kjframe.utils.KJConfig;
 import org.kymjs.kjframe.utils.KJLoger;
+import org.kymjs.kjframe.widget.KJAdapter;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -21,6 +24,7 @@ public class MyDbUtil {
 
     public KJDB getKJDB(Context context) {
           KJDB kjdb = KJDB.create(context);
+
 
 
         return kjdb;
@@ -39,6 +43,17 @@ public class MyDbUtil {
     }
 
 
+    /**
+     *
+     * @param context
+     * @param version
+     */
+    public  void   setDbVersion(Context context,int version ) {
+         DaoConfig daoConfig = new DaoConfig();
+         daoConfig.setDbVersion(version);
+
+
+    }
 
 
 
