@@ -252,12 +252,13 @@ public abstract class UpdateManagerUtil {
                         } else if (arg0.getId() == R.id.base_config_dialog_cannel_btn) {
 
 
-                            if (updateRes.isForceupdate()) {
-                                ActivityManagerUtil.getInstance().finishAllActivity();
-                            }
-
-
                             simplecDialog.dismiss();
+                            // 如果 要求强制更新，没有更新的话，就退出
+                         //   if (updateRes.isForceupdate()) {
+                                ActivityManagerUtil.getInstance().finishAllActivity();
+                           // }
+
+
                         }
 
 
