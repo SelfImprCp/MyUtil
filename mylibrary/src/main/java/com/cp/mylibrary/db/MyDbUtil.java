@@ -28,6 +28,7 @@ public class MyDbUtil {
 
         daoConfig.setDbVersion(version);
         daoConfig.setDbName(dbName);
+        daoConfig.setContext(context);
 
         KJDB kjdb = KJDB.create(daoConfig);
 
