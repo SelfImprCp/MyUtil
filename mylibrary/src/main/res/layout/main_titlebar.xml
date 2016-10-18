@@ -56,7 +56,7 @@
         android:textColor="#646464"
 
         android:textSize="18sp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/titlebar_img_back"
