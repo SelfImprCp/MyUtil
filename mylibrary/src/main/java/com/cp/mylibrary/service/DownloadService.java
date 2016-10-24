@@ -225,11 +225,17 @@ public class DownloadService extends Service {
         @Override
         public void run() {
             File file = new File(Config.DEFAULT_SAVE_FILE_PATH);
-            LogCp.i(LogCp.CP, DownloadService.this + "    下载的文件夹是否存在     " + file.exists());
 
             if (!file.exists()) {
                 file.mkdirs();
             }
+
+
+            LogCp.i(LogCp.CP, DownloadService.this + "     目录是否可读   "  +file.canRead() + " 是否可写" + file.canWrite() + ",, " + file.canExecute()  );
+
+            LogCp.i(LogCp.CP, DownloadService.this + "    下载的文件夹是否存在     " + file.exists() +"建文件夹的路径：" +Config.DEFAULT_SAVE_FILE_PATH);
+
+
             String apkFile = saveFileName;
             File saveFile = new File(apkFile);
             LogCp.i(LogCp.CP, DownloadService.this + "    下载的文件  ，，是否存在     " + saveFile.exists());
