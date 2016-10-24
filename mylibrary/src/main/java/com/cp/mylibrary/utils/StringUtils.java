@@ -188,6 +188,21 @@ public class StringUtils {
         }
         return 0;
     }
+    /**
+     * pass
+     * 字符 float
+     *
+     * @param b
+     * @return
+     */
+    public static float toFloat(String b) {
+        try {
+
+            return Float.parseFloat(b);
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 
     /**
      * pass
