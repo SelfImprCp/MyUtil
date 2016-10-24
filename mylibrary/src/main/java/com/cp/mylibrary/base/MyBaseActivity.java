@@ -1,10 +1,14 @@
 package com.cp.mylibrary.base;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -12,6 +16,7 @@ import com.cp.mylibrary.app.MyBaseApp;
 
 import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -30,6 +35,10 @@ public class MyBaseActivity extends KJActivity {
    public Context mContext;
     //为状态栏着色
   public SystemBarTintManager tintManager ;
+
+
+    private static final int REQUECT_CODE_SDCARD = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +135,10 @@ public class MyBaseActivity extends KJActivity {
             ShowToastUtil.showToast(this,"请检查网络");
         }
 
+
+        getPromission();
+
+
     }
 
 
@@ -164,6 +177,54 @@ public class MyBaseActivity extends KJActivity {
     protected void onStop() {
         super.onStop();
     }
+
+
+    /**
+     * 检查权限
+     */
+    private  void getPromission()
+     {
+
+
+          // 读取sdcard 权限
+         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(MyBaseActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+             LogCp.i(LogCp.CP, " 已经有了读取sdcard 的权限!");
+         } else {
+             //do not have permission
+             LogCp.i(LogCp.CP, "  没有 读取sdcard 的权限!");
+             // Should we show an explanation?
+             if (ActivityCompat.shouldShowRequestPermissionRationale(MyBaseActivity.this,
+                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+
+             } else {
+
+
+             }
+         }
+
+
+
+         // 写入sdcard 权限
+         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(MyBaseActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+             LogCp.i(LogCp.CP, " 已经有了写入sdcard 的权限!");
+         } else {
+             //do not have permission
+             LogCp.i(LogCp.CP, "  没有 写入sdcard 的权限!");
+             // Should we show an explanation?
+             if (ActivityCompat.shouldShowRequestPermissionRationale(MyBaseActivity.this,
+                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+
+             } else {
+
+
+             }
+         }
+
+     }
 
 
 
