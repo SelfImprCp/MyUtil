@@ -67,6 +67,8 @@ public class AppUtils {
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
 
+
+
             } else {
 
                 ActivityCompat.requestPermissions(context,
