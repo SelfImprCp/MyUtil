@@ -138,7 +138,6 @@ public class ShareDialog extends CommonDialog implements
         }
 
 
-
         this.dismiss();
     }
 
@@ -147,7 +146,7 @@ public class ShareDialog extends CommonDialog implements
     private void shareToWeiChatCircle() {
         // 支持微信朋友圈
         UMWXHandler wxCircleHandler = new UMWXHandler(this.context,
-                Config.WEICHAT_APPID,Config.WEICHAT_SECRET);
+                Config.WEICHAT_APPID, Config.WEICHAT_SECRET);
         wxCircleHandler.setToCircle(true);
         wxCircleHandler.addToSocialSDK();
         // 设置微信朋友圈分享内容
@@ -165,7 +164,7 @@ public class ShareDialog extends CommonDialog implements
     private void shareToWeiChat() {
         // 添加微信平台
         UMWXHandler wxHandler = new UMWXHandler(this.context,
-                Config.WEICHAT_APPID,Config.WEICHAT_SECRET);
+                Config.WEICHAT_APPID, Config.WEICHAT_SECRET);
         wxHandler.addToSocialSDK();
         // 设置微信好友分享内容
         WeiXinShareContent weixinContent = new WeiXinShareContent();
@@ -183,7 +182,13 @@ public class ShareDialog extends CommonDialog implements
 
     private void shareToSinaWeibo() {
         // 设置新浪微博SSO handler
+
         SinaSsoHandler sinaSsoHandler = new SinaSsoHandler();
+
+         // 设置回调页，
+
+        getController().getConfig().setSinaCallbackUrl("http://sns.whalecloud.com/sina2/callback");
+
         sinaSsoHandler.setTargetUrl(this.link);
         mController.setShareType(ShareType.SHAKE);
         mController.setShareContent(this.content + " " + this.link);
@@ -230,13 +235,12 @@ public class ShareDialog extends CommonDialog implements
 //    }
 
 
-    private void getSinaImg()
-    {
+    private void getSinaImg() {
 
 
     }
 
-    private UMImage getShareImg( ) {
+    private UMImage getShareImg() {
         LogCp.i(LogCp.CP, ShareDialog.class + " 分享的图片：  " + share_img_url);
 
         UMImage img;

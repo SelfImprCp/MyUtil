@@ -225,12 +225,16 @@ public class DownloadService extends Service {
         @Override
         public void run() {
             File file = new File(Config.DEFAULT_SAVE_FILE_PATH);
+            LogCp.i(LogCp.CP, DownloadService.this + "    下载的文件夹是否存在     " + file.exists());
 
             if (!file.exists()) {
                 file.mkdirs();
             }
             String apkFile = saveFileName;
             File saveFile = new File(apkFile);
+            LogCp.i(LogCp.CP, DownloadService.this + "    下载的文件  ，，是否存在     " + saveFile.exists());
+
+
             try {
                 downloadUpdateFile(downloadUrl, saveFile);
             } catch (Exception e) {
@@ -350,7 +354,7 @@ public class DownloadService extends Service {
                         startDownload();
                     }
 
-                    ;
+
                 }.start();
             }
         }
