@@ -185,6 +185,7 @@ public class ShareDialog extends CommonDialog implements
 
         SinaSsoHandler sinaSsoHandler = new SinaSsoHandler();
 
+
          // 设置回调页，
 
 //        getController().getConfig().setSinaCallbackUrl("http://sns.whalecloud.com/sina2/callback");

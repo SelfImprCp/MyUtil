@@ -7,6 +7,7 @@ import android.util.Log;
 
 
 import com.cp.mylibrary.utils.ActivityManagerUtil;
+import com.umeng.socialize.bean.CustomPlatform;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,8 +34,6 @@ public class MyBaseApp extends Application {
 
         context = this;
         activityManager = ActivityManagerUtil.getInstance();
-
-
 
 
 

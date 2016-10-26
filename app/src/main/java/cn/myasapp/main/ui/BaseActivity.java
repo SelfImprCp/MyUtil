@@ -45,6 +45,7 @@ public class BaseActivity extends MyBaseActivity {
 //        initView();
 //
 //        initData();
+
     }
 
 
