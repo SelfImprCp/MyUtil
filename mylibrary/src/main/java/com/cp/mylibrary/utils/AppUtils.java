@@ -19,8 +19,9 @@ public class AppUtils {
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
 
-    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE =2;
+      private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE =2;
 
+    private static final int MY_PERMISSIONS_REQUEST_CAMERA =3;
 
 
     /**
@@ -103,7 +104,42 @@ public class AppUtils {
             }
         }
 
+
+
+        //  使用相机的权限
+        if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)) {
+
+            LogCp.i(LogCp.CP, " 已经有了  使用相机  的权限!");
+        } else {
+            //do not have permission
+            LogCp.i(LogCp.CP, "  没有  使用相机  的权限!");
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(context,
+                    Manifest.permission.CAMERA)) {
+
+
+            } else {
+
+
+                ActivityCompat.requestPermissions(context,
+                        new String[]{Manifest.permission.CAMERA},
+                        MY_PERMISSIONS_REQUEST_CAMERA);
+
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
     }
+
 
 
 

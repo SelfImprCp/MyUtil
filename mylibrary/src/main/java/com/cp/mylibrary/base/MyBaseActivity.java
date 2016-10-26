@@ -33,11 +33,9 @@ import de.greenrobot.event.EventBus;
  */
 public class MyBaseActivity extends KJActivity {
 
-   public Context mContext;
+    public Context mContext;
     //为状态栏着色
-  public SystemBarTintManager tintManager ;
-
-
+    public SystemBarTintManager tintManager;
 
 
     @Override
@@ -48,16 +46,10 @@ public class MyBaseActivity extends KJActivity {
         ActivityManagerUtil.getInstance().pushActivty(this);
 
 
-
-       mContext = MyBaseApp.getInstance();
-
+        mContext = MyBaseApp.getInstance();
 
 
         super.onCreate(savedInstanceState);
-
-
-
-
 
 
         //只对api19以上版本有效
@@ -72,10 +64,7 @@ public class MyBaseActivity extends KJActivity {
         EventBus.getDefault().register(this);
 
 
-
- AppUtils. getPromission(this);
-
-
+        AppUtils.getPromission(this);
 
 
     }
@@ -95,9 +84,6 @@ public class MyBaseActivity extends KJActivity {
     }
 
 
-
-
-
     @Override
     protected void onDestroy() {
 
@@ -108,14 +94,11 @@ public class MyBaseActivity extends KJActivity {
         super.onDestroy();
 
 
-
-   //     EventBus.getDefault().unregister(this);
+        //     EventBus.getDefault().unregister(this);
     }
 
     public void onEvent(BaseEvent event) {
     }
-
-
 
 
     @Override
@@ -138,9 +121,8 @@ public class MyBaseActivity extends KJActivity {
     protected void initView() {
         if (!NetWorkUtil.hasInternetConnected(this)) {
 
-            ShowToastUtil.showToast(this,"请检查网络");
+            ShowToastUtil.showToast(this, "请检查网络");
         }
-
 
 
     }
@@ -165,8 +147,6 @@ public class MyBaseActivity extends KJActivity {
     }
 
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -181,9 +161,6 @@ public class MyBaseActivity extends KJActivity {
     protected void onStop() {
         super.onStop();
     }
-
-
-
 
 
 }

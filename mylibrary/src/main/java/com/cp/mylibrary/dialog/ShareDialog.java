@@ -187,7 +187,10 @@ public class ShareDialog extends CommonDialog implements
 
          // 设置回调页，
 
-        getController().getConfig().setSinaCallbackUrl("http://sns.whalecloud.com/sina2/callback");
+//        getController().getConfig().setSinaCallbackUrl("http://sns.whalecloud.com/sina2/callback");
+
+        getController().getConfig().setSinaCallbackUrl("http://sns.whalecloud.com");
+
 
         sinaSsoHandler.setTargetUrl(this.link);
         mController.setShareType(ShareType.SHAKE);
