@@ -47,6 +47,7 @@ public class ShareDialog extends CommonDialog implements
     private String link;
     // 分享中显示 的图片
     private String share_img_url;
+    private UMImage umImage;
 
 
 //    private ShareListener shareListenr;
@@ -57,7 +58,7 @@ public class ShareDialog extends CommonDialog implements
         this.context = context;
     }
 
-    public ShareDialog(Context context, Activity activity ) {
+    public ShareDialog(Context context, Activity activity) {
         this(context);
 
         this.context = context;
@@ -104,11 +105,20 @@ public class ShareDialog extends CommonDialog implements
     }
 
     // 设置需要分享的内容
-    public void setShareInfo(String title, String content, String link, String share_img_url) {
+    public void setShareInfo(String title, String content, String link, String share_img_url, UMImage image) {
         this.title = title;
         this.content = content;
         this.link = link;
         this.share_img_url = share_img_url;
+
+        if (!StringUtils.isEmpty(share_img_url)) {
+
+            this.umImage = new UMImage(mActivity, share_img_url);
+        } else {
+            this.umImage = image;
+        }
+
+
     }
 
     @Override
@@ -148,20 +158,18 @@ public class ShareDialog extends CommonDialog implements
     @SuppressWarnings("deprecation")
     private void shareToWeiChatCircle() {
 
-        LogCp.i(LogCp.CP,ShareDialog.class + " 来分享到weChat 朋友圈" + title + content + link  + share_img_url);
+        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_url);
 
-
-        UMImage image = new UMImage(mActivity, share_img_url);
+//
+//        UMImage image = new UMImage(mActivity, share_img_url);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
                 .withTitle(title)
                 .withTargetUrl(link)
-                .withMedia(image)
+                .withMedia(umImage)
                 .setCallback(umShareListener)
                 .share();
-
-
 
 
     }
@@ -169,18 +177,17 @@ public class ShareDialog extends CommonDialog implements
     @SuppressWarnings("deprecation")
     private void shareToWeiChat() {
 
-        LogCp.i(LogCp.CP,ShareDialog.class + " 来分享到weChat  " + title + content + link  + share_img_url);
+        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
 
-        UMImage image = new UMImage(mActivity, share_img_url);
+//        UMImage image = new UMImage(mActivity, share_img_url);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
                 .withText(content)
                 .withTitle(title)
                 .withTargetUrl(link)
-                .withMedia(image)
+                .withMedia(umImage)
                 .setCallback(umShareListener)
                 .share();
-
 
 
     }
@@ -188,52 +195,17 @@ public class ShareDialog extends CommonDialog implements
     private void shareToSinaWeibo() {
 
 
-        UMImage image = new UMImage(mActivity, share_img_url);
+//        UMImage image = new UMImage(mActivity, share_img_url);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.SINA)
                 .withText(content)
                 .withTitle(title)
                 .withTargetUrl(link)
-                .withMedia(image)
+                .withMedia(umImage)
                 .setCallback(umShareListener)
                 .share();
 
 
-
-        // 设置新浪微博SSO handler
-//        SinaSsoHandler sinaSsoHandler = new SinaSsoHandler();
-//        sinaSsoHandler.setTargetUrl(this.link);
-//        mController.setShareType(ShareType.SHAKE);
-//        mController.setShareContent(this.content + " " + this.link);
-//        mController.setShareImage(getShareImg());
-//        mController.getConfig().setSsoHandler(sinaSsoHandler);
-//
-//        if (OauthHelper.isAuthenticated(this.context, SHARE_MEDIA.SINA)) {
-//            mController.directShare(this.context, SHARE_MEDIA.SINA, null);
-//        } else {
-//            mController.doOauthVerify(this.context, SHARE_MEDIA.SINA,
-//                    new SocializeListeners.UMAuthListener() {
-//
-//                        @Override
-//                        public void onStart(SHARE_MEDIA arg0) {
-//                        }
-//
-//                        @Override
-//                        public void onError(SocializeException arg0,
-//                                            SHARE_MEDIA arg1) {
-//                        }
-//
-//                        @Override
-//                        public void onComplete(Bundle arg0, SHARE_MEDIA arg1) {
-//                            mController.directShare(ShareDialog.this.context, SHARE_MEDIA.SINA,
-//                                    null);
-//                        }
-//
-//                        @Override
-//                        public void onCancel(SHARE_MEDIA arg0) {
-//                        }
-//                    });
-//        }
     }
 
 //    private void shareToQQ() {
