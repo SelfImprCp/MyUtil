@@ -180,8 +180,8 @@ public class DialogTestActivity extends BaseActivity {
             case R.id.dialog_share:
 
                 if (mDialog == null)
-                    mDialog = new ShareDialog(this, shareListener);
-                mDialog.setShareInfo("cc","bb","www.baidu.com","http://img4.imgtn.bdimg.com/it/u=98923187,3761999633&fm=11&gp=0.jpg");
+                    mDialog = new ShareDialog(this  ,this);
+                mDialog.setShareInfo("标题","内容","www.baidu.com","http://img0.imgtn.bdimg.com/it/u=1126541908,2603454962&fm=21&gp=0.jpg");
                 mDialog.setCancelable(true);
                 mDialog.setCanceledOnTouchOutside(true);
                 mDialog.setTitle(R.string.share_to);
