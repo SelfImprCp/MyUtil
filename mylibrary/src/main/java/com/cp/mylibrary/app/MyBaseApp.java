@@ -31,6 +31,7 @@ public class MyBaseApp extends Application {
 //
 
 
+
     {
         //在application文件中配置三方平台的appkey：
         PlatformConfig.setWeixin(Config.WEICHAT_APPID, Config.WEICHAT_SECRET);
@@ -98,6 +99,7 @@ public class MyBaseApp extends Application {
 //            Log.e(TAG, "", e);
 //        }
 //
+
 
 
 

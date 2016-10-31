@@ -114,7 +114,7 @@ public class ShareDialog extends CommonDialog implements
         if (!StringUtils.isEmpty(share_img_url)) {
 
             this.umImage = new UMImage(mActivity, share_img_url);
-        } else {
+        } else if (image!=null){
             this.umImage = image;
         }
 

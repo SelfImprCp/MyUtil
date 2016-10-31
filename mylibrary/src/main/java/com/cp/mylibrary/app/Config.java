@@ -25,6 +25,8 @@ public class Config {
     public static final String APATCH_NAME = "out.apatch";
 
 
+
+
     // 默认存放文件下载的路径
     public final static String DEFAULT_SAVE_FILE_PATH = Environment
             .getExternalStorageDirectory().getPath()
