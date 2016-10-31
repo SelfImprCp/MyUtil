@@ -47,7 +47,7 @@ public class ShareDialog extends CommonDialog implements
     private String link;
     // 分享中显示 的图片
     private String share_img_url;
-    private UMImage umImage;
+//    private UMImage umImage;
 
 
 //    private ShareListener shareListenr;
@@ -105,18 +105,18 @@ public class ShareDialog extends CommonDialog implements
     }
 
     // 设置需要分享的内容
-    public void setShareInfo(String title, String content, String link, String share_img_url, UMImage image) {
+    public void setShareInfo(String title, String content, String link, String share_img_url  ) {
         this.title = title;
         this.content = content;
         this.link = link;
         this.share_img_url = share_img_url;
 
-        if (!StringUtils.isEmpty(share_img_url)) {
-
-            this.umImage = new UMImage(mActivity, share_img_url);
-        } else if (image!=null){
-            this.umImage = image;
-        }
+//        if (!StringUtils.isEmpty(share_img_url)) {
+//
+//            this.umImage = new UMImage(mActivity, share_img_url);
+//        } else if (image!=null){
+//            this.umImage = image;
+//        }
 
 
     }
@@ -161,13 +161,13 @@ public class ShareDialog extends CommonDialog implements
         LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_url);
 
 //
-//        UMImage image = new UMImage(mActivity, share_img_url);
+         UMImage image = new UMImage(mActivity, share_img_url);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
                 .withTitle(title)
                 .withTargetUrl(link)
-                .withMedia(umImage)
+                .withMedia(image)
                 .setCallback(umShareListener)
                 .share();
 
@@ -179,13 +179,13 @@ public class ShareDialog extends CommonDialog implements
 
         LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
 
-//        UMImage image = new UMImage(mActivity, share_img_url);
+       UMImage image = new UMImage(mActivity, share_img_url);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
                 .withText(content)
                 .withTitle(title)
                 .withTargetUrl(link)
-                .withMedia(umImage)
+                .withMedia(image)
                 .setCallback(umShareListener)
                 .share();
 
@@ -195,13 +195,13 @@ public class ShareDialog extends CommonDialog implements
     private void shareToSinaWeibo() {
 
 
-//        UMImage image = new UMImage(mActivity, share_img_url);
+      UMImage image = new UMImage(mActivity, share_img_url);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.SINA)
                 .withText(content)
                 .withTitle(title)
                 .withTargetUrl(link)
-                .withMedia(umImage)
+                .withMedia(image)
                 .setCallback(umShareListener)
                 .share();
 
