@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300px"
-    android:layout_height="300px"
-    android:padding="20.0dip">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
 
-    <ProgressBar
-        android:id="@+id/waiting_pb"
-        style="@style/Widget.ProgressBar"
-        android:layout_width="32.0dip"
-        android:layout_height="32.0dip"
+    >
+
+
+    <LinearLayout
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_centerInParent="true"
+        android:background="@drawable/rounded_home_huoqi_bg"
+        android:orientation="vertical">
 
-        android:indeterminate="true" />
+        <RelativeLayout
+            android:padding="@dimen/space_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/waiting_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/waiting_pb"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/space_15"
-        android:text="加载中"
-        android:textSize="15sp" />
 
-</com.zhy.autolayout.AutoRelativeLayout>
+            <ProgressBar
+                android:id="@+id/waiting_pb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/waiting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/waiting_pb"
+
+
+            android:text="加载中"
+            android:gravity="center"  android:layout_gravity="center_horizontal"
+            android:textColor="@color/white_cp_util"
+            android:textSize="@dimen/text_size_16"  />
+
+    </LinearLayout>
+
+</RelativeLayout>
