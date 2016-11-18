@@ -61,11 +61,11 @@
     <ImageView
         android:id="@+id/titlebar_img_back"
         style="@style/titlebar_img"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
+android:layout_marginLeft="@dimen/space_5"
         android:clickable="true"
 
         android:src="@drawable/return_back_black" />
