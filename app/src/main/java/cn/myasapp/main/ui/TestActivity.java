@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cp.mylibrary.app.Config;
+import com.cp.mylibrary.custom.TypeTextView;
 import com.cp.mylibrary.utils.FileUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.UpdateManagerUtil;
@@ -98,6 +99,11 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.xrefreshview_receylie_test, click = true)
     private TextView xrefreshview_receylie_test;
 
+
+
+
+    @BindView(id = R.id.test_typetext, click = true)
+    private TypeTextView test_typetext;
 
 
 
@@ -290,6 +296,12 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.showXRefreshListViewActivity(this);
                 break;
 
+
+
+
+            case R.id.test_typetext:
+
+                test_typetext.start( "本例自定义View的演示效果如下（PS：一直不知道在Android上怎么录制gif格式的动画，索性在PC上跑Genymotion Android模拟器，然后用LICEcap录屏就可以了。）" );        break;
 
 
 

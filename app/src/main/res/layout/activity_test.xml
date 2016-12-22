@@ -155,6 +155,11 @@
                 android:text=" xrefreshview_receylie_test       " />
 
 
+            <com.cp.mylibrary.custom.TypeTextView
+                android:id="@+id/test_typetext"
+
+                style="@style/test_textview_style"
+                android:text="  测试打字效果       " />
 
         </LinearLayout>
     </com.cp.mylibrary.custom.CPScrollView>
