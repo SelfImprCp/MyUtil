@@ -95,7 +95,37 @@ public static String Cookie = "";
         );
 
     }
+    /**
+     * @param url
+     * @param params
+     * @param handler
+     */
+    public static void postAbsoluteUrl(String url, MyHttpParams params,
+                            MyResponseHandler handler) {
+        params.putHeaders("cookie",Cookie);
 
+
+        client.post(url  , params, handler);
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"
+
+        );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求参数 ："
+                + params.getUrlParams().toString()
+
+        );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求头  ："
+                +  params.getHeaders()
+
+        );
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" +url
+
+        );
+
+
+
+    }
     /**
      * @param partUrl
      * @param params
