@@ -95,7 +95,31 @@ public static String Cookie = "";
         );
 
     }
+
     /**
+     * 完整url访问
+     * @param partUrl
+     * @param handler
+     */
+
+    public static void getAbsoluteUrl(String partUrl, MyResponseHandler handler) {
+        client.get( partUrl, handler);
+
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：GET 无参"
+
+        );
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(partUrl)
+
+        );
+
+    }
+
+
+
+    /**
+     * 完整url访问
      * @param url
      * @param params
      * @param handler

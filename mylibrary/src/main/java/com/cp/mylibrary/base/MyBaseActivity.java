@@ -98,6 +98,7 @@ public class MyBaseActivity extends KJActivity {
     }
 
     public void onEvent(BaseEvent event) {
+
     }
 
 
