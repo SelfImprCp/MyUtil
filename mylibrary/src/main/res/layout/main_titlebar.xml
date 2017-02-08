@@ -3,7 +3,7 @@
     android:id="@+id/titlebar"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/white_cp_util">
+    android:background="@color/ailibuli_base_color">
 
     <LinearLayout
 
@@ -68,7 +68,7 @@
 android:layout_marginLeft="@dimen/space_5"
         android:clickable="true"
 
-        android:src="@drawable/return_back_black" />
+        android:src="@drawable/return_back_white" />
 
     <ImageView
         android:id="@+id/titlebar_img_menu_col"

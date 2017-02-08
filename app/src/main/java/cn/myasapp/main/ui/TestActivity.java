@@ -114,6 +114,10 @@ public class TestActivity extends BaseActivity {
     public void setRootView() {
 
         setContentView(R.layout.activity_test);
+
+
+        overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
+
     }
 
 
