@@ -35,7 +35,8 @@
             android:layout_gravity="center"
 
             android:text="123456"
-            android:textColor="#646464"
+            android:textColor="@color/white_cp_util"
+
             android:textSize="12sp"
             android:visibility="gone" />
 
@@ -53,7 +54,7 @@
 
         android:text="标题 "
 
-        android:textColor="#646464"
+        android:textColor="@color/white_cp_util"
 
         android:textSize="18sp"
         android:visibility="gone" />
@@ -92,7 +93,7 @@ android:layout_marginLeft="@dimen/space_5"
         android:layout_marginRight="40dp"
         android:clickable="true"
         android:text="完成"
-        android:textColor="#269edc"
+        android:textColor="@color/white_cp_util"
         android:textSize="16sp"
         android:visibility="gone" />
 
@@ -122,7 +123,8 @@ android:layout_marginLeft="@dimen/space_5"
         android:clickable="true"
         android:text="清空"
 
-        android:textColor="#646464"
+        android:textColor="@color/white_cp_util"
+
         android:textSize="14sp"
         android:visibility="gone" />
 

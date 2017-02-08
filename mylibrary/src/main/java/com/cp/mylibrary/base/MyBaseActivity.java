@@ -1,27 +1,21 @@
 package com.cp.mylibrary.base;
 
-import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.cp.mylibrary.R;
 import com.cp.mylibrary.app.MyBaseApp;
-
 import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
 import com.cp.mylibrary.utils.AppUtils;
-import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-
 
 import org.kymjs.kjframe.KJActivity;
 
@@ -59,6 +53,9 @@ public class MyBaseActivity extends KJActivity {
         //为状态栏着色
         tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
+
+//
+      tintManager.setStatusBarTintResource(R.color.ailibuli_base_color);
 
 
         EventBus.getDefault().register(this);
