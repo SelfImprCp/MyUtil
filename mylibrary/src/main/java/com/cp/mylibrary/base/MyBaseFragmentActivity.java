@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.cp.mylibrary.R;
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
@@ -48,6 +49,9 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         tintManager.setStatusBarTintEnabled(true);
 
 
+
+//
+        tintManager.setStatusBarTintResource(R.color.ailibuli_base_color);
 
 
         setContentView(setRootView());
