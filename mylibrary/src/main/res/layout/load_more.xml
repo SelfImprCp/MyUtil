@@ -12,7 +12,7 @@
         android:paddingBottom="20dp"
         android:paddingTop="20dp" >
 
-        <RelativeLayout
+        <RelativeLay-out
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true" >
@@ -51,7 +51,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/loadstate_tv"
                 android:visibility="gone"/>
-        </RelativeLayout>
+        </RelativeLay-out>
     </RelativeLayout>
 
 </RelativeLayout>

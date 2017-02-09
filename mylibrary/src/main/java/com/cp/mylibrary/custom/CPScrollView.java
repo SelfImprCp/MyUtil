@@ -244,4 +244,30 @@ public class CPScrollView extends ScrollView {
 
 	}
 
+
+	// --------------------------------滚动监听---------------------------------------------//
+
+
+	private ScrollViewListener scrollViewListener = null;
+
+	public void setScrollViewListener(ScrollViewListener scrollViewListener) {
+		this.scrollViewListener = scrollViewListener;
+	}
+
+	@Override
+	protected void onScrollChanged(int x, int y, int oldx, int oldy) {
+		super.onScrollChanged(x, y, oldx, oldy);
+		if (scrollViewListener != null) {
+			scrollViewListener.onScrollChanged(this, x, y, oldx, oldy);
+		}
+	}
+
+	public interface ScrollViewListener {
+
+		void onScrollChanged(CPScrollView scrollView, int x, int y,
+							 int oldx, int oldy);
+
+	}
+
+
 }
