@@ -155,6 +155,25 @@ public class TitleBarView extends RelativeLayout {
           return  titlebar_img_menu;
      }
 
+    /**
+     *
+     * @return
+     */
+    public ImageView getTitleBarBackImg()
+    {
+        return  titlebar_img_back;
+    }
+
+
+    /**
+     *
+     * @return
+     */
+    public TextView getTitleTextView()
+    {
+        return  titleBarTitle;
+    }
+
 
     /**
      * @param onClickListener
