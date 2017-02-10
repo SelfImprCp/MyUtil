@@ -85,7 +85,7 @@
 
                 android:text="加载中..."
 
-                android:textColor="#269edc"
+                android:textColor="@color/white_cp_util"
                 android:textSize="@dimen/text_size_16" />
 
 

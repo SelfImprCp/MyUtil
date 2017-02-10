@@ -8,13 +8,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cp.mylibrary.R;
-import com.cp.mylibrary.utils.DensityUtils;
-import com.cp.mylibrary.utils.ScreenUtils;
 import com.github.ybq.android.spinkit.style.Wave;
 
 

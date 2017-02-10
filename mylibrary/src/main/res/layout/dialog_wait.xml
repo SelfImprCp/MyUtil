@@ -14,17 +14,16 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:padding="@dimen/space_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/space_6">
 
 
             <ProgressBar
                 android:id="@+id/waiting_pb"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </RelativeLayout>
 
 
@@ -35,10 +34,11 @@
             android:layout_below="@id/waiting_pb"
 
 
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:text="加载中"
-            android:gravity="center"  android:layout_gravity="center_horizontal"
             android:textColor="@color/white_cp_util"
-            android:textSize="@dimen/text_size_16"  />
+            android:textSize="@dimen/text_size_16" />
 
     </LinearLayout>
 
