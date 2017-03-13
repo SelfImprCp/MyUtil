@@ -11,34 +11,30 @@ import org.kymjs.kjframe.http.HttpParams;
  */
 public class MyHttpClient {
 
-   // public   static String HOST = "www.ailibuli.cn";
+    // public   static String HOST = "www.ailibuli.cn";
 
 
-    public  static   String API_URL = "";
+    public static String API_URL = "";
 
     public static KJHttp client;
 
-public static String Cookie = "";
+    public static String Cookie = "";
 
 
     /**
      *
      */
-    public static void initHttp(String host)     {
-        API_URL =  "http://" + host + "/";
+    public static void initHttp(String host) {
+        API_URL = "http://" + host + "/";
 
         // 初始化网络请求
         HttpConfig httpConfig = new HttpConfig();
-        httpConfig.TIMEOUT = 5000*5;
+        httpConfig.TIMEOUT = 5000 * 5;
 
-
-        client   = new KJHttp(  );
- client.setConfig(httpConfig);
-
-
+        client = new KJHttp();
+        client.setConfig(httpConfig);
 
     }
-
 
 
     public static KJHttp getHttpClient() {
@@ -46,11 +42,9 @@ public static String Cookie = "";
     }
 
 
-
-     //////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
 
     /**
-     *
      * @param partUrl
      * @param handler
      */
@@ -70,7 +64,6 @@ public static String Cookie = "";
     }
 
     /**
-     *
      * @param partUrl
      * @param params
      * @param handler
@@ -78,7 +71,7 @@ public static String Cookie = "";
 
     public static void get(String partUrl, MyHttpParams params,
                            MyResponseHandler handler) {
-        params.putHeaders("cookie",Cookie);
+        params.putHeaders("cookie", Cookie);
 
         client.get(getAbsoluteApiUrl(partUrl), params, handler);
 
@@ -98,12 +91,13 @@ public static String Cookie = "";
 
     /**
      * 完整url访问
+     *
      * @param partUrl
      * @param handler
      */
 
     public static void getAbsoluteUrl(String partUrl, MyResponseHandler handler) {
-        client.get( partUrl, handler);
+        client.get(partUrl, handler);
 
 
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：GET 无参"
@@ -117,19 +111,19 @@ public static String Cookie = "";
     }
 
 
-
     /**
      * 完整url访问
+     *
      * @param url
      * @param params
      * @param handler
      */
     public static void postAbsoluteUrl(String url, MyHttpParams params,
-                            MyResponseHandler handler) {
-        params.putHeaders("cookie",Cookie);
+                                       MyResponseHandler handler) {
+        params.putHeaders("cookie", Cookie);
 
 
-        client.post(url  , params, handler);
+        client.post(url, params, handler);
 
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"
 
@@ -139,17 +133,17 @@ public static String Cookie = "";
 
         );
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求头  ："
-                +  params.getHeaders()
+                + params.getHeaders()
 
         );
 
-        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" +url
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + url
 
         );
-
 
 
     }
+
     /**
      * @param partUrl
      * @param params
@@ -157,10 +151,10 @@ public static String Cookie = "";
      */
     public static void post(String partUrl, MyHttpParams params,
                             MyResponseHandler handler) {
-        params.putHeaders("cookie",Cookie);
+        params.putHeaders("cookie", Cookie);
 
 
-        client.post(getAbsoluteApiUrl(partUrl)  , params, handler);
+        client.post(getAbsoluteApiUrl(partUrl), params, handler);
 
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"
 
@@ -170,7 +164,7 @@ public static String Cookie = "";
 
         );
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求头  ："
-                +  params.getHeaders()
+                + params.getHeaders()
 
         );
 
@@ -179,9 +173,7 @@ public static String Cookie = "";
         );
 
 
-
     }
-
 
 
     /**
@@ -209,9 +201,8 @@ public static String Cookie = "";
     }
 
 
-
     public static String getAbsoluteApiUrl(String partUrl) {
-     //   String url = String.format(API_URL, partUrl);
+        //   String url = String.format(API_URL, partUrl);
         String url = API_URL + partUrl;
         //  Log.d("BASE_CLIENT", "request:" + url);
         return url;
@@ -221,7 +212,6 @@ public static String Cookie = "";
     public static String getApiUrl() {
         return API_URL;
     }
-
 
 
 }

@@ -210,7 +210,7 @@ public class CameraAndSelectPicUtil {
 
 	/**
 	 * 设置添加屏幕的背景透明度
-	 * 
+	 *
 	 * @param bgAlpha
 	 */
 	public void backgroundAlpha(float bgAlpha) {

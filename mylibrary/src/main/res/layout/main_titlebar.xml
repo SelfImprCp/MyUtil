@@ -128,11 +128,7 @@
         android:textSize="14sp"
         android:visibility="gone" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_1"
-        android:layout_alignParentBottom="true"
-        android:background="#e1e1e1"></View>
+
 
 
 </RelativeLayout>
