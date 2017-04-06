@@ -39,6 +39,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
     public static int mState = STATE_NONE;
 
 
+
     //解析数据
     private ParserTask mParserTask;
 
