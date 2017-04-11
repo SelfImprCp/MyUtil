@@ -24,9 +24,10 @@ import de.greenrobot.event.EventBus;
 public abstract class MyBaseFragmentActivity extends FragmentActivity {
     public Context mContext;
     //为状态栏着色
-    public SystemBarTintManager tintManager ;
+    public SystemBarTintManager tintManager;
+
     @Override
-    public void onCreate(Bundle savedInstanceState    ) {
+    public void onCreate(Bundle savedInstanceState) {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -34,10 +35,8 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         ActivityManagerUtil.getInstance().pushActivty(this);
 
 
-
         mContext = MyBaseApp.getInstance();
-        super.onCreate(savedInstanceState   );
-
+        super.onCreate(savedInstanceState);
 
 
         //只对api19以上版本有效
@@ -49,7 +48,6 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         tintManager.setStatusBarTintEnabled(true);
 
 
-
 //
         tintManager.setStatusBarTintResource(R.color.ailibuli_base_color);
 
@@ -58,16 +56,13 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         initView();
 
 
-
         EventBus.getDefault().register(this);
 
     }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
+
     /**
-     *  设置布局
+     * 设置布局
+     *
      * @return
      */
     protected abstract int setRootView();
@@ -75,7 +70,7 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
     /**
      * 初始化控件
      */
-    protected abstract  void initView();
+    protected abstract void initView();
 
     public void onEvent(BaseEvent event) {
     }
@@ -92,7 +87,6 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         }
         win.setAttributes(winParams);
     }
-
 
 
 }
