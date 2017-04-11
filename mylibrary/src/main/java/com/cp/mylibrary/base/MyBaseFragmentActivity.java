@@ -62,7 +62,10 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         EventBus.getDefault().register(this);
 
     }
-
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
     /**
      *  设置布局
      * @return
