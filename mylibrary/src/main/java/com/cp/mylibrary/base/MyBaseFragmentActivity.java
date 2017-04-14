@@ -70,6 +70,9 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
     /**
      * 初始化控件
      */
+
+
+
     protected abstract void initView();
 
     public void onEvent(BaseEvent event) {

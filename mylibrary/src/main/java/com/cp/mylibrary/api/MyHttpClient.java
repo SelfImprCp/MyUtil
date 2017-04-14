@@ -25,7 +25,7 @@ public class MyHttpClient {
      *
      */
     public static void initHttp(String host) {
-        API_URL = "https://" + host + "/";
+        API_URL = "http://" + host + "/";
 
         // 初始化网络请求
         HttpConfig httpConfig = new HttpConfig();
