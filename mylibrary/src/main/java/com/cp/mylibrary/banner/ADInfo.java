@@ -20,6 +20,17 @@ public class ADInfo {
     private String share_url;
 
 
+     private  boolean isNeedLogin;
+
+
+    public boolean isNeedLogin() {
+        return isNeedLogin;
+    }
+
+    public void setNeedLogin(boolean needLogin) {
+        isNeedLogin = needLogin;
+    }
+
     public String getShare_url() {
         return share_url;
     }
