@@ -20,15 +20,15 @@ public class ADInfo {
     private String share_url;
 
 
-     private  boolean isNeedLogin;
+    private String isNeedLogin;
 
 
-    public boolean isNeedLogin() {
+    public String getIsNeedLogin() {
         return isNeedLogin;
     }
 
-    public void setNeedLogin(boolean needLogin) {
-        isNeedLogin = needLogin;
+    public void setIsNeedLogin(String isNeedLogin) {
+        this.isNeedLogin = isNeedLogin;
     }
 
     public String getShare_url() {
