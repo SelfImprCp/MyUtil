@@ -98,7 +98,7 @@ public class TypeTextView extends TextView {
         try {
             stopAudio();
             mMediaPlayer = MediaPlayer.create(mContext, audioResId);
-            mMediaPlayer.setVolume(0.5f, 0.5f);
+            mMediaPlayer.setVolume(0.1f, 0.1f);
             mMediaPlayer.start();
 
         } catch (Exception e) {
