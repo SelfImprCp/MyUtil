@@ -15,7 +15,7 @@ import java.util.TimerTask;
  * Created by Jerry on 2016/12/22.
  */
 
-public class TypeTextView  extends TextView {
+public class TypeTextView extends TextView {
 
 
     private Context mContext = null;
@@ -28,86 +28,88 @@ public class TypeTextView  extends TextView {
 
     public TypeTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        initTypeTextView( context );
+        initTypeTextView(context);
     }
 
     public TypeTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initTypeTextView( context );
+        initTypeTextView(context);
     }
 
     public TypeTextView(Context context) {
         super(context);
-        initTypeTextView( context );
+        initTypeTextView(context);
     }
 
-    public void setOnTypeViewListener( OnTypeViewListener onTypeViewListener ){
+    public void setOnTypeViewListener(OnTypeViewListener onTypeViewListener) {
         mOnTypeViewListener = onTypeViewListener;
     }
 
-    public void start( final String textString ){
-        start( textString, TYPE_TIME_DELAY );
+    public void start(final String textString) {
+        start(textString, TYPE_TIME_DELAY);
     }
 
-    public void start( final String textString, final int typeTimeDelay ){
-        if( TextUtils.isEmpty( textString ) || typeTimeDelay < 0 ){
+    public void start(final String textString, final int typeTimeDelay) {
+        if (TextUtils.isEmpty(textString) || typeTimeDelay < 0) {
             return;
         }
-        post( new Runnable( ) {
+        post(new Runnable() {
             @Override
             public void run() {
                 mShowTextString = textString;
                 mTypeTimeDelay = typeTimeDelay;
-                setText( "" );
-                startTypeTimer( );
-                if( null != mOnTypeViewListener ){
-                    mOnTypeViewListener.onTypeStart( );
+                setText("");
+                startTypeTimer();
+                if (null != mOnTypeViewListener) {
+                    mOnTypeViewListener.onTypeStart();
                 }
             }
         });
     }
 
-    public void stop( ){
-        stopTypeTimer( );
+    public void stop() {
+        stopTypeTimer();
         stopAudio();
     }
 
-    private void initTypeTextView( Context context ){
+    private void initTypeTextView(Context context) {
         mContext = context;
     }
 
-    private void startTypeTimer( ){
-        stopTypeTimer( );
-        mTypeTimer = new Timer( );
-        mTypeTimer.schedule( new TypeTimerTask(), mTypeTimeDelay );
+    private void startTypeTimer() {
+        stopTypeTimer();
+        mTypeTimer = new Timer();
+        mTypeTimer.schedule(new TypeTimerTask(), mTypeTimeDelay);
     }
 
-    private void stopTypeTimer( ){
-        if( null != mTypeTimer ){
-            mTypeTimer.cancel( );
+    private void stopTypeTimer() {
+        if (null != mTypeTimer) {
+            mTypeTimer.cancel();
             mTypeTimer = null;
         }
     }
 
     private void startAudioPlayer() {
         stopAudio();
-        playAudio( R.raw.type_in );
+        playAudio(R.raw.type_in);
     }
 
-    private void playAudio( int audioResId ){
-        try{
-            stopAudio( );
-            mMediaPlayer = MediaPlayer.create( mContext, audioResId );
-            mMediaPlayer.start( );
-        }catch( Exception e ){
+    private void playAudio(int audioResId) {
+        try {
+            stopAudio();
+            mMediaPlayer = MediaPlayer.create(mContext, audioResId);
+            mMediaPlayer.setVolume(0.5f, 0.5f);
+            mMediaPlayer.start();
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void stopAudio( ){
-        if( mMediaPlayer != null && mMediaPlayer.isPlaying( ) ){
-            mMediaPlayer.stop( );
-            mMediaPlayer.release( );
+    private void stopAudio() {
+        if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
+            mMediaPlayer.stop();
+            mMediaPlayer.release();
             mMediaPlayer = null;
         }
     }
@@ -115,17 +117,17 @@ public class TypeTextView  extends TextView {
     class TypeTimerTask extends TimerTask {
         @Override
         public void run() {
-            post(new Runnable( ) {
+            post(new Runnable() {
                 @Override
                 public void run() {
-                    if( getText( ).toString( ).length( ) < mShowTextString.length( ) ){
-                        setText( mShowTextString.substring(0, getText( ).toString( ).length( ) + 1 ) );
+                    if (getText().toString().length() < mShowTextString.length()) {
+                        setText(mShowTextString.substring(0, getText().toString().length() + 1));
                         startAudioPlayer();
-                        startTypeTimer( );
-                    }else{
-                        stopTypeTimer( );
-                        if( null != mOnTypeViewListener ){
-                            mOnTypeViewListener.onTypeOver( );
+                        startTypeTimer();
+                    } else {
+                        stopTypeTimer();
+                        if (null != mOnTypeViewListener) {
+                            mOnTypeViewListener.onTypeOver();
                         }
                     }
                 }
@@ -133,8 +135,9 @@ public class TypeTextView  extends TextView {
         }
     }
 
-    public interface OnTypeViewListener{
-        public void onTypeStart( );
-        public void onTypeOver( );
+    public interface OnTypeViewListener {
+        public void onTypeStart();
+
+        public void onTypeOver();
     }
 }
